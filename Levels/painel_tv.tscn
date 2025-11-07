@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://pjwqtnt478rv"]
+
+[ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://painel_tv.gd" id="1_ilmlx"]
+[ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Button.gd" id="2_1c306"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c8flo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_254th"]
+
+[node name="PainelTV" type="Node3D"]
+script = ExtResource("1_ilmlx")
+
+[node name="Painel" type="Sprite3D" parent="."]
+
+[node name="button" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4587021, -6.688672)
+script = ExtResource("2_1c306")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="button"]
+shape = SubResource("BoxShape3D_c8flo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="button"]
+mesh = SubResource("BoxMesh_254th")
