@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4oneilpssx6m"]
+
+[node name="scissors"]
+
+[node name="Empty" parent="." index="1"]
+transform = Transform3D(100, 0, 0, 0, 100, -1.6292068e-05, 0, 1.6292068e-05, 100, -4.4806113, 1.8927338, 1.1341515e-07)
