@@ -15,7 +15,7 @@ func desligar_tv():
 	ligado = false
 	indice_camera = -1
 	#tela.visible = false
-#	tela.texture = null
+	#tela.texture = null
 
 func ligar_tv():
 	ligado = true
