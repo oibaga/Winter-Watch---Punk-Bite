@@ -1,23 +1,198 @@
-[gd_scene load_steps=5 format=3 uid="uid://pjwqtnt478rv"]
+[gd_scene load_steps=12 format=3 uid="uid://pjwqtnt478rv"]
 
-[ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://painel_tv.gd" id="1_ilmlx"]
-[ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Button.gd" id="2_1c306"]
+[ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://Scripts/painel_tv.gd" id="1_ilmlx"]
+[ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Scripts/Button.gd" id="2_1c306"]
+[ext_resource type="PackedScene" uid="uid://cdl7mdxcpafo3" path="res://Assets/mesaWinterWhatch(prov).fbx" id="2_254th"]
+[ext_resource type="Shader" uid="uid://drbx18xpf3tx2" path="res://Levels/Monitor.gdshader" id="3_b23qt"]
+[ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="5_ywddw"]
+[ext_resource type="Material" uid="uid://bo42ww7gy5255" path="res://Assets/Materiais/Button.tres" id="6_b23qt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_c8flo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_b23qt"]
+viewport_path = NodePath("Monitor/CAM1")
 
-[sub_resource type="BoxMesh" id="BoxMesh_254th"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ywddw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_b23qt")
+shader_parameter/screen_texture = SubResource("ViewportTexture_b23qt")
 
-[node name="PainelTV" type="Node3D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_juj6b"]
+shader = ExtResource("5_ywddw")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.9450000891276202
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.2
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b23qt"]
+size = Vector3(1.0303955, 1.0322266, 1.0465088)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ywddw"]
+
+[node name="PainelTV" type="Node3D" node_paths=PackedStringArray("viewports")]
 script = ExtResource("1_ilmlx")
+viewports = [NodePath("Monitor/CAM1"), NodePath("Monitor/CAM2"), NodePath("Monitor/CAM3"), NodePath("Monitor/CAM4"), NodePath("Monitor/CAM5")]
 
-[node name="Painel" type="Sprite3D" parent="."]
+[node name="mesaWinterWhatch(prov)" parent="." instance=ExtResource("2_254th")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0022566319, 0.037770987, 0.00053210557)
 
-[node name="button" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4587021, -6.688672)
+[node name="Monitor" parent="mesaWinterWhatch(prov)" index="1"]
+surface_material_override/0 = SubResource("ShaderMaterial_ywddw")
+
+[node name="Monitor" type="Sprite3D" parent="."]
+transform = Transform3D(-6.993822e-09, 0, 0.16, 0, 0.1748514, 0, -0.16, 0, -6.993822e-09, -0.0382742, 1.7743002, 0.07744071)
+
+[node name="CAM1" type="SubViewport" parent="Monitor"]
+size = Vector2i(960, 540)
+
+[node name="Camera3D" type="Camera3D" parent="Monitor/CAM1"]
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, 0.46876192)
+
+[node name="Control" type="Control" parent="Monitor/CAM1"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Monitor/CAM1/Control"]
+material = SubResource("ShaderMaterial_juj6b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24535054, 0.433768, 1, 1)
+
+[node name="CAM2" type="SubViewport" parent="Monitor"]
+size = Vector2i(960, 540)
+
+[node name="Camera3D" type="Camera3D" parent="Monitor/CAM2"]
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -2.8841846)
+
+[node name="Control" type="Control" parent="Monitor/CAM2"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Monitor/CAM2/Control"]
+material = SubResource("ShaderMaterial_juj6b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24535054, 0.433768, 1, 1)
+
+[node name="CAM3" type="SubViewport" parent="Monitor"]
+size = Vector2i(960, 540)
+
+[node name="Camera3D" type="Camera3D" parent="Monitor/CAM3"]
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -4.877732)
+
+[node name="Control" type="Control" parent="Monitor/CAM3"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Monitor/CAM3/Control"]
+material = SubResource("ShaderMaterial_juj6b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24535054, 0.433768, 1, 1)
+
+[node name="CAM4" type="SubViewport" parent="Monitor"]
+size = Vector2i(960, 540)
+
+[node name="Camera3D" type="Camera3D" parent="Monitor/CAM4"]
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -6.6495795)
+
+[node name="Control" type="Control" parent="Monitor/CAM4"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Monitor/CAM4/Control"]
+material = SubResource("ShaderMaterial_juj6b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24535054, 0.433768, 1, 1)
+
+[node name="CAM5" type="SubViewport" parent="Monitor"]
+size = Vector2i(960, 540)
+
+[node name="Camera3D" type="Camera3D" parent="Monitor/CAM5"]
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -8.548603)
+
+[node name="Control" type="Control" parent="Monitor/CAM5"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Monitor/CAM5/Control"]
+material = SubResource("ShaderMaterial_juj6b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24535054, 0.433768, 1, 1)
+
+[node name="Button" type="Area3D" parent="." groups=["interativo"]]
+transform = Transform3D(0.4, 6.571963e-11, 3.4924598e-11, -1.3078534e-10, 0.201, -1.7462299e-11, -4.656613e-11, 1.169974e-11, 0.3, 0.51512766, 1.0095582, -1.0877327)
 script = ExtResource("2_1c306")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="button"]
-shape = SubResource("BoxShape3D_c8flo")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+transform = Transform3D(1, -2.2360047e-30, 0, -6.7762636e-21, 1, 0, 0, 0, 1, 0.005432129, 0.016113281, -0.0036010742)
+shape = SubResource("BoxShape3D_b23qt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="button"]
-mesh = SubResource("BoxMesh_254th")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Button"]
+mesh = SubResource("BoxMesh_ywddw")
+surface_material_override/0 = ExtResource("6_b23qt")
+
+[node name="HintLabel" type="Label3D" parent="Button"]
+transform = Transform3D(-4.371139e-08, -2.2360047e-30, 1, 0, 1, -2.551114e-18, -1, 0, -4.371139e-08, 0, 0.73213696, -4.2615994e-11)
+visible = false
+text = "Pressione botão esquerdo"
+
+[editable path="mesaWinterWhatch(prov)"]

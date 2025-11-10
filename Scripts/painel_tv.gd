@@ -2,6 +2,7 @@ extends Node3D
 
 @export var tela: Sprite3D
 @export var viewports: Array[Viewport]
+
 var indice_camera: int = -1
 var ligado: bool = false
 
@@ -13,8 +14,8 @@ func _ready():
 func desligar_tv():
 	ligado = false
 	indice_camera = -1
-	tela.visible = false
-	tela.texture = null
+	#tela.visible = false
+#	tela.texture = null
 
 func ligar_tv():
 	ligado = true
@@ -34,4 +35,3 @@ func trocar_camera():
 func atualizar_tela():
 	if indice_camera >= 0 and indice_camera < viewports.size():
 		tela.texture = viewports[indice_camera].get_texture()
-		

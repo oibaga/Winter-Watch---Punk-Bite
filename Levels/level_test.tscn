@@ -1,11 +1,9 @@
-[gd_scene load_steps=32 format=4 uid="uid://dxbo6h2bjofxy"]
+[gd_scene load_steps=28 format=4 uid="uid://dxbo6h2bjofxy"]
 
-[ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/level_test.tres" id="1_7mba1"]
+[ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/M_floor.tres" id="1_7mba1"]
 [ext_resource type="PackedScene" uid="uid://c8oxys0qhv8p2" path="res://Player/Player.tscn" id="2_soq8b"]
 [ext_resource type="PackedScene" uid="uid://bxy4aiqeiqg6t" path="res://Assets/MaquinaArcadePadrão.fbx" id="3_soq8b"]
-[ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://painel_tv.gd" id="4_3o0bi"]
-[ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Button.gd" id="5_oenlu"]
-[ext_resource type="Material" uid="uid://bo42ww7gy5255" path="res://Assets/Materiais/Button.tres" id="6_oenlu"]
+[ext_resource type="PackedScene" uid="uid://pjwqtnt478rv" path="res://Levels/painel_tv.tscn" id="7_q8e8m"]
 [ext_resource type="Shader" uid="uid://cju6kuf6xj8fv" path="res://Shaders/PSX.gdshader" id="8_ddaal"]
 [ext_resource type="Texture2D" uid="uid://l3bpfvl8rnha" path="res://Assets/Untitled_Material_Base_color.png" id="8_ku5x2"]
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="9_ddaal"]
@@ -46,11 +44,6 @@ size = Vector3(15, 10, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3o0bi"]
 size = Vector3(15, 10, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_oenlu"]
-size = Vector3(1.0303955, 1.0322266, 1.0465088)
-
-[sub_resource type="BoxMesh" id="BoxMesh_oenlu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxk0f"]
 render_priority = 0
@@ -154,108 +147,53 @@ material = SubResource("ShaderMaterial_xlufh")
 offset_right = 960.0
 offset_bottom = 540.0
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-size = Vector2i(960, 540)
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/StaticBody3D"]
 shape = SubResource("BoxShape3D_25mqr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/StaticBody3D"]
 material_override = ExtResource("1_7mba1")
 mesh = SubResource("BoxMesh_stbmk")
 
-[node name="CharacterBody3D" parent="SubViewportContainer/SubViewport/StaticBody3D/MeshInstance3D" instance=ExtResource("2_soq8b")]
+[node name="CharacterBody3D" parent="SubViewportContainer/StaticBody3D/MeshInstance3D" instance=ExtResource("2_soq8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0298362, 0)
 
-[node name="Wall" type="StaticBody3D" parent="SubViewportContainer/SubViewport"]
+[node name="Wall" type="StaticBody3D" parent="SubViewportContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.561289, 5.4410563, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Wall"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/Wall"]
 shape = SubResource("BoxShape3D_sppqt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Wall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026705742, 0, -0.008599281)
 mesh = SubResource("BoxMesh_3o0bi")
 
-[node name="MaquinaArcadePadrão" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_soq8b")]
+[node name="MaquinaArcadePadrão" parent="SubViewportContainer" instance=ExtResource("3_soq8b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.445803, 0.5030184, -10.574929)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer"]
 transform = Transform3D(0.3593617, 0, 0.93319833, 0, 1, 0, -0.93319833, 0, 0.3593617, -13.677035, 1.3325748, -5.2358856)
 spot_range = 6.6602383
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/SpotLight3D"]
-transform = Transform3D(0.6941308, 0, -0.7198489, 0, 1, 0, 0.7198489, 0, 0.6941308, -8.059877, 1.3325748, 9.350872)
-spot_range = 6.6602383
-
-[node name="PainelTV" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("tela", "viewports")]
-script = ExtResource("4_3o0bi")
-tela = NodePath("Monitor")
-viewports = [NodePath("Cam1"), NodePath("Cam2"), NodePath("Cam3"), NodePath("Cam4")]
-
-[node name="Monitor" type="Sprite3D" parent="SubViewportContainer/SubViewport/PainelTV"]
-transform = Transform3D(0.0019016835, 0.0044906144, 0.9999881, -0.00066913234, 0.9999895, -0.0044893445, -0.999998, -0.0006605608, 0.0019046777, -4.632706, 3.322476, -0.0110332975)
-
-[node name="Cam1" type="SubViewport" parent="SubViewportContainer/SubViewport/PainelTV"]
-size = Vector2i(640, 360)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/PainelTV/Cam1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92609715, 3.677463, 11.478987)
-
-[node name="Cam2" type="SubViewport" parent="SubViewportContainer/SubViewport/PainelTV"]
-size = Vector2i(640, 360)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/PainelTV/Cam2"]
-transform = Transform3D(-0.8541232, 0, -0.5200708, 0, 1, 0, 0.5200708, 0, -0.8541232, 5.3547544, 2.2647808, -11.570812)
-
-[node name="Cam3" type="SubViewport" parent="SubViewportContainer/SubViewport/PainelTV"]
-size = Vector2i(640, 360)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/PainelTV/Cam3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38682, 5.848076, -9.060232)
-
-[node name="Cam4" type="SubViewport" parent="SubViewportContainer/SubViewport/PainelTV"]
-size = Vector2i(640, 360)
-
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/PainelTV/Cam4"]
-transform = Transform3D(-0.005777013, 0, 0.9999833, 0, 1, 0, -0.9999833, 0, -0.005777013, 5.7862873, 2.5049982, 0)
-fov = 24.9
-
-[node name="Button" type="Area3D" parent="SubViewportContainer/SubViewport/PainelTV" node_paths=PackedStringArray("painel_tv") groups=["interativo"]]
-transform = Transform3D(1, 6.599521e-10, 0, -3.2696335e-10, 1, -5.820766e-11, -1.1641532e-10, 5.820766e-11, 1, -1.9765792, 1.0095582, 0)
-script = ExtResource("5_oenlu")
-painel_tv = NodePath("..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/PainelTV/Button"]
-transform = Transform3D(1, -2.2360047e-30, 0, -6.7762636e-21, 1, 0, 0, 0, 1, 0.005432129, 0.016113281, -0.0036010742)
-shape = SubResource("BoxShape3D_oenlu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/PainelTV/Button"]
-mesh = SubResource("BoxMesh_oenlu")
-surface_material_override/0 = ExtResource("6_oenlu")
-
-[node name="HintLabel" type="Label3D" parent="SubViewportContainer/SubViewport/PainelTV/Button"]
-transform = Transform3D(-4.371139e-08, -2.2360047e-30, 1, 0, 1, -2.551114e-18, -1, 0, -4.371139e-08, 0, 0.73213696, -4.2615994e-11)
-visible = false
-text = "Pressione botão esquerdo"
-
-[node name="Untitled" type="Node3D" parent="SubViewportContainer/SubViewport"]
+[node name="Untitled" type="Node3D" parent="SubViewportContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.754618, 2.2612162, -14.544477)
 
-[node name="Cube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Untitled"]
+[node name="Cube" type="MeshInstance3D" parent="SubViewportContainer/Untitled"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04707718, 0, -0.033145905)
 mesh = SubResource("ArrayMesh_xlufh")
 skeleton = NodePath("")
 
-[node name="Empty" type="Node3D" parent="SubViewportContainer/SubViewport/Untitled"]
+[node name="Empty" type="Node3D" parent="SubViewportContainer/Untitled"]
 transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, -4.458057, 1.8927337, 0)
 
-[node name="Snow" type="GPUParticles3D" parent="SubViewportContainer/SubViewport"]
+[node name="Snow" type="GPUParticles3D" parent="SubViewportContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.62351227, 19.062958, 2.1440048)
 amount = 256
 lifetime = 3.5
 visibility_aabb = AABB(-43.81296, -47.722363, -39.012207, 89.61482, 49.680996, 73.465546)
 process_material = SubResource("ParticleProcessMaterial_nxutr")
 draw_pass_1 = SubResource("QuadMesh_ru4ou")
+
+[node name="PainelTV" parent="." instance=ExtResource("7_q8e8m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.155732, 0.5027046, 0.2502048)

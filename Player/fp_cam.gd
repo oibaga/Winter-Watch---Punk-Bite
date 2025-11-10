@@ -1,11 +1,12 @@
 extends Node3D
 
 var sensitivy = 0.2
-
+#acompanhando o mouse
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+#Limitando o quanto a câmera pode mover
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		get_parent().rotate_y(deg_to_rad(-event.relative.x * sensitivy))
