@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b30ukj3f75r7i"]
+
+[ext_resource type="Texture2D" uid="uid://csy4ryqt1fdsk" path="res://Assets/Materiais/Mouse_0.png" id="1_b78tp"]
+
+[resource]
+albedo_texture = ExtResource("1_b78tp")

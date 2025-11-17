@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdl7mdxcpafo3"
-path="res://.godot/imported/mesaWinterWhatch(prov).fbx-6dc9fd43da1665f8bcb7138dc748eead.scn"
+uid="uid://un868rgrn30e"
+path="res://.godot/imported/Cadeira.fbx-509f224054b75b29f5de0315fe8941b1.scn"
 
 [deps]
 
-source_file="res://Assets/mesaWinterWhatch(prov).fbx"
-dest_files=["res://.godot/imported/mesaWinterWhatch(prov).fbx-6dc9fd43da1665f8bcb7138dc748eead.scn"]
+source_file="res://Assets/Cadeira.fbx"
+dest_files=["res://.godot/imported/Cadeira.fbx-509f224054b75b29f5de0315fe8941b1.scn"]
 
 [params]
 

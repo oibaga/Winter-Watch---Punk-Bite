@@ -24,6 +24,7 @@ func ligar_tv():
 	atualizar_tela()
 
 func trocar_camera():
+	print("TrocarCamera")
 	if not ligado:
 		ligar_tv()
 		return
@@ -35,3 +36,4 @@ func trocar_camera():
 func atualizar_tela():
 	if indice_camera >= 0 and indice_camera < viewports.size():
 		tela.texture = viewports[indice_camera].get_texture()
+	
