@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgsrp0htliotf"]
+
+[ext_resource type="Texture2D" uid="uid://cjsipbeqwexpv" path="res://Assets/Materiais/PROV_MainMenu.png" id="1_kiw6u"]
+[ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/VCR_OSD_MONO_1.001.ttf" id="2_xjowp"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_arync"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-960, -540, 0, 1920, 1080, 0),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 34393296913,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 2, 0, 2, 0, 1, 0, 0, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 112, 196, 0, 0, 7, 196, 0, 0, 112, 196, 0, 0, 7, 68, 0, 0, 112, 68, 0, 0, 7, 68, 0, 0, 112, 68, 0, 0, 7, 196)
+}]
+
+[sub_resource type="Theme" id="Theme_7yoo7"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 26
+Button/fonts/font = ExtResource("2_xjowp")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProvMainMenu" type="MeshInstance2D" parent="ColorRect"]
+position = Vector2(482.9999, 266)
+scale = Vector2(0.5141697, 0.5260333)
+mesh = SubResource("ArrayMesh_arync")
+texture = ExtResource("1_kiw6u")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 284.0
+offset_top = 54.0
+offset_right = 324.0
+offset_bottom = 77.0
+text = "Jogar"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -205.0
+offset_right = 151.0
+offset_bottom = -69.0
+grow_vertical = 0
+scale = Vector2(1.3199999, 1.4000013)
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_7yoo7")
+theme_type_variation = &"FlatButton"
+text = "Jogar"
+flat = true
+
+[node name="Select Night" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Selecionar noite"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opções"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sair"
