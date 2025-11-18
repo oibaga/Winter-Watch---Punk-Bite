@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1kdvraumx0dg"
-path.s3tc="res://.godot/imported/mesaWinterWhatch_7.png-bb2aafffb82062b4cf3b7705f8ba1526.s3tc.ctex"
+uid="uid://bd61hqrrjfd3k"
+path.s3tc="res://.godot/imported/mesaWinterWhatch_4.png-2a2a8c9d6fe02fc7f56a6f425ad1765c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "69235001533da77468b9ca0cca306cb7"
+"md5": "a9f43e5877cf0905ffaef8ccc1b7690f"
 }
 
 [deps]
 
-source_file="res://Assets/mesaWinterWhatch_7.png"
-dest_files=["res://.godot/imported/mesaWinterWhatch_7.png-bb2aafffb82062b4cf3b7705f8ba1526.s3tc.ctex"]
+source_file="res://Assets/Materiais/mesaWinterWhatch_4.png"
+dest_files=["res://.godot/imported/mesaWinterWhatch_4.png-2a2a8c9d6fe02fc7f56a6f425ad1765c.s3tc.ctex"]
 
 [params]
 
