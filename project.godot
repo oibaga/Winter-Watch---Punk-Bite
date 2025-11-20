@@ -10,10 +10,17 @@ config_version=5
 
 [application]
 
-config/name="GameJam - Buchin Studio"
+config/name="Winter Watch"
 run/main_scene="uid://dgsrp0htliotf"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
 
 [display]
 

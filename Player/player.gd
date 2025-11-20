@@ -104,8 +104,8 @@ func sit_down(chair_node: Node3D):
 	
 	collision_mask = 0
 	
-	var gm = get_tree().get_current_scene().get_node("GameManager")
-	gm.start_session()
+	GameManager.start_session()
+		
 
 func stand_up():
 	if not is_sitting: return

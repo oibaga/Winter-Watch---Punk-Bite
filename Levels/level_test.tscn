@@ -1,7 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dxbo6h2bjofxy"]
+[gd_scene load_steps=23 format=3 uid="uid://dxbo6h2bjofxy"]
 
 [ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/M_floor.tres" id="1_7mba1"]
 [ext_resource type="PackedScene" uid="uid://c8oxys0qhv8p2" path="res://Player/Player.tscn" id="2_soq8b"]
+[ext_resource type="PackedScene" uid="uid://bedbvkbkcnvy8" path="res://Levels/game_menager.tscn" id="6_oenlu"]
+[ext_resource type="PackedScene" uid="uid://c8p28dy6orraf" path="res://Levels/Menus/hud.tscn" id="7_ddaal"]
 [ext_resource type="PackedScene" uid="uid://bw3ljwfcfprpl" path="res://Assets/WinterWatcherMap.fbx" id="7_ku5x2"]
 [ext_resource type="PackedScene" uid="uid://pjwqtnt478rv" path="res://Levels/Objetos/painel_tv.tscn" id="7_q8e8m"]
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="9_ddaal"]
@@ -88,6 +90,12 @@ size = Vector3(50, 1, 50)
 
 [node name="Level test" type="Node3D"]
 
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_soq8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0298362, 0)
+
+[node name="Camera3D" parent="CharacterBody3D/head" index="0"]
+fov = 30.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xlufh")
 
@@ -113,17 +121,31 @@ shape = SubResource("BoxShape3D_25mqr")
 material_override = ExtResource("1_7mba1")
 mesh = SubResource("BoxMesh_stbmk")
 
-[node name="CharacterBody3D" parent="SubViewportContainer/StaticBody3D/MeshInstance3D" instance=ExtResource("2_soq8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0298362, 0)
-
-[node name="Camera3D" parent="SubViewportContainer/StaticBody3D/MeshInstance3D/CharacterBody3D/head" index="0"]
-fov = 30.0
-
 [node name="WinterWatcherMap" parent="SubViewportContainer" instance=ExtResource("7_ku5x2")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.26871395, 0.5411222, -3.9939728)
 
 [node name="PainelTV" parent="." instance=ExtResource("7_q8e8m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.902435, 0.52852845, -3.7522829)
 
-[editable path="SubViewportContainer/StaticBody3D/MeshInstance3D/CharacterBody3D"]
+[node name="Monitor" parent="PainelTV/mesaWinterWhatch" index="1"]
+surface_material_override/0 = null
+
+[node name="Table" parent="PainelTV/mesaWinterWhatch" index="2"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+surface_material_override/2 = null
+surface_material_override/3 = null
+surface_material_override/4 = null
+surface_material_override/5 = null
+surface_material_override/6 = null
+surface_material_override/7 = null
+surface_material_override/8 = null
+
+[node name="GameMenager" parent="." node_paths=PackedStringArray("ui_label") instance=ExtResource("6_oenlu")]
+ui_label = NodePath("../HUD/UIRoot/TimerLabel")
+
+[node name="HUD" parent="." instance=ExtResource("7_ddaal")]
+
+[editable path="CharacterBody3D"]
 [editable path="PainelTV"]
+[editable path="HUD"]

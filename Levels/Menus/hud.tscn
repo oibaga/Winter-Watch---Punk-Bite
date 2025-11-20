@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8p28dy6orraf"]
+
+[ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/VCR_OSD_MONO_1.001.ttf" id="1_6848b"]
+
+[sub_resource type="Theme" id="Theme_51unw"]
+Label/font_sizes/font_size = 35
+Label/fonts/font = ExtResource("1_6848b")
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="UIRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimerLabel" type="Label" parent="UIRoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_51unw")
+text = "00:00"
+horizontal_alignment = 1
