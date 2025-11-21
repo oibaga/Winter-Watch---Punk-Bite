@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bsnvg2neurtdb"]
+[gd_scene load_steps=8 format=4 uid="uid://bsnvg2neurtdb"]
 
 [ext_resource type="Script" uid="uid://cbaxyvdqprk7l" path="res://Scripts/Objetos/cadeira.gd" id="1_7bfvo"]
 [ext_resource type="Texture2D" uid="uid://2eyvsdcui8im" path="res://Assets/Cadeira_0.png" id="2_fgonv"]
@@ -46,8 +46,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4erx4")
 
-[node name="Cadeira" type="StaticBody3D" groups=["interativo"]]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bfvo"]
+size = Vector3(0.90841675, 1.1182861, 0.9493561)
+
+[node name="Cadeira" type="Area3D" node_paths=PackedStringArray("SitPoint", "collisions") groups=["interativo"]]
 script = ExtResource("1_7bfvo")
+SitPoint = NodePath("SitPoint")
+collisions = [NodePath("CollisionShape3D2"), NodePath("OfficeChair/StaticBody3D/CollisionShape3D2")]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 2.842171e-14, -1.0658141e-14, -2.842171e-14, 1, 6.352747e-22, 1.0658141e-14, 1.2705494e-21, 1, 0.51440966, 0.47293553, 0.11384367)
@@ -57,6 +62,14 @@ shape = SubResource("BoxShape3D_ax7vr")
 transform = Transform3D(-3.8903135e-08, 6.7193135e-08, -0.8899999, 6.1564755e-22, 0.8899999, 6.7193135e-08, 0.8899999, 2.9371054e-15, -3.8903135e-08, 0.5950215, 0, 0.093734205)
 mesh = SubResource("ArrayMesh_bdwsg")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="OfficeChair"]
+transform = Transform3D(1, 2.1175824e-22, -3.5527137e-15, 0, 1, 7.1054274e-15, 3.5527137e-15, -7.1054274e-15, 1, 0, 0, 0)
+collision_layer = 4
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="OfficeChair/StaticBody3D"]
+transform = Transform3D(1, 2.842171e-14, -1.7763568e-14, -2.842171e-14, 1, -1.4425282e-22, 1.7763568e-14, -1.3866053e-21, 1, 0.016835794, 0.5320782, 0.09424466)
+shape = SubResource("BoxShape3D_7bfvo")
 
 [node name="Label3D" type="Label3D" parent="OfficeChair"]
 transform = Transform3D(-0.9991324, 3.1681967e-23, -0.04164907, -3.144416e-09, 1, 7.543237e-08, 0.04164907, 7.549787e-08, -0.9991324, 0, 2.0788789, 1.7881393e-07)

@@ -11,13 +11,12 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var parent_body:Player = get_parent()
+		var parent_body : Player = get_parent()
 
 		# =============================
 		#      MODO SENTADO
 		# =============================
-		if parent_body.is_sitting:
-			print(parent_body.interact_ray.global_position)
+		if parent_body.sitting_on_node:
 			# girar câmera para esquerda/direita (Y)
 			rotation.y -= deg_to_rad(event.relative.x * sensitivity)
 
@@ -37,7 +36,6 @@ func _input(event: InputEvent) -> void:
 		#      MODO NORMAL (em pé)
 		# =============================
 		else:
-			print(parent_body.interact_ray.global_position)
 			# corpo gira esquerda/direita
 			parent_body.rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 

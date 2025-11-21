@@ -8,6 +8,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l8i0q"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interact_ray") groups=["interativo"]]
+collision_mask = 4
 script = ExtResource("1_q3lat")
 interact_ray = NodePath("head/interact_ray")
 
@@ -25,6 +26,10 @@ script = ExtResource("2_tok1r")
 fov = 45.0
 
 [node name="interact_ray" type="RayCast3D" parent="head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.039396286, 0)
-target_position = Vector3(0, 0, -3)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
+target_position = Vector3(0, 0, 1.5)
+collision_mask = 2
+hit_from_inside = true
+hit_back_faces = false
 collide_with_areas = true
+collide_with_bodies = false

@@ -484,10 +484,11 @@ viewports = [NodePath("Monitor/CAM1"), NodePath("Monitor/CAM2"), NodePath("Monit
 [node name="mesaWinterWhatch" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5486975, 0, 0.21570683)
 
-[node name="Colisoes" type="StaticBody3D" parent="mesaWinterWhatch"]
+[node name="MesaColision" type="StaticBody3D" parent="mesaWinterWhatch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5486975, 0, -0.21570683)
+collision_layer = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mesaWinterWhatch/Colisoes"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mesaWinterWhatch/MesaColision"]
 transform = Transform3D(1, 0, 1.4210855e-14, 0, 1, 0, 0, 0, 1, -0.5985867, 0.47562712, 0.2587061)
 shape = SubResource("BoxShape3D_enynw")
 
@@ -633,12 +634,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.24535054, 0.433768, 1, 1)
 
-[node name="Button" type="Area3D" parent="." node_paths=PackedStringArray("painel_tv") groups=["interativo"]]
+[node name="Button" type="Area3D" parent="." node_paths=PackedStringArray("painel_tv", "cadeira_exigida", "outline_mesh", "hint_label") groups=["interativo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32466948, 0.47953808, 0)
-monitoring = false
-monitorable = false
+collision_layer = 2
 script = ExtResource("2_1c306")
 painel_tv = NodePath("..")
+cadeira_exigida = NodePath("../CadeiraCollision")
+outline_mesh = NodePath("Mouse/OutlineMouse")
+hint_label = NodePath("HintLabel")
 
 [node name="Mouse" type="MeshInstance3D" parent="Button"]
 transform = Transform3D(16.284645, 0, 0, 0, -2.2546296e-06, 4.5317006, 0, -9.456601, -1.0804417e-06, -0.72899497, 0.5218775, -0.7083464)
@@ -651,7 +654,7 @@ visible = false
 mesh = SubResource("ArrayMesh_enynw")
 surface_material_override/0 = SubResource("StandardMaterial3D_jf3lg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+[node name="MouseCollision" type="CollisionShape3D" parent="Button"]
 transform = Transform3D(0.35, -1.942418e-17, 0, 1.942418e-17, 0.35, 0, 0, 0, 0.35, -0.6984299, 0.60773766, -0.7191869)
 shape = SubResource("BoxShape3D_1c306")
 
@@ -663,5 +666,6 @@ text = "Pressione botão esquerdo"
 [node name="Mouse" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.404325, 1.0014156, -0.7083464)
 
-[node name="Cadeira" parent="." instance=ExtResource("14_enynw")]
+[node name="CadeiraCollision" parent="." instance=ExtResource("14_enynw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15198016, 0, 0.01771228)
+collision_layer = 2

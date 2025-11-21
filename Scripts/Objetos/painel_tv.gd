@@ -1,4 +1,4 @@
-extends Node3D
+class_name PainelTV extends Node3D
 
 @export var tela: Sprite3D
 @export var viewports: Array[Viewport]

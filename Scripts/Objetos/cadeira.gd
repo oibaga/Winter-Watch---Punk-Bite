@@ -1,9 +1,10 @@
-extends StaticBody3D 
-# Texto que será mostrado quando o jogador apontar para a cadeira
-#const HINT_TEXT = "Pressione [LMB] para Sentar"
+class_name Cadeira extends ObjetoInteragivel 
 
-func mostrar_hint():
-	pass 
+@export var SitPoint : Marker3D
+@export var collisions : Array[CollisionShape3D]
+
+func disable_collision():
+	self.set_deferred("monitorable", false)
 	
-func esconder_hint():
-	pass
+	for collision in collisions:
+		collision.set_deferred("disabled", true)
