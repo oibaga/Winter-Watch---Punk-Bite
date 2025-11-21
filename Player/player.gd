@@ -22,30 +22,26 @@ func _ready():
 func _physics_process(delta):
 	check_interaction()
 	
-	if sitting_on_node:
-		velocity = Vector3.ZERO
-		if sitting_on_node:
-			var sit_marker = sitting_on_node.get_node("SitPoint")
-			if sit_marker:
-				global_transform = sit_marker.global_transform
-		return
+	if not sitting_on_node:
+		if not is_on_floor():
+			velocity.y += get_gravity().y * delta
 
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+		var input_dir = Input.get_vector("left", "right", "forward", "backward")
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var current_speed = SPEED
+		if Input.is_action_pressed("shift"):
+			current_speed *= RUN_MULTIPLIER
 
-	var current_speed = SPEED
-	if Input.is_action_pressed("shift"):
-		current_speed *= RUN_MULTIPLIER
-
-	if direction:
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
+		if direction:
+			velocity.x = direction.x * current_speed
+			velocity.z = direction.z * current_speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity = Vector3.ZERO
+		if sitting_on_node: global_position = sitting_on_node.SitPoint.global_position
 
 	move_and_slide()
 
@@ -90,6 +86,7 @@ func sit_down(chair_node : Cadeira):
 	sitting_on_node = chair_node
 	
 	global_position = chair_node.SitPoint.global_position
+	rotation = chair_node.SitPoint.rotation
 	
 	head.rotation = Vector3.ZERO
 	sitting_base_yaw = rotation.y 
