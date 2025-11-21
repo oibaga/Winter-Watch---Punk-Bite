@@ -1,32 +1,46 @@
 extends Node3D
 
-var sensitivy = 0.2
+var sensitivity := 0.2
 const MAX_YAW = deg_to_rad(90.0)
 const MIN_YAW = deg_to_rad(-90.0)
+
+var sitting_yaw := 0.0 # guarda a rotação Y da câmera ao sentar
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		var parent_body = get_parent()
+		var parent_body:Player = get_parent()
 
+		# =============================
+		#      MODO SENTADO
+		# =============================
 		if parent_body.is_sitting:
-			
-			var delta_yaw = deg_to_rad(-event.relative.x * sensitivy)
-			parent_body.rotate_y(delta_yaw)
-			
-			var current_yaw = wrapf(parent_body.rotation.y - parent_body.sitting_base_yaw, -PI, PI)
-			
+			print(parent_body.interact_ray.global_position)
+			# girar câmera para esquerda/direita (Y)
+			rotation.y -= deg_to_rad(event.relative.x * sensitivity)
+
+			# limitar rotação horizontal
+			var current_yaw = wrapf(rotation.y - sitting_yaw, -PI, PI)
+
 			if current_yaw > MAX_YAW:
-				parent_body.rotation.y = parent_body.sitting_base_yaw + MAX_YAW
+				rotation.y = sitting_yaw + MAX_YAW
 			elif current_yaw < MIN_YAW:
-				parent_body.rotation.y = parent_body.sitting_base_yaw + MIN_YAW
-				
-			rotate_x(deg_to_rad(-event.relative.y * sensitivy))
+				rotation.y = sitting_yaw + MIN_YAW
 
+			# girar vertical (X)
+			rotation.x = clamp(rotation.x - deg_to_rad(event.relative.y * sensitivity),
+				deg_to_rad(-90), deg_to_rad(90))
+
+		# =============================
+		#      MODO NORMAL (em pé)
+		# =============================
 		else:
-			parent_body.rotate_y(deg_to_rad(-event.relative.x * sensitivy))
-			rotate_x(deg_to_rad(-event.relative.y * sensitivy))
+			print(parent_body.interact_ray.global_position)
+			# corpo gira esquerda/direita
+			parent_body.rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 
-		rotation.x = clamp(rotation.x, deg_to_rad(-90), deg_to_rad(90))
+			# câmera gira pra cima/baixo
+			rotation.x = clamp(rotation.x - deg_to_rad(event.relative.y * sensitivity),
+				deg_to_rad(-90), deg_to_rad(90))

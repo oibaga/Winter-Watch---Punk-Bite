@@ -7,8 +7,9 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l8i0q"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["interativo"]]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interact_ray") groups=["interativo"]]
 script = ExtResource("1_q3lat")
+interact_ray = NodePath("head/interact_ray")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_e2xq8")
@@ -23,7 +24,7 @@ script = ExtResource("2_tok1r")
 [node name="Camera3D" type="Camera3D" parent="head"]
 fov = 45.0
 
-[node name="interact_ray" type="RayCast3D" parent="head/Camera3D"]
+[node name="interact_ray" type="RayCast3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.039396286, 0)
-target_position = Vector3(0, 0, -5)
+target_position = Vector3(0, 0, -3)
 collide_with_areas = true

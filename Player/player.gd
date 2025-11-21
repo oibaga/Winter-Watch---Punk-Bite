@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
+class_name Player
+
 @onready var head = $head
 @onready var camera = $head/Camera3D
-@onready var interact_ray = $head/Camera3D/interact_ray
+@export var interact_ray : RayCast3D
 
 const SPEED = 4.0
 const RUN_MULTIPLIER = 2.0
@@ -43,7 +45,7 @@ func _physics_process(delta):
 	
 	check_interaction()
 
-func _process(delta):
+func _process(_delta):
 	if not is_sitting and Input.is_action_pressed("shift"):
 		camera.position = lerp(camera.position, Vector3(0, -0.1, -0.2), 0.1)
 		camera.rotation_degrees.x = lerp(camera.rotation_degrees.x, -5.0, 0.1)
@@ -56,8 +58,10 @@ func _process(delta):
 func check_interaction():
 
 	if interact_ray.is_colliding():
+		print("Interect Ray está colidindo e", is_sitting)
 		var obj = interact_ray.get_collider()
 		if obj and obj.is_in_group("interativo"):
+			print("É do grupo interativo e", is_sitting)
 			obj.mostrar_hint()
 			
 			if Input.is_action_just_pressed("mouse_esq"):
@@ -75,7 +79,7 @@ func check_interaction():
 	else:
 		limpar_hints()
 	
-	if is_sitting and (Input.is_action_just_pressed("forward") or Input.is_action_just_pressed("jump")):
+	if is_sitting and Input.is_action_just_pressed("forward"):
 		stand_up()
 
 func limpar_hints():
@@ -102,10 +106,11 @@ func sit_down(chair_node: Node3D):
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	collision_mask = 0
 	
-	GameManager.start_session()
-		
+	
+	var gm = get_tree().get_first_node_in_group("game_manager")
+	if gm:
+		gm.start_session()
 
 func stand_up():
 	if not is_sitting: return

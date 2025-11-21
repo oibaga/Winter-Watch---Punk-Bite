@@ -1,28 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8p28dy6orraf"]
+[gd_scene load_steps=7 format=3 uid="uid://c8p28dy6orraf"]
 
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/VCR_OSD_MONO_1.001.ttf" id="1_6848b"]
 
 [sub_resource type="Theme" id="Theme_51unw"]
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_6848b")
 Label/font_sizes/font_size = 35
 Label/fonts/font = ExtResource("1_6848b")
+
+[sub_resource type="Theme" id="Theme_6848b"]
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 8
+Label/font_sizes/font_size = 44
+Label/fonts/font = ExtResource("1_6848b")
+
+[sub_resource type="Animation" id="Animation_6848b"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0.033853278, 0.033853278, 0.033853274, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_51unw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hu8eh"]
+_data = {
+&"RESET": SubResource("Animation_51unw"),
+&"fade_out": SubResource("Animation_6848b")
+}
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="UIRoot" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TimerLabel" type="Label" parent="UIRoot"]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 63.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.057000004
+offset_left = -50.0
+offset_top = 19.0
+offset_right = 53.0
+offset_bottom = 19.219997
 grow_horizontal = 2
-grow_vertical = 2
 theme = SubResource("Theme_51unw")
 text = "00:00"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="UIRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="EndLabel" type="Label" parent="UIRoot"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -19.5
+offset_right = 193.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6848b")
+text = "Noite Concluída"
+
+[node name="EndAnimation" type="AnimationPlayer" parent="UIRoot"]
+libraries = {
+&"": SubResource("AnimationLibrary_hu8eh")
+}

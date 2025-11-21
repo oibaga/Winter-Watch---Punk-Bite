@@ -90,12 +90,6 @@ size = Vector3(50, 1, 50)
 
 [node name="Level test" type="Node3D"]
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_soq8b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0298362, 0)
-
-[node name="Camera3D" parent="CharacterBody3D/head" index="0"]
-fov = 30.0
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xlufh")
 
@@ -124,28 +118,30 @@ mesh = SubResource("BoxMesh_stbmk")
 [node name="WinterWatcherMap" parent="SubViewportContainer" instance=ExtResource("7_ku5x2")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.26871395, 0.5411222, -3.9939728)
 
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_soq8b")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.724163, 2.0298362, 0)
+
+[node name="CollisionShape3D" parent="CharacterBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030949831, 0, 0)
+
+[node name="Camera3D" parent="CharacterBody3D/head" index="0"]
+fov = 30.0
+
 [node name="PainelTV" parent="." instance=ExtResource("7_q8e8m")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.902435, 0.52852845, -3.7522829)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.686852, 0.53064764, 0)
 
-[node name="Monitor" parent="PainelTV/mesaWinterWhatch" index="1"]
-surface_material_override/0 = null
-
-[node name="Table" parent="PainelTV/mesaWinterWhatch" index="2"]
-surface_material_override/0 = null
-surface_material_override/1 = null
-surface_material_override/2 = null
-surface_material_override/3 = null
-surface_material_override/4 = null
-surface_material_override/5 = null
-surface_material_override/6 = null
-surface_material_override/7 = null
-surface_material_override/8 = null
-
-[node name="GameMenager" parent="." node_paths=PackedStringArray("ui_label") instance=ExtResource("6_oenlu")]
+[node name="GameManager" parent="." node_paths=PackedStringArray("timer", "ui_label", "fade_rect", "end_label", "hud_anim") groups=["game_manager"] instance=ExtResource("6_oenlu")]
+timer = NodePath("SessionTimer")
 ui_label = NodePath("../HUD/UIRoot/TimerLabel")
+fade_rect = NodePath("../HUD/UIRoot/ColorRect")
+end_label = NodePath("../HUD/UIRoot/EndLabel")
+hud_anim = NodePath("../HUD/UIRoot/EndAnimation")
+
+[node name="SessionTimer" parent="GameManager" index="1"]
+wait_time = 10.0
 
 [node name="HUD" parent="." instance=ExtResource("7_ddaal")]
 
 [editable path="CharacterBody3D"]
-[editable path="PainelTV"]
+[editable path="GameManager"]
 [editable path="HUD"]

@@ -635,6 +635,8 @@ color = Color(0.24535054, 0.433768, 1, 1)
 
 [node name="Button" type="Area3D" parent="." node_paths=PackedStringArray("painel_tv") groups=["interativo"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32466948, 0.47953808, 0)
+monitoring = false
+monitorable = false
 script = ExtResource("2_1c306")
 painel_tv = NodePath("..")
 
