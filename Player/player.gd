@@ -3,11 +3,12 @@ extends CharacterBody3D
 class_name Player
 
 @onready var head = $head
-@onready var camera = $head/Camera3D
-@export var interact_ray : RayCast3D
 
-const SPEED = 4.0
-const RUN_MULTIPLIER = 2.0
+@export var interact_ray : RayCast3D
+@export var animation_player : AnimationPlayer
+@export var SPEED = 3.0
+@export var RUN_MULTIPLIER = 1.75
+
 var sitting_on_node : Cadeira = null
 var sitting_base_yaw: float = 0.0
 
@@ -16,10 +17,6 @@ var atual_objeto : ObjetoInteragivel = null
 var gm : GameManager = null
 
 var is_running : bool = false
-
-var bob_time := 0.0
-var base_cam_pos := Vector3(0,0,0)
-
 
 func _ready():
 	gm = get_tree().get_first_node_in_group("game_manager")
@@ -53,47 +50,6 @@ func _physics_process(delta):
 		if sitting_on_node: global_position = sitting_on_node.SitPoint.global_position
 
 	move_and_slide()
-
-func _process(delta):
-	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
-	var is_moving = horizontal_speed > 0.1
-
-	var bob_speed : float
-	var bob_amount_pos : float   # amplitude do movimento da posição
-	var bob_amount_rot : float   # amplitude da rotação X
-
-	if is_running:
-		# Forte (correndo)
-		bob_speed = 13.0
-		bob_amount_pos = 0.07
-		bob_amount_rot = 2.2
-	elif is_moving:
-		# Médio (andando)
-		bob_speed = 8.0
-		bob_amount_pos = 0.03
-		bob_amount_rot = 1.0
-	else:
-		# Leve (parado — respiração)
-		bob_speed = 3.0
-		bob_amount_pos = 0.01
-		bob_amount_rot = 0.4
-
-	bob_time += delta * bob_speed
-
-	var bob_y = sin(bob_time) * bob_amount_pos          # sobe/desce
-	var bob_x = sin(bob_time * 0.5) * bob_amount_pos*0.5 # pequeno balanço lateral
-
-	camera.position = base_cam_pos + Vector3(bob_x, bob_y, 0)
-
-	# Rotação no eixo X (cabeça inclinando para frente/trás)
-	camera.rotation_degrees.x = sin(bob_time) * bob_amount_rot
-
-	if is_running:
-		camera.fov = lerp(camera.fov, 80.0, 0.15)
-	elif is_moving:
-		camera.fov = lerp(camera.fov, 72.0, 0.15)
-	else:
-		camera.fov = lerp(camera.fov, 70.0, 0.1)
 
 func check_interaction():
 	if interact_ray.is_colliding():

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2eyvsdcui8im" path="res://Assets/Cadeira_0.png" id="2_fgonv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ax7vr"]
-size = Vector3(0.84521484, 1, 0.8189087)
+size = Vector3(0.99609375, 1, 0.88964844)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joicw"]
 resource_name = "M_Cadeira"
@@ -60,7 +60,7 @@ transform = Transform3D(1, 2.842171e-14, -1.0658141e-14, -2.842171e-14, 1, 6.352
 shape = SubResource("BoxShape3D_ax7vr")
 
 [node name="OfficeChair" type="MeshInstance3D" parent="."]
-transform = Transform3D(-3.8903135e-08, 6.7193135e-08, -0.8899999, 6.1564755e-22, 0.8899999, 6.7193135e-08, 0.8899999, 2.9371054e-15, -3.8903135e-08, 0.5950215, 0, 0.093734205)
+transform = Transform3D(-4.371139e-08, 7.549791e-08, -1, 6.917389e-22, 1, 7.549791e-08, 1, 3.3001177e-15, -4.371139e-08, 0.5950215, 0, 0.093734205)
 mesh = SubResource("ArrayMesh_bdwsg")
 skeleton = NodePath("")
 

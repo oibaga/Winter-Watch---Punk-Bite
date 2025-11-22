@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cp72p0bkndyx0"
-path="res://.godot/imported/Untitled.fbx-14cd888ac50e8fd84d6e3f9ea78e1adf.scn"
+uid="uid://caepw7uruy5e1"
+path="res://.godot/imported/Mouse.fbx-941e9f7cf21df4d813a730ace3b59756.scn"
 
 [deps]
 
-source_file="res://Assets/Untitled.fbx"
-dest_files=["res://.godot/imported/Untitled.fbx-14cd888ac50e8fd84d6e3f9ea78e1adf.scn"]
+source_file="res://Assets/Props/Mouse.fbx"
+dest_files=["res://.godot/imported/Mouse.fbx-941e9f7cf21df4d813a730ace3b59756.scn"]
 
 [params]
 

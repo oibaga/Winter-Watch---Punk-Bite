@@ -122,12 +122,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26871395, 0.54112124, -3.9
 [node name="Player" parent="." instance=ExtResource("2_soq8b")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.02147, 2.0298362, -7.9609613)
 
-[node name="CollisionShape3D" parent="Player" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030949831, 0, 0)
-
-[node name="Camera3D" parent="Player/head" index="0"]
-fov = 30.0
-
 [node name="PainelTV" parent="." instance=ExtResource("7_q8e8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2044115, 0.5306486, -8.768848)
 
@@ -143,6 +137,5 @@ wait_time = 10.0
 
 [node name="HUD" parent="." instance=ExtResource("7_ddaal")]
 
-[editable path="Player"]
 [editable path="GameManager"]
 [editable path="HUD"]

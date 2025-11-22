@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bygwaur7oel4b"
-path="res://.godot/imported/mesaWinterWhatch.fbx-9ad3448e3bb60be87b9128dc22338553.scn"
+path="res://.godot/imported/mesaWinterWhatch.fbx-b89551587607a4a4ea0ac88f1d489d3a.scn"
 
 [deps]
 
-source_file="res://Assets/mesaWinterWhatch.fbx"
-dest_files=["res://.godot/imported/mesaWinterWhatch.fbx-9ad3448e3bb60be87b9128dc22338553.scn"]
+source_file="res://Assets/Props/mesaWinterWhatch.fbx"
+dest_files=["res://.godot/imported/mesaWinterWhatch.fbx-b89551587607a4a4ea0ac88f1d489d3a.scn"]
 
 [params]
 

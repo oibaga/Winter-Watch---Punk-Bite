@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bxy4aiqeiqg6t"
-path="res://.godot/imported/MaquinaArcadePadrão.fbx-ff4f280d8eabf6d2a915a7a2d4e179e3.scn"
+path="res://.godot/imported/MaquinaArcadePadrão.fbx-6c5ebce719849ed3d42920189af859f7.scn"
 
 [deps]
 
-source_file="res://Assets/MaquinaArcadePadrão.fbx"
-dest_files=["res://.godot/imported/MaquinaArcadePadrão.fbx-ff4f280d8eabf6d2a915a7a2d4e179e3.scn"]
+source_file="res://Assets/Props/MaquinaArcadePadrão.fbx"
+dest_files=["res://.godot/imported/MaquinaArcadePadrão.fbx-6c5ebce719849ed3d42920189af859f7.scn"]
 
 [params]
 

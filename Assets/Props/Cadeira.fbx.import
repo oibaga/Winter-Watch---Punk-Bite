@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://un868rgrn30e"
-path="res://.godot/imported/Cadeira.fbx-509f224054b75b29f5de0315fe8941b1.scn"
+path="res://.godot/imported/Cadeira.fbx-f4c2ca7854783d1cd43a60305ac33777.scn"
 
 [deps]
 
-source_file="res://Assets/Cadeira.fbx"
-dest_files=["res://.godot/imported/Cadeira.fbx-509f224054b75b29f5de0315fe8941b1.scn"]
+source_file="res://Assets/Props/Cadeira.fbx"
+dest_files=["res://.godot/imported/Cadeira.fbx-f4c2ca7854783d1cd43a60305ac33777.scn"]
 
 [params]
 

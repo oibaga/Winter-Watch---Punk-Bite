@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://caepw7uruy5e1"
-path="res://.godot/imported/Mouse.fbx-fbc618630ef034fd2560bdaa4436bea1.scn"
+uid="uid://3jvphsgrhnd5"
+path="res://.godot/imported/Untitled.glb-2398c3c6be0fb12538fdc6d79cc00fff.scn"
 
 [deps]
 
-source_file="res://Assets/Mouse.fbx"
-dest_files=["res://.godot/imported/Mouse.fbx-fbc618630ef034fd2560bdaa4436bea1.scn"]
+source_file="res://Assets/Props/Untitled.glb"
+dest_files=["res://.godot/imported/Untitled.glb-2398c3c6be0fb12538fdc6d79cc00fff.scn"]
 
 [params]
 
@@ -30,7 +30,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -38,7 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
-fbx/naming_version=2
+gltf/naming_version=2
+gltf/embedded_image_handling=1

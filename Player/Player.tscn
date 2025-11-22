@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8oxys0qhv8p2"]
+[gd_scene load_steps=6 format=3 uid="uid://c8oxys0qhv8p2"]
 
 [ext_resource type="Script" uid="uid://bmle7nu2tjgym" path="res://Player/player.gd" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://dgjufyi6nipn1" path="res://Player/fp_cam.gd" id="2_tok1r"]
+[ext_resource type="PackedScene" uid="uid://t8a5waqa0s65" path="res://Player/geiger.tscn" id="3_tok1r"]
+[ext_resource type="PackedScene" uid="uid://cgbb8kjhlgyip" path="res://Player/character.fbx" id="4_ddoul"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e2xq8"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_l8i0q"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interact_ray") groups=["interativo"]]
 collision_mask = 4
@@ -15,15 +15,20 @@ interact_ray = NodePath("head/interact_ray")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_e2xq8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_l8i0q")
+[node name="character" parent="." instance=ExtResource("4_ddoul")]
+transform = Transform3D(-0.7600001, 0, -6.644132e-08, 0, 0.7600001, 0, 6.644132e-08, 0, -0.7600001, -0.006952584, -0.99399674, 0.24483812)
 
-[node name="head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7056328, 0)
+[node name="head" type="Node3D" parent="." node_paths=PackedStringArray("player", "camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.81805086, 0)
 script = ExtResource("2_tok1r")
+player = NodePath("..")
+camera = NodePath("Camera3D")
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 fov = 45.0
+
+[node name="Geiger3d" parent="head/Camera3D" instance=ExtResource("3_tok1r")]
+transform = Transform3D(0.110572614, -0.055507563, -0.017821532, 0, 0.03821192, -0.11901617, 0.058298342, 0.10527943, 0.033801533, 0.5193372, -0.21678162, -0.6709614)
 
 [node name="interact_ray" type="RayCast3D" parent="head"]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
@@ -33,3 +38,5 @@ hit_from_inside = true
 hit_back_faces = false
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

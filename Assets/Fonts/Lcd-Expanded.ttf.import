@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bcwrtlc6k62ir"
-path="res://.godot/imported/VCR_OSD_MONO_1.001.ttf-6faef57cf8c440ccc1865fb265dabe0e.fontdata"
+uid="uid://cxf7d61qlacmh"
+path="res://.godot/imported/Lcd-Expanded.ttf-f7813527f4763a89b2e405075dd45a75.fontdata"
 
 [deps]
 
-source_file="res://Assets/VCR_OSD_MONO_1.001.ttf"
-dest_files=["res://.godot/imported/VCR_OSD_MONO_1.001.ttf-6faef57cf8c440ccc1865fb265dabe0e.fontdata"]
+source_file="res://Assets/Fonts/Lcd-Expanded.ttf"
+dest_files=["res://.godot/imported/Lcd-Expanded.ttf-f7813527f4763a89b2e405075dd45a75.fontdata"]
 
 [params]
 
@@ -16,7 +16,7 @@ Rendering=null
 antialiasing=1
 generate_mipmaps=false
 disable_embedded_bitmaps=true
-multichannel_signed_distance_field=false
+multichannel_signed_distance_field=true
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
