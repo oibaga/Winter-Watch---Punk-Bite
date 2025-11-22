@@ -67,3 +67,11 @@ shift={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="ObjetosInteragiveis"
 3d_physics/layer_3="Terreno"
+
+[physics]
+
+common/physics_interpolation=true
+
+[rendering]
+
+rendering_device/fallback_to_vulkan=false

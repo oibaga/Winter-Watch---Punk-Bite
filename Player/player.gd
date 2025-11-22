@@ -17,6 +17,10 @@ var gm : GameManager = null
 
 var is_running : bool = false
 
+var bob_time := 0.0
+var base_cam_pos := Vector3(0,0,0)
+
+
 func _ready():
 	gm = get_tree().get_first_node_in_group("game_manager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -50,14 +54,45 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-func _process(_delta):
+func _process(delta):
+	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
+	var is_moving = horizontal_speed > 0.1
+
+	var bob_speed : float
+	var bob_amount_pos : float   # amplitude do movimento da posição
+	var bob_amount_rot : float   # amplitude da rotação X
+
 	if is_running:
-		camera.position = lerp(camera.position, Vector3(0, -0.1, -0.2), 0.1)
-		camera.rotation_degrees.x = lerp(camera.rotation_degrees.x, -5.0, 0.1)
-		camera.fov = lerp(camera.fov, 80.0, 0.1)
+		# Forte (correndo)
+		bob_speed = 13.0
+		bob_amount_pos = 0.07
+		bob_amount_rot = 2.2
+	elif is_moving:
+		# Médio (andando)
+		bob_speed = 8.0
+		bob_amount_pos = 0.03
+		bob_amount_rot = 1.0
 	else:
-		camera.position = lerp(camera.position, Vector3.ZERO, 0.1)
-		camera.rotation_degrees.x = lerp(camera.rotation_degrees.x, 0.0, 0.1)
+		# Leve (parado — respiração)
+		bob_speed = 3.0
+		bob_amount_pos = 0.01
+		bob_amount_rot = 0.4
+
+	bob_time += delta * bob_speed
+
+	var bob_y = sin(bob_time) * bob_amount_pos          # sobe/desce
+	var bob_x = sin(bob_time * 0.5) * bob_amount_pos*0.5 # pequeno balanço lateral
+
+	camera.position = base_cam_pos + Vector3(bob_x, bob_y, 0)
+
+	# Rotação no eixo X (cabeça inclinando para frente/trás)
+	camera.rotation_degrees.x = sin(bob_time) * bob_amount_rot
+
+	if is_running:
+		camera.fov = lerp(camera.fov, 80.0, 0.15)
+	elif is_moving:
+		camera.fov = lerp(camera.fov, 72.0, 0.15)
+	else:
 		camera.fov = lerp(camera.fov, 70.0, 0.1)
 
 func check_interaction():

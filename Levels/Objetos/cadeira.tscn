@@ -50,6 +50,7 @@ shadow_mesh = SubResource("ArrayMesh_4erx4")
 size = Vector3(0.90841675, 1.1182861, 0.9493561)
 
 [node name="Cadeira" type="Area3D" node_paths=PackedStringArray("SitPoint", "collisions") groups=["interativo"]]
+collision_layer = 2
 script = ExtResource("1_7bfvo")
 SitPoint = NodePath("SitPoint")
 collisions = [NodePath("CollisionShape3D2"), NodePath("OfficeChair/StaticBody3D/CollisionShape3D2")]
