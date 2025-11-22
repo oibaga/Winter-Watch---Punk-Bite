@@ -128,9 +128,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030949831, 0, 0)
 [node name="Camera3D" parent="Player/head" index="0"]
 fov = 30.0
 
-[node name="interact_ray" parent="Player/head" index="1"]
-collide_with_bodies = false
-
 [node name="PainelTV" parent="." instance=ExtResource("7_q8e8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2044115, 0.5306486, -8.768848)
 

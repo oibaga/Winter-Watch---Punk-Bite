@@ -15,6 +15,8 @@ var atual_objeto : ObjetoInteragivel = null
 
 var gm : GameManager = null
 
+var is_running : bool = false
+
 func _ready():
 	gm = get_tree().get_first_node_in_group("game_manager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -26,12 +28,15 @@ func _physics_process(delta):
 		if not is_on_floor():
 			velocity.y += get_gravity().y * delta
 
-		var input_dir = Input.get_vector("left", "right", "forward", "backward")
-		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var input_dir := Input.get_vector("left", "right", "forward", "backward")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 		var current_speed = SPEED
-		if Input.is_action_pressed("shift"):
-			current_speed *= RUN_MULTIPLIER
+		if Input.is_action_pressed("shift") and input_dir.y < 0 and input_dir.x == 0:
+			if not sitting_on_node:
+				is_running = true
+				current_speed *= RUN_MULTIPLIER
+		else: is_running = false
 
 		if direction:
 			velocity.x = direction.x * current_speed
@@ -46,7 +51,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _process(_delta):
-	if not sitting_on_node and Input.is_action_pressed("shift"):
+	if is_running:
 		camera.position = lerp(camera.position, Vector3(0, -0.1, -0.2), 0.1)
 		camera.rotation_degrees.x = lerp(camera.rotation_degrees.x, -5.0, 0.1)
 		camera.fov = lerp(camera.fov, 80.0, 0.1)
