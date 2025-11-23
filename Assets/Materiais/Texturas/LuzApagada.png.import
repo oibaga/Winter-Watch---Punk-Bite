@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj3lfsmykntc7"
-path.s3tc="res://.godot/imported/Cadeira_0.png-a26610004a119ad9c563178eaa2b517e.s3tc.ctex"
+uid="uid://cpsoaery5xyur"
+path.s3tc="res://.godot/imported/LuzApagada.png-6c1d6971f024ee57f83cdd5c5aec1f7b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "6bfeadcc9e820337a73e0c9eb2d7f15b"
-}
 
 [deps]
 
-source_file="res://Assets/Materiais/Cadeira_0.png"
-dest_files=["res://.godot/imported/Cadeira_0.png-a26610004a119ad9c563178eaa2b517e.s3tc.ctex"]
+source_file="res://Assets/Materiais/Texturas/LuzApagada.png"
+dest_files=["res://.godot/imported/LuzApagada.png-6c1d6971f024ee57f83cdd5c5aec1f7b.s3tc.ctex"]
 
 [params]
 

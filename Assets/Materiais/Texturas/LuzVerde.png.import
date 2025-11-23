@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chcpn382lmxnu"
-path.s3tc="res://.godot/imported/mesaWinterWhatch_0.png-40cd7a02adbc9fa2e5066f126a50c616.s3tc.ctex"
+uid="uid://tg178w1x0h7h"
+path.s3tc="res://.godot/imported/LuzVerde.png-c9b3b55e87704e3179bf939b3892ff47.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "1c63e872ef1e9bdbfa1e8dbfb45c9907"
-}
 
 [deps]
 
-source_file="res://Assets/Materiais/mesaWinterWhatch_0.png"
-dest_files=["res://.godot/imported/mesaWinterWhatch_0.png-40cd7a02adbc9fa2e5066f126a50c616.s3tc.ctex"]
+source_file="res://Assets/Materiais/Texturas/LuzVerde.png"
+dest_files=["res://.godot/imported/LuzVerde.png-c9b3b55e87704e3179bf939b3892ff47.s3tc.ctex"]
 
 [params]
 

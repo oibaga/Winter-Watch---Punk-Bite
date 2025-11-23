@@ -33,6 +33,10 @@ func _process(delta):
 		bob_speed = 8.0
 		bob_amount_pos = 0.03
 		bob_amount_rot = 1.0
+	elif player.sitting_on_node:
+		bob_speed = 0
+		bob_amount_pos = 0
+		bob_amount_rot = 0
 	else:
 		# Leve (parado — respiração)
 		bob_speed = 3.0

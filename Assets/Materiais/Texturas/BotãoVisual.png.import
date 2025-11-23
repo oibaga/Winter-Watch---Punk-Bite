@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x85ao472rhnf"
-path.s3tc="res://.godot/imported/mesaWinterWhatch_6.png-5fb5b38d89a66bbc9bdd5e3003fe11d6.s3tc.ctex"
+uid="uid://6jnu37mmn3cd"
+path.s3tc="res://.godot/imported/BotãoVisual.png-c3b7be83ee68b74596794f5be82a4a7e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "8c132c1997412033aa2955418442315d"
-}
 
 [deps]
 
-source_file="res://Assets/Materiais/mesaWinterWhatch_6.png"
-dest_files=["res://.godot/imported/mesaWinterWhatch_6.png-5fb5b38d89a66bbc9bdd5e3003fe11d6.s3tc.ctex"]
+source_file="res://Assets/Materiais/Texturas/BotãoVisual.png"
+dest_files=["res://.godot/imported/BotãoVisual.png-c3b7be83ee68b74596794f5be82a4a7e.s3tc.ctex"]
 
 [params]
 

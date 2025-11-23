@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq4s12v81x0a5"
-path.s3tc="res://.godot/imported/mesaWinterWhatch_9.png-dceb1e222d208021a9c36229dd143084.s3tc.ctex"
+uid="uid://bh55ychd8kw56"
+path.s3tc="res://.godot/imported/BotãoSonoro.png-d231cd9365f5bd75dace5167374f0fd5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "2a7736d1b58eebea116efd5e4cf9b83c"
-}
 
 [deps]
 
-source_file="res://Assets/Materiais/mesaWinterWhatch_9.png"
-dest_files=["res://.godot/imported/mesaWinterWhatch_9.png-dceb1e222d208021a9c36229dd143084.s3tc.ctex"]
+source_file="res://Assets/Materiais/Texturas/BotãoSonoro.png"
+dest_files=["res://.godot/imported/BotãoSonoro.png-d231cd9365f5bd75dace5167374f0fd5.s3tc.ctex"]
 
 [params]
 

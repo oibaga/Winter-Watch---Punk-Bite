@@ -98,6 +98,7 @@ func AtualizaObjetoAtual() -> ObjetoInteragivel:
 		if not obj.pode_interagir(self): obj = null
 	
 		if obj != atual_objeto:
+			limpar_hints()
 			atual_objeto = obj
 	
 	return obj

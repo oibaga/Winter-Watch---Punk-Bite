@@ -10,7 +10,7 @@
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("interact_ray") groups=["interativo"]]
 collision_mask = 4
 script = ExtResource("1_q3lat")
-interact_ray = NodePath("head/interact_ray")
+interact_ray = NodePath("head/Camera3D/interact_ray")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_e2xq8")
@@ -30,7 +30,7 @@ fov = 45.0
 [node name="Geiger3d" parent="head/Camera3D" instance=ExtResource("3_tok1r")]
 transform = Transform3D(0.110572614, -0.055507563, -0.017821532, 0, 0.03821192, -0.11901617, 0.058298342, 0.10527943, 0.033801533, 0.5193372, -0.21678162, -0.6709614)
 
-[node name="interact_ray" type="RayCast3D" parent="head"]
+[node name="interact_ray" type="RayCast3D" parent="head/Camera3D"]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
 target_position = Vector3(0, 0, 1.5)
 collision_mask = 2

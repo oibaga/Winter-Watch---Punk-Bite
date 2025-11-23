@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5yfg5ultrnq2"
-path.s3tc="res://.godot/imported/mesaWinterWhatch_2.png-a21d8d932feaa1467122f928fa6b01e3.s3tc.ctex"
+uid="uid://bqoo0ojlrp8fo"
+path.s3tc="res://.godot/imported/BotãoGeiger.png-c4c2607647716fa57f6a963b55edd7c8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "9e9381206ec4523f237c64b315aaa370"
-}
 
 [deps]
 
-source_file="res://Assets/Materiais/mesaWinterWhatch_2.png"
-dest_files=["res://.godot/imported/mesaWinterWhatch_2.png-a21d8d932feaa1467122f928fa6b01e3.s3tc.ctex"]
+source_file="res://Assets/Materiais/Texturas/BotãoGeiger.png"
+dest_files=["res://.godot/imported/BotãoGeiger.png-c4c2607647716fa57f6a963b55edd7c8.s3tc.ctex"]
 
 [params]
 

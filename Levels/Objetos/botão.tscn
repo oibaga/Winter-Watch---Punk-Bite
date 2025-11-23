@@ -1,0 +1,118 @@
+[gd_scene load_steps=11 format=4 uid="uid://e8sq3k507ms4"]
+
+[ext_resource type="Texture2D" uid="uid://dj5o2lbpvewb1" path="res://Assets/Materiais/Texturas/BotãoCriatura.png" id="1_4pffu"]
+[ext_resource type="Script" uid="uid://djpqwaawbecew" path="res://Scripts/Objetos/botãoDoMenu.gd" id="1_s6hfm"]
+[ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_4gdrv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vodwg"]
+albedo_texture = ExtResource("1_4pffu")
+
+[sub_resource type="Shader" id="Shader_mtwk4"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8sx7j"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_mtwk4")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpeea"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6p4pf"]
+_surfaces = [{
+"aabb": AABB(-0.008401007, -0.01, -0.009847291, 0.013610143, 0.02, 0.02),
+"format": 34359742465,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAgAEAAAAAwAAAAQAAgABAAUAAwAFAAEABQAGAAIABAACAAYABwAFAAMABgAFAAcABAAIAAMABgAIAAQACQADAAgAAwAJAAcACAAGAAoABwAKAAYACgALAAgACAALAAkADAAKAAcACwAKAAwABwANAAwADQAHAAkADAAOAAsADgAMAA0ACQALAA4ADQAPAA4ADgAPAAkACQAPAA0A"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("YaQJvArXIzyNVyY8YaQJvArXI7yNVyY8fIiMuwrXI7yIViG8PQZxOgrXIzyNVyY8fIiMuwrXIzyIViG8PQZxOgrXI7yNVyY8ZrGqOwrXI7yIViG8XC2nOooGCLxkJQs8ZrGqOwrXIzyIViG8XC2nOooGCDxkJQs82gafO4oGCLxfJAa81wafO4oGCDxfJAa8XGgDO4oGCLx4JhC8Uh3OuooGCLxNIwE8WmgDO4oGCDx4JhC8Uh3OuooGCDxNIwE8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0vbsk"]
+resource_name = "Cubo_003"
+_surfaces = [{
+"aabb": AABB(-0.008401007, -0.01, -0.009847291, 0.013610143, 0.02, 0.02),
+"attribute_data": PackedByteArray("AAAgPwAAQD8AACA/AACAPwAAwD4AAIA/AADAPgAAQD8AACA/AAAAPwAAID8AAEA/AADAPgAAQD8AAMA+AAAAP5ifyj5y3Yo+mJ/KPnLdij40sBo/ct2KPjSwGj9y3Yo+AADAPgAAAAAAACA/AAAAAAAAID8AAIA+AADAPgAAgD4AAMA+AACAPgAAwD4AAAA/AAAAPgAAAD8AAAA+AACAPgAAYD8AAIA+AABgPwAAAD8AACA/AAAAPwAAID8AAIA+AADAPgAAAD+Zn8o+jCL1PjSwGj+OIvU+AAAgPwAAAD8AAMA+AAAAPwAAwD4AAIA+mJ/KPnLdij6Zn8o+jCL1PgAAID8AAAA/NLAaP44i9T40sBo/ct2KPgAAID8AAIA+AADAPgAAgD4AACA/AACAPjSwGj9y3Yo+mJ/KPnLdij40sBo/ct2KPjSwGj+OIvU+mZ/KPowi9T6Yn8o+ct2KPpifyj5y3Yo+mZ/KPowi9T6Zn8o+jCL1Ppifyj5y3Yo+NLAaP3Ldij40sBo/ct2KPjSwGj+OIvU+NLAaP44i9T6Zn8o+jCL1PjSwGj+OIvU+NLAaP44i9T6Zn8o+jCL1Pg=="),
+"format": 34359742487,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHgAfABwAIAAhACIAIgAjACAAJAAlACYAJgAnACQAKAApACoAKgArACgALAAtAC4ALgAvACwAMAAxADIAMgAzADAANAA1ADYANgA3ADQA"),
+"material": SubResource("StandardMaterial3D_cpeea"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("YaQJvArXIzyNVyY8YaQJvArXI7yNVyY8fIiMuwrXI7yIViG8fIiMuwrXIzyIViG8PQZxOgrXIzyNVyY8YaQJvArXIzyNVyY8fIiMuwrXIzyIViG8ZrGqOwrXIzyIViG8XGgDO4oGCLx4JhC82gafO4oGCLxfJAa8XC2nOooGCLxkJQs8Uh3OuooGCLxNIwE8fIiMuwrXI7yIViG8YaQJvArXI7yNVyY8PQZxOgrXI7yNVyY8ZrGqOwrXI7yIViG8ZrGqOwrXI7yIViG8ZrGqOwrXIzyIViG8fIiMuwrXIzyIViG8fIiMuwrXI7yIViG8YaQJvArXI7yNVyY8YaQJvArXIzyNVyY8PQZxOgrXIzyNVyY8PQZxOgrXI7yNVyY8ZrGqOwrXIzyIViG81wafO4oGCDxfJAa8XC2nOooGCDxkJQs8PQZxOgrXIzyNVyY8ZrGqOwrXIzyIViG8ZrGqOwrXI7yIViG82gafO4oGCLxfJAa81wafO4oGCDxfJAa8PQZxOgrXIzyNVyY8XC2nOooGCDxkJQs8XC2nOooGCLxkJQs8PQZxOgrXI7yNVyY8ZrGqOwrXI7yIViG8PQZxOgrXI7yNVyY8XC2nOooGCLxkJQs82gafO4oGCLxfJAa8Uh3OuooGCLxNIwE8Uh3OuooGCDxNIwE8WmgDO4oGCDx4JhC8XGgDO4oGCLx4JhC8XGgDO4oGCLx4JhC8WmgDO4oGCDx4JhC81wafO4oGCDxfJAa82gafO4oGCLxfJAa8Uh3OuooGCLxNIwE8XC2nOooGCLxkJQs8XC2nOooGCDxkJQs8Uh3OuooGCDxNIwE8WmgDO4oGCDx4JhC8Uh3OuooGCDxNIwE8XC2nOooGCDxkJQs81wafO4oGCDxfJAa8DDbKojGQKbcMNjVdMpDVyP4bgjtOVA26/ht8xE5U8MWFkZu1312Kqg02yqIykCm3/xt+xCVU0sWFx4ftPXoW3rPQBo////8/s6hep////z8U1/3E////v1LpOZL///8//xuAOyVUK7oNNjRdMpDVyIeRZEreXXLVhMd2Ejt66KGDx3YSv99PyIPHiO2/3663/ht9xDDfIej+G4E7MN/dlww2NV0IO9rtDDbJogg7I5KFkZy1zh54x4WRYkrOHoW4g8eJ7Tt6Fd6zqKBYRVNtzBTXATsDk/SxhpGatXVdrqqDx4ntOnoV3oPHdRI7euihs6hep0ZTkLOzqKBYRVNtzIaRmrV1Xa6qFNcBOwOT9LEU1/3EBJMKzoaRZEp1XU/Vg8d1Ejt66KGGkWRKdV1P1RTX/cQEkwrOs6hep0ZTkLNS6TmSYXq0wVPpxm1iekq+s9D4cJhcYcGz0AWPmFydvrPQBo////8/s9D4cP///z+zqKBY////P7OoXqf///8/Uuk5kv///z8U1/3E////vxTXATv///+/UunFbf///z+z0Phw////P1LpxW3///8/FNcBO////7+zqKBY////Pw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6p4pf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtwk4"]
+size = Vector3(0.0126953125, 0.026367188, 0.024414063)
+
+[node name="Botão" type="Area3D" node_paths=PackedStringArray("mesh_with_outline", "hint_label")]
+transform = Transform3D(3.3405318, 0, 0, 0, -1.4601927e-07, 3.3405316, 0, -3.3405316, -1.4601927e-07, 0, 0, 0)
+collision_layer = 2
+script = ExtResource("1_s6hfm")
+mesh_with_outline = NodePath("Botão")
+hint_label = NodePath("HintLabel")
+
+[node name="Botão" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, -5.9604645e-08, -1.7763568e-15, 2.9802322e-08, 1, -5.3290705e-15, -1.7763568e-15, 0, 1, 0, 0, 0)
+sorting_offset = 0.2
+material_override = SubResource("StandardMaterial3D_vodwg")
+material_overlay = SubResource("ShaderMaterial_8sx7j")
+mesh = SubResource("ArrayMesh_0vbsk")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -1.1920929e-07, -1.2114754e-12, 2.9802322e-08, 1, -3.4532377e-12, -2.2435387e-12, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_mtwk4")
+
+[node name="HintLabel" type="Label3D" parent="."]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, -1.7466661e-09, 0.039959066)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("3_4gdrv")
+font_size = 12
+outline_size = 8
