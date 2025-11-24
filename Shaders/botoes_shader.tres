@@ -3,8 +3,9 @@
 [ext_resource type="Shader" uid="uid://ugcus84t4uch" path="res://Shaders/OutlineMouse.gdshader" id="1_nltxd"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_nltxd")
 shader_parameter/active = true
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 2.0
+shader_parameter/outline_width = 119.67
