@@ -27,6 +27,7 @@ albedo_texture = ExtResource("2_od7rr")
 size = Vector3(1.5477295, 1, 1.2858887)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmvs1"]
+render_priority = 1
 albedo_texture = ExtResource("7_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2nn1"]

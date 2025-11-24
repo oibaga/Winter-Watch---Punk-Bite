@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8oxys0qhv8p2"]
+[gd_scene load_steps=7 format=3 uid="uid://c8oxys0qhv8p2"]
 
 [ext_resource type="Script" uid="uid://bmle7nu2tjgym" path="res://Player/player.gd" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://dgjufyi6nipn1" path="res://Player/fp_cam.gd" id="2_tok1r"]
 [ext_resource type="PackedScene" uid="uid://t8a5waqa0s65" path="res://Player/geiger.tscn" id="3_tok1r"]
 [ext_resource type="PackedScene" uid="uid://cgbb8kjhlgyip" path="res://Player/character.fbx" id="4_ddoul"]
+[ext_resource type="Texture2D" uid="uid://b8q1ihtpooyjo" path="res://Assets/Materiais/Texturas/UIBACKGROUNDWHITE.png" id="5_8g4oa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e2xq8"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("inspection_marker", "interact_ray", "itemInHand") groups=["interativo"]]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("inspection_marker", "inspection_color_rect", "interact_ray", "itemInHand") groups=["interativo"]]
 collision_mask = 4
 script = ExtResource("1_q3lat")
 inspection_marker = NodePath("head/Camera3D/InspectionMarker3D")
+inspection_color_rect = NodePath("head/Camera3D/InspectionSprite3D")
 interact_ray = NodePath("head/Camera3D/interact_ray")
 itemInHand = NodePath("head/Camera3D/Geiger3d")
 
@@ -43,5 +45,11 @@ collide_with_bodies = false
 
 [node name="InspectionMarker3D" type="Marker3D" parent="head/Camera3D"]
 transform = Transform3D(2.3883566e-15, -5.4639237e-08, -1.25, -1.25, -5.4639237e-08, 2.1175824e-22, -5.4639237e-08, 1.25, -5.4639237e-08, 0.165, 0, -0.58106244)
+
+[node name="InspectionSprite3D" type="Sprite3D" parent="head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165, 0, -0.88209426)
+visible = false
+modulate = Color(0, 0, 0, 0.8862745)
+texture = ExtResource("5_8g4oa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

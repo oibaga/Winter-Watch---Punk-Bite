@@ -4,6 +4,7 @@ class_name Player
 
 @onready var head = $head
 @export var inspection_marker : Marker3D
+@export var inspection_color_rect : Sprite3D
 
 @export var interact_ray : RayCast3D
 @export var animation_player : AnimationPlayer
@@ -27,6 +28,7 @@ var is_running : bool = false
 func _ready():
 	gm = get_tree().get_first_node_in_group("game_manager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	inspection_color_rect.visible = false
 
 func _physics_process(delta):
 	if !objeto_inspecionado:
@@ -127,11 +129,15 @@ func InspecionarObjeto(obj : ObjetoInspecionavel):
 	
 	itemInHand.visible = false
 	
+	inspection_color_rect.visible = true
+	
 	obj.StartInspection(self)
 	
 func StopInspection():
 	objeto_inspecionado.StopInspection()
 	
 	objeto_inspecionado = null
+	
+	inspection_color_rect.visible = false
 	
 	itemInHand.visible = true
