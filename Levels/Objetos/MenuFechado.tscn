@@ -1,0 +1,107 @@
+[gd_scene load_steps=20 format=3 uid="uid://3744hlicrup2"]
+
+[ext_resource type="Script" uid="uid://ck56ynbkphkr7" path="res://Scripts/Objetos/manual_fechado.gd" id="1_yv6o3"]
+[ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_l2shx"]
+[ext_resource type="Shader" uid="uid://ugcus84t4uch" path="res://Shaders/OutlineMouse.gdshader" id="2_lx5pt"]
+[ext_resource type="Texture2D" uid="uid://cmaaq1dngqtsy" path="res://Assets/Materiais/Texturas/Tutorial_DefaultMaterial_BaseColor.png" id="2_od7rr"]
+[ext_resource type="PackedScene" uid="uid://b58xk6bikrnml" path="res://Assets/Itens/Tutorial.fbx" id="5_dfu12"]
+[ext_resource type="PackedScene" uid="uid://dmeng7yuqs8o1" path="res://Assets/Itens/TutorialAberto.fbx" id="6_ve6kl"]
+[ext_resource type="Script" uid="uid://b0aaif6qe84q8" path="res://Scripts/Objetos/manual_aberto.gd" id="7_mysf1"]
+[ext_resource type="Texture2D" uid="uid://cgla8x4d1kvlt" path="res://Assets/Materiais/Texturas/TutorialAberto_DefaultMaterial_BaseColor.png" id="7_yot6n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve6kl"]
+albedo_texture = ExtResource("2_od7rr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yot6n"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_lx5pt")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mysf1"]
+albedo_texture = ExtResource("2_od7rr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lx5pt"]
+size = Vector3(1.5477295, 1, 1.2858887)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmvs1"]
+albedo_texture = ExtResource("7_yot6n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2nn1"]
+albedo_texture = ExtResource("7_yot6n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wraw3"]
+albedo_texture = ExtResource("7_yot6n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn2w5"]
+albedo_texture = ExtResource("7_yot6n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwf0r"]
+albedo_texture = ExtResource("7_yot6n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6jsi"]
+albedo_texture = ExtResource("7_yot6n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmfqk"]
+albedo_texture = ExtResource("7_yot6n")
+
+[node name="MenuFechado" type="Area3D" node_paths=PackedStringArray("manualAberto", "mesh_with_outline", "hint_label")]
+collision_layer = 2
+script = ExtResource("1_yv6o3")
+manualAberto = NodePath("TutorialAberto")
+mesh_with_outline = NodePath("Tutorial/Cubo")
+hint_label = NodePath("HintLabel")
+
+[node name="Tutorial" parent="." instance=ExtResource("5_dfu12")]
+
+[node name="Cubo" parent="Tutorial" index="0"]
+material_override = SubResource("StandardMaterial3D_ve6kl")
+material_overlay = SubResource("ShaderMaterial_yot6n")
+
+[node name="Cubo_001" parent="Tutorial" index="1"]
+material_override = SubResource("StandardMaterial3D_mysf1")
+
+[node name="MenuCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.35, -1.942418e-17, 0, 1.942418e-17, 0.35, 0, 0, 0, 0.35, -0.00070147216, 0.14946556, -0.0038109776)
+shape = SubResource("BoxShape3D_lx5pt")
+
+[node name="HintLabel" type="Label3D" parent="."]
+transform = Transform3D(-1.2894859e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.2894859e-08, 0.053272367, 0.14622486, -0.005466342)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("2_l2shx")
+
+[node name="TutorialAberto" parent="." node_paths=PackedStringArray("pagesArray") instance=ExtResource("6_ve6kl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013613999, 0, -0.14571276)
+visible = false
+script = ExtResource("7_mysf1")
+pagesArray = [NodePath("FolhaVisual"), NodePath("FolhaSonora"), NodePath("FolhaGeiger"), NodePath("FolhaCriatura"), NodePath("FolhaGlitch"), NodePath("FolhaCópia")]
+
+[node name="FolhaCriatura" parent="TutorialAberto" index="0"]
+material_override = SubResource("StandardMaterial3D_qmvs1")
+
+[node name="FolhaCópia" parent="TutorialAberto" index="1"]
+material_override = SubResource("StandardMaterial3D_c2nn1")
+
+[node name="FolhaGeiger" parent="TutorialAberto" index="2"]
+material_override = SubResource("StandardMaterial3D_wraw3")
+
+[node name="FolhaGlitch" parent="TutorialAberto" index="3"]
+material_override = SubResource("StandardMaterial3D_yn2w5")
+
+[node name="FolhaSonora" parent="TutorialAberto" index="4"]
+material_override = SubResource("StandardMaterial3D_qwf0r")
+
+[node name="FolhaVisual" parent="TutorialAberto" index="5"]
+material_override = SubResource("StandardMaterial3D_t6jsi")
+
+[node name="Pasta" parent="TutorialAberto" index="6"]
+material_override = SubResource("StandardMaterial3D_xmfqk")
+
+[editable path="Tutorial"]
+[editable path="TutorialAberto"]

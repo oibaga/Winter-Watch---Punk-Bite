@@ -22,7 +22,7 @@ func esconder_hint(_player : Player = null):
 	if outline_material: outline_material.set_shader_parameter("active", false)
 	if hint_label: hint_label.visible = false
 
-func interagir():
+func interagir(_player : Player):
 	pass # ESTA DEVE SER SOBRESCRITA NAS FILHAS 
 
 func pode_interagir(_player : Player) -> bool:

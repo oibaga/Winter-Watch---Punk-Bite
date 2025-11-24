@@ -61,6 +61,8 @@ func _process(delta):
 		camera.fov = lerp(camera.fov, 70.0, 0.1)
 
 func _input(event: InputEvent) -> void:
+	if player.objeto_inspecionado:
+		return
 	if event is InputEventMouseMotion:
 		var parent_body : Player = get_parent()
 

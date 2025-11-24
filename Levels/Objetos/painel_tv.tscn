@@ -79,7 +79,7 @@ albedo_texture = ExtResource("7_w6drv")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w6drv"]
 render_priority = 0
 shader = ExtResource("10_iw1ap")
-shader_parameter/active = true
+shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 2.0
 
@@ -302,6 +302,7 @@ shape = SubResource("BoxShape3D_1c306")
 
 [node name="HintLabel" type="Label3D" parent="Mouse"]
 transform = Transform3D(-1.2894859e-08, 0, 0.295, 0, 0.295, 0, -0.295, 0, -1.2894859e-08, 0.053272367, 0.14622486, -0.005466342)
+visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true

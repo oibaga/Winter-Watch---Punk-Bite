@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dxbo6h2bjofxy"]
+[gd_scene load_steps=24 format=3 uid="uid://dxbo6h2bjofxy"]
 
 [ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/M_floor.tres" id="1_7mba1"]
 [ext_resource type="PackedScene" uid="uid://c8oxys0qhv8p2" path="res://Player/Player.tscn" id="2_soq8b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c8p28dy6orraf" path="res://Levels/Menus/hud.tscn" id="7_ddaal"]
 [ext_resource type="PackedScene" uid="uid://bw3ljwfcfprpl" path="res://Assets/WinterWatcherMap.fbx" id="7_ku5x2"]
 [ext_resource type="PackedScene" uid="uid://pjwqtnt478rv" path="res://Levels/Objetos/painel_tv.tscn" id="7_q8e8m"]
+[ext_resource type="PackedScene" uid="uid://3744hlicrup2" path="res://Levels/Objetos/MenuFechado.tscn" id="8_ku5x2"]
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="9_ddaal"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ddaal"]
@@ -136,6 +137,9 @@ hud_anim = NodePath("../HUD/UIRoot/EndAnimation")
 wait_time = 10.0
 
 [node name="HUD" parent="." instance=ExtResource("7_ddaal")]
+
+[node name="Tutorial" parent="." instance=ExtResource("8_ku5x2")]
+transform = Transform3D(0.76713157, 0, 0.6414898, 0, 1, 0, -0.6414898, 0, 0.76713157, -10.581309, 1.5062757, -10.096537)
 
 [editable path="GameManager"]
 [editable path="HUD"]

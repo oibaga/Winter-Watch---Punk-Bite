@@ -3,7 +3,7 @@ render_mode cull_front, unshaded;
 
 uniform bool active = true;
 
-uniform vec4 outline_color : source_color;
+uniform vec4 outline_color : source_color = vec4(1,1,1,1);
 uniform float outline_width = 1.0;
 
 void vertex() {
