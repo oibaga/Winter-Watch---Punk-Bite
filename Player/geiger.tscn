@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://t8a5waqa0s65"]
+[gd_scene load_steps=10 format=4 uid="uid://t8a5waqa0s65"]
 
 [ext_resource type="Texture2D" uid="uid://dsy170jsnls18" path="res://Assets/Itens/Geiger3D_DefaultMaterial_BaseColor.png" id="1_olx8i"]
 [ext_resource type="FontFile" uid="uid://dux6opq4gwcqb" path="res://Assets/Fonts/wwDigital.ttf" id="2_0fs55"]
+[ext_resource type="Shader" uid="uid://d2kgc0jhch066" path="res://Shaders/geigerShader.gdshader" id="2_7eg46"]
 [ext_resource type="Texture2D" uid="uid://veh1l86pccub" path="res://Assets/Itens/GeigerSprite.png" id="3_0a7dv"]
+[ext_resource type="Texture2D" uid="uid://b8q1ihtpooyjo" path="res://Assets/Materiais/Texturas/UIBACKGROUNDWHITE.png" id="3_2h1bf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ku5x2"]
 _surfaces = [{
@@ -38,9 +40,19 @@ shadow_mesh = SubResource("ArrayMesh_ku5x2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g4oa"]
 albedo_texture = ExtResource("1_olx8i")
-use_z_clip_scale = true
 z_clip_scale = 0.01
 stencil_flags = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0x0t"]
+render_priority = 0
+shader = ExtResource("2_7eg46")
+shader_parameter/wave_amplitude = 0.25
+shader_parameter/wave_frequency = 40.0
+shader_parameter/wave_speed = 9.0
+shader_parameter/left_falloff = 1.0
+shader_parameter/right_falloff = 1.0
+shader_parameter/thickness = 0.1
+shader_parameter/tint = Color(0, 0, 0, 1)
 
 [node name="Geiger3d" type="MeshInstance3D"]
 layers = 2
@@ -48,8 +60,17 @@ mesh = SubResource("ArrayMesh_ddoul")
 skeleton = NodePath("../../../SubViewportContainer/Chao")
 surface_material_override/0 = SubResource("StandardMaterial3D_8g4oa")
 
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.085, 0, 0, 0, -3.715468e-09, -0.085, 0, 0.085, -3.715468e-09, 0.019355714, 0.8860645, -1.3084811)
+layers = 2
+material_override = SubResource("ShaderMaterial_e0x0t")
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("3_2h1bf")
+
 [node name="PowerLabel" type="Label3D" parent="."]
 transform = Transform3D(2.2117145, 0, 0, 0, -9.632903e-08, 1, 0, -2.2037513, -4.371139e-08, 0.4753365, 0.796155, -1.3369906)
+visible = false
 layers = 2
 gi_lightmap_texel_scale = 0.01
 shaded = true
@@ -65,6 +86,7 @@ horizontal_alignment = 2
 
 [node name="PowerSprite" type="Sprite3D" parent="."]
 transform = Transform3D(2.945, 0, 0, 0, -1.2873004e-07, 2.945, 0, -2.945, -1.2873004e-07, 0.60432374, 0.796155, -1.2607242)
+visible = false
 layers = 2
 modulate = Color(0, 0, 0, 0.9411765)
 no_depth_test = true
