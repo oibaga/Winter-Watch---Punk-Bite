@@ -10,7 +10,7 @@ class_name Player
 @export var animation_player : AnimationPlayer
 @export var SPEED = 3.0
 @export var RUN_MULTIPLIER = 1.75
-@export var itemInHand : Node3D
+@export var itemInHand : Geiger
 
 var sitting_on_node : Cadeira = null
 var sitting_base_yaw: float = 0.0
@@ -26,12 +26,14 @@ var gm : GameManager = null
 var is_running : bool = false
 
 func _ready():
+	print(self.global_position.distance_to($"../Marker3D".global_position))
 	gm = get_tree().get_first_node_in_group("game_manager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inspection_color_rect.visible = false
 
 func _physics_process(delta):
 	if !objeto_inspecionado:
+		check_distance()
 		check_interaction()
 		
 		if not sitting_on_node && !objeto_inspecionado:
@@ -141,3 +143,6 @@ func StopInspection():
 	inspection_color_rect.visible = false
 	
 	itemInHand.visible = true
+
+func check_distance():
+	itemInHand.distance = global_position.distance_to($"../Marker3D".global_position)

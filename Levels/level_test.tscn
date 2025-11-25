@@ -121,7 +121,7 @@ mesh = SubResource("BoxMesh_stbmk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26871395, 0.54112124, -3.9939728)
 
 [node name="Player" parent="." instance=ExtResource("2_soq8b")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.02147, 2.0298362, -7.9609613)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.493918, 2.0298362, -4.767327)
 
 [node name="PainelTV" parent="." instance=ExtResource("7_q8e8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2044115, 0.5306486, -8.768848)
@@ -140,6 +140,9 @@ wait_time = 10.0
 
 [node name="Tutorial" parent="." instance=ExtResource("8_ku5x2")]
 transform = Transform3D(0.76713157, 0, 0.6414898, 0, 1, 0, -0.6414898, 0, 0.76713157, -10.581309, 1.5062757, -10.096537)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6652117, 0, 3.3273604)
 
 [editable path="GameManager"]
 [editable path="HUD"]
