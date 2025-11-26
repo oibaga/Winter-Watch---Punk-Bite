@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://tj1h1jymbv0w"]
+
+[ext_resource type="Shader" uid="uid://btiwi08mnvphw" path="res://Shaders/GlitchAnomaly/GlitchShader.gdshader" id="1_l1pk3"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_l1pk3")
+shader_parameter/intensity = 1.0
+shader_parameter/block_size = 40.0
+shader_parameter/block_shift = 0.03
+shader_parameter/chroma_amount = 0.02
+shader_parameter/noise_opacity = 0.2
+shader_parameter/noise_speed = 0.0
+shader_parameter/roll_effect = false
+shader_parameter/roll_speed = 6.0
+shader_parameter/roll_size = 16.0
+shader_parameter/roll_distort = 0.03
+shader_parameter/warp_amount = 1.0
+shader_parameter/red_tint = 1.15
+shader_parameter/green_drop = 0.85
+shader_parameter/blue_drop = 0.8
+shader_parameter/brightness = 1.455
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025

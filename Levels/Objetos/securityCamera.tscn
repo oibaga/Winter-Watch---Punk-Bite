@@ -1,31 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://borbalae6skib"]
+[gd_scene load_steps=6 format=3 uid="uid://borbalae6skib"]
 
 [ext_resource type="Script" uid="uid://c1grxyjrw7eda" path="res://Scripts/Objetos/SecurityCamera.gd" id="1_ya3jk"]
-[ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="2_u4sff"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_juj6b"]
-shader = ExtResource("2_u4sff")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
+[ext_resource type="Material" uid="uid://bqep13dc6j8vx" path="res://Shaders/GlitchAnomaly/NORMALCameraShader.tres" id="2_ya3jk"]
 
 [sub_resource type="Animation" id="Animation_ya3jk"]
 resource_name = "Flash"
@@ -85,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ShaderColorRect" type="ColorRect" parent="Control"]
-material = SubResource("ShaderMaterial_juj6b")
+material = ExtResource("2_ya3jk")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

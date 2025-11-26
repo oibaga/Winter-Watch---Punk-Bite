@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://cmgd1r4swujfb"]
+[gd_scene load_steps=18 format=4 uid="uid://cmgd1r4swujfb"]
 
 [ext_resource type="Script" uid="uid://bniffhvsoy87t" path="res://Scripts/Salas/Room.gd" id="1_5b1u4"]
-[ext_resource type="Script" uid="uid://bt35c1jxeefo7" path="res://Scripts/Salas/VisualPresset.gd" id="2_nw1na"]
-[ext_resource type="Script" uid="uid://b4ytkmki4essk" path="res://Scripts/Salas/SoundPresset.gd" id="3_mwxe6"]
-[ext_resource type="Script" uid="uid://dtykjwphodps4" path="res://Scripts/Salas/GeigerPresset.gd" id="4_8gkh4"]
-[ext_resource type="Script" uid="uid://cqo01n7qjm3ey" path="res://Scripts/Salas/CopyPresset.gd" id="5_nyege"]
-[ext_resource type="Script" uid="uid://bkcp80e0ixi8h" path="res://Scripts/Salas/GlitchPresset.gd" id="6_odr41"]
-[ext_resource type="Script" uid="uid://bckhtsbm82wyu" path="res://Scripts/Salas/CreaturePresset.gd" id="7_fns34"]
+[ext_resource type="Script" uid="uid://dajcl4y37qk2m" path="res://Scripts/Anomaly/VisualAnomaly.gd" id="3_gndfu"]
+[ext_resource type="Script" uid="uid://bj5kh72aobmeb" path="res://Scripts/Anomaly/SoundAnomaly.gd" id="4_8gkh4"]
+[ext_resource type="Script" uid="uid://doyrtivkjgeqb" path="res://Scripts/Anomaly/CopyAnomaly.gd" id="5_nyege"]
+[ext_resource type="Script" uid="uid://bu0n4ybk1jui5" path="res://Scripts/Anomaly/GlitchAnomaly.gd" id="6_odr41"]
+[ext_resource type="Script" uid="uid://c66774wk1bib0" path="res://Scripts/Anomaly/CreatureAnomaly.gd" id="7_fns34"]
 [ext_resource type="PackedScene" uid="uid://borbalae6skib" path="res://Levels/Objetos/securityCamera.tscn" id="8_nw1na"]
 [ext_resource type="Script" uid="uid://it2i1bujof5f" path="res://Scripts/Objetos/geiger_support.gd" id="9_8gkh4"]
 [ext_resource type="Texture2D" uid="uid://ce3iqxwutg20l" path="res://Assets/Materiais/Texturas/GeigerSupport.png" id="9_mwxe6"]
@@ -97,29 +96,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uinuh")
 
-[node name="Room" type="Node" node_paths=PackedStringArray("camera", "geiger_support")]
+[node name="Room" type="Node" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer")]
 script = ExtResource("1_5b1u4")
 camera = NodePath("CAMERA")
 geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
 
 [node name="CAMERA" parent="." instance=ExtResource("8_nw1na")]
 
-[node name="VisualPresset" type="Node" parent="."]
-script = ExtResource("2_nw1na")
+[node name="VisualPresset" type="Node3D" parent="."]
+script = ExtResource("3_gndfu")
+type = 2
 
-[node name="SoundPresset" type="Node" parent="."]
-script = ExtResource("3_mwxe6")
-
-[node name="GeigerPresset" type="Node" parent="."]
+[node name="SoundPresset" type="Node3D" parent="."]
 script = ExtResource("4_8gkh4")
+type = 1
 
-[node name="CopyPresset" type="Node" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundPresset"]
+
+[node name="CopyPresset" type="Node3D" parent="."]
 script = ExtResource("5_nyege")
+type = 5
 
-[node name="GlitchPresset" type="Node" parent="."]
+[node name="GlitchPresset" type="Node3D" parent="."]
 script = ExtResource("6_odr41")
+type = 3
 
-[node name="CreaturePresset" type="Node" parent="."]
+[node name="CreaturePresset" type="Node3D" parent="."]
 script = ExtResource("7_fns34")
 
 [node name="GeigerSupport" type="Area3D" parent="." node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
@@ -149,3 +152,6 @@ billboard = 1
 no_depth_test = true
 text = "Pressione botão esquerdo"
 font = ExtResource("11_nyege")
+
+[node name="AnomalyTimer" type="Timer" parent="."]
+one_shot = true

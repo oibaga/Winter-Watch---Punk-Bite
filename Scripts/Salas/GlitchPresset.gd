@@ -1,1 +1,0 @@
-class_name GlitchPresset extends RoomPresset

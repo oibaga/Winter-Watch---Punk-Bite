@@ -78,6 +78,9 @@ func RightChoice(type : Anomaly.AnomalyTypes):
 	
 	if type == Anomaly.AnomalyTypes.GeigerType:
 		gameManager.geigerAnomaly.start()
+		return
+	
+	gameManager.ResolvedAnomaly( currentCamera.room.anomalyReference )
 
 func WrongChoice(type : Anomaly.AnomalyTypes):
 	lightsAnimationPlayer.play("WrongChoise")

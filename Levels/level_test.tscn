@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dxbo6h2bjofxy"]
+[gd_scene load_steps=47 format=3 uid="uid://dxbo6h2bjofxy"]
 
 [ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/M_floor.tres" id="1_7mba1"]
 [ext_resource type="PackedScene" uid="uid://c8oxys0qhv8p2" path="res://Player/Player.tscn" id="2_soq8b"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://3744hlicrup2" path="res://Levels/Objetos/MenuFechado.tscn" id="8_ku5x2"]
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="9_ddaal"]
 [ext_resource type="PackedScene" uid="uid://cmgd1r4swujfb" path="res://Levels/Salas/RoomPresset.tscn" id="9_gxk0f"]
+[ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="10_gxk0f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ddaal"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -90,6 +91,31 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxMesh" id="BoxMesh_stbmk"]
 size = Vector3(50, 1, 50)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w54qd"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
 [sub_resource type="Shader" id="Shader_ddaal"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -134,6 +160,31 @@ shader = SubResource("Shader_ddaal")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0slw"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_xlufh"]
 resource_local_to_scene = true
@@ -180,6 +231,31 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_465so"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
 [sub_resource type="Shader" id="Shader_w54qd"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -224,6 +300,31 @@ shader = SubResource("Shader_w54qd")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sdrm6"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_w0slw"]
 resource_local_to_scene = true
@@ -270,6 +371,31 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_on330"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
 [sub_resource type="Shader" id="Shader_465so"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -315,6 +441,31 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xsti"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
 [sub_resource type="Shader" id="Shader_sdrm6"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -359,6 +510,31 @@ shader = SubResource("Shader_sdrm6")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksc4g"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_on330"]
 resource_local_to_scene = true
@@ -478,7 +654,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6652117, 0, 3.3273604)
 [node name="Camera3D" parent="CameraRooms/Quarto/CAMERA" index="0"]
 transform = Transform3D(0.033954725, -0.5342196, 0.8446636, 0.021457823, 0.8453458, 0.5337885, -0.9991931, 0, 0.04016667, 12.402571, 3.8784294, -6.856232)
 
-[node name="GeigerSupport" parent="CameraRooms/Quarto" index="7"]
+[node name="ShaderColorRect" parent="CameraRooms/Quarto/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_w54qd")
+
+[node name="GeigerSupport" parent="CameraRooms/Quarto" index="6"]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, 7.609, 2.2, -7.492)
 
 [node name="Cubo_001" parent="CameraRooms/Quarto/GeigerSupport" index="1"]
@@ -489,7 +668,10 @@ material_overlay = SubResource("ShaderMaterial_gxk0f")
 [node name="Camera3D" parent="CameraRooms/Sala de Entrega/CAMERA" index="0"]
 transform = Transform3D(0.8446461, 0.2236036, -0.48638904, 0.017808028, 0.89634717, 0.44299504, 0.53502876, -0.3828357, 0.75311434, -6.6548986, 5.755131, 12.394001)
 
-[node name="GeigerSupport" parent="CameraRooms/Sala de Entrega" index="7"]
+[node name="ShaderColorRect" parent="CameraRooms/Sala de Entrega/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_w0slw")
+
+[node name="GeigerSupport" parent="CameraRooms/Sala de Entrega" index="6"]
 transform = Transform3D(-0.125, -1.0927847e-08, 4.7767137e-16, 0, -5.4639235e-09, -0.125, 1.0927847e-08, -0.125, 5.4639235e-09, -5.044, 2.2, 12.739)
 
 [node name="Cubo_001" parent="CameraRooms/Sala de Entrega/GeigerSupport" index="1"]
@@ -500,7 +682,10 @@ material_overlay = SubResource("ShaderMaterial_6ieip")
 [node name="Camera3D" parent="CameraRooms/Banheiro/CAMERA" index="0"]
 transform = Transform3D(0.73885536, 0, -0.67386395, 0, 1, 0, 0.67386395, 0, 0.73885536, 2.8943539, 0.8025757, -8.229074)
 
-[node name="GeigerSupport" parent="CameraRooms/Banheiro" index="7"]
+[node name="ShaderColorRect" parent="CameraRooms/Banheiro/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_465so")
+
+[node name="GeigerSupport" parent="CameraRooms/Banheiro" index="6"]
 transform = Transform3D(-5.4639235e-09, 0.125, -5.4639235e-09, 0, -5.4639235e-09, -0.125, -0.125, -5.4639235e-09, 2.3883568e-16, 2.756, 2.2, -8.694)
 
 [node name="Cubo_001" parent="CameraRooms/Banheiro/GeigerSupport" index="1"]
@@ -511,7 +696,10 @@ material_overlay = SubResource("ShaderMaterial_p5spi")
 [node name="Camera3D" parent="CameraRooms/Lado de Fora/CAMERA" index="0"]
 transform = Transform3D(-0.11023739, 0, 0.99390537, 0, 1, 0, -0.99390537, 0, -0.11023739, 15.198827, 3.8023617, 4.9745593)
 
-[node name="GeigerSupport" parent="CameraRooms/Lado de Fora" index="7"]
+[node name="ShaderColorRect" parent="CameraRooms/Lado de Fora/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_sdrm6")
+
+[node name="GeigerSupport" parent="CameraRooms/Lado de Fora" index="6"]
 transform = Transform3D(-5.4639235e-09, -0.125, 5.4639235e-09, 0, -5.4639235e-09, -0.125, 0.125, -5.4639235e-09, 2.3883568e-16, 1.946, 2.2, 5.565)
 
 [node name="Cubo_001" parent="CameraRooms/Lado de Fora/GeigerSupport" index="1"]
@@ -522,7 +710,10 @@ material_overlay = SubResource("ShaderMaterial_nxutr")
 [node name="Camera3D" parent="CameraRooms/Corredor/CAMERA" index="0"]
 transform = Transform3D(0.84404814, -0.29908848, 0.44511682, 0.021284537, 0.8480574, 0.5294769, -0.53584504, -0.43742982, 0.72216713, 1.8081291, 3.7254858, 4.096121)
 
-[node name="GeigerSupport" parent="CameraRooms/Corredor" index="7"]
+[node name="ShaderColorRect" parent="CameraRooms/Corredor/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_on330")
+
+[node name="GeigerSupport" parent="CameraRooms/Corredor" index="6"]
 transform = Transform3D(-5.4639235e-09, 0.125, -5.4639235e-09, 0, -5.4639235e-09, -0.125, -0.125, -5.4639235e-09, 2.3883568e-16, -0.663, 2.2, -0.699)
 
 [node name="Cubo_001" parent="CameraRooms/Corredor/GeigerSupport" index="1"]
@@ -533,7 +724,10 @@ material_overlay = SubResource("ShaderMaterial_tchvq")
 [node name="Camera3D" parent="CameraRooms/Escada/CAMERA" index="0"]
 transform = Transform3D(-0.9991931, 0, 0.040166628, 0, 1, 0, -0.040166628, 0, -0.9991931, 0.73834944, 1.9136982, -12.27939)
 
-[node name="GeigerSupport" parent="CameraRooms/Escada" index="7"]
+[node name="ShaderColorRect" parent="CameraRooms/Escada/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_6xsti")
+
+[node name="GeigerSupport" parent="CameraRooms/Escada" index="6"]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, 0.447, 2.2, -12.15)
 
 [node name="Cubo_001" parent="CameraRooms/Escada/GeigerSupport" index="1"]
@@ -544,7 +738,10 @@ material_overlay = SubResource("ShaderMaterial_ru4ou")
 [node name="Camera3D" parent="CameraRooms/Almoxarifado/CAMERA" index="0"]
 transform = Transform3D(0.9991931, 0, -0.04016671, 0.02172327, 0.8411334, 0.5403912, 0.033785563, -0.5408277, 0.8404546, -8.680545, 3.4765792, 4.02032)
 
-[node name="GeigerSupport" parent="CameraRooms/Almoxarifado" index="7"]
+[node name="ShaderColorRect" parent="CameraRooms/Almoxarifado/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_ksc4g")
+
+[node name="GeigerSupport" parent="CameraRooms/Almoxarifado" index="6"]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, -7.086, 2.2, -3.636)
 
 [node name="Cubo_001" parent="CameraRooms/Almoxarifado/GeigerSupport" index="1"]

@@ -51,15 +51,14 @@ func end_session():
 	# Toca o fade
 	if hud_anim:
 		hud_anim.play("fade_out")
+		await hud_anim.animation_finished
 
-	# Espera 2 segundos antes de permitir clicar
-	await get_tree().create_timer(2.0).timeout
 	can_continue = true
 
 func load_next_level():
 	print("Carregando próxima fase...")
 
-	get_tree().quit()
+	get_tree().call_deferred("quit")
 	# Trocar a cena aqui
 	# Exemplo:
 	# get_tree().change_scene_to_file("res://levels/fase02.tscn")
@@ -70,3 +69,8 @@ func SetRoomGeigerTarget():
 	geigerRoom.isGeigerRoom = true
 	
 	geigerMarker3D.global_position = geigerRoom.geiger_support.global_position
+
+func ResolvedAnomaly(resolved : Anomaly):
+	for i in range(anomaliesSlots.size()):
+		if anomaliesSlots[i] == resolved:
+			anomaliesSlots[i] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
