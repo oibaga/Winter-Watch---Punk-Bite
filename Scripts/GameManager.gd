@@ -7,6 +7,8 @@ class_name GameManager extends Node
 @export var end_label: Label
 @export var hud_anim: AnimationPlayer
 @export var geigerMarker3D : Marker3D
+@export var geigerAnomaly : Timer
+var geigerRoom : Room = null
 
 var session_started: bool = false
 var session_finished: bool = false
@@ -24,6 +26,7 @@ func start_session():
 	session_started = true
 	ui_label.visible = true
 	sessionTimer.start()
+	geigerAnomaly.start()
 
 func _process(_delta):
 	if session_started and not session_finished:
@@ -62,8 +65,8 @@ func load_next_level():
 	# get_tree().change_scene_to_file("res://levels/fase02.tscn")
 
 func SetRoomGeigerTarget():
-	var room := cameraRooms.get_children().pick_random() as Room
+	geigerRoom = cameraRooms.get_children().pick_random() as Room
 
-	room.isGeigerRoom = true
+	geigerRoom.isGeigerRoom = true
 	
-	geigerMarker3D.global_position = room.geiger_support.global_position
+	geigerMarker3D.global_position = geigerRoom.geiger_support.global_position

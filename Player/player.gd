@@ -10,7 +10,7 @@ class_name Player
 @export var animation_player : AnimationPlayer
 @export var SPEED = 3.0
 @export var RUN_MULTIPLIER = 1.75
-@export var itemInHand : Geiger
+@export var itemInHand : Node3D
 
 @export var geigerTarget : Marker3D
 

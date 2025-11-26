@@ -4,9 +4,10 @@ class_name PainelTV extends Node3D
 @export var viewports: Array[SecurityCamera]
 @export var cooldownTimer : Timer
 @export var lightsAnimationPlayer : AnimationPlayer
+@export var gameManager : GameManager
 
 var canChose : bool = true
-@onready var geiger_proximity_sprite_3d: Sprite3D = $menuBotoes/GeigerProximitySprite3D
+@export var geiger_proximity_sprite_3d: GeigerTV
 
 var indice_camera: int = -1
 var ligado: bool = false
@@ -19,6 +20,10 @@ func _ready():
 
 	desligar_tv()
 	#ligar_tv()
+	
+func _process(delta: float) -> void:
+	if !gameManager.geigerAnomaly.is_stopped():
+		geiger_proximity_sprite_3d.proximity = gameManager.geigerAnomaly.time_left
 
 func desligar_tv():
 	ligado = false
@@ -56,19 +61,23 @@ func ChoseAnomalyType(type : Anomaly.AnomalyTypes):
 
 	currentCamera.animationPlayer.play("Flash")
 	
-	if currentCamera.room.anomalyReference:
+	if type == Anomaly.AnomalyTypes.GeigerType && currentCamera.room.isGeigerRoom:
+		RightChoice(type)
+	elif currentCamera.room.anomalyReference:
 		if currentCamera.room.anomalyReference.type == type:
-			RightChoice()
+			RightChoice(type)
 		else:
-			WrongChoice()
+			WrongChoice(type)
 	else:
-		WrongChoice()
+		WrongChoice(type)
 
-func RightChoice():
+func RightChoice(type : Anomaly.AnomalyTypes):
 	lightsAnimationPlayer.play("RightChoise")
-	# DEVE FINALIZAR A ANOMALIA
+	
+	if type == Anomaly.AnomalyTypes.GeigerType:
+		gameManager.geigerAnomaly.start()
 
-func WrongChoice():
+func WrongChoice(type : Anomaly.AnomalyTypes):
 	lightsAnimationPlayer.play("WrongChoise")
 
 func _on_cooldown_timer_timeout() -> void:

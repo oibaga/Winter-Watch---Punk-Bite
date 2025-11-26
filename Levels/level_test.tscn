@@ -441,11 +441,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26871395, 0.54112124, -3.9
 transform = Transform3D(-0.65435827, 0, 0.75618476, 0, 1, 0, -0.75618476, 0, -0.65435827, -9.462622, 2.0298364, -10.071876)
 geigerTarget = NodePath("../GeigerTargetMarker3D")
 
-[node name="PainelTV" parent="." node_paths=PackedStringArray("viewports") instance=ExtResource("7_q8e8m")]
+[node name="PainelTV" parent="." node_paths=PackedStringArray("viewports", "gameManager") instance=ExtResource("7_q8e8m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2044115, 0.5306486, -8.768848)
 viewports = [NodePath("../CameraRooms/Quarto/CAMERA"), NodePath("../CameraRooms/Sala de Entrega/CAMERA"), NodePath("../CameraRooms/Banheiro/CAMERA"), NodePath("../CameraRooms/Lado de Fora/CAMERA"), NodePath("../CameraRooms/Corredor/CAMERA"), NodePath("../CameraRooms/Escada/CAMERA"), NodePath("../CameraRooms/Almoxarifado/CAMERA")]
+gameManager = NodePath("../GameManager")
 
-[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("cameraRooms", "sessionTimer", "ui_label", "fade_rect", "end_label", "hud_anim", "geigerMarker3D") groups=["game_manager"]]
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("cameraRooms", "sessionTimer", "ui_label", "fade_rect", "end_label", "hud_anim", "geigerMarker3D", "geigerAnomaly") groups=["game_manager"]]
 script = ExtResource("6_ddaal")
 cameraRooms = NodePath("../CameraRooms")
 sessionTimer = NodePath("SessionTimer")
@@ -454,6 +455,7 @@ fade_rect = NodePath("../HUD/UIRoot/ColorRect")
 end_label = NodePath("../HUD/UIRoot/EndLabel")
 hud_anim = NodePath("../HUD/UIRoot/EndAnimation")
 geigerMarker3D = NodePath("../GeigerTargetMarker3D")
+geigerAnomaly = NodePath("../GeigerAnomaly")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameManager"]
 
@@ -547,6 +549,10 @@ transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.463
 
 [node name="Cubo_001" parent="CameraRooms/Almoxarifado/GeigerSupport" index="1"]
 material_overlay = SubResource("ShaderMaterial_7jr78")
+
+[node name="GeigerAnomaly" type="Timer" parent="."]
+wait_time = 40.0
+one_shot = true
 
 [connection signal="timeout" from="GameManager/SessionTimer" to="GameManager" method="_on_session_timer_timeout"]
 

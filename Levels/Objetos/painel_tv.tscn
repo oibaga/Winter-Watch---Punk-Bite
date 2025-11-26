@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=4 uid="uid://pjwqtnt478rv"]
+[gd_scene load_steps=35 format=4 uid="uid://pjwqtnt478rv"]
 
 [ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://Scripts/Objetos/painel_tv.gd" id="1_ilmlx"]
 [ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Scripts/Objetos/Button.gd" id="2_1c306"]
 [ext_resource type="PackedScene" uid="uid://bygwaur7oel4b" path="res://Assets/Props/mesaWinterWhatch.fbx" id="2_43w5f"]
+[ext_resource type="Script" uid="uid://34xqs3plc8u7" path="res://Scripts/Objetos/geiger_tv.gd" id="5_1a4mr"]
 [ext_resource type="PackedScene" uid="uid://1o286ac0iu1n" path="res://Levels/Objetos/menu_botoes.tscn" id="7_7ckeq"]
 [ext_resource type="Texture2D" uid="uid://co354mlod5uxv" path="res://Assets/Props/Mouse_0.png" id="7_w6drv"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="9_1a4mr"]
@@ -425,11 +426,12 @@ shadow_mesh = SubResource("ArrayMesh_33r0i")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c306"]
 
-[node name="PainelTV" type="Node3D" node_paths=PackedStringArray("tela", "cooldownTimer", "lightsAnimationPlayer")]
+[node name="PainelTV" type="Node3D" node_paths=PackedStringArray("tela", "cooldownTimer", "lightsAnimationPlayer", "geiger_proximity_sprite_3d")]
 script = ExtResource("1_ilmlx")
 tela = NodePath("mesaWinterWhatch2/Monitor/Monitor")
 cooldownTimer = NodePath("menuBotoes/CooldownTimer")
 lightsAnimationPlayer = NodePath("menuBotoes/LightsAnimationPlayer")
+geiger_proximity_sprite_3d = NodePath("menuBotoes/GeigerProximitySprite3D")
 
 [node name="mesaWinterWhatch2" parent="." instance=ExtResource("2_43w5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5486975, 0, 0.21570683)
@@ -502,6 +504,7 @@ autoplay = "ResetChoise"
 [node name="GeigerProximitySprite3D" parent="menuBotoes" index="10"]
 visible = false
 material_override = SubResource("ShaderMaterial_1a4mr")
+script = ExtResource("5_1a4mr")
 
 [node name="CooldownTimer" type="Timer" parent="menuBotoes"]
 wait_time = 5.0
