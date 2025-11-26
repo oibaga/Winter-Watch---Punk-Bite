@@ -19,8 +19,10 @@ func _ready():
 	await get_tree().process_frame
 
 	desligar_tv()
+
+	geiger_proximity_sprite_3d.geigerMaxTimer = gameManager.geigerAnomaly.wait_time
 	#ligar_tv()
-	
+
 func _process(delta: float) -> void:
 	if !gameManager.geigerAnomaly.is_stopped():
 		geiger_proximity_sprite_3d.proximity = gameManager.geigerAnomaly.time_left

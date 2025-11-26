@@ -1,11 +1,13 @@
 class_name GeigerTV extends Sprite3D
 
+var geigerMaxTimer : float = 10
+
 var wave_shader : ShaderMaterial = null
 
 var proximity : float = 100:
 	set(value):
-		value = clampf(value, 0, 40)
-		proximity = remap(value, 0, 40, 100, 0)
+		value = clampf(value, 0, geigerMaxTimer)
+		proximity = remap(value, 0, geigerMaxTimer, 100, 0)
 		UpdateDistanceValues()
 
 func _ready() -> void:
@@ -16,7 +18,7 @@ func _ready() -> void:
 
 func UpdateDistanceValues():
 	if !wave_shader: return
-	
+
 	var t = proximity / 100.0  # 0.0 → 1.0
 
 	wave_shader.set_shader_parameter("wave_amplitude", lerp(0.0, 0.355, t ))

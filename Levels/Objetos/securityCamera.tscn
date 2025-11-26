@@ -29,6 +29,7 @@ shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Animation" id="Animation_ya3jk"]
 resource_name = "Flash"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,7 +37,7 @@ tracks/0/path = NodePath("Camera3D/OmniLight3D:light_energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [16.0, 0.0]
@@ -54,7 +55,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [16.0]
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_igysp"]
@@ -72,8 +73,7 @@ animationPlayer = NodePath("AnimationPlayer")
 transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, 0.46876192)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
-visible = false
-light_energy = 16.0
+light_energy = 0.0
 light_specular = 1.5
 
 [node name="Control" type="Control" parent="."]
@@ -97,3 +97,4 @@ grow_vertical = 2
 libraries = {
 &"": SubResource("AnimationLibrary_igysp")
 }
+autoplay = "RESET"
