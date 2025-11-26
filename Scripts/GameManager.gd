@@ -14,7 +14,7 @@ var session_started: bool = false
 var session_finished: bool = false
 var can_continue: bool = false
 
-var anomaliesSlots : Array[Anomaly]
+var anomaliesSlots : Array[Anomaly] = [null, null, null]
 
 func _ready() -> void:
 	SetRoomGeigerTarget()
@@ -27,6 +27,9 @@ func start_session():
 	ui_label.visible = true
 	sessionTimer.start()
 	geigerAnomaly.start()
+	
+	for i in range( anomaliesSlots.size() ):
+		SpawnAnomaly(i)
 
 func _process(_delta):
 	if session_started and not session_finished:
@@ -73,5 +76,9 @@ func SetRoomGeigerTarget():
 func ResolvedAnomaly(resolved : Anomaly):
 	for i in range(anomaliesSlots.size()):
 		if anomaliesSlots[i] == resolved:
-			anomaliesSlots[i] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
+			SpawnAnomaly(i)
 			return
+
+func SpawnAnomaly(arrayPos : int):
+	anomaliesSlots[arrayPos] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
+	print("Slot ", arrayPos, ": ", anomaliesSlots[arrayPos].type)

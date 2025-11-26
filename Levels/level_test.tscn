@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dxbo6h2bjofxy"]
+[gd_scene load_steps=50 format=3 uid="uid://dxbo6h2bjofxy"]
 
 [ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/M_floor.tres" id="1_7mba1"]
 [ext_resource type="Material" uid="uid://d4kduq14l2p4a" path="res://Shaders/SkyShaders/Sun.tres" id="1_xlufh"]
@@ -11,10 +11,15 @@
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="9_ddaal"]
 [ext_resource type="PackedScene" uid="uid://cmgd1r4swujfb" path="res://Levels/Salas/RoomPresset.tscn" id="9_gxk0f"]
 [ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="10_gxk0f"]
+[ext_resource type="Texture2D" uid="uid://c7odsu0g2dp1d" path="res://Assets/Anomalias/Chifrudo no quarto.png" id="12_465so"]
+[ext_resource type="AudioStream" uid="uid://uuh4cg85qjvk" path="res://Assets/Anomalias/Sounds/TelefoneAnomalia.wav" id="12_ru4ou"]
 [ext_resource type="Texture2D" uid="uid://dmron5t681swb" path="res://Assets/Anomalias/Chifrudo Lado de fora.png" id="12_w0slw"]
 [ext_resource type="PackedScene" uid="uid://bswn0egsjdojt" path="res://Assets/Anomalias/PoçoAnomalia.fbx" id="13_nxutr"]
+[ext_resource type="Texture2D" uid="uid://iqn4nra7vklk" path="res://Assets/Anomalias/Mão do chifrudo no quarto.png" id="13_tchvq"]
 [ext_resource type="Texture2D" uid="uid://x6m6x0trj0hy" path="res://Assets/Anomalias/Homem de chapeu No banheiro.png" id="14_465so"]
 [ext_resource type="Texture2D" uid="uid://cjp1y4mapfang" path="res://Assets/Anomalias/Homem do chapeu no Corredor.png" id="15_tchvq"]
+[ext_resource type="AudioStream" uid="uid://bciqhh8xgf772" path="res://Assets/Anomalias/Sounds/Batendo na Porta.wav" id="16_on330"]
+[ext_resource type="AudioStream" uid="uid://7wxccmdqc2xg" path="res://Assets/Anomalias/Sounds/Sirene.wav" id="20_7jr78"]
 
 [sub_resource type="Sky" id="Sky_6ieip"]
 sky_material = ExtResource("1_xlufh")
@@ -94,31 +99,6 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxMesh" id="BoxMesh_stbmk"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w54qd"]
-resource_local_to_scene = true
-shader = ExtResource("10_gxk0f")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.0
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.150000007125
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
-
 [sub_resource type="Shader" id="Shader_ddaal"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -163,31 +143,6 @@ shader = SubResource("Shader_ddaal")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0slw"]
-resource_local_to_scene = true
-shader = ExtResource("10_gxk0f")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_xlufh"]
 resource_local_to_scene = true
@@ -304,31 +259,6 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sdrm6"]
-resource_local_to_scene = true
-shader = ExtResource("10_gxk0f")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
-
 [sub_resource type="Shader" id="Shader_w0slw"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -373,31 +303,6 @@ shader = SubResource("Shader_w0slw")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_on330"]
-resource_local_to_scene = true
-shader = ExtResource("10_gxk0f")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_465so"]
 resource_local_to_scene = true
@@ -444,31 +349,6 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xsti"]
-resource_local_to_scene = true
-shader = ExtResource("10_gxk0f")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
-
 [sub_resource type="Shader" id="Shader_sdrm6"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -513,31 +393,6 @@ shader = SubResource("Shader_sdrm6")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksc4g"]
-resource_local_to_scene = true
-shader = ExtResource("10_gxk0f")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_on330"]
 resource_local_to_scene = true
@@ -590,7 +445,7 @@ shader_parameter/outline_width = 4.0
 environment = SubResource("Environment_w54qd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.23842089, -0.20695738, 0.94885445, 0.56704366, 0.7635249, 0.30901706, -0.7884272, 0.61171776, -0.064686395, 0, 0, 0)
+transform = Transform3D(0.5735764, 0.22441421, -0.78781253, 0, 0.96174115, 0.27395925, 0.819152, -0.15713653, 0.5516322, 0, 0, 0)
 shadow_enabled = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -663,15 +518,20 @@ creature_anomaly = NodePath("CreaturePresset")
 [node name="Camera3D" parent="CameraRooms/Quarto/CAMERA" index="0"]
 transform = Transform3D(0.033954725, -0.5342196, 0.8446636, 0.021457823, 0.8453458, 0.5337885, -0.9991931, 0, 0.04016667, 12.402571, 3.8784294, -6.856232)
 
-[node name="ShaderColorRect" parent="CameraRooms/Quarto/CAMERA/Control" index="0"]
-material = SubResource("ShaderMaterial_w54qd")
+[node name="SoundPresset" parent="CameraRooms/Quarto" index="2"]
+audios = Array[AudioStream]([ExtResource("12_ru4ou")])
 
 [node name="CreaturePresset" parent="CameraRooms/Quarto" index="5" node_paths=PackedStringArray("anomalies")]
 anomalies = [NodePath("Sprite3D")]
 
 [node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Quarto/CreaturePresset" index="0"]
-transform = Transform3D(-2.6008276e-08, 0, 0.595, 0, 0.595, 0, -0.595, 0, -2.6008276e-08, 1.8140872, 1.8291023, -6.6747994)
-texture = ExtResource("12_w0slw")
+transform = Transform3D(-2.6008276e-08, 0, 0.595, 0, 0.595, 0, -0.595, 0, -2.6008276e-08, 1.814, 2.014, -5.89)
+visible = false
+texture = ExtResource("12_465so")
+
+[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Quarto/CreaturePresset/Sprite3D"]
+transform = Transform3D(1.34, 0, 0, 0, 1.34, 0, 0, 0, 1.34, 1.176, 1.237, 1.55)
+texture = ExtResource("13_tchvq")
 
 [node name="GeigerSupport" parent="CameraRooms/Quarto" index="6"]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, 7.609, 2.2, -7.492)
@@ -686,14 +546,15 @@ sound_anomaly = NodePath("SoundPresset")
 [node name="Camera3D" parent="CameraRooms/Sala de Entrega/CAMERA" index="0"]
 transform = Transform3D(0.8446461, 0.2236036, -0.48638904, 0.017808028, 0.89634717, 0.44299504, 0.53502876, -0.3828357, 0.75311434, -6.6548986, 5.755131, 12.394001)
 
-[node name="ShaderColorRect" parent="CameraRooms/Sala de Entrega/CAMERA/Control" index="0"]
-material = SubResource("ShaderMaterial_w0slw")
-
 [node name="VisualPresset" parent="CameraRooms/Sala de Entrega" index="1" node_paths=PackedStringArray("anomalies")]
 anomalies = [NodePath("PoçoAnomalia")]
 
 [node name="PoçoAnomalia" parent="CameraRooms/Sala de Entrega/VisualPresset" index="0" instance=ExtResource("13_nxutr")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -5.856152, 0.31666386, 8.452118)
+visible = false
+
+[node name="SoundPresset" parent="CameraRooms/Sala de Entrega" index="2"]
+audios = Array[AudioStream]([ExtResource("16_on330")])
 
 [node name="GeigerSupport" parent="CameraRooms/Sala de Entrega" index="6"]
 transform = Transform3D(-0.125, -1.0927847e-08, 4.7767137e-16, 0, -5.4639235e-09, -0.125, 1.0927847e-08, -0.125, 5.4639235e-09, -5.044, 2.2, 12.739)
@@ -711,11 +572,15 @@ transform = Transform3D(0.73885536, 0, -0.67386395, 0, 1, 0, 0.67386395, 0, 0.73
 [node name="ShaderColorRect" parent="CameraRooms/Banheiro/CAMERA/Control" index="0"]
 material = SubResource("ShaderMaterial_465so")
 
+[node name="SoundPresset" parent="CameraRooms/Banheiro" index="2"]
+audios = Array[AudioStream]([ExtResource("16_on330")])
+
 [node name="CreaturePresset" parent="CameraRooms/Banheiro" index="5" node_paths=PackedStringArray("anomalies")]
 anomalies = [NodePath("Sprite3D")]
 
 [node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Banheiro/CreaturePresset" index="0"]
 transform = Transform3D(-0.6630201, 0.059710033, 0.59821737, 0, 0.8905747, -0.08889117, -0.60119, -0.06585099, -0.65974176, 3.925, -0.288, -9.218)
+visible = false
 no_depth_test = true
 texture = ExtResource("14_465so")
 
@@ -732,8 +597,9 @@ creature_anomaly = NodePath("CreaturePresset")
 [node name="Camera3D" parent="CameraRooms/Lado de Fora/CAMERA" index="0"]
 transform = Transform3D(-0.11023739, 0, 0.99390537, 0, 1, 0, -0.99390537, 0, -0.11023739, 15.198827, 3.8023617, 4.9745593)
 
-[node name="ShaderColorRect" parent="CameraRooms/Lado de Fora/CAMERA/Control" index="0"]
-material = SubResource("ShaderMaterial_sdrm6")
+[node name="VisualPresset" parent="CameraRooms/Lado de Fora" index="1" node_paths=PackedStringArray("anomalies", "world_environment")]
+anomalies = [NodePath("SunChanger")]
+world_environment = NodePath("../../../WorldEnvironment")
 
 [node name="SunChanger" type="Node3D" parent="CameraRooms/Lado de Fora/VisualPresset" index="0" groups=["SunChanger"]]
 
@@ -742,6 +608,7 @@ anomalies = [NodePath("Sprite3D")]
 
 [node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Lado de Fora/CreaturePresset" index="0"]
 transform = Transform3D(-2.6008276e-08, 0, 0.595, 0, 0.595, 0, -0.595, 0, -2.6008276e-08, 7.0162754, 1.8291023, 6.2235045)
+visible = false
 texture = ExtResource("12_w0slw")
 
 [node name="GeigerSupport" parent="CameraRooms/Lado de Fora" index="6"]
@@ -757,14 +624,12 @@ creature_anomaly = NodePath("CreaturePresset")
 [node name="Camera3D" parent="CameraRooms/Corredor/CAMERA" index="0"]
 transform = Transform3D(0.84404814, -0.29908848, 0.44511682, 0.021284537, 0.8480574, 0.5294769, -0.53584504, -0.43742982, 0.72216713, 1.8081291, 3.7254858, 4.096121)
 
-[node name="ShaderColorRect" parent="CameraRooms/Corredor/CAMERA/Control" index="0"]
-material = SubResource("ShaderMaterial_on330")
-
 [node name="CreaturePresset" parent="CameraRooms/Corredor" index="5" node_paths=PackedStringArray("anomalies")]
 anomalies = [NodePath("Sprite3D")]
 
 [node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Corredor/CreaturePresset" index="0"]
 transform = Transform3D(-0.67892337, 0, -0.19995052, 0, 0.67948663, 0, 0.13566224, 0, -1.0006549, 0.7679868, 2.0996027, -3.650732)
+visible = false
 texture = ExtResource("15_tchvq")
 
 [node name="GeigerSupport" parent="CameraRooms/Corredor" index="6"]
@@ -780,8 +645,8 @@ sound_anomaly = NodePath("SoundPresset")
 [node name="Camera3D" parent="CameraRooms/Escada/CAMERA" index="0"]
 transform = Transform3D(-0.9991931, 0, 0.040166628, 0, 1, 0, -0.040166628, 0, -0.9991931, 0.73834944, 1.9136982, -12.27939)
 
-[node name="ShaderColorRect" parent="CameraRooms/Escada/CAMERA/Control" index="0"]
-material = SubResource("ShaderMaterial_6xsti")
+[node name="SoundPresset" parent="CameraRooms/Escada" index="2"]
+audios = Array[AudioStream]([ExtResource("12_ru4ou")])
 
 [node name="GeigerSupport" parent="CameraRooms/Escada" index="6"]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, 0.447, 2.2, -12.15)
@@ -796,14 +661,15 @@ creature_anomaly = NodePath("CreaturePresset")
 [node name="Camera3D" parent="CameraRooms/Almoxarifado/CAMERA" index="0"]
 transform = Transform3D(0.9991931, 0, -0.04016671, 0.02172327, 0.8411334, 0.5403912, 0.033785563, -0.5408277, 0.8404546, -8.680545, 3.4765792, 4.02032)
 
-[node name="ShaderColorRect" parent="CameraRooms/Almoxarifado/CAMERA/Control" index="0"]
-material = SubResource("ShaderMaterial_ksc4g")
+[node name="SoundPresset" parent="CameraRooms/Almoxarifado" index="2"]
+audios = Array[AudioStream]([ExtResource("20_7jr78")])
 
 [node name="CreaturePresset" parent="CameraRooms/Almoxarifado" index="5" node_paths=PackedStringArray("anomalies")]
 anomalies = [NodePath("Sprite3D2")]
 
 [node name="Sprite3D2" type="Sprite3D" parent="CameraRooms/Almoxarifado/CreaturePresset" index="0"]
 transform = Transform3D(-0.52486545, 0, -0.28025213, 0, 0.595, 0, 0.28025213, 0, -0.52486545, -13.286, 1.954, -1.875)
+visible = false
 texture = ExtResource("12_w0slw")
 
 [node name="GeigerSupport" parent="CameraRooms/Almoxarifado" index="6"]

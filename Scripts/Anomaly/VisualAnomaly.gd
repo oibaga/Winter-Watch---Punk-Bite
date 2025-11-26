@@ -12,11 +12,13 @@ func _ready() -> void:
 
 func SpawnAnomaly():
 	super.SpawnAnomaly()
-	
+
 	currentAnomaly = anomalies.pick_random()
-	
-	if currentAnomaly.is_in_group("SunChanger"):
-		world_environment.sky.material = SUN_EYED
+
+	if world_environment:
+		if world_environment.sky:
+			if currentAnomaly.is_in_group("SunChanger"):
+				world_environment.sky.material = SUN_EYED
 	else: currentAnomaly.visible = true
 
 func ResolveAnomaly():
