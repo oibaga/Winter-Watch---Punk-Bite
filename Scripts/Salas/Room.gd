@@ -39,8 +39,6 @@ func SpawnRandomAnomaly() -> Anomaly:
 	return anomalyReference
 
 func AnomalyResolved():
-	anomalyReference.ResolveAnomaly()
-	
 	await get_tree().create_timer(anomalySpawnCooldown).timeout
 	
 	gameManager.ResolvedAnomaly( anomalyReference )

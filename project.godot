@@ -25,6 +25,10 @@ window/size/viewport_height=540
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[global_group]
+
+SunChanger=""
+
 [input]
 
 forward={

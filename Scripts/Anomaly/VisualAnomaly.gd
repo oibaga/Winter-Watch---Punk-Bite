@@ -2,20 +2,28 @@ extends Anomaly
 
 @export var anomalies : Array[Node3D]
 var currentAnomaly : Node3D
+const SUN = preload("res://Shaders/SkyShaders/Sun.tres")
+const SUN_EYED = preload("res://Shaders/SkyShaders/SunEyed.tres")
+@export var world_environment: WorldEnvironment
 
 func _ready() -> void:
 	for anomaly in anomalies:
-		anomaly.look_at(room.camera.camera_3d.global_position)
+		anomaly.visible = false
 
 func SpawnAnomaly():
 	super.SpawnAnomaly()
+	
 	currentAnomaly = anomalies.pick_random()
-	currentAnomaly.visible = true
+	
+	if currentAnomaly.is_in_group("SunChanger"):
+		world_environment.sky.material = SUN_EYED
+	else: currentAnomaly.visible = true
 
 func ResolveAnomaly():
 	super.ResolveAnomaly()
 
-	room.AnomalyResolved()
+	if currentAnomaly.is_in_group("SunChanger"):
+		world_environment.sky.material = SUN
+	else: currentAnomaly.visible = false
 
-	currentAnomaly.visible = false
 	currentAnomaly = null

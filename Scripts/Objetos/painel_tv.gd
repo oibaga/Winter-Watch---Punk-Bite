@@ -46,6 +46,9 @@ func trocar_camera():
 	if indice_camera >= viewports.size():
 		indice_camera = 0
 
+	if currentCamera.room.anomalyReference is SoundAnomaly:
+		currentCamera.room.anomalyReference.audioPlayer.playing = false
+
 	currentCamera = viewports[indice_camera]
 
 	atualizar_tela()
@@ -55,6 +58,9 @@ func atualizar_tela():
 		tela.texture = currentCamera.get_texture()
 
 		geiger_proximity_sprite_3d.visible = currentCamera.room.isGeigerRoom
+
+		if currentCamera.room.anomalyReference is SoundAnomaly:
+			currentCamera.room.anomalyReference.audioPlayer.playing = true
 
 func ChoseAnomalyType(type : Anomaly.AnomalyTypes):
 	canChose = false
@@ -80,7 +86,7 @@ func RightChoice(type : Anomaly.AnomalyTypes):
 		gameManager.geigerAnomaly.start()
 		return
 	
-	gameManager.ResolvedAnomaly( currentCamera.room.anomalyReference )
+	currentCamera.room.anomalyReference.ResolveAnomaly()
 
 func WrongChoice(type : Anomaly.AnomalyTypes):
 	lightsAnimationPlayer.play("WrongChoise")

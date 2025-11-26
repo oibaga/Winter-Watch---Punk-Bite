@@ -1,4 +1,4 @@
-extends Anomaly
+class_name SoundAnomaly extends Anomaly
 
 @export var audios : Array[AudioStream]
 @onready var audioPlayer: AudioStreamPlayer2D = $AudioStreamPlayer2D

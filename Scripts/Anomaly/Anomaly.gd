@@ -14,4 +14,6 @@ func SpawnAnomaly():
 	lifeTimer.start( duration )
 
 func ResolveAnomaly():
+	room.AnomalyResolved()
+	
 	lifeTimer.stop()

@@ -67,10 +67,11 @@ func SetRoomGeigerTarget():
 	geigerRoom = cameraRooms.get_children().pick_random() as Room
 
 	geigerRoom.isGeigerRoom = true
-	
+
 	geigerMarker3D.global_position = geigerRoom.geiger_support.global_position
 
 func ResolvedAnomaly(resolved : Anomaly):
 	for i in range(anomaliesSlots.size()):
 		if anomaliesSlots[i] == resolved:
 			anomaliesSlots[i] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
+			return

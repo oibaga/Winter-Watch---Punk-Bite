@@ -3,6 +3,10 @@ extends Anomaly
 @export var anomalies : Array[Node3D]
 var currentAnomaly : Node3D
 
+func _ready() -> void:
+	for anomaly in anomalies:
+		anomaly.visible = false
+
 func SpawnAnomaly():
 	super.SpawnAnomaly()
 

@@ -1,0 +1,42 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://bi10nwini28c7"]
+
+[ext_resource type="Shader" uid="uid://bni2e5u3631wu" path="res://Shaders/SkyShader.gdshader" id="1_dhk2t"]
+[ext_resource type="Texture2D" uid="uid://4l5xmita0xj5" path="res://Assets/Materiais/SunEyed.png" id="2_km8y1"]
+
+[sub_resource type="Curve" id="Curve_c4lok"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.11044775, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.78675574), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0c0mp"]
+curve = SubResource("Curve_c4lok")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hyoyc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_72abs"]
+noise = SubResource("FastNoiseLite_hyoyc")
+seamless = true
+
+[resource]
+shader = ExtResource("1_dhk2t")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_72abs")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_72abs")
+shader_parameter/cloud_curves = SubResource("CurveTexture_0c0mp")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.40000000596048
+shader_parameter/clouds_scale = 0.5
+shader_parameter/clouds_smoothness = 0.0999999977648
+shader_parameter/clouds_light_color = Color(0.7162962, 0.7162962, 0.7162962, 1)
+shader_parameter/clouds_shadow_intensity = 0.90000001341108
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_72abs")
+shader_parameter/high_clouds_density = 1.0
+shader_parameter/top_color = Color(0.29954746, 0.29954746, 0.29954743, 1)
+shader_parameter/bottom_color = Color(0, 0, 0, 1)
+shader_parameter/sun_scatter = Color(1, 1, 1, 1)
+shader_parameter/astro_tint = Color(1, 1, 0.7921569, 1)
+shader_parameter/astro_sampler = ExtResource("2_km8y1")
+shader_parameter/astro_scale = 0.70000001043084
+shader_parameter/astro_intensity = 1.5000000074506
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
