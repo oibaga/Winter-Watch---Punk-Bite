@@ -11,8 +11,11 @@ uniform float right_falloff = 1.0;
 uniform float thickness = 0.1;
 uniform vec3 tint : source_color = vec3(0, 0, 0);
 
+uniform float pixel_size = 128.0;
+
 void fragment() {
-    vec2 uv = UV;
+    // Pixelar UV
+    vec2 uv = floor(UV * pixel_size) / pixel_size;
 
     float dist_left = clamp(0.5 - uv.x, 0.0, 0.5) * 2.0;
     float dist_right = clamp(uv.x - 0.5, 0.0, 0.5) * 2.0;
@@ -27,7 +30,8 @@ void fragment() {
 
     float dist = abs(uv.y - y);
 
-    float alpha = smoothstep(thickness, 0.0, dist);
+    // Borda dura (sem blur)
+    float alpha = dist < thickness ? 1.0 : 0.0;
 
     ALBEDO = tint * alpha;
     ALPHA = alpha;

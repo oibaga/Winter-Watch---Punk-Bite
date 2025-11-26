@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://borbalae6skib"]
+
+[ext_resource type="Script" uid="uid://c1grxyjrw7eda" path="res://Scripts/Objetos/SecurityCamera.gd" id="1_ya3jk"]
+[ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="2_u4sff"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_juj6b"]
+shader = ExtResource("2_u4sff")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2970000141075
+shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Animation" id="Animation_ya3jk"]
+resource_name = "Flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [16.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_u4sff"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/OmniLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_igysp"]
+_data = {
+&"Flash": SubResource("Animation_ya3jk"),
+&"RESET": SubResource("Animation_u4sff")
+}
+
+[node name="CAM1" type="SubViewport" node_paths=PackedStringArray("animationPlayer")]
+size = Vector2i(960, 540)
+script = ExtResource("1_ya3jk")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, 0.46876192)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
+visible = false
+light_energy = 16.0
+light_specular = 1.5
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShaderColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_juj6b")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_igysp")
+}

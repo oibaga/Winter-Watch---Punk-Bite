@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://4yh2p0gqosir" path="res://Scripts/GameManager.gd" id="1_503uo"]
 
-[node name="GameManager" type="Node3D"]
+[node name="GameManager" type="Node3D" node_paths=PackedStringArray("sessionTimer", "hud_anim")]
 script = ExtResource("1_503uo")
+sessionTimer = NodePath("SessionTimer")
+hud_anim = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

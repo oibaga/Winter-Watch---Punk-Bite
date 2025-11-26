@@ -12,6 +12,8 @@ class_name Player
 @export var RUN_MULTIPLIER = 1.75
 @export var itemInHand : Geiger
 
+@export var geigerTarget : Marker3D
+
 var sitting_on_node : Cadeira = null
 var sitting_base_yaw: float = 0.0
 
@@ -26,7 +28,6 @@ var gm : GameManager = null
 var is_running : bool = false
 
 func _ready():
-	print(self.global_position.distance_to($"../Marker3D".global_position))
 	gm = get_tree().get_first_node_in_group("game_manager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inspection_color_rect.visible = false
@@ -103,15 +104,17 @@ func sit_down(chair_node : Cadeira):
 	chair_node.disable_collision()
 
 	sitting_on_node = chair_node
-	
+
 	global_position = chair_node.SitPoint.global_position
 	rotation = chair_node.SitPoint.rotation
-	
+
 	head.rotation = Vector3.ZERO
 	sitting_base_yaw = rotation.y 
-	
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
+	if itemInHand: itemInHand.visible = false
+
 	if gm: gm.start_session()
 
 func AtualizaObjetoAtual() -> ObjetoInteragivel:
@@ -123,26 +126,27 @@ func AtualizaObjetoAtual() -> ObjetoInteragivel:
 		if obj != atual_objeto:
 			limpar_hints()
 			atual_objeto = obj
-	
+
 	return obj
 
 func InspecionarObjeto(obj : ObjetoInspecionavel):
 	obj.global_transform = inspection_marker.global_transform
-	
+
 	itemInHand.visible = false
-	
+
 	inspection_color_rect.visible = true
-	
+
 	obj.StartInspection(self)
-	
+
 func StopInspection():
 	objeto_inspecionado.StopInspection()
-	
+
 	objeto_inspecionado = null
-	
+
 	inspection_color_rect.visible = false
-	
+
 	itemInHand.visible = true
 
 func check_distance():
-	itemInHand.distance = global_position.distance_to($"../Marker3D".global_position)
+	if itemInHand is Geiger:
+		itemInHand.proximity = global_position.distance_to(geigerTarget.global_position)

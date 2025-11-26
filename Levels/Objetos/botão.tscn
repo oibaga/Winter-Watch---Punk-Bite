@@ -95,7 +95,7 @@ mesh_with_outline = NodePath("Botão")
 hint_label = NodePath("HintLabel")
 
 [node name="Botão" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, -5.9604645e-08, -1.7763568e-15, 2.9802322e-08, 1, -5.3290705e-15, -1.7763568e-15, 0, 1, 0, 0, 0)
+transform = Transform3D(1, -5.9604645e-08, -1.7763568e-15, 2.9802322e-08, 1, 0, -1.776357e-15, -3.5527137e-15, 1, 0, 0, 0)
 sorting_offset = 0.2
 material_override = SubResource("StandardMaterial3D_vodwg")
 material_overlay = SubResource("ShaderMaterial_8sx7j")

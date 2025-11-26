@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://1o286ac0iu1n"]
+[gd_scene load_steps=58 format=4 uid="uid://1o286ac0iu1n"]
 
 [ext_resource type="Texture2D" uid="uid://dj5o2lbpvewb1" path="res://Assets/Materiais/Texturas/BotãoCriatura.png" id="1_mtwk4"]
 [ext_resource type="Texture2D" uid="uid://ccg8rm3ybkoci" path="res://Assets/Materiais/Texturas/BotãoCópia.png" id="2_8sx7j"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://mbsn871fgu38" path="res://Assets/Materiais/Texturas/LuzVermelha.png" id="8_gho7t"]
 [ext_resource type="Texture2D" uid="uid://tg178w1x0h7h" path="res://Assets/Materiais/Texturas/LuzVerde.png" id="9_0ypv5"]
 [ext_resource type="Texture2D" uid="uid://bcdl6rt4kndug" path="res://Assets/Materiais/Texturas/MenuBotoesCaixa.png" id="10_eb855"]
+[ext_resource type="Texture2D" uid="uid://cpsoaery5xyur" path="res://Assets/Materiais/Texturas/LuzApagada.png" id="11_8sx7j"]
+[ext_resource type="Texture2D" uid="uid://b8q1ihtpooyjo" path="res://Assets/Materiais/Texturas/UIBACKGROUNDWHITE.png" id="12_b6ipx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mtwk4"]
 albedo_texture = ExtResource("7_t6e8y")
@@ -375,7 +377,7 @@ shadow_mesh = SubResource("ArrayMesh_2xpff")
 albedo_texture = ExtResource("9_0ypv5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjder"]
-albedo_texture = ExtResource("9_0ypv5")
+albedo_texture = ExtResource("11_8sx7j")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xjy7"]
 emission_energy_multiplier = 6.17
@@ -412,7 +414,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_movdf")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fcjt"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6ipx"]
 albedo_texture = ExtResource("8_gho7t")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq5aw"]
@@ -449,11 +451,286 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wmu5l")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuo13"]
+albedo_texture = ExtResource("9_0ypv5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4f83d"]
+albedo_texture = ExtResource("11_8sx7j")
+
+[sub_resource type="Animation" id="Animation_t6e8y"]
+resource_name = "RightChoise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LuzVerde/OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LuzVermelha/OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LuzVerde:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_fuo13")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LuzVermelha:material_override")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_4f83d")]
+}
+
+[sub_resource type="Animation" id="Animation_gho7t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LuzVerde/OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LuzVermelha/OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LuzVermelha:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_b6ipx")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LuzVerde:material_override")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_kjder")]
+}
+
+[sub_resource type="Animation" id="Animation_0ypv5"]
+resource_name = "WrongChoise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LuzVerde/OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LuzVermelha/OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LuzVermelha:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_b6ipx")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LuzVerde:material_override")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_kjder")]
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrmik"]
+albedo_texture = ExtResource("11_8sx7j")
+
+[sub_resource type="Animation" id="Animation_tja68"]
+resource_name = "ResetChoise"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LuzVermelha/OmniLight3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LuzVerde/OmniLight3D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LuzVermelha:material_override")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_4f83d")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LuzVerde:material_override")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_yrmik")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1v0r"]
+_data = {
+&"RESET": SubResource("Animation_gho7t"),
+&"ResetChoise": SubResource("Animation_tja68"),
+&"RightChoise": SubResource("Animation_t6e8y"),
+&"WrongChoise": SubResource("Animation_0ypv5")
+}
+
+[sub_resource type="Shader" id="Shader_r7njw"]
+code = "shader_type spatial;
+render_mode unshaded, cull_disabled, blend_mix, depth_draw_never;
+
+uniform float wave_amplitude = 0.25;
+uniform float wave_frequency = 40.0;
+uniform float wave_speed = 9.0;
+
+uniform float left_falloff = 1.0;
+uniform float right_falloff = 1.0;
+
+uniform float thickness = 0.1;
+uniform vec3 tint : source_color = vec3(0, 0, 0);
+
+uniform float pixel_size = 128.0;
+
+void fragment() {
+    // Pixelar UV
+    vec2 uv = floor(UV * pixel_size) / pixel_size;
+
+    float dist_left = clamp(0.5 - uv.x, 0.0, 0.5) * 2.0;
+    float dist_right = clamp(uv.x - 0.5, 0.0, 0.5) * 2.0;
+
+    float falloff_left = pow(1.0 - dist_left, left_falloff);
+    float falloff_right = pow(1.0 - dist_right, right_falloff);
+
+    float center_falloff = (uv.x <= 0.5) ? falloff_left : falloff_right;
+
+    float amp = wave_amplitude * center_falloff;
+    float y = 0.5 + sin(uv.x * wave_frequency + TIME * wave_speed) * amp;
+
+    float dist = abs(uv.y - y);
+
+    // Borda dura (sem blur)
+    float alpha = dist < thickness ? 1.0 : 0.0;
+
+    ALBEDO = tint * alpha;
+    ALPHA = alpha;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fuo13"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_r7njw")
+shader_parameter/wave_amplitude = 0.3
+shader_parameter/wave_frequency = 7.0
+shader_parameter/wave_speed = 9.0
+shader_parameter/left_falloff = 0.0
+shader_parameter/right_falloff = 0.0
+shader_parameter/thickness = 0.04
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/pixel_size = 29.55
+
 [node name="menuBotoes" type="Node3D"]
-transform = Transform3D(0.68692267, 0, 0.7267305, 0, 1, 0, -0.7267305, 0, 0.68692267, 0, 0, 0)
 
 [node name="BotãoVisual" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.113983005, 1.1568708, 0.1853922)
+anomalyTargetType = 2
 
 [node name="Botão" parent="BotãoVisual" index="0"]
 material_override = SubResource("StandardMaterial3D_mtwk4")
@@ -464,6 +741,7 @@ text = "Visual"
 
 [node name="BotãoSonoro" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.113983, 1.1568708, 0.08517627)
+anomalyTargetType = 1
 
 [node name="Botão" parent="BotãoSonoro" index="0"]
 material_override = SubResource("StandardMaterial3D_r7njw")
@@ -474,6 +752,7 @@ text = "Sonoro"
 
 [node name="BotãoGeiger" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.113983005, 1.1568708, -0.015039708)
+anomalyTargetType = 4
 
 [node name="Botão" parent="BotãoGeiger" index="0"]
 material_override = SubResource("StandardMaterial3D_t6e8y")
@@ -494,6 +773,7 @@ text = "Criatura"
 
 [node name="BotãoGlitch" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.09574912, 1.0646797, 0.08517625)
+anomalyTargetType = 3
 
 [node name="Botão" parent="BotãoGlitch" index="0"]
 material_override = SubResource("StandardMaterial3D_6jt2a")
@@ -504,6 +784,7 @@ text = "Glitch"
 
 [node name="BotãoCopia" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.09574912, 1.0646797, -0.015039723)
+anomalyTargetType = 5
 
 [node name="Botão" parent="BotãoCopia" index="0"]
 material_override = SubResource("StandardMaterial3D_j1v0r")
@@ -547,7 +828,7 @@ omni_attenuation = 0.235
 
 [node name="LuzVermelha" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.8351519, 0, 0, 0, -2.1876716e-07, 1.8351518, 0, -1.8351518, -2.1876716e-07, -0.14342661, 1.2656357, -0.1166953)
-material_override = SubResource("StandardMaterial3D_4fcjt")
+material_override = SubResource("StandardMaterial3D_b6ipx")
 mesh = SubResource("ArrayMesh_t5cpi")
 skeleton = NodePath("")
 
@@ -559,6 +840,16 @@ light_size = 1.0
 distance_fade_begin = 0.0
 omni_range = 0.45752886
 omni_attenuation = 0.235
+
+[node name="LightsAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j1v0r")
+}
+
+[node name="GeigerProximitySprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3.339661e-10, 0.001677495, -0.007822149, 7.332562e-11, -0.007822149, -0.001677495, 0.008, 1.6671892e-12, 3.41917e-10, -0.13026878, 1.091264, -0.15250838)
+material_override = SubResource("ShaderMaterial_fuo13")
+texture = ExtResource("12_b6ipx")
 
 [editable path="BotãoVisual"]
 [editable path="BotãoSonoro"]

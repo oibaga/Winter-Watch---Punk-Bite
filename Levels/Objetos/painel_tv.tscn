@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://pjwqtnt478rv"]
+[gd_scene load_steps=34 format=4 uid="uid://pjwqtnt478rv"]
 
 [ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://Scripts/Objetos/painel_tv.gd" id="1_ilmlx"]
 [ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Scripts/Objetos/Button.gd" id="2_1c306"]
 [ext_resource type="PackedScene" uid="uid://bygwaur7oel4b" path="res://Assets/Props/mesaWinterWhatch.fbx" id="2_43w5f"]
-[ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="5_ywddw"]
 [ext_resource type="PackedScene" uid="uid://1o286ac0iu1n" path="res://Levels/Objetos/menu_botoes.tscn" id="7_7ckeq"]
 [ext_resource type="Texture2D" uid="uid://co354mlod5uxv" path="res://Assets/Props/Mouse_0.png" id="7_w6drv"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="9_1a4mr"]
@@ -49,29 +48,329 @@ shadow_mesh = SubResource("ArrayMesh_m58u4")
 vertex_color_is_srgb = true
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_juj6b"]
-shader = ExtResource("5_ywddw")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
-shader_parameter/grille_opacity = 0.4950000235125
-shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
-shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
-shader_parameter/noise_opacity = 0.2000000095
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
-shader_parameter/aberration = 0.03000004892500007
-shader_parameter/brightness = 1.455
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.48
-shader_parameter/vignette_opacity = 0.590000028025
+[sub_resource type="Shader" id="Shader_qm7vn"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04ssi"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_qm7vn")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="Shader" id="Shader_vlejw"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmhfv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_vlejw")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="Shader" id="Shader_83av1"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ajpig"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_83av1")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="Shader" id="Shader_iw1ap"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vodwg"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_iw1ap")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="Shader" id="Shader_eaxo0"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4ati"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_eaxo0")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="Shader" id="Shader_3iams"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6md3h"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_3iams")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+
+[sub_resource type="Shader" id="Shader_r7njw"]
+code = "shader_type spatial;
+render_mode unshaded, cull_disabled, blend_mix, depth_draw_never;
+
+uniform float wave_amplitude = 0.25;
+uniform float wave_frequency = 40.0;
+uniform float wave_speed = 9.0;
+
+uniform float left_falloff = 1.0;
+uniform float right_falloff = 1.0;
+
+uniform float thickness = 0.1;
+uniform vec3 tint : source_color = vec3(0, 0, 0);
+
+uniform float pixel_size = 128.0;
+
+void fragment() {
+    // Pixelar UV
+    vec2 uv = floor(UV * pixel_size) / pixel_size;
+
+    float dist_left = clamp(0.5 - uv.x, 0.0, 0.5) * 2.0;
+    float dist_right = clamp(uv.x - 0.5, 0.0, 0.5) * 2.0;
+
+    float falloff_left = pow(1.0 - dist_left, left_falloff);
+    float falloff_right = pow(1.0 - dist_right, right_falloff);
+
+    float center_falloff = (uv.x <= 0.5) ? falloff_left : falloff_right;
+
+    float amp = wave_amplitude * center_falloff;
+    float y = 0.5 + sin(uv.x * wave_frequency + TIME * wave_speed) * amp;
+
+    float dist = abs(uv.y - y);
+
+    // Borda dura (sem blur)
+    float alpha = dist < thickness ? 1.0 : 0.0;
+
+    ALBEDO = tint * alpha;
+    ALPHA = alpha;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1a4mr"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_r7njw")
+shader_parameter/wave_amplitude = 0.3
+shader_parameter/wave_frequency = 7.0
+shader_parameter/wave_speed = 9.0
+shader_parameter/left_falloff = 0.0
+shader_parameter/right_falloff = 0.0
+shader_parameter/thickness = 0.04
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/pixel_size = 29.55
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1a4mr"]
 albedo_texture = ExtResource("7_w6drv")
@@ -126,10 +425,11 @@ shadow_mesh = SubResource("ArrayMesh_33r0i")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c306"]
 
-[node name="PainelTV" type="Node3D" node_paths=PackedStringArray("tela", "viewports")]
+[node name="PainelTV" type="Node3D" node_paths=PackedStringArray("tela", "cooldownTimer", "lightsAnimationPlayer")]
 script = ExtResource("1_ilmlx")
 tela = NodePath("mesaWinterWhatch2/Monitor/Monitor")
-viewports = [NodePath("mesaWinterWhatch2/Monitor/Monitor/CAM1"), NodePath("mesaWinterWhatch2/Monitor/Monitor/CAM2"), NodePath("mesaWinterWhatch2/Monitor/Monitor/CAM3"), NodePath("mesaWinterWhatch2/Monitor/Monitor/CAM4"), NodePath("mesaWinterWhatch2/Monitor/Monitor/CAM5")]
+cooldownTimer = NodePath("menuBotoes/CooldownTimer")
+lightsAnimationPlayer = NodePath("menuBotoes/LightsAnimationPlayer")
 
 [node name="mesaWinterWhatch2" parent="." instance=ExtResource("2_43w5f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5486975, 0, 0.21570683)
@@ -154,130 +454,58 @@ surface_material_override/0 = SubResource("StandardMaterial3D_cxo3w")
 [node name="Monitor" type="Sprite3D" parent="mesaWinterWhatch2/Monitor"]
 transform = Transform3D(-7.256564e-11, 0, 0.0016601081, 0.0015764153, -2.0536667e-10, 6.890731e-11, 1.9062382e-10, 0.0017474961, 8.3324335e-18, 3.4664758e-05, 0.00013049576, 2.953969e-05)
 
-[node name="CAM1" type="SubViewport" parent="mesaWinterWhatch2/Monitor/Monitor"]
-size = Vector2i(960, 540)
-
-[node name="Camera3D" type="Camera3D" parent="mesaWinterWhatch2/Monitor/Monitor/CAM1"]
-transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, 0.46876192)
-
-[node name="Control" type="Control" parent="mesaWinterWhatch2/Monitor/Monitor/CAM1"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="mesaWinterWhatch2/Monitor/Monitor/CAM1/Control"]
-material = SubResource("ShaderMaterial_juj6b")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CAM2" type="SubViewport" parent="mesaWinterWhatch2/Monitor/Monitor"]
-size = Vector2i(960, 540)
-
-[node name="Camera3D" type="Camera3D" parent="mesaWinterWhatch2/Monitor/Monitor/CAM2"]
-transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -2.8841846)
-
-[node name="Control" type="Control" parent="mesaWinterWhatch2/Monitor/Monitor/CAM2"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="mesaWinterWhatch2/Monitor/Monitor/CAM2/Control"]
-material = SubResource("ShaderMaterial_juj6b")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.24535054, 0.433768, 1, 1)
-
-[node name="CAM3" type="SubViewport" parent="mesaWinterWhatch2/Monitor/Monitor"]
-size = Vector2i(960, 540)
-
-[node name="Camera3D" type="Camera3D" parent="mesaWinterWhatch2/Monitor/Monitor/CAM3"]
-transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -4.877732)
-
-[node name="Control" type="Control" parent="mesaWinterWhatch2/Monitor/Monitor/CAM3"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="mesaWinterWhatch2/Monitor/Monitor/CAM3/Control"]
-material = SubResource("ShaderMaterial_juj6b")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.24535054, 0.433768, 1, 1)
-
-[node name="CAM4" type="SubViewport" parent="mesaWinterWhatch2/Monitor/Monitor"]
-size = Vector2i(960, 540)
-
-[node name="Camera3D" type="Camera3D" parent="mesaWinterWhatch2/Monitor/Monitor/CAM4"]
-transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -6.6495795)
-
-[node name="Control" type="Control" parent="mesaWinterWhatch2/Monitor/Monitor/CAM4"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="mesaWinterWhatch2/Monitor/Monitor/CAM4/Control"]
-material = SubResource("ShaderMaterial_juj6b")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.24535054, 0.433768, 1, 1)
-
-[node name="CAM5" type="SubViewport" parent="mesaWinterWhatch2/Monitor/Monitor"]
-size = Vector2i(960, 540)
-
-[node name="Camera3D" type="Camera3D" parent="mesaWinterWhatch2/Monitor/Monitor/CAM5"]
-transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 4.0499535, 1.9136982, -8.548603)
-
-[node name="Control" type="Control" parent="mesaWinterWhatch2/Monitor/Monitor/CAM5"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="mesaWinterWhatch2/Monitor/Monitor/CAM5/Control"]
-material = SubResource("ShaderMaterial_juj6b")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.24535054, 0.433768, 1, 1)
-
 [node name="CadeiraCollision" parent="." instance=ExtResource("14_enynw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15198016, 0, 0.01771228)
 
 [node name="menuBotoes" parent="." instance=ExtResource("7_7ckeq")]
 transform = Transform3D(0.68692267, 0, 0.7267305, 0, 1, 0, -0.7267305, 0, 0.68692267, -0.38453543, -2.3841858e-07, 0.71651167)
+
+[node name="BotãoVisual" parent="menuBotoes" index="0" node_paths=PackedStringArray("painelTV")]
+painelTV = NodePath("../..")
+
+[node name="Botão" parent="menuBotoes/BotãoVisual" index="0"]
+material_overlay = SubResource("ShaderMaterial_04ssi")
+
+[node name="BotãoSonoro" parent="menuBotoes" index="1" node_paths=PackedStringArray("painelTV")]
+painelTV = NodePath("../..")
+
+[node name="Botão" parent="menuBotoes/BotãoSonoro" index="0"]
+material_overlay = SubResource("ShaderMaterial_hmhfv")
+
+[node name="BotãoGeiger" parent="menuBotoes" index="2" node_paths=PackedStringArray("painelTV")]
+painelTV = NodePath("../..")
+
+[node name="Botão" parent="menuBotoes/BotãoGeiger" index="0"]
+material_overlay = SubResource("ShaderMaterial_ajpig")
+
+[node name="BotãoCriatura" parent="menuBotoes" index="3" node_paths=PackedStringArray("painelTV")]
+painelTV = NodePath("../..")
+
+[node name="Botão" parent="menuBotoes/BotãoCriatura" index="0"]
+material_overlay = SubResource("ShaderMaterial_vodwg")
+
+[node name="BotãoGlitch" parent="menuBotoes" index="4" node_paths=PackedStringArray("painelTV")]
+painelTV = NodePath("../..")
+
+[node name="Botão" parent="menuBotoes/BotãoGlitch" index="0"]
+material_overlay = SubResource("ShaderMaterial_f4ati")
+
+[node name="BotãoCopia" parent="menuBotoes" index="5" node_paths=PackedStringArray("painelTV")]
+painelTV = NodePath("../..")
+
+[node name="Botão" parent="menuBotoes/BotãoCopia" index="0"]
+material_overlay = SubResource("ShaderMaterial_6md3h")
+
+[node name="LightsAnimationPlayer" parent="menuBotoes" index="9"]
+autoplay = "ResetChoise"
+
+[node name="GeigerProximitySprite3D" parent="menuBotoes" index="10"]
+visible = false
+material_override = SubResource("ShaderMaterial_1a4mr")
+
+[node name="CooldownTimer" type="Timer" parent="menuBotoes"]
+wait_time = 5.0
+one_shot = true
 
 [node name="Mouse" type="Area3D" parent="." node_paths=PackedStringArray("painel_tv", "cadeira_exigida", "mesh_with_outline", "hint_label")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38943505, 1.0014156, -0.6873526)
@@ -309,4 +537,13 @@ no_depth_test = true
 text = "Pressione botão esquerdo"
 font = ExtResource("9_1a4mr")
 
+[connection signal="timeout" from="menuBotoes/CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
+
 [editable path="mesaWinterWhatch2"]
+[editable path="menuBotoes"]
+[editable path="menuBotoes/BotãoVisual"]
+[editable path="menuBotoes/BotãoSonoro"]
+[editable path="menuBotoes/BotãoGeiger"]
+[editable path="menuBotoes/BotãoCriatura"]
+[editable path="menuBotoes/BotãoGlitch"]
+[editable path="menuBotoes/BotãoCopia"]

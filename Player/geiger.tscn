@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://t8a5waqa0s65"]
+[gd_scene load_steps=9 format=4 uid="uid://t8a5waqa0s65"]
 
 [ext_resource type="Texture2D" uid="uid://dsy170jsnls18" path="res://Assets/Itens/Geiger3D_DefaultMaterial_BaseColor.png" id="1_olx8i"]
-[ext_resource type="FontFile" uid="uid://dux6opq4gwcqb" path="res://Assets/Fonts/wwDigital.ttf" id="2_0fs55"]
 [ext_resource type="Script" uid="uid://nt1dflyp7mm6" path="res://Scripts/Objetos/geiger.gd" id="2_2h1bf"]
 [ext_resource type="Shader" uid="uid://d2kgc0jhch066" path="res://Shaders/geigerShader.gdshader" id="2_7eg46"]
-[ext_resource type="Texture2D" uid="uid://veh1l86pccub" path="res://Assets/Itens/GeigerSprite.png" id="3_0a7dv"]
 [ext_resource type="Texture2D" uid="uid://b8q1ihtpooyjo" path="res://Assets/Materiais/Texturas/UIBACKGROUNDWHITE.png" id="3_2h1bf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ku5x2"]
@@ -48,13 +46,14 @@ stencil_flags = 2
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("2_7eg46")
-shader_parameter/wave_amplitude = 0.36
+shader_parameter/wave_amplitude = 0.3
 shader_parameter/wave_frequency = 7.0
 shader_parameter/wave_speed = 9.0
-shader_parameter/left_falloff = 1.0
-shader_parameter/right_falloff = 1.0
-shader_parameter/thickness = 0.15
-shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/left_falloff = 0.0
+shader_parameter/right_falloff = 0.0
+shader_parameter/thickness = 0.04
+shader_parameter/tint = Color(0.0476, 0.07, 0.06141334, 1)
+shader_parameter/pixel_size = 29.55
 
 [node name="Geiger3d" type="MeshInstance3D" node_paths=PackedStringArray("mesh_with_outline")]
 layers = 2
@@ -62,38 +61,12 @@ mesh = SubResource("ArrayMesh_ddoul")
 skeleton = NodePath("../../../SubViewportContainer/Chao")
 surface_material_override/0 = SubResource("StandardMaterial3D_8g4oa")
 script = ExtResource("2_2h1bf")
-mesh_with_outline = NodePath("Sprite3D")
+mesh_with_outline = NodePath("ProximitySprite3D")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.085, 0, 0, 0, -3.715468e-09, -0.085, 0, 0.085, -3.715468e-09, 0.019355714, 0.8860645, -1.3084811)
+[node name="ProximitySprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.08863682, 0, 0, 0, -4.19239e-09, -0.085, 0, 0.095910706, -3.715468e-09, 0.009096801, 0.82427454, -1.3084811)
 layers = 2
 material_override = SubResource("ShaderMaterial_e0x0t")
-no_depth_test = true
+shaded = true
 texture_filter = 0
 texture = ExtResource("3_2h1bf")
-
-[node name="PowerLabel" type="Label3D" parent="."]
-transform = Transform3D(2.2117145, 0, 0, 0, -9.632903e-08, 1, 0, -2.2037513, -4.371139e-08, 0.4753365, 0.796155, -1.3369906)
-visible = false
-layers = 2
-gi_lightmap_texel_scale = 0.01
-shaded = true
-no_depth_test = true
-texture_filter = 0
-modulate = Color(0, 0, 0, 0.9411765)
-outline_modulate = Color(0.32941177, 0.54509807, 0.54901963, 1)
-text = "100"
-font = ExtResource("2_0fs55")
-font_size = 62
-outline_size = 0
-horizontal_alignment = 2
-
-[node name="PowerSprite" type="Sprite3D" parent="."]
-transform = Transform3D(2.945, 0, 0, 0, -1.2873004e-07, 2.945, 0, -2.945, -1.2873004e-07, 0.60432374, 0.796155, -1.2607242)
-visible = false
-layers = 2
-modulate = Color(0, 0, 0, 0.9411765)
-no_depth_test = true
-texture_filter = 0
-texture = ExtResource("3_0a7dv")
-hframes = 5

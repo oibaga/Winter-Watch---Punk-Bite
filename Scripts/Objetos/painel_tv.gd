@@ -1,13 +1,22 @@
 class_name PainelTV extends Node3D
 
 @export var tela: Sprite3D
-@export var viewports: Array[Viewport]
+@export var viewports: Array[SecurityCamera]
+@export var cooldownTimer : Timer
+@export var lightsAnimationPlayer : AnimationPlayer
+
+var canChose : bool = true
+@onready var geiger_proximity_sprite_3d: Sprite3D = $menuBotoes/GeigerProximitySprite3D
 
 var indice_camera: int = -1
 var ligado: bool = false
+var currentCamera : SecurityCamera = null
 
 func _ready():
+	geiger_proximity_sprite_3d.visible = false
+
 	await get_tree().process_frame
+
 	desligar_tv()
 	#ligar_tv()
 
@@ -19,21 +28,50 @@ func desligar_tv():
 
 func ligar_tv():
 	ligado = true
-	indice_camera = 0
+	indice_camera = -1
 	tela.visible = true
-	atualizar_tela()
 
 func trocar_camera():
-	print("TrocarCamera")
 	if not ligado:
 		ligar_tv()
-		return
+
 	indice_camera += 1
 	if indice_camera >= viewports.size():
 		indice_camera = 0
+
+	currentCamera = viewports[indice_camera]
+
 	atualizar_tela()
 
 func atualizar_tela():
 	if indice_camera >= 0 and indice_camera < viewports.size():
-		tela.texture = viewports[indice_camera].get_texture()
+		tela.texture = currentCamera.get_texture()
+
+		geiger_proximity_sprite_3d.visible = currentCamera.room.isGeigerRoom
+
+func ChoseAnomalyType(type : Anomaly.AnomalyTypes):
+	canChose = false
+
+	cooldownTimer.start()
+
+	currentCamera.animationPlayer.play("Flash")
 	
+	if currentCamera.room.anomalyReference:
+		if currentCamera.room.anomalyReference.type == type:
+			RightChoice()
+		else:
+			WrongChoice()
+	else:
+		WrongChoice()
+
+func RightChoice():
+	lightsAnimationPlayer.play("RightChoise")
+	# DEVE FINALIZAR A ANOMALIA
+
+func WrongChoice():
+	lightsAnimationPlayer.play("WrongChoise")
+
+func _on_cooldown_timer_timeout() -> void:
+	lightsAnimationPlayer.play("ResetChoise")
+
+	canChose = true
