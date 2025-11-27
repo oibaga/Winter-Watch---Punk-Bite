@@ -1,14 +1,51 @@
-[gd_scene load_steps=35 format=4 uid="uid://pjwqtnt478rv"]
+[gd_scene load_steps=50 format=4 uid="uid://pjwqtnt478rv"]
 
 [ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://Scripts/Objetos/painel_tv.gd" id="1_ilmlx"]
 [ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Scripts/Objetos/Button.gd" id="2_1c306"]
 [ext_resource type="PackedScene" uid="uid://bygwaur7oel4b" path="res://Assets/Props/mesaWinterWhatch.fbx" id="2_43w5f"]
+[ext_resource type="Texture2D" uid="uid://biwe32jxrfnxa" path="res://Assets/Props/mesaWinterWhatch_0.png" id="3_iw1ap"]
+[ext_resource type="Texture2D" uid="uid://cn61sygts2euf" path="res://Assets/Props/mesaWinterWhatch_2.png" id="4_vodwg"]
 [ext_resource type="Script" uid="uid://34xqs3plc8u7" path="res://Scripts/Objetos/geiger_tv.gd" id="5_1a4mr"]
+[ext_resource type="Texture2D" uid="uid://4oocbqr5bvtd" path="res://Assets/Props/mesaWinterWhatch_3.png" id="5_eaxo0"]
+[ext_resource type="Texture2D" uid="uid://tjmwqinghxh5" path="res://Assets/Props/mesaWinterWhatch_4.png" id="6_f4ati"]
+[ext_resource type="Texture2D" uid="uid://bc3subpjyh2qf" path="res://Assets/Props/mesaWinterWhatch_6.png" id="7_3iams"]
 [ext_resource type="PackedScene" uid="uid://1o286ac0iu1n" path="res://Levels/Objetos/menu_botoes.tscn" id="7_7ckeq"]
 [ext_resource type="Texture2D" uid="uid://co354mlod5uxv" path="res://Assets/Props/Mouse_0.png" id="7_w6drv"]
+[ext_resource type="Texture2D" uid="uid://cko3fx17bttnc" path="res://Assets/Props/mesaWinterWhatch_7.png" id="8_6md3h"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="9_1a4mr"]
+[ext_resource type="Texture2D" uid="uid://cxo442kjgjqr3" path="res://Assets/Props/mesaWinterWhatch_8.png" id="9_xlc80"]
 [ext_resource type="Shader" uid="uid://ugcus84t4uch" path="res://Shaders/OutlineMouse.gdshader" id="10_iw1ap"]
 [ext_resource type="PackedScene" uid="uid://bsnvg2neurtdb" path="res://Levels/Objetos/cadeira.tscn" id="14_enynw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyurm"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_iw1ap")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o2cp"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_iw1ap")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjder"]
+albedo_texture = ExtResource("4_vodwg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fcjt"]
+albedo_texture = ExtResource("5_eaxo0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqm1c"]
+albedo_texture = ExtResource("6_f4ati")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xglai"]
+albedo_texture = ExtResource("7_3iams")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x2y8x"]
+albedo_texture = ExtResource("8_6md3h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm88r"]
+albedo_texture = ExtResource("9_xlc80")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_enynw"]
 size = Vector3(1.1685181, 1, 3.7233276)
@@ -438,6 +475,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5486975, 0, 0.21570683)
 
 [node name="Plane_004" parent="mesaWinterWhatch2" index="0"]
 sorting_offset = -0.2
+surface_material_override/0 = SubResource("StandardMaterial3D_iyurm")
+surface_material_override/1 = SubResource("StandardMaterial3D_8o2cp")
+surface_material_override/2 = SubResource("StandardMaterial3D_kjder")
+surface_material_override/3 = SubResource("StandardMaterial3D_4fcjt")
+surface_material_override/4 = SubResource("StandardMaterial3D_sqm1c")
+surface_material_override/5 = SubResource("StandardMaterial3D_xglai")
+surface_material_override/6 = SubResource("StandardMaterial3D_x2y8x")
+surface_material_override/7 = SubResource("StandardMaterial3D_dm88r")
 
 [node name="MesaColision" type="StaticBody3D" parent="mesaWinterWhatch2/Plane_004" index="0"]
 transform = Transform3D(7.166123e-09, -0.12022759, -1.0678356e-15, -1.4332247e-08, -3.5830634e-09, -0.120227605, 0.12022759, 1.4332246e-08, -1.7915308e-08, -1.0400212e-08, 0.025933906, 0.06596858)

@@ -23,11 +23,12 @@ background_energy_multiplier = 1.32
 sky = SubResource("Sky_6ieip")
 ambient_light_source = 2
 ambient_light_color = Color(0.3321949, 0.3607229, 0.33738258, 1)
+ambient_light_energy = 0.3
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
 fog_light_color = Color(0.5370321, 0.57217056, 0.62682974, 1)
-fog_light_energy = 3.97
+fog_light_energy = 1.73
 fog_sky_affect = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u3ee1"]
@@ -94,6 +95,7 @@ environment = SubResource("Environment_imo2u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.23842089, -0.20695738, 0.94885445, 0.56704366, 0.7635249, 0.30901706, -0.7884272, 0.61171776, -0.064686395, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -377,6 +379,9 @@ transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, -0.0
 
 [node name="Parede 2x84" parent="Mapa/Paredes/Paredes" instance=ExtResource("8_svust")]
 transform = Transform3D(-1, 3.821371e-15, 0, -3.821371e-15, -1, 8.742278e-08, 0, 8.742278e-08, 1, 1.073581, 8.930696, -6.9629726)
+
+[node name="Parede 2x85" parent="Mapa/Paredes/Paredes" instance=ExtResource("8_svust")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.2142124, 0.537, 3.337327)
 
 [node name="MeiaParede" type="Node" parent="Mapa/Paredes"]
 
