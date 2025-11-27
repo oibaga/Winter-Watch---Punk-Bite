@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"
+uid="uid://berocpxcv18x1"
+path.s3tc="res://.godot/imported/T_Teto.png-21688f03a9b3db7c1ef01194b2280c45.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_Chao.png"
-dest_files=["res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"]
+source_file="res://Assets/Materiais/Texturas/T_Teto.png"
+dest_files=["res://.godot/imported/T_Teto.png-21688f03a9b3db7c1ef01194b2280c45.s3tc.ctex"]
 
 [params]
 

@@ -1131,7 +1131,7 @@ shader_parameter/outline_width = 4.0
 [node name="CenaPrincipal" type="Node3D"]
 
 [node name="MapaPrincipal" parent="." instance=ExtResource("1_41wr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.104626, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009437561, 19.104626, -0.007988453)
 
 [node name="Corredor" type="Node" parent="."]
 
@@ -1232,6 +1232,8 @@ mesh = SubResource("ArrayMesh_3jubt")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Corredor/Tubulação/Cylinder"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corredor/Tubulação/Cylinder/StaticBody3D"]
 shape = SubResource("BoxShape3D_pb66w")
@@ -1245,6 +1247,8 @@ mesh = SubResource("ArrayMesh_xfivp")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Corredor/CaixaDeFerramentas/Cylinder_001"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corredor/CaixaDeFerramentas/Cylinder_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_7kmp2")
@@ -1316,48 +1320,51 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.77
 [node name="Quarto" type="Node" parent="."]
 
 [node name="cama" parent="Quarto" instance=ExtResource("22_ueo8v")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.19506, 0.5, -2.9803972)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.205708, 0.5, -2.9803972)
 
 [node name="LatadeOleo" parent="Quarto" instance=ExtResource("23_5mvmv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1156025, 0.49999976, -4.3480425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.12625, 0.49999976, -4.3480425)
 
 [node name="Armario" parent="Quarto" instance=ExtResource("24_ue21m")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.065756, 0.26221424, -7.128221)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.085841, 0.26221377, -7.1429157)
 
 [node name="Estante" type="Node3D" parent="Quarto"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 12.141527, 0.49999976, -5.755862)
 
 [node name="Cube" type="MeshInstance3D" parent="Quarto/Estante"]
-transform = Transform3D(100, 0, 0, 0, -2.3841858e-05, 99.99999, 0, -99.99999, -2.3841858e-05, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, -2.3841858e-05, 99.99999, 0, -99.99999, -2.3841858e-05, 1.9799147, -4.7683716e-07, 0.014694691)
 material_override = SubResource("StandardMaterial3D_fl2xh")
 mesh = SubResource("ArrayMesh_dhyil")
 skeleton = NodePath("")
 
 [node name="Garrafao" parent="Quarto" instance=ExtResource("26_vsq0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.034048, 2.644525, -7.149965)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.054133, 2.6445246, -7.1646595)
 
 [node name="Garrafao2" parent="Quarto" instance=ExtResource("26_vsq0x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.462177, 0.45434308, -7.440251)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.472825, 0.45434308, -7.446957)
 
 [node name="Garrafao3" parent="Quarto" instance=ExtResource("26_vsq0x")]
-transform = Transform3D(0.9284793, 1.6233713e-08, 0.37138405, 0.37138405, -4.058512e-08, -0.9284793, 0, 1, -4.371139e-08, 11.462177, 0.74274635, -7.187902)
+transform = Transform3D(0.9284793, 1.6233713e-08, 0.37138405, 0.37138405, -4.058512e-08, -0.9284793, 0, 1, -4.371139e-08, 9.482263, 0.7427459, -7.2025967)
 
-[node name="Cadeira" parent="." instance=ExtResource("27_1nbjv")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.897357, 0.5, -7.4293756)
-
-[node name="PlanejamentoSemanal" type="Node3D" parent="."]
+[node name="PlanejamentoSemanal" type="Node3D" parent="Quarto"]
 transform = Transform3D(-0.41156673, 0, 8.742278e-08, 0, 0.41156673, 0, -3.5980307e-08, 0, -1, 8.236202, 2.2441518, -7.6916494)
 
-[node name="Plane_001" type="MeshInstance3D" parent="PlanejamentoSemanal"]
+[node name="Plane_001" type="MeshInstance3D" parent="Quarto/PlanejamentoSemanal"]
 transform = Transform3D(90.69716, 0, 0, 0, 55.06666, 8.671183e-06, 0, -4.1574176e-06, 114.8533, -9.536743e-07, -2.3841858e-07, 0.012899876)
 material_override = SubResource("StandardMaterial3D_irlcw")
 mesh = SubResource("ArrayMesh_qpoic")
 skeleton = NodePath("")
 
-[node name="Tapete" parent="." instance=ExtResource("29_fb3fe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3494, 0.50000024, -5.1753836)
+[node name="Cadeira" parent="Quarto" instance=ExtResource("27_1nbjv")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7.9080048, 0.5, -7.4293756)
+
+[node name="Tapete" parent="Quarto" instance=ExtResource("29_fb3fe")]
+transform = Transform3D(2.138739, 0, 0, 0, 2.138739, 0, 0, 0, 2.138739, 7.2225275, 0.50000024, -5.0221443)
 
 [node name="CenaGameplay" parent="." instance=ExtResource("30_aou57")]
+
+[node name="Player" parent="CenaGameplay" index="0" node_paths=PackedStringArray("animation_player")]
+animation_player = NodePath("../GameManager/AnimationPlayer")
 
 [node name="UIRoot" parent="CenaGameplay/HUD" index="0"]
 metadata/_edit_use_anchors_ = true
@@ -1369,7 +1376,7 @@ metadata/_edit_use_anchors_ = true
 material = SubResource("ShaderMaterial_qap4b")
 
 [node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Quarto" index="4"]
-transform = Transform3D(-0.125, -1.0927847e-08, 0, -4.7767137e-16, 5.4639235e-09, -0.125, 1.0927847e-08, -0.125, -5.4639235e-09, 7.609, 2.1999998, -2.0033262)
+transform = Transform3D(-0.125, -1.0927847e-08, 0, -4.7767137e-16, 5.4639235e-09, -0.125, 1.0927847e-08, -0.125, -5.4639235e-09, 7.0238543, 2.1999998, -2.0033262)
 
 [node name="Cubo_001" parent="CenaGameplay/CameraRooms/Quarto/GeigerSupport" index="1"]
 material_overlay = SubResource("ShaderMaterial_83cgf")
