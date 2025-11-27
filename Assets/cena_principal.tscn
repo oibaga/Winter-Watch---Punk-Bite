@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=4 uid="uid://dlhl7wsa7514t"]
+[gd_scene load_steps=107 format=4 uid="uid://dlhl7wsa7514t"]
 
 [ext_resource type="PackedScene" uid="uid://btin1ybc741g8" path="res://Levels/BlocagemMapa.tscn" id="1_41wr0"]
 [ext_resource type="Texture2D" uid="uid://cn3tvh4ms6n82" path="res://Assets/Materiais/Texturas/Tubulação_0.png" id="2_2mpd0"]
@@ -31,6 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://cryqydnboin76" path="res://Assets/Props/Quarto/Tapete.fbx" id="29_fb3fe"]
 [ext_resource type="PackedScene" uid="uid://cw1bdifyfq853" path="res://Levels/cena_gameplay.tscn" id="30_aou57"]
 [ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="31_llt8y"]
+[ext_resource type="Texture2D" uid="uid://b11h55wury3b1" path="res://Assets/Anomalias/Nova pasta/154-1546926_dried-blood-stain-png-blood-effect-png.png" id="32_hn735"]
+[ext_resource type="Texture2D" uid="uid://cs1y1ulkfogpd" path="res://Assets/Anomalias/Nova pasta/5-53426_blood-clipart-free-high-resolution-blood-splatter-blood.png" id="33_83cgf"]
+[ext_resource type="Texture2D" uid="uid://ph252nfascao" path="res://Assets/Anomalias/Nova pasta/pngtree-red-blood-splatter-overlay-design-png-image_14184985.png" id="34_hrgwj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3eyn"]
 resource_name = "Material.017"
@@ -1343,7 +1346,7 @@ transform = Transform3D(0.9284793, 1.6233713e-08, 0.37138405, 0.37138405, -4.058
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.897357, 0.5, -7.4293756)
 
 [node name="PlanejamentoSemanal" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 8.236202, 2.2441518, -7.6916494)
+transform = Transform3D(-0.41156673, 0, 8.742278e-08, 0, 0.41156673, 0, -3.5980307e-08, 0, -1, 8.236202, 2.2441518, -7.6916494)
 
 [node name="Plane_001" type="MeshInstance3D" parent="PlanejamentoSemanal"]
 transform = Transform3D(90.69716, 0, 0, 0, 55.06666, 8.671183e-06, 0, -4.1574176e-06, 114.8533, -9.536743e-07, -2.3841858e-07, 0.012899876)
@@ -1355,6 +1358,12 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3494, 0.50000024, -5.1753836)
 
 [node name="CenaGameplay" parent="." instance=ExtResource("30_aou57")]
+
+[node name="UIRoot" parent="CenaGameplay/HUD" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" parent="CenaGameplay/HUD/UIRoot" index="1"]
+metadata/_edit_use_anchors_ = true
 
 [node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Quarto/CAMERA/Control" index="0"]
 material = SubResource("ShaderMaterial_qap4b")
@@ -1416,6 +1425,40 @@ transform = Transform3D(0.9332862, 0.25623125, -0.25163957, -1.4901161e-08, 0.70
 [node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Escada/CAMERA/Control" index="0"]
 material = SubResource("ShaderMaterial_irlcw")
 
+[node name="VisualPresset" parent="CenaGameplay/CameraRooms/Escada" index="1" node_paths=PackedStringArray("anomalies")]
+anomalies = [NodePath("Sprite3D")]
+
+[node name="Sprite3D" type="Sprite3D" parent="CenaGameplay/CameraRooms/Escada/VisualPresset" index="0"]
+transform = Transform3D(0.32737857, 0, 0, 0, 0.13820283, 0, 0, 0, 1, 0.6405094, 3.4262743, -12.187201)
+visible = false
+modulate = Color(0.4627451, 0, 0, 1)
+texture = ExtResource("32_hn735")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CenaGameplay/CameraRooms/Escada/VisualPresset/Sprite3D"]
+transform = Transform3D(-0.99999994, 0, 8.742278e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 0, -1.8835087, 0)
+modulate = Color(0.4627451, 0, 0, 1)
+texture = ExtResource("32_hn735")
+
+[node name="Sprite3D5" type="Sprite3D" parent="CenaGameplay/CameraRooms/Escada/VisualPresset/Sprite3D"]
+transform = Transform3D(-0.75819385, 1.1273039e-07, -7.282652e-07, 0, -4.3711385e-08, -7.2357416, -6.6283405e-08, -0.13820282, 4.371132e-08, -0.34028053, -5.0117016, 0.67655087)
+modulate = Color(0.63529414, 0, 0, 1)
+texture = ExtResource("33_83cgf")
+
+[node name="Sprite3D6" type="Sprite3D" parent="CenaGameplay/CameraRooms/Escada/VisualPresset/Sprite3D"]
+transform = Transform3D(-0.75819385, 1.1273039e-07, -7.282652e-07, 0, -4.3711385e-08, -7.2357416, -6.6283405e-08, -0.13820282, 4.371132e-08, -0.34028053, -5.0117016, 0.67655087)
+modulate = Color(0.63529414, 0, 0, 1)
+texture = ExtResource("33_83cgf")
+
+[node name="Sprite3D3" type="Sprite3D" parent="CenaGameplay/CameraRooms/Escada/VisualPresset/Sprite3D"]
+transform = Transform3D(-0.62473154, -0.0015009427, 1.1814992, -0.019459566, 0.088772565, -1.054218, -0.0026114003, -0.22794281, -0.040460747, 2.4622977, 7.6348248, 4.418592)
+modulate = Color(0.4627451, 0, 0, 1)
+texture = ExtResource("34_hrgwj")
+
+[node name="Sprite3D4" type="Sprite3D" parent="CenaGameplay/CameraRooms/Escada/VisualPresset/Sprite3D"]
+transform = Transform3D(-5.2019043e-08, 0.6720049, -2.6862521e-08, -1.1350644, -8.992009e-08, -1.4338607, -0.32531035, -5.5243765e-09, 0.095557205, 3.2699535, 2.6739426, 2.6227808)
+modulate = Color(0.4627451, 0, 0, 1)
+texture = ExtResource("32_hn735")
+
 [node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Escada" index="4"]
 transform = Transform3D(-5.4639235e-09, 0.125, 0, 5.4639226e-09, 0, -0.125, -0.125, -5.4639235e-09, -5.463923e-09, -0.8985369, 2.1999998, -7.171802)
 
@@ -1427,6 +1470,9 @@ transform = Transform3D(0.9142096, 0.020205885, 0.40473777, -0.21210635, 0.87488
 
 [node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Almoxarifado/CAMERA/Control" index="0"]
 material = SubResource("ShaderMaterial_gqe28")
+
+[node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Almoxarifado" index="4"]
+transform = Transform3D(-0.125, -1.0927847e-08, 0, -4.7767137e-16, 5.4639235e-09, -0.125, 1.0927847e-08, -0.125, -5.4639235e-09, -7.086, 2.1999998, 4.2345915)
 
 [node name="Cubo_001" parent="CenaGameplay/CameraRooms/Almoxarifado/GeigerSupport" index="1"]
 material_overlay = SubResource("ShaderMaterial_cetui")
