@@ -11,8 +11,6 @@ var targetColorRect : ColorRect = null
 var defaultMaterial 
 
 func _ready() -> void:
-	super._ready()
-	
 	targetColorRect = room.camera.color_rect
 
 	defaultMaterial = targetColorRect.material.duplicate()

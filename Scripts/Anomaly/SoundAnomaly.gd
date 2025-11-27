@@ -8,7 +8,6 @@ func SpawnAnomaly():
 
 	if !audios.is_empty():
 		audioPlayer.stream = audios.pick_random()
-		audioPlayer.play()
 
 func ResolveAnomaly():
 	super.ResolveAnomaly()

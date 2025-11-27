@@ -104,26 +104,31 @@ anomalyTimer = NodePath("AnomalyTimer")
 
 [node name="CAMERA" parent="." instance=ExtResource("8_nw1na")]
 
-[node name="VisualPresset" type="Node3D" parent="."]
+[node name="VisualPresset" type="Node3D" parent="." node_paths=PackedStringArray("room")]
 script = ExtResource("3_gndfu")
 type = 2
+room = NodePath("..")
 
-[node name="SoundPresset" type="Node3D" parent="."]
+[node name="SoundPresset" type="Node3D" parent="." node_paths=PackedStringArray("room")]
 script = ExtResource("4_8gkh4")
 type = 1
+room = NodePath("..")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundPresset"]
 
-[node name="CopyPresset" type="Node3D" parent="."]
+[node name="CopyPresset" type="Node3D" parent="." node_paths=PackedStringArray("room")]
 script = ExtResource("5_nyege")
 type = 5
+room = NodePath("..")
 
-[node name="GlitchPresset" type="Node3D" parent="."]
+[node name="GlitchPresset" type="Node3D" parent="." node_paths=PackedStringArray("room")]
 script = ExtResource("6_odr41")
 type = 3
+room = NodePath("..")
 
-[node name="CreaturePresset" type="Node3D" parent="."]
+[node name="CreaturePresset" type="Node3D" parent="." node_paths=PackedStringArray("room")]
 script = ExtResource("7_fns34")
+room = NodePath("..")
 
 [node name="GeigerSupport" type="Area3D" parent="." node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, -0.381, 2.2, -0.699)

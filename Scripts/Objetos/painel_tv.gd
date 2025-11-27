@@ -45,11 +45,14 @@ func trocar_camera():
 	indice_camera += 1
 	if indice_camera >= viewports.size():
 		indice_camera = 0
-
-	if currentCamera.room.anomalyReference is SoundAnomaly:
-		currentCamera.room.anomalyReference.audioPlayer.playing = false
+	
+	if currentCamera:
+		if currentCamera.room.anomalyReference is SoundAnomaly:
+			currentCamera.room.anomalyReference.audioPlayer.playing = false
 
 	currentCamera = viewports[indice_camera]
+
+	print("Indo para: ", currentCamera.room.name)
 
 	atualizar_tela()
 
@@ -88,7 +91,7 @@ func RightChoice(type : Anomaly.AnomalyTypes):
 	
 	currentCamera.room.anomalyReference.ResolveAnomaly()
 
-func WrongChoice(type : Anomaly.AnomalyTypes):
+func WrongChoice(_type : Anomaly.AnomalyTypes):
 	lightsAnimationPlayer.play("WrongChoise")
 
 func _on_cooldown_timer_timeout() -> void:
