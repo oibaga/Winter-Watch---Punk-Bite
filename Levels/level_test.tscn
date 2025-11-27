@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dxbo6h2bjofxy"]
+[gd_scene load_steps=69 format=4 uid="uid://dxbo6h2bjofxy"]
 
 [ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/M_floor.tres" id="1_7mba1"]
 [ext_resource type="Material" uid="uid://d4kduq14l2p4a" path="res://Shaders/SkyShaders/Sun.tres" id="1_xlufh"]
@@ -9,17 +9,25 @@
 [ext_resource type="PackedScene" uid="uid://pjwqtnt478rv" path="res://Levels/Objetos/painel_tv.tscn" id="7_q8e8m"]
 [ext_resource type="PackedScene" uid="uid://3744hlicrup2" path="res://Levels/Objetos/MenuFechado.tscn" id="8_ku5x2"]
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="9_ddaal"]
-[ext_resource type="PackedScene" uid="uid://cmgd1r4swujfb" path="res://Levels/Salas/RoomPresset.tscn" id="9_gxk0f"]
 [ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="10_gxk0f"]
+[ext_resource type="Script" uid="uid://bniffhvsoy87t" path="res://Scripts/Salas/Room.gd" id="10_mewdn"]
+[ext_resource type="PackedScene" uid="uid://borbalae6skib" path="res://Levels/Objetos/securityCamera.tscn" id="11_hvssv"]
+[ext_resource type="Script" uid="uid://bj5kh72aobmeb" path="res://Scripts/Anomaly/SoundAnomaly.gd" id="12_1ktl6"]
 [ext_resource type="Texture2D" uid="uid://c7odsu0g2dp1d" path="res://Assets/Anomalias/Chifrudo no quarto.png" id="12_465so"]
 [ext_resource type="AudioStream" uid="uid://uuh4cg85qjvk" path="res://Assets/Anomalias/Sounds/TelefoneAnomalia.wav" id="12_ru4ou"]
 [ext_resource type="Texture2D" uid="uid://dmron5t681swb" path="res://Assets/Anomalias/Chifrudo Lado de fora.png" id="12_w0slw"]
 [ext_resource type="PackedScene" uid="uid://bswn0egsjdojt" path="res://Assets/Anomalias/PoçoAnomalia.fbx" id="13_nxutr"]
 [ext_resource type="Texture2D" uid="uid://iqn4nra7vklk" path="res://Assets/Anomalias/Mão do chifrudo no quarto.png" id="13_tchvq"]
+[ext_resource type="Script" uid="uid://c66774wk1bib0" path="res://Scripts/Anomaly/CreatureAnomaly.gd" id="14_2syam"]
 [ext_resource type="Texture2D" uid="uid://x6m6x0trj0hy" path="res://Assets/Anomalias/Homem de chapeu No banheiro.png" id="14_465so"]
 [ext_resource type="Texture2D" uid="uid://cjp1y4mapfang" path="res://Assets/Anomalias/Homem do chapeu no Corredor.png" id="15_tchvq"]
 [ext_resource type="AudioStream" uid="uid://bciqhh8xgf772" path="res://Assets/Anomalias/Sounds/Batendo na Porta.wav" id="16_on330"]
+[ext_resource type="Script" uid="uid://it2i1bujof5f" path="res://Scripts/Objetos/geiger_support.gd" id="17_ckpl6"]
+[ext_resource type="Script" uid="uid://bu0n4ybk1jui5" path="res://Scripts/Anomaly/GlitchAnomaly.gd" id="17_hvssv"]
+[ext_resource type="Texture2D" uid="uid://ce3iqxwutg20l" path="res://Assets/Materiais/Texturas/GeigerSupport.png" id="18_bghym"]
+[ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="19_86qh0"]
 [ext_resource type="AudioStream" uid="uid://7wxccmdqc2xg" path="res://Assets/Anomalias/Sounds/Sirene.wav" id="20_7jr78"]
+[ext_resource type="Script" uid="uid://dajcl4y37qk2m" path="res://Scripts/Anomaly/VisualAnomaly.gd" id="20_y5t36"]
 
 [sub_resource type="Sky" id="Sky_6ieip"]
 sky_material = ExtResource("1_xlufh")
@@ -99,6 +107,37 @@ size = Vector3(50, 1, 50)
 [sub_resource type="BoxMesh" id="BoxMesh_stbmk"]
 size = Vector3(50, 1, 50)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hvssv"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwxe6"]
+size = Vector3(3.1865234, 2.3720703, 4.2628784)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gkh4"]
+albedo_texture = ExtResource("18_bghym")
+
 [sub_resource type="Shader" id="Shader_ddaal"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -143,6 +182,65 @@ shader = SubResource("Shader_ddaal")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_413qv"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uinuh"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.024541324, -0.0022367046, 0.02, 0.04012327, 0.014601037),
+"format": 34359742465,
+"index_count": 540,
+"index_data": PackedByteArray("CQAUACYAJgAUACcAFwAUAAkAJwAUABcAJgAoAAkAJwApACYAKAAmACoAKgAmACkAKQAnAAwAKgAVACgAKAAVACEACQAoACsAIQArACgAKwAsAAkACQAsABcALAArAC0ABwAVACoAIQAVAAcAKwAhAC4ALgAtACsABwAvACEAKgAwAAcALwAHADAAIQAvADEAMQAuACEAMAAyAC8AMQAvADIAMwAwACoANAAyADAAMAAzADQAMgA0ADUANgA0ADMANQA0ADYAKgAWADMAKQAWACoACAAzABYAMwAIADYAFgApADcADAA3ACkAFgA4AAgANwA4ABYAJQA2AAgACAA4ACUAOAA3AAsACwA3AAwACwAlADgANgAlADkAOQAlAAsAOQA6ADYANgA6ADUADAA7AAsAOgA5ADwADQA7AAwADAAnAA0AFwANACcACwA9ADkAPAA5AD0AEAALADsAOwANABAAPQALABAADQAXABoAGgAQAA0AGQAaABcAEAAaAA4APgAOABoAGgAZAD4ADgA/ABAAPwAOAD4AEAA/ABwAPgAcAD8AEAARAD0AHAARABAAFwAYABkAGAAXACwAGQAYAAoALABAABgACgAYAEAALQBAACwAEQAcAB4AQQBAAC0AQABBAAoALQBCAEEAQgAtAC4ACgBBAEMAQwBBAEIACgAbABkAPgAZABsAGwAKAEQAQwBEAAoAGwBFAD4AHAA+AEUARQAeABwARQAbAB0ARAAdABsAHQATAEUAHgBFABMARABDAAMAEwBGAB4AEgBGABMAHgBGABIAEwAdABIAHQBEAAUABQASAB0AAwAfAEQABQBEAB8ARwADAEMAHwADAEcAQwBIAEcAQgBIAEMARwBJAB8ASABCAEoALgBKAEIASwBHAEgASQBHAEsASgAiAEgASAAiAEsATAAiAEoASwAiAEwATQBKAC4ASgBNAEwALgAxAE0ATAAEAEsATQAxAE4AMgBOADEANQBOADIATgBPAE0ATABNAE8ATgA1AFAAUABPAE4ATwBRAEwABABMAFEATwBQACMAIwBRAE8AUgBQADUANQA6AFIAUwAjAFAAUABSAFMAPABSADoAIwBTAAEAUgA8ACQAJABTAFIAUQAjAFQAAQBUACMAVQABAFMAVAABAFUAUwAkAFUAVABWAFEAUQBWAAQASwAEAFYAVgBUAAAAVQAAAFQAVgAgAEsAAAAgAFYASwAgAEkAAABVAFcAVwBVACQAIAAAAFgAVwBYAAAAWABJACAAJAAGAFcABgAkADwAWABXAAIAAgBXAAYASQBYAFkAAgBZAFgAWQAfAEkAHwBZAAUAWQACAFoAWgAFAFkABgBaAAIAEgAFAFoAWgAGABIAPABbAAYAEgAGAFsAPQBbADwAWwAPABIADwBbAD0AEgAPAB4APQARAA8AHgAPABEA"),
+"lods": [0.011924405, PackedByteArray("FAAVAAkAFQAUABYAFQAWAAgADAAWABQADAAIABYADAAUABcAFwAUAAkACwAIAAwAFwANAAwADAANAAsAGAAXAAkACAAHABUAFwAYABkADQAXABoAGQAaABcAGgAQAA0AEAALAA0AGgAZAA4AEAAaAA4AGQAYAAoACgAYAAkADgAZABsACgAbABkADgAcABAAGwATAA4AHAAOABMAEwAbAB0ACgAdABsAEwAeABwAHAARABAAEQAcAB4AEAARAAsAHgAPABEACwARAA8AHgATABIAEwAdABIAEgAPAB4ADwAGAAsABgAPABIABQASAB0AHQAKAAUABQAGABIABQAKAB8ABgAFAAIAHwACAAUAAwAfAAoACQADAAoAAgAfACAAAwAgAB8AIAAAAAIAAwAJACEACQAVACEAIQAVAAcAIQAiAAMAIAADAAQABAADACIABAAiACEAAAAgAAQAIQAHAAQAAAABAAIABAABAAAAAgABAAYAIwAEAAcABAAjAAEABwAIACMAJAAGAAEAIwAkAAEACwAGACQACAAlACMACwAlAAgAJAAjACUAJAAlAAsA"), 0.032218844, PackedByteArray("AAABAAIAAgADAAAABAABAAAAAAADAAQAAwACAAUAAgABAAYABgAFAAIAAQAEAAcABwAIAAEACQAEAAMABAAJAAcABQAKAAMACQADAAoACAALAAEABgABAAsADAAIAAcABwAJAAwACwAIAAwADAAJAA0ACgANAAkADAANAAsADQAKAA4ADwAGAAsADgAQAA0AEAALAA0ACwARAA8AEAARAAsABgAPABIAEgAPABEAEQAQABIABQAGABIACgATAA4AEwAKAAUAEAAOABMABQASABMAEwASABAA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 92,
+"vertex_data": PackedByteArray("CtcjPCjJs7ySZSc8CtcjPOMKybzFk0o8CtcjPER/FDzFk0o8CtcjPN09PTwtfxK7CtcjPOMKybwtfxK7I+sDPN09PTySZSc8I+sDPPEbIbzFk0o8CtcjvOMKybwtfxK7CtcjvOMKybzFk0o8CtcjvN09PTwtfxK7g0iWO2hLfzzDDJK5FEUHvO8bIbzFk0o8CtcjvER/FDzFk0o8I+sDvN09PTySZSc8I+sDvCjJs7x7iiy50YGfO7NsvrtXhyU8FEUHvO8bIbySZSc80YGfu7NsvrtXhyU8I+sDPO8bIbySZSc8I+sDPCjJs7x7iiy5CtcjvN09PTx7iiy5CtcjvCjJs7zvkRK7CtcjvCjJs7ySZSc8I+sDvN09PTx7iiy5Mbuou2hLfzzDDJK5hR6ku71r17vXUWi5I+sDvKS8DLx7iiy5L+WaO71r17vXUWi52oGfuyjJs7ySZSc8I+sDPKS8DLx7iiy52oGfOyjJs7ySZSc8CtcjPN09PTx7iiy5CtcjPCjJs7x7iiy5I+sDvCjJs7yYbBK7I+sDPCjJs7ytBxK7I+sDPOMKybySZSc8I+sDPCjJs7zFk0o8I+sDvCjJs7zFk0o8CtcjvKO8DLx7iiy5CtcjvN09PTySZSc8CtcjvKS8DLwtfxK7CtcjvO8bIbySZSc8CtcjvCjJs7x7iiy5I+sDvKS8DLwtfxK7I+sDvN09PTwtfxK7hR6ku71r17tBfxK72oGfuyjJs7ytlRK7I+sDvOMKybwtfxK7CtcjvOMKybx7iiy52oGfu+MKybwtfxK7I+sDvOMKybx7iiy5CtcjvOMKybySZSc8I+sDvOMKybySZSc82oGfu+MKybySZSc8I+sDvOMKybzFk0o8CtcjvO8bIbzFk0o8CtcjvCjJs7zFk0o80YGfuyjJs7zFk0o80YGfu+MKybzFk0o8I+sDvER/FDzFk0o80YGfOyjJs7zFk0o80YGfu7NsvruKtUg82oGfuyjJs7x7iiy5I+sDvCjJs7ySZSc8Mbuou2hLfzxBfxK7g0iWO2hLfzxBfxK7L+WaO71r17tBfxK7I+sDPN09PTxBfxK7I+sDPN09PTx7iiy52oGfOyjJs7x7iiy5I+sDPCjJs7ySZSc8CtcjPKO8DLw3fxK7I+sDPKS8DLxMfxK7CtcjPKS8DLx7iiy52oGfOyjJs7yEQxK7CtcjPCjJs7wtfxK7I+sDPOMKybwtfxK72oGfO+MKybwtfxK72oGfu+MKybx7iiy52oGfO+MKybx7iiy52oGfO+MKybySZSc8I+sDPOMKybx7iiy50YGfO+MKybzFk0o8I+sDPOMKybzFk0o8CtcjPOMKybySZSc8CtcjPCjJs7zFk0o8CtcjPOMKybx7iiy5CtcjPPEbIbzFk0o8CtcjPO8bIbySZSc8CtcjPN09PTySZSc8I+sDPER/FDzFk0o80YGfO7NsvruKtUg8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4mkkd"]
+resource_name = "Cubo_001"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.024541324, -0.0022367046, 0.02, 0.04012327, 0.014601037),
+"attribute_data": PackedByteArray("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"),
+"format": 34359742487,
+"index_count": 540,
+"index_data": PackedByteArray("EQAnAD4APgA/ABEABwAtAEAAQABBAAcAQgAxAEMAQwAEAEIARAAxAEUARQBGAEQARABHAEgASABJAEQAMQBEAEkAAgBKAEkASQBLAAIASQBMADEATQAxAEwATABOAE0ATABJAE8ATwAyAEwAUABMAFEAUQADAFAAUgBTAFQAVAAOAFIAVQBWAFMAUwBXAFUAWABZAFcAVwBaAFgAWwBXAFMAXABdAFsAWwBeAFwAUwBeAFsAXgBTAF8AXwBgAF4AVwBbAGEAYQBaAFcAYgBeAGMAYwANAGIAYQBkAGUAZQAwAGEAWgBhADAAZgBnAFoAWgBoAGYAMABoAFoAaAAwAGkAaQBqAGgAAQBrADAAMABsAAEAaABtAA8ADwBuAGgAbwAkAHAAcAA1AG8AJgBxADMAMwA0ACYAcgBzAHQAdAB1AHIAKgArAAoACgB2ACoAdwB4AAkACQB5AHcAegB7AHwAfAB9AHoAfgB/AIAAgACBAH4AggAVADYANgA3AIIADACDAAsACwCEAAwAhQCGAIcAhwCIAIUAiQCKABAAEAAoAIkAiQCLAIwAjACNAIkAjQCOAI8AjwCQAI0AiQCNAJAAkQCSAIkAiQCTAJEAkACTAIkAkwCQAJQAlACVAJMAlgCXAJAAkACYAJYAmQCaAC4ALgCbAJkAnAAvAJ0AnQCeAJwAnwCgAKEAoQCiAJ8AowAFAKQApAClAKMApgCnAAgACACoAKYAqQAAAKoAqgCrAKkArAAGAK0ArQCuAKwArwCwACkAKQCxAK8AsgAUABIAEgATALIAswA4ALQAtAC1ALMAtgC3ALgAuAC5ALYAGgC6ABcAFwA7ABoAuwC8AL0AvQC+ALsAvwDAAMEAwQA8AL8AwgDDAMQAxADFAMIAxgDHAMgAyADJAMYAygAdAB4AHgDLAMoAPQDMAM0AzQDOAD0AzwDQANEA0QDSAM8A0wDUANUA1QDWANMA1wDYANkA2QDaANcA2wDcAN0A3QDeANsA3wA6AOAA4ADhAN8A4gDjAOQA5ADlAOIA5gDnAOgA6ADpAOYA6gDrAOwA7ADtAOoALADuAO8A7wDwACwA8QDyAPMA8wD0APEA9QD2APcA9wD4APUA+QD6APsA+wD8APkA/QA5ABYAFgD+AP0A/wAAAQEBAQECAf8AGQADAQQBBAEFARkABgEHAQgBCAEJAQYBCgEbAAsBCwEMAQoBDQEOAQ8BDwEQAQ0BEQESARMBEwEUAREBFQElABYBFgEXARUBGAEZARoBGgEbARgBHAEdASMAIwAeARwBHwEgASEBIQEiAR8BIAAjASQBJAEfACAAIgAhACUBJQEmASIAJwEoARgAGAApAScBKgErASwBLAEtASoBHAAuAS8BLwEwARwAMQEyATMBMwE0ATEBNQE2ATcBNwE4ATUBOQE6ATsBOwE8ATkB"),
+"lods": [0.011924405, PackedByteArray("JwAoABEAKAAnACkADAApACcAKAApAA0ADAANACkADQAQACgACAANAAwADAALAAgAKgALAAwADAArACoAKgArAAoALAAqAAoACQAsAAoACgAHAAkABwAtAAkABgAJAC0ALQACAAYABQAGAAIACAAuAA0ACAAFAC8ALwAuAAgADQAuADAALwAwAC4ADgANADAAMAAPAA4ADwAwAAEAMAAvAAEALwAFAAEAAgABAAUAAAABAAIABAABAAAAMQAAAAIAAAAxAAQAAgAyADEAMQADAAQAAwAxADIAMwA0ACYAIwA0ADMAMwAmACQAJQAjADMAJAA1ADMAMwA1ACUAJAAlADUANgA3ABUANwA2ADgAOAA5ADcAFAA4ADYANwA5ABYANgASABQAEgATABQAEgA2ABUAFgA6ADcAFQA3ADoAFgA7ADoAOwAWABkAGQAaADsAGQAbABoAFwA7ABoAFwA6ADsAOgAXABUAPAAVABcAFQA8ABgAPAAdABgAFwA9ADwAHQA8AD0APQAXABwAHAAeAD0APQAeAB0AHwAdAB4AIAAdAB8AHgAhAB8AIQAeACIA"), 0.032218844, PackedByteArray("AAABAAIAAgADAAAAAAADAAQABAABAAAAAgABAAUABQAGAAIABwACAAYABQABAAgABgAJAAcACgAHAAkACQALAAoADAAKAAsADAALAAgADQAIAAEACAANAAwADgANAAEAAQAPAA4ADAANABAAEAARAAwAEgATABQAFQASABQAFAAWABUAFgAXABUAGAAVABcAFwAWABkAGQAaABcAGQAbABoAFwAcABgAHQAYABwAHAAeAB0AHwAdAB4AIAAdAB8AHgAhAB8AIQAeACIAIwAkACUAJAAjACYA")],
+"material": SubResource("StandardMaterial3D_413qv"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 317,
+"vertex_data": PackedByteArray("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")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_uinuh")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ktl6"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_xlufh"]
 resource_local_to_scene = true
@@ -189,23 +287,23 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_465so"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2syam"]
 resource_local_to_scene = true
 shader = ExtResource("10_gxk0f")
 shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.2970000141075
-shader_parameter/scanlines_width = 0.20400000969
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
 shader_parameter/grille_opacity = 0.4950000235125
 shader_parameter/resolution = Vector2(960, 540)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
+shader_parameter/pixelate = false
+shader_parameter/roll = false
 shader_parameter/roll_speed = 4.0
-shader_parameter/roll_size = 20.00000095
+shader_parameter/roll_size = 0.0
 shader_parameter/roll_variation = 1.94500008912762
-shader_parameter/distort_intensity = 0.0890000042275
+shader_parameter/distort_intensity = 0.0
 shader_parameter/noise_opacity = 0.2000000095
 shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.2090000099275
+shader_parameter/static_noise_intensity = 0.150000007125
 shader_parameter/aberration = 0.03000004892500007
 shader_parameter/brightness = 1.455
 shader_parameter/discolor = true
@@ -259,6 +357,31 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ckpl6"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
 [sub_resource type="Shader" id="Shader_w0slw"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -303,6 +426,31 @@ shader = SubResource("Shader_w0slw")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bghym"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_465so"]
 resource_local_to_scene = true
@@ -349,6 +497,31 @@ shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86qh0"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
 [sub_resource type="Shader" id="Shader_sdrm6"]
 resource_local_to_scene = true
 code = "shader_type spatial;
@@ -393,6 +566,31 @@ shader = SubResource("Shader_sdrm6")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5t36"]
+resource_local_to_scene = true
+shader = ExtResource("10_gxk0f")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
 
 [sub_resource type="Shader" id="Shader_on330"]
 resource_local_to_scene = true
@@ -511,20 +709,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6652117, 0, 3.3273604)
 
 [node name="CameraRooms" type="Node" parent="."]
 
-[node name="Quarto" parent="CameraRooms" node_paths=PackedStringArray("sound_anomaly", "creature_anomaly") instance=ExtResource("9_gxk0f")]
+[node name="Quarto" type="Node" parent="CameraRooms" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer", "sound_anomaly", "glitch_anomaly", "creature_anomaly")]
+script = ExtResource("10_mewdn")
+camera = NodePath("CAMERA")
+geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
 sound_anomaly = NodePath("SoundPresset")
+glitch_anomaly = NodePath("GlitchPresset")
 creature_anomaly = NodePath("CreaturePresset")
 
+[node name="CAMERA" parent="CameraRooms/Quarto" instance=ExtResource("11_hvssv")]
+
 [node name="Camera3D" parent="CameraRooms/Quarto/CAMERA" index="0"]
-transform = Transform3D(0.033954725, -0.5342196, 0.8446636, 0.021457823, 0.8453458, 0.5337885, -0.9991931, 0, 0.04016667, 12.402571, 3.8784294, -6.856232)
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 12.401901, 3.338992, -6.7037044)
 
-[node name="SoundPresset" parent="CameraRooms/Quarto" index="2"]
+[node name="ShaderColorRect" parent="CameraRooms/Quarto/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_hvssv")
+
+[node name="SoundPresset" type="Node3D" parent="CameraRooms/Quarto" node_paths=PackedStringArray("room")]
+script = ExtResource("12_1ktl6")
 audios = Array[AudioStream]([ExtResource("12_ru4ou")])
+type = 1
+room = NodePath("..")
 
-[node name="CreaturePresset" parent="CameraRooms/Quarto" index="5" node_paths=PackedStringArray("anomalies")]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CameraRooms/Quarto/SoundPresset"]
+
+[node name="CreaturePresset" type="Node3D" parent="CameraRooms/Quarto" node_paths=PackedStringArray("anomalies", "room")]
+script = ExtResource("14_2syam")
 anomalies = [NodePath("Sprite3D")]
+room = NodePath("..")
 
-[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Quarto/CreaturePresset" index="0"]
+[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Quarto/CreaturePresset"]
 transform = Transform3D(-2.6008276e-08, 0, 0.595, 0, 0.595, 0, -0.595, 0, -2.6008276e-08, 1.814, 2.014, -5.89)
 visible = false
 texture = ExtResource("12_465so")
@@ -533,150 +748,460 @@ texture = ExtResource("12_465so")
 transform = Transform3D(1.34, 0, 0, 0, 1.34, 0, 0, 0, 1.34, 1.176, 1.237, 1.55)
 texture = ExtResource("13_tchvq")
 
-[node name="GeigerSupport" parent="CameraRooms/Quarto" index="6"]
+[node name="GlitchPresset" type="Node3D" parent="CameraRooms/Quarto" node_paths=PackedStringArray("room")]
+script = ExtResource("17_hvssv")
+type = 3
+room = NodePath("..")
+
+[node name="GeigerSupport" type="Area3D" parent="CameraRooms/Quarto" node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, 7.609, 2.2, -7.492)
+collision_layer = 2
+script = ExtResource("17_ckpl6")
+room = NodePath("..")
+mesh_with_outline = NodePath("Cubo_001")
+hint_label = NodePath("HintLabel")
 
-[node name="Cubo_001" parent="CameraRooms/Quarto/GeigerSupport" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRooms/Quarto/GeigerSupport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68603516, 0.43136597)
+shape = SubResource("BoxShape3D_mwxe6")
+
+[node name="Cubo_001" type="MeshInstance3D" parent="CameraRooms/Quarto/GeigerSupport"]
+transform = Transform3D(131.69885, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_gxk0f")
+mesh = SubResource("ArrayMesh_4mkkd")
+skeleton = NodePath("")
 
-[node name="Sala de Entrega" parent="CameraRooms" node_paths=PackedStringArray("visual_anomaly", "sound_anomaly") instance=ExtResource("9_gxk0f")]
+[node name="HintLabel" type="Label3D" parent="CameraRooms/Quarto/GeigerSupport"]
+transform = Transform3D(2.36, 0, 0, 0, 2.36, 0, 0, 0, 2.36, 0, 0, -1.8415833)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("19_86qh0")
+
+[node name="AnomalyTimer" type="Timer" parent="CameraRooms/Quarto"]
+one_shot = true
+
+[node name="Sala de Entrega" type="Node" parent="CameraRooms" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer", "visual_anomaly", "sound_anomaly", "glitch_anomaly")]
+script = ExtResource("10_mewdn")
+camera = NodePath("CAMERA")
+geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
 visual_anomaly = NodePath("VisualPresset")
 sound_anomaly = NodePath("SoundPresset")
+glitch_anomaly = NodePath("GlitchPresset")
+
+[node name="CAMERA" parent="CameraRooms/Sala de Entrega" instance=ExtResource("11_hvssv")]
 
 [node name="Camera3D" parent="CameraRooms/Sala de Entrega/CAMERA" index="0"]
-transform = Transform3D(0.8446461, 0.2236036, -0.48638904, 0.017808028, 0.89634717, 0.44299504, 0.53502876, -0.3828357, 0.75311434, -6.6548986, 5.755131, 12.394001)
+transform = Transform3D(0.95668167, 0, -0.2911364, 0, 1, 0, 0.2911364, 0, 0.95668167, -7.9712424, 1.9136982, 11.888804)
 
-[node name="VisualPresset" parent="CameraRooms/Sala de Entrega" index="1" node_paths=PackedStringArray("anomalies")]
+[node name="ShaderColorRect" parent="CameraRooms/Sala de Entrega/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_1ktl6")
+
+[node name="VisualPresset" type="Node3D" parent="CameraRooms/Sala de Entrega" node_paths=PackedStringArray("anomalies", "room")]
+script = ExtResource("20_y5t36")
 anomalies = [NodePath("PoçoAnomalia")]
+type = 2
+room = NodePath("..")
 
-[node name="PoçoAnomalia" parent="CameraRooms/Sala de Entrega/VisualPresset" index="0" instance=ExtResource("13_nxutr")]
+[node name="PoçoAnomalia" parent="CameraRooms/Sala de Entrega/VisualPresset" instance=ExtResource("13_nxutr")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -5.856152, 0.31666386, 8.452118)
 visible = false
 
-[node name="SoundPresset" parent="CameraRooms/Sala de Entrega" index="2"]
+[node name="SoundPresset" type="Node3D" parent="CameraRooms/Sala de Entrega" node_paths=PackedStringArray("room")]
+script = ExtResource("12_1ktl6")
 audios = Array[AudioStream]([ExtResource("16_on330")])
+type = 1
+room = NodePath("..")
 
-[node name="GeigerSupport" parent="CameraRooms/Sala de Entrega" index="6"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CameraRooms/Sala de Entrega/SoundPresset"]
+
+[node name="GlitchPresset" type="Node3D" parent="CameraRooms/Sala de Entrega" node_paths=PackedStringArray("room")]
+script = ExtResource("17_hvssv")
+type = 3
+room = NodePath("..")
+
+[node name="GeigerSupport" type="Area3D" parent="CameraRooms/Sala de Entrega" node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
 transform = Transform3D(-0.125, -1.0927847e-08, 4.7767137e-16, 0, -5.4639235e-09, -0.125, 1.0927847e-08, -0.125, 5.4639235e-09, -5.044, 2.2, 12.739)
+collision_layer = 2
+script = ExtResource("17_ckpl6")
+room = NodePath("..")
+mesh_with_outline = NodePath("Cubo_001")
+hint_label = NodePath("HintLabel")
 
-[node name="Cubo_001" parent="CameraRooms/Sala de Entrega/GeigerSupport" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRooms/Sala de Entrega/GeigerSupport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68603516, 0.43136597)
+shape = SubResource("BoxShape3D_mwxe6")
+
+[node name="Cubo_001" type="MeshInstance3D" parent="CameraRooms/Sala de Entrega/GeigerSupport"]
+transform = Transform3D(131.69885, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_6ieip")
+mesh = SubResource("ArrayMesh_4mkkd")
+skeleton = NodePath("")
 
-[node name="Banheiro" parent="CameraRooms" node_paths=PackedStringArray("sound_anomaly", "creature_anomaly") instance=ExtResource("9_gxk0f")]
+[node name="HintLabel" type="Label3D" parent="CameraRooms/Sala de Entrega/GeigerSupport"]
+transform = Transform3D(2.36, 0, 0, 0, 2.36, 0, 0, 0, 2.36, 0, 0, -1.8415833)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("19_86qh0")
+
+[node name="AnomalyTimer" type="Timer" parent="CameraRooms/Sala de Entrega"]
+one_shot = true
+
+[node name="Banheiro" type="Node" parent="CameraRooms" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer", "sound_anomaly", "glitch_anomaly", "creature_anomaly")]
+script = ExtResource("10_mewdn")
+camera = NodePath("CAMERA")
+geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
 sound_anomaly = NodePath("SoundPresset")
+glitch_anomaly = NodePath("GlitchPresset")
 creature_anomaly = NodePath("CreaturePresset")
 
+[node name="CAMERA" parent="CameraRooms/Banheiro" instance=ExtResource("11_hvssv")]
+
 [node name="Camera3D" parent="CameraRooms/Banheiro/CAMERA" index="0"]
-transform = Transform3D(0.73885536, 0, -0.67386395, 0, 1, 0, 0.67386395, 0, 0.73885536, 2.8943539, 0.8025757, -8.229074)
+transform = Transform3D(0.74180025, 0, -0.6706209, 0, 1, 0, 0.6706209, 0, 0.74180025, 2.8928683, 0.79416466, -8.278646)
 
 [node name="ShaderColorRect" parent="CameraRooms/Banheiro/CAMERA/Control" index="0"]
-material = SubResource("ShaderMaterial_465so")
+material = SubResource("ShaderMaterial_2syam")
 
-[node name="SoundPresset" parent="CameraRooms/Banheiro" index="2"]
+[node name="SoundPresset" type="Node3D" parent="CameraRooms/Banheiro" node_paths=PackedStringArray("room")]
+script = ExtResource("12_1ktl6")
 audios = Array[AudioStream]([ExtResource("16_on330")])
+type = 1
+room = NodePath("..")
 
-[node name="CreaturePresset" parent="CameraRooms/Banheiro" index="5" node_paths=PackedStringArray("anomalies")]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CameraRooms/Banheiro/SoundPresset"]
+
+[node name="CreaturePresset" type="Node3D" parent="CameraRooms/Banheiro" node_paths=PackedStringArray("anomalies", "room")]
+script = ExtResource("14_2syam")
 anomalies = [NodePath("Sprite3D")]
+room = NodePath("..")
 
-[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Banheiro/CreaturePresset" index="0"]
+[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Banheiro/CreaturePresset"]
 transform = Transform3D(-0.6630201, 0.059710033, 0.59821737, 0, 0.8905747, -0.08889117, -0.60119, -0.06585099, -0.65974176, 3.925, -0.288, -9.218)
 visible = false
 no_depth_test = true
 texture = ExtResource("14_465so")
 
-[node name="GeigerSupport" parent="CameraRooms/Banheiro" index="6"]
+[node name="GlitchPresset" type="Node3D" parent="CameraRooms/Banheiro" node_paths=PackedStringArray("room")]
+script = ExtResource("17_hvssv")
+type = 3
+room = NodePath("..")
+
+[node name="GeigerSupport" type="Area3D" parent="CameraRooms/Banheiro" node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
 transform = Transform3D(-5.4639235e-09, 0.125, -5.4639235e-09, 0, -5.4639235e-09, -0.125, -0.125, -5.4639235e-09, 2.3883568e-16, 2.756, 2.2, -8.694)
+collision_layer = 2
+script = ExtResource("17_ckpl6")
+room = NodePath("..")
+mesh_with_outline = NodePath("Cubo_001")
+hint_label = NodePath("HintLabel")
 
-[node name="Cubo_001" parent="CameraRooms/Banheiro/GeigerSupport" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRooms/Banheiro/GeigerSupport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68603516, 0.43136597)
+shape = SubResource("BoxShape3D_mwxe6")
+
+[node name="Cubo_001" type="MeshInstance3D" parent="CameraRooms/Banheiro/GeigerSupport"]
+transform = Transform3D(131.69885, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_p5spi")
+mesh = SubResource("ArrayMesh_4mkkd")
+skeleton = NodePath("")
 
-[node name="Lado de Fora" parent="CameraRooms" node_paths=PackedStringArray("visual_anomaly", "creature_anomaly") instance=ExtResource("9_gxk0f")]
+[node name="HintLabel" type="Label3D" parent="CameraRooms/Banheiro/GeigerSupport"]
+transform = Transform3D(2.36, 0, 0, 0, 2.36, 0, 0, 0, 2.36, 0, 0, -1.8415833)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("19_86qh0")
+
+[node name="AnomalyTimer" type="Timer" parent="CameraRooms/Banheiro"]
+one_shot = true
+
+[node name="Lado de Fora" type="Node" parent="CameraRooms" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer", "visual_anomaly", "glitch_anomaly", "creature_anomaly")]
+script = ExtResource("10_mewdn")
+camera = NodePath("CAMERA")
+geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
 visual_anomaly = NodePath("VisualPresset")
+glitch_anomaly = NodePath("GlitchPresset")
 creature_anomaly = NodePath("CreaturePresset")
 
-[node name="Camera3D" parent="CameraRooms/Lado de Fora/CAMERA" index="0"]
-transform = Transform3D(-0.11023739, 0, 0.99390537, 0, 1, 0, -0.99390537, 0, -0.11023739, 15.198827, 3.8023617, 4.9745593)
+[node name="CAMERA" parent="CameraRooms/Lado de Fora" instance=ExtResource("11_hvssv")]
 
-[node name="VisualPresset" parent="CameraRooms/Lado de Fora" index="1" node_paths=PackedStringArray("anomalies", "world_environment")]
+[node name="Camera3D" parent="CameraRooms/Lado de Fora/CAMERA" index="0"]
+transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 14.990321, 3.879189, 5.149006)
+
+[node name="ShaderColorRect" parent="CameraRooms/Lado de Fora/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_ckpl6")
+
+[node name="VisualPresset" type="Node3D" parent="CameraRooms/Lado de Fora" node_paths=PackedStringArray("anomalies", "world_environment", "room")]
+script = ExtResource("20_y5t36")
 anomalies = [NodePath("SunChanger")]
 world_environment = NodePath("../../../WorldEnvironment")
+type = 2
+room = NodePath("..")
 
-[node name="SunChanger" type="Node3D" parent="CameraRooms/Lado de Fora/VisualPresset" index="0" groups=["SunChanger"]]
+[node name="SunChanger" type="Node3D" parent="CameraRooms/Lado de Fora/VisualPresset" groups=["SunChanger"]]
 
-[node name="CreaturePresset" parent="CameraRooms/Lado de Fora" index="5" node_paths=PackedStringArray("anomalies")]
+[node name="CreaturePresset" type="Node3D" parent="CameraRooms/Lado de Fora" node_paths=PackedStringArray("anomalies", "room")]
+script = ExtResource("14_2syam")
 anomalies = [NodePath("Sprite3D")]
+room = NodePath("..")
 
-[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Lado de Fora/CreaturePresset" index="0"]
+[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Lado de Fora/CreaturePresset"]
 transform = Transform3D(-2.6008276e-08, 0, 0.595, 0, 0.595, 0, -0.595, 0, -2.6008276e-08, 7.0162754, 1.8291023, 6.2235045)
 visible = false
 texture = ExtResource("12_w0slw")
 
-[node name="GeigerSupport" parent="CameraRooms/Lado de Fora" index="6"]
+[node name="GlitchPresset" type="Node3D" parent="CameraRooms/Lado de Fora" node_paths=PackedStringArray("room")]
+script = ExtResource("17_hvssv")
+type = 3
+room = NodePath("..")
+
+[node name="GeigerSupport" type="Area3D" parent="CameraRooms/Lado de Fora" node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
 transform = Transform3D(-5.4639235e-09, -0.125, 5.4639235e-09, 0, -5.4639235e-09, -0.125, 0.125, -5.4639235e-09, 2.3883568e-16, 1.946, 2.2, 5.565)
+collision_layer = 2
+script = ExtResource("17_ckpl6")
+room = NodePath("..")
+mesh_with_outline = NodePath("Cubo_001")
+hint_label = NodePath("HintLabel")
 
-[node name="Cubo_001" parent="CameraRooms/Lado de Fora/GeigerSupport" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRooms/Lado de Fora/GeigerSupport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68603516, 0.43136597)
+shape = SubResource("BoxShape3D_mwxe6")
+
+[node name="Cubo_001" type="MeshInstance3D" parent="CameraRooms/Lado de Fora/GeigerSupport"]
+transform = Transform3D(131.69885, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_nxutr")
+mesh = SubResource("ArrayMesh_4mkkd")
+skeleton = NodePath("")
 
-[node name="Corredor" parent="CameraRooms" node_paths=PackedStringArray("visual_anomaly", "creature_anomaly") instance=ExtResource("9_gxk0f")]
-visual_anomaly = NodePath("VisualPresset")
+[node name="HintLabel" type="Label3D" parent="CameraRooms/Lado de Fora/GeigerSupport"]
+transform = Transform3D(2.36, 0, 0, 0, 2.36, 0, 0, 0, 2.36, 0, 0, -1.8415833)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("19_86qh0")
+
+[node name="AnomalyTimer" type="Timer" parent="CameraRooms/Lado de Fora"]
+one_shot = true
+
+[node name="Corredor" type="Node" parent="CameraRooms" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer", "glitch_anomaly", "creature_anomaly")]
+script = ExtResource("10_mewdn")
+camera = NodePath("CAMERA")
+geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
+glitch_anomaly = NodePath("GlitchPresset")
 creature_anomaly = NodePath("CreaturePresset")
 
+[node name="CAMERA" parent="CameraRooms/Corredor" instance=ExtResource("11_hvssv")]
+
 [node name="Camera3D" parent="CameraRooms/Corredor/CAMERA" index="0"]
-transform = Transform3D(0.84404814, -0.29908848, 0.44511682, 0.021284537, 0.8480574, 0.5294769, -0.53584504, -0.43742982, 0.72216713, 1.8081291, 3.7254858, 4.096121)
+transform = Transform3D(0.89874053, 0, 0.43848097, 0, 1, 0, -0.43848097, 0, 0.89874053, 1.7717333, 1.9136982, 3.9173121)
 
-[node name="CreaturePresset" parent="CameraRooms/Corredor" index="5" node_paths=PackedStringArray("anomalies")]
+[node name="ShaderColorRect" parent="CameraRooms/Corredor/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_bghym")
+
+[node name="VisualPresset" type="Node3D" parent="CameraRooms/Corredor" node_paths=PackedStringArray("room")]
+script = ExtResource("20_y5t36")
+type = 2
+room = NodePath("..")
+
+[node name="CreaturePresset" type="Node3D" parent="CameraRooms/Corredor" node_paths=PackedStringArray("anomalies", "room")]
+script = ExtResource("14_2syam")
 anomalies = [NodePath("Sprite3D")]
+room = NodePath("..")
 
-[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Corredor/CreaturePresset" index="0"]
+[node name="Sprite3D" type="Sprite3D" parent="CameraRooms/Corredor/CreaturePresset"]
 transform = Transform3D(-0.67892337, 0, -0.19995052, 0, 0.67948663, 0, 0.13566224, 0, -1.0006549, 0.7679868, 2.0996027, -3.650732)
 visible = false
 texture = ExtResource("15_tchvq")
 
-[node name="GeigerSupport" parent="CameraRooms/Corredor" index="6"]
+[node name="GlitchPresset" type="Node3D" parent="CameraRooms/Corredor" node_paths=PackedStringArray("room")]
+script = ExtResource("17_hvssv")
+type = 3
+room = NodePath("..")
+
+[node name="GeigerSupport" type="Area3D" parent="CameraRooms/Corredor" node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
 transform = Transform3D(-5.4639235e-09, 0.125, -5.4639235e-09, 0, -5.4639235e-09, -0.125, -0.125, -5.4639235e-09, 2.3883568e-16, -0.663, 2.2, -0.699)
+collision_layer = 2
+script = ExtResource("17_ckpl6")
+room = NodePath("..")
+mesh_with_outline = NodePath("Cubo_001")
+hint_label = NodePath("HintLabel")
 
-[node name="Cubo_001" parent="CameraRooms/Corredor/GeigerSupport" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRooms/Corredor/GeigerSupport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68603516, 0.43136597)
+shape = SubResource("BoxShape3D_mwxe6")
+
+[node name="Cubo_001" type="MeshInstance3D" parent="CameraRooms/Corredor/GeigerSupport"]
+transform = Transform3D(131.69885, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_tchvq")
+mesh = SubResource("ArrayMesh_4mkkd")
+skeleton = NodePath("")
 
-[node name="Escada" parent="CameraRooms" node_paths=PackedStringArray("visual_anomaly", "sound_anomaly") instance=ExtResource("9_gxk0f")]
+[node name="HintLabel" type="Label3D" parent="CameraRooms/Corredor/GeigerSupport"]
+transform = Transform3D(2.36, 0, 0, 0, 2.36, 0, 0, 0, 2.36, 0, 0, -1.8415833)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("19_86qh0")
+
+[node name="AnomalyTimer" type="Timer" parent="CameraRooms/Corredor"]
+one_shot = true
+
+[node name="Escada" type="Node" parent="CameraRooms" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer", "visual_anomaly", "sound_anomaly", "glitch_anomaly")]
+script = ExtResource("10_mewdn")
+camera = NodePath("CAMERA")
+geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
 visual_anomaly = NodePath("VisualPresset")
 sound_anomaly = NodePath("SoundPresset")
+glitch_anomaly = NodePath("GlitchPresset")
+
+[node name="CAMERA" parent="CameraRooms/Escada" instance=ExtResource("11_hvssv")]
 
 [node name="Camera3D" parent="CameraRooms/Escada/CAMERA" index="0"]
-transform = Transform3D(-0.9991931, 0, 0.040166628, 0, 1, 0, -0.040166628, 0, -0.9991931, 0.73834944, 1.9136982, -12.27939)
+transform = Transform3D(-0.9991931, 0, 0.040166628, 0, 1, 0, -0.040166628, 0, -0.9991931, 0.5958762, 1.9136982, -11.772853)
 
-[node name="SoundPresset" parent="CameraRooms/Escada" index="2"]
+[node name="ShaderColorRect" parent="CameraRooms/Escada/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_86qh0")
+
+[node name="VisualPresset" type="Node3D" parent="CameraRooms/Escada" node_paths=PackedStringArray("room")]
+script = ExtResource("20_y5t36")
+type = 2
+room = NodePath("..")
+
+[node name="SoundPresset" type="Node3D" parent="CameraRooms/Escada" node_paths=PackedStringArray("room")]
+script = ExtResource("12_1ktl6")
 audios = Array[AudioStream]([ExtResource("12_ru4ou")])
+type = 1
+room = NodePath("..")
 
-[node name="GeigerSupport" parent="CameraRooms/Escada" index="6"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CameraRooms/Escada/SoundPresset"]
+
+[node name="GlitchPresset" type="Node3D" parent="CameraRooms/Escada" node_paths=PackedStringArray("room")]
+script = ExtResource("17_hvssv")
+type = 3
+room = NodePath("..")
+
+[node name="GeigerSupport" type="Area3D" parent="CameraRooms/Escada" node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
 transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, 0.447, 2.2, -12.15)
+collision_layer = 2
+script = ExtResource("17_ckpl6")
+room = NodePath("..")
+mesh_with_outline = NodePath("Cubo_001")
+hint_label = NodePath("HintLabel")
 
-[node name="Cubo_001" parent="CameraRooms/Escada/GeigerSupport" index="1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRooms/Escada/GeigerSupport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68603516, 0.43136597)
+shape = SubResource("BoxShape3D_mwxe6")
+
+[node name="Cubo_001" type="MeshInstance3D" parent="CameraRooms/Escada/GeigerSupport"]
+transform = Transform3D(131.69885, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_ru4ou")
+mesh = SubResource("ArrayMesh_4mkkd")
+skeleton = NodePath("")
 
-[node name="Almoxarifado" parent="CameraRooms" node_paths=PackedStringArray("sound_anomaly", "creature_anomaly") instance=ExtResource("9_gxk0f")]
+[node name="HintLabel" type="Label3D" parent="CameraRooms/Escada/GeigerSupport"]
+transform = Transform3D(2.36, 0, 0, 0, 2.36, 0, 0, 0, 2.36, 0, 0, -1.8415833)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("19_86qh0")
+
+[node name="AnomalyTimer" type="Timer" parent="CameraRooms/Escada"]
+one_shot = true
+
+[node name="Almoxarifado" type="Node" parent="CameraRooms" node_paths=PackedStringArray("camera", "geiger_support", "anomalyTimer", "sound_anomaly", "glitch_anomaly", "creature_anomaly")]
+script = ExtResource("10_mewdn")
+camera = NodePath("CAMERA")
+geiger_support = NodePath("GeigerSupport")
+anomalyTimer = NodePath("AnomalyTimer")
 sound_anomaly = NodePath("SoundPresset")
+glitch_anomaly = NodePath("GlitchPresset")
 creature_anomaly = NodePath("CreaturePresset")
 
+[node name="CAMERA" parent="CameraRooms/Almoxarifado" instance=ExtResource("11_hvssv")]
+
 [node name="Camera3D" parent="CameraRooms/Almoxarifado/CAMERA" index="0"]
-transform = Transform3D(0.9991931, 0, -0.04016671, 0.02172327, 0.8411334, 0.5403912, 0.033785563, -0.5408277, 0.8404546, -8.680545, 3.4765792, 4.02032)
+transform = Transform3D(0.9991295, 0, -0.04171871, 0, 1, 0, 0.04171871, 0, 0.9991295, -7.3074245, 1.9136982, 3.8519366)
 
-[node name="SoundPresset" parent="CameraRooms/Almoxarifado" index="2"]
+[node name="ShaderColorRect" parent="CameraRooms/Almoxarifado/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_y5t36")
+
+[node name="SoundPresset" type="Node3D" parent="CameraRooms/Almoxarifado" node_paths=PackedStringArray("room")]
+script = ExtResource("12_1ktl6")
 audios = Array[AudioStream]([ExtResource("20_7jr78")])
+type = 1
+room = NodePath("..")
 
-[node name="CreaturePresset" parent="CameraRooms/Almoxarifado" index="5" node_paths=PackedStringArray("anomalies")]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CameraRooms/Almoxarifado/SoundPresset"]
+
+[node name="CreaturePresset" type="Node3D" parent="CameraRooms/Almoxarifado" node_paths=PackedStringArray("anomalies", "room")]
+script = ExtResource("14_2syam")
 anomalies = [NodePath("Sprite3D2")]
+room = NodePath("..")
 
-[node name="Sprite3D2" type="Sprite3D" parent="CameraRooms/Almoxarifado/CreaturePresset" index="0"]
+[node name="Sprite3D2" type="Sprite3D" parent="CameraRooms/Almoxarifado/CreaturePresset"]
 transform = Transform3D(-0.52486545, 0, -0.28025213, 0, 0.595, 0, 0.28025213, 0, -0.52486545, -13.286, 1.954, -1.875)
 visible = false
 texture = ExtResource("12_w0slw")
 
-[node name="GeigerSupport" parent="CameraRooms/Almoxarifado" index="6"]
-transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, -7.086, 2.2, -3.636)
+[node name="GlitchPresset" type="Node3D" parent="CameraRooms/Almoxarifado" node_paths=PackedStringArray("room")]
+script = ExtResource("17_hvssv")
+type = 3
+room = NodePath("..")
 
-[node name="Cubo_001" parent="CameraRooms/Almoxarifado/GeigerSupport" index="1"]
+[node name="GeigerSupport" type="Area3D" parent="CameraRooms/Almoxarifado" node_paths=PackedStringArray("room", "mesh_with_outline", "hint_label")]
+transform = Transform3D(0.125, 0, 0, 0, -5.4639235e-09, -0.125, 0, 0.125, -5.4639235e-09, -7.086, 2.2, -3.636)
+collision_layer = 2
+script = ExtResource("17_ckpl6")
+room = NodePath("..")
+mesh_with_outline = NodePath("Cubo_001")
+hint_label = NodePath("HintLabel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRooms/Almoxarifado/GeigerSupport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68603516, 0.43136597)
+shape = SubResource("BoxShape3D_mwxe6")
+
+[node name="Cubo_001" type="MeshInstance3D" parent="CameraRooms/Almoxarifado/GeigerSupport"]
+transform = Transform3D(131.69885, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_7jr78")
+mesh = SubResource("ArrayMesh_4mkkd")
+skeleton = NodePath("")
+
+[node name="HintLabel" type="Label3D" parent="CameraRooms/Almoxarifado/GeigerSupport"]
+transform = Transform3D(2.36, 0, 0, 0, 2.36, 0, 0, 0, 2.36, 0, 0, -1.8415833)
+visible = false
+sorting_offset = 0.2
+billboard = 1
+no_depth_test = true
+text = "Pressione botão esquerdo"
+font = ExtResource("19_86qh0")
+
+[node name="AnomalyTimer" type="Timer" parent="CameraRooms/Almoxarifado"]
+one_shot = true
 
 [node name="GeigerAnomaly" type="Timer" parent="."]
 wait_time = 40.0
@@ -685,17 +1210,10 @@ one_shot = true
 [connection signal="timeout" from="GameManager/SessionTimer" to="GameManager" method="_on_session_timer_timeout"]
 
 [editable path="HUD"]
-[editable path="CameraRooms/Quarto"]
 [editable path="CameraRooms/Quarto/CAMERA"]
-[editable path="CameraRooms/Sala de Entrega"]
 [editable path="CameraRooms/Sala de Entrega/CAMERA"]
-[editable path="CameraRooms/Banheiro"]
 [editable path="CameraRooms/Banheiro/CAMERA"]
-[editable path="CameraRooms/Lado de Fora"]
 [editable path="CameraRooms/Lado de Fora/CAMERA"]
-[editable path="CameraRooms/Corredor"]
 [editable path="CameraRooms/Corredor/CAMERA"]
-[editable path="CameraRooms/Escada"]
 [editable path="CameraRooms/Escada/CAMERA"]
-[editable path="CameraRooms/Almoxarifado"]
 [editable path="CameraRooms/Almoxarifado/CAMERA"]

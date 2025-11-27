@@ -81,4 +81,4 @@ func ResolvedAnomaly(resolved : Anomaly):
 
 func SpawnAnomaly(arrayPos : int):
 	anomaliesSlots[arrayPos] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
-	print("Slot ", arrayPos, ": ", anomaliesSlots[arrayPos].type)
+	print("Slot ", arrayPos, ": ", Anomaly.AnomalyTypes.find_key( anomaliesSlots[arrayPos].type ), " em ", anomaliesSlots[arrayPos].room.name)
