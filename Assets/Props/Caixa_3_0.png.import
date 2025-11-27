@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://cnyiugbet4ns7"
+path.s3tc="res://.godot/imported/Caixa_3_0.png-90055c99361c220ddd979c76ccae5a04.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "1e552cd88aa4813904eac22914c6288e"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/Caixa_3_0.png"
+dest_files=["res://.godot/imported/Caixa_3_0.png-90055c99361c220ddd979c76ccae5a04.s3tc.ctex"]
 
 [params]
 

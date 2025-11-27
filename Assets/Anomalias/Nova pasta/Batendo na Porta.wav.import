@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bciqhh8xgf772"
-path="res://.godot/imported/Batendo na Porta.wav-9e99b2ad3255b53442678c5fcd368677.sample"
+path="res://.godot/imported/Batendo na Porta.wav-accd440334adad30682090015d85a19d.sample"
 
 [deps]
 
-source_file="res://Assets/Anomalias/Sounds/Batendo na Porta.wav"
-dest_files=["res://.godot/imported/Batendo na Porta.wav-9e99b2ad3255b53442678c5fcd368677.sample"]
+source_file="res://Assets/Anomalias/Nova pasta/Batendo na Porta.wav"
+dest_files=["res://.godot/imported/Batendo na Porta.wav-accd440334adad30682090015d85a19d.sample"]
 
 [params]
 

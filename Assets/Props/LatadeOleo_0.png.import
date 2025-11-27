@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://brx5mc0pkgsqr"
+path.s3tc="res://.godot/imported/LatadeOleo_0.png-9bd88809a5cee1994125696624e5143a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "852ef0793b0aad91fd6c35a09dd429e9"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/LatadeOleo_0.png"
+dest_files=["res://.godot/imported/LatadeOleo_0.png-9bd88809a5cee1994125696624e5143a.s3tc.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://dlhl7wsa7514t"]
+[gd_scene load_steps=104 format=4 uid="uid://dlhl7wsa7514t"]
 
 [ext_resource type="PackedScene" uid="uid://btin1ybc741g8" path="res://Levels/BlocagemMapa.tscn" id="1_41wr0"]
 [ext_resource type="Texture2D" uid="uid://cn3tvh4ms6n82" path="res://Assets/Materiais/Texturas/Tubulação_0.png" id="2_2mpd0"]
@@ -29,6 +29,8 @@
 [ext_resource type="PackedScene" uid="uid://cl3lhtdwdvx6p" path="res://Assets/Props/Quarto/Cadeira.fbx" id="27_1nbjv"]
 [ext_resource type="Texture2D" uid="uid://c8u7nirw0vbn2" path="res://Assets/Props/Quarto/PlanejamentoSemanal_0.png" id="28_rvn4v"]
 [ext_resource type="PackedScene" uid="uid://cryqydnboin76" path="res://Assets/Props/Quarto/Tapete.fbx" id="29_fb3fe"]
+[ext_resource type="PackedScene" uid="uid://cw1bdifyfq853" path="res://Levels/cena_gameplay.tscn" id="30_aou57"]
+[ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="31_llt8y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3eyn"]
 resource_name = "Material.017"
@@ -633,6 +635,496 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ubo0l")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qap4b"]
+resource_local_to_scene = true
+shader = ExtResource("31_llt8y")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Shader" id="Shader_hn735"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83cgf"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_hn735")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hrgwj"]
+resource_local_to_scene = true
+shader = ExtResource("31_llt8y")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Shader" id="Shader_ueo8v"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mvmv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_ueo8v")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ue21m"]
+resource_local_to_scene = true
+shader = ExtResource("31_llt8y")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Shader" id="Shader_whwh8"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsq0x"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_whwh8")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1nbjv"]
+resource_local_to_scene = true
+shader = ExtResource("31_llt8y")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Shader" id="Shader_rvn4v"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fb3fe"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_rvn4v")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clupq"]
+resource_local_to_scene = true
+shader = ExtResource("31_llt8y")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Shader" id="Shader_xax5d"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fl2xh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_xax5d")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irlcw"]
+resource_local_to_scene = true
+shader = ExtResource("31_llt8y")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Shader" id="Shader_g7bfk"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_54twq"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_g7bfk")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqe28"]
+resource_local_to_scene = true
+shader = ExtResource("31_llt8y")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.4950000235125
+shader_parameter/resolution = Vector2(960, 540)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 4.0
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 1.94500008912762
+shader_parameter/distort_intensity = 0.0
+shader_parameter/noise_opacity = 0.2000000095
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.150000007125
+shader_parameter/aberration = 0.03000004892500007
+shader_parameter/brightness = 1.455
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.48
+shader_parameter/vignette_opacity = 0.590000028025
+
+[sub_resource type="Shader" id="Shader_ut1um"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color;
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cetui"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_ut1um")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
 [node name="CenaPrincipal" type="Node3D"]
 
 [node name="MapaPrincipal" parent="." instance=ExtResource("1_41wr0")]
@@ -861,3 +1353,84 @@ skeleton = NodePath("")
 
 [node name="Tapete" parent="." instance=ExtResource("29_fb3fe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3494, 0.50000024, -5.1753836)
+
+[node name="CenaGameplay" parent="." instance=ExtResource("30_aou57")]
+
+[node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Quarto/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_qap4b")
+
+[node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Quarto" index="4"]
+transform = Transform3D(-0.125, -1.0927847e-08, 0, -4.7767137e-16, 5.4639235e-09, -0.125, 1.0927847e-08, -0.125, -5.4639235e-09, 7.609, 2.1999998, -2.0033262)
+
+[node name="Cubo_001" parent="CenaGameplay/CameraRooms/Quarto/GeigerSupport" index="1"]
+material_overlay = SubResource("ShaderMaterial_83cgf")
+
+[node name="Camera3D" parent="CenaGameplay/CameraRooms/Sala de Entrega/CAMERA" index="0"]
+transform = Transform3D(0.9566817, 0.121642455, -0.26450616, 0, 0.90853006, 0.41781953, 0.2911364, -0.3997202, 0.86917394, -8.346273, 3.6958919, 13.077945)
+
+[node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Sala de Entrega/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_hrgwj")
+
+[node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Sala de Entrega" index="4"]
+transform = Transform3D(-0.125, -1.0927847e-08, 4.7767137e-16, 0, -5.4639235e-09, -0.125, 1.0927847e-08, -0.125, 5.4639235e-09, -5.044, 2.2, 13.230641)
+
+[node name="Cubo_001" parent="CenaGameplay/CameraRooms/Sala de Entrega/GeigerSupport" index="1"]
+material_overlay = SubResource("ShaderMaterial_5mvmv")
+
+[node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Banheiro/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_ue21m")
+
+[node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Banheiro" index="4"]
+transform = Transform3D(-5.4639235e-09, 0.125, -5.4639235e-09, 0, -5.4639235e-09, -0.125, -0.125, -5.4639235e-09, 2.3883568e-16, 2.6558833, 2.2, -9.580121)
+
+[node name="Cubo_001" parent="CenaGameplay/CameraRooms/Banheiro/GeigerSupport" index="1"]
+material_overlay = SubResource("ShaderMaterial_vsq0x")
+
+[node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Lado de Fora/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_1nbjv")
+
+[node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Lado de Fora" index="4"]
+transform = Transform3D(-5.4639235e-09, -0.125, 5.4639235e-09, 0, -5.4639235e-09, -0.125, 0.125, -5.4639235e-09, 2.3883568e-16, 2.1225164, 2.2, 5.565)
+
+[node name="Cubo_001" parent="CenaGameplay/CameraRooms/Lado de Fora/GeigerSupport" index="1"]
+material_overlay = SubResource("ShaderMaterial_fb3fe")
+
+[node name="Camera3D" parent="CenaGameplay/CameraRooms/Corredor/CAMERA" index="0"]
+transform = Transform3D(0.89874053, -0.13946587, 0.41571006, 1.4901161e-08, 0.9480686, 0.318066, -0.43848097, -0.28585875, 0.85206765, 1.7717333, 3.7812586, 3.9173121)
+
+[node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Corredor/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_clupq")
+
+[node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Corredor" index="4"]
+transform = Transform3D(-5.4639235e-09, 0.125, -5.4639235e-09, 0, -5.4639235e-09, -0.125, -0.125, -5.4639235e-09, 2.3883568e-16, -0.89535105, 2.2, -0.699)
+
+[node name="Cubo_001" parent="CenaGameplay/CameraRooms/Corredor/GeigerSupport" index="1"]
+material_overlay = SubResource("ShaderMaterial_fl2xh")
+
+[node name="Camera3D" parent="CenaGameplay/CameraRooms/Escada/CAMERA" index="0"]
+transform = Transform3D(0.9332862, 0.25623125, -0.25163957, -1.4901161e-08, 0.70068514, 0.71347064, 0.3591336, -0.6658722, 0.65393984, 0.029445466, 5.788537, -7.7602415)
+
+[node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Escada/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_irlcw")
+
+[node name="Cubo_001" parent="CenaGameplay/CameraRooms/Escada/GeigerSupport" index="1"]
+material_overlay = SubResource("ShaderMaterial_54twq")
+
+[node name="Camera3D" parent="CenaGameplay/CameraRooms/Almoxarifado/CAMERA" index="0"]
+transform = Transform3D(0.9142096, 0.020205885, 0.40473777, -0.21210635, 0.87488186, 0.4354224, -0.34529966, -0.48391473, 0.8041112, -7.3074245, 3.1770926, 3.8519366)
+
+[node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Almoxarifado/CAMERA/Control" index="0"]
+material = SubResource("ShaderMaterial_gqe28")
+
+[node name="Cubo_001" parent="CenaGameplay/CameraRooms/Almoxarifado/GeigerSupport" index="1"]
+material_overlay = SubResource("ShaderMaterial_cetui")
+
+[editable path="CenaGameplay"]
+[editable path="CenaGameplay/HUD"]
+[editable path="CenaGameplay/CameraRooms/Quarto/CAMERA"]
+[editable path="CenaGameplay/CameraRooms/Sala de Entrega/CAMERA"]
+[editable path="CenaGameplay/CameraRooms/Banheiro/CAMERA"]
+[editable path="CenaGameplay/CameraRooms/Lado de Fora/CAMERA"]
+[editable path="CenaGameplay/CameraRooms/Corredor/CAMERA"]
+[editable path="CenaGameplay/CameraRooms/Escada/CAMERA"]
+[editable path="CenaGameplay/CameraRooms/Almoxarifado/CAMERA"]

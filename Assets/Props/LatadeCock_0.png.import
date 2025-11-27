@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://dt05prvgdp4rv"
+path.s3tc="res://.godot/imported/LatadeCock_0.png-0a782e80cee2ff7e682ce4a8ffde764c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "2225b285ad056f81ae55906b7774873d"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/LatadeCock_0.png"
+dest_files=["res://.godot/imported/LatadeCock_0.png-0a782e80cee2ff7e682ce4a8ffde764c.s3tc.ctex"]
 
 [params]
 

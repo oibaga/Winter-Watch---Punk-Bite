@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://dekb0kvbx20bl"
+path.s3tc="res://.godot/imported/CaixaDeFerramentas_0.png-2893aae48cfb71660e97a4f5872eecd0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "85ccd9c3d024f25e940e6b399904847c"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/CaixaDeFerramentas_0.png"
+dest_files=["res://.godot/imported/CaixaDeFerramentas_0.png-2893aae48cfb71660e97a4f5872eecd0.s3tc.ctex"]
 
 [params]
 

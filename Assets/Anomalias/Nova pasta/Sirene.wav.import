@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://7wxccmdqc2xg"
-path="res://.godot/imported/Sirene.wav-27ac44c4f0a257a098d3306c30f4c4cf.sample"
+path="res://.godot/imported/Sirene.wav-be8bb297e2f7acfe26905a0e3cf124c6.sample"
 
 [deps]
 
-source_file="res://Assets/Anomalias/Sounds/Sirene.wav"
-dest_files=["res://.godot/imported/Sirene.wav-27ac44c4f0a257a098d3306c30f4c4cf.sample"]
+source_file="res://Assets/Anomalias/Nova pasta/Sirene.wav"
+dest_files=["res://.godot/imported/Sirene.wav-be8bb297e2f7acfe26905a0e3cf124c6.sample"]
 
 [params]
 

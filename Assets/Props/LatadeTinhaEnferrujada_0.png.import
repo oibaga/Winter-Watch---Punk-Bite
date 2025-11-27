@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://ic0x41j47qvq"
+path.s3tc="res://.godot/imported/LatadeTinhaEnferrujada_0.png-d19a36d8164bc248ca20336f71c7f711.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "454a288aa119e0d7bf1cae8e5f8320da"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/LatadeTinhaEnferrujada_0.png"
+dest_files=["res://.godot/imported/LatadeTinhaEnferrujada_0.png-d19a36d8164bc248ca20336f71c7f711.s3tc.ctex"]
 
 [params]
 

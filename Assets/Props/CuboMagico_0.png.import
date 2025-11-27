@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://b8ho03r5k8my"
+path.s3tc="res://.godot/imported/CuboMagico_0.png-f9b94709b55ccaef3b434f4c01ae4c96.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "5753b0e7f933b880cbd4795381605e1c"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/CuboMagico_0.png"
+dest_files=["res://.godot/imported/CuboMagico_0.png-f9b94709b55ccaef3b434f4c01ae4c96.s3tc.ctex"]
 
 [params]
 
