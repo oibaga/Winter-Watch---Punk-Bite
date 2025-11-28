@@ -32,6 +32,9 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inspection_color_rect.visible = false
 
+func _process(delta: float) -> void:
+	HandleAnimations()
+
 func _physics_process(delta):
 	if !objeto_inspecionado:
 		check_distance()
@@ -150,3 +153,34 @@ func StopInspection():
 func check_distance():
 	if itemInHand is Geiger:
 		itemInHand.proximity = global_position.distance_to(geigerTarget.global_position)
+
+func ChangeAnimation(animation : StringName):
+	if animation_player.current_animation != animation:
+		animation_player.play( animation )
+
+func HandleAnimations():
+	if objeto_inspecionado:
+		ChangeAnimation("Idle")
+		return
+
+	if sitting_on_node:
+		ChangeAnimation("SittingIdle")
+		return
+
+	var horizontal_speed := Vector2(velocity.x, velocity.z).length()
+
+	if horizontal_speed < 0.1:
+		ChangeAnimation("Idle")
+		return
+
+	if is_running:
+		ChangeAnimation("Running")
+		return
+
+	var input_dir := Input.get_vector("left", "right", "forward", "backward")
+
+	if input_dir.y > 0.1:
+		ChangeAnimation("WalkBackward")
+		return
+
+	ChangeAnimation("Walking")
