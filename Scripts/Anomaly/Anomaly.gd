@@ -18,3 +18,9 @@ func ResolveAnomaly():
 	room.AnomalyResolved()
 	
 	lifeTimer.stop()
+
+func ShowAnomaly():
+	pass
+
+func HideAnomaly():
+	pass

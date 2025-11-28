@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://borbalae6skib" path="res://Levels/Objetos/securityCamera.tscn" id="7_aoce6"]
 [ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="8_t3ijs"]
 [ext_resource type="Script" uid="uid://bj5kh72aobmeb" path="res://Scripts/Anomaly/SoundAnomaly.gd" id="9_21ayo"]
-[ext_resource type="AudioStream" uid="uid://uuh4cg85qjvk" path="res://Assets/Anomalias/Nova pasta/TelefoneAnomalia.wav" id="10_6v6jk"]
+[ext_resource type="AudioStream" uid="uid://uuh4cg85qjvk" path="res://Assets/Anomalias/TelefoneAnomalia.wav" id="10_6v6jk"]
 [ext_resource type="Script" uid="uid://c66774wk1bib0" path="res://Scripts/Anomaly/CreatureAnomaly.gd" id="11_o6yyp"]
 [ext_resource type="Texture2D" uid="uid://c7odsu0g2dp1d" path="res://Assets/Anomalias/Chifrudo no quarto.png" id="12_7pq5l"]
 [ext_resource type="Texture2D" uid="uid://iqn4nra7vklk" path="res://Assets/Anomalias/Mão do chifrudo no quarto.png" id="13_uo0gh"]
@@ -19,11 +19,11 @@
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="17_umu8c"]
 [ext_resource type="Script" uid="uid://dajcl4y37qk2m" path="res://Scripts/Anomaly/VisualAnomaly.gd" id="18_cbgs1"]
 [ext_resource type="PackedScene" uid="uid://bswn0egsjdojt" path="res://Assets/Anomalias/PoçoAnomalia.fbx" id="19_ehn16"]
-[ext_resource type="AudioStream" uid="uid://bciqhh8xgf772" path="res://Assets/Anomalias/Nova pasta/Batendo na Porta.wav" id="20_r88l1"]
+[ext_resource type="AudioStream" uid="uid://bciqhh8xgf772" path="res://Assets/Anomalias/Batendo na Porta.wav" id="20_r88l1"]
 [ext_resource type="Texture2D" uid="uid://x6m6x0trj0hy" path="res://Assets/Anomalias/Homem de chapeu No banheiro.png" id="21_ksnw0"]
 [ext_resource type="Texture2D" uid="uid://dmron5t681swb" path="res://Assets/Anomalias/Chifrudo Lado de fora.png" id="22_hj5hm"]
 [ext_resource type="Texture2D" uid="uid://cjp1y4mapfang" path="res://Assets/Anomalias/Homem do chapeu no Corredor.png" id="23_vmrs8"]
-[ext_resource type="AudioStream" uid="uid://7wxccmdqc2xg" path="res://Assets/Anomalias/Nova pasta/Sirene.wav" id="24_bs2x2"]
+[ext_resource type="AudioStream" uid="uid://7wxccmdqc2xg" path="res://Assets/Anomalias/Sirene.wav" id="24_bs2x2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hvssv"]
 resource_local_to_scene = true

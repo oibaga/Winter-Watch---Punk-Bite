@@ -1,11 +1,45 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://uegy7utox41n"]
 
-[ext_resource type="Shader" uid="uid://ugcus84t4uch" path="res://Shaders/OutlineMouse.gdshader" id="1_nltxd"]
+[sub_resource type="Shader" id="Shader_oitn8"]
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color = vec4(1,1,1,1);
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
 
 [resource]
 resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("1_nltxd")
+shader = SubResource("Shader_oitn8")
 shader_parameter/active = true
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 119.67

@@ -1,0 +1,128 @@
+[gd_scene load_steps=18 format=3 uid="uid://cl3cb4s7o8njs"]
+
+[ext_resource type="PackedScene" uid="uid://bmwjvvour8nis" path="res://Assets/Props/Caminhao.fbx" id="1_nati0"]
+[ext_resource type="Texture2D" uid="uid://ctwyxpn2ofa4k" path="res://Assets/Materiais/Texturas/Caminhao_DefaultMaterial_BaseColor.png" id="2_0lh0j"]
+[ext_resource type="PackedScene" uid="uid://mb23bulfmwan" path="res://Assets/Props/Caixa7.fbx" id="3_oitn8"]
+[ext_resource type="PackedScene" uid="uid://b1vwbnut4af" path="res://Assets/Props/CAIXA 1.fbx" id="4_x06hw"]
+[ext_resource type="PackedScene" uid="uid://b35y86rjfvik1" path="res://Assets/Props/Caixa_3.fbx" id="5_dv1d2"]
+[ext_resource type="PackedScene" uid="uid://cr8lsux2o0ymu" path="res://Assets/Props/Quarto/Garrafao.fbx" id="6_v2u1p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hib1x"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_el86w"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nati0"]
+size = Vector3(0.111595154, 0.0335083, 0.04144287)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oitn8"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x06hw"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[sub_resource type="Shader" id="Shader_oitn8"]
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color = vec4(1,1,1,1);
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x06hw"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_oitn8")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dv1d2"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2u1p"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks58c"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8p6ed"]
+albedo_texture = ExtResource("2_0lh0j")
+
+[node name="Caminhao" instance=ExtResource("1_nati0")]
+
+[node name="Cube_001" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_hib1x")
+
+[node name="Cube_003" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_el86w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_003" index="0"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="0"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, -2.842171e-14, 0, 2.842171e-14, 1.0000007, 0.07001118, -0.12771618, 0.021454036)
+shape = SubResource("BoxShape3D_nati0")
+
+[node name="Cube_004" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_oitn8")
+
+[node name="Cube_005" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_x06hw")
+material_overlay = SubResource("ShaderMaterial_x06hw")
+
+[node name="Cubo" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_dv1d2")
+
+[node name="Cubo_001" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_v2u1p")
+
+[node name="Cubo_002" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_ks58c")
+
+[node name="Cylinder_005" parent="." index="7"]
+material_override = SubResource("StandardMaterial3D_8p6ed")
+
+[node name="Caixa7" parent="." index="8" instance=ExtResource("3_oitn8")]
+transform = Transform3D(0.87002033, 0, 0.4930159, 0, 1, 0, -0.4930159, 0, 0.87002033, 0.52466005, 2.3770635, 17.916069)
+
+[node name="CAIXA 1" parent="." index="9" instance=ExtResource("4_x06hw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61424, 1.3265533, 13.652262)
+
+[node name="CAIXA 2" parent="." index="10" instance=ExtResource("4_x06hw")]
+transform = Transform3D(0.9426298, 0, -0.33383977, 0, 1, 0, 0.33383977, 0, 0.9426298, 2.733409, 1.3265533, 12.548883)
+
+[node name="Caixa_3" parent="." index="11" instance=ExtResource("5_dv1d2")]
+transform = Transform3D(-0.10483226, 0, 0.72748554, 0, 0.735, 0, -0.72748554, 0, -0.10483226, 2.711412, 2.4139931, 12.860659)
+
+[node name="Garrafao" parent="." index="12" instance=ExtResource("6_v2u1p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6224337, 2.385513, 13.512276)

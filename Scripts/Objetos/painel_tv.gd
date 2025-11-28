@@ -41,18 +41,19 @@ func ligar_tv():
 func trocar_camera():
 	if not ligado:
 		ligar_tv()
+		
+	if currentCamera:
+		if currentCamera.room.anomalyReference:
+			currentCamera.room.anomalyReference.HideAnomaly()
 
 	indice_camera += 1
 	if indice_camera >= viewports.size():
 		indice_camera = 0
-	
-	if currentCamera:
-		if currentCamera.room.anomalyReference is SoundAnomaly:
-			currentCamera.room.anomalyReference.audioPlayer.playing = false
 
 	currentCamera = viewports[indice_camera]
 
-	print("Indo para: ", currentCamera.room.name)
+	if currentCamera.room.anomalyReference:
+		currentCamera.room.anomalyReference.ShowAnomaly()
 
 	atualizar_tela()
 
@@ -61,9 +62,6 @@ func atualizar_tela():
 		tela.texture = currentCamera.get_texture()
 
 		geiger_proximity_sprite_3d.visible = currentCamera.room.isGeigerRoom
-
-		if currentCamera.room.anomalyReference is SoundAnomaly:
-			currentCamera.room.anomalyReference.audioPlayer.playing = true
 
 func ChoseAnomalyType(type : Anomaly.AnomalyTypes):
 	canChose = false

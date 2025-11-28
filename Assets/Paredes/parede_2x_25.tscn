@@ -54,7 +54,6 @@ skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Parede 2x4_25"]
 collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Parede 2x4_25/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_cr4xu")

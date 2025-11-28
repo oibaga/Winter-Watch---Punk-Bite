@@ -92,6 +92,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_s0me8")
 surface_material_override/1 = SubResource("StandardMaterial3D_lgyee")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_009"]
+collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_009/StaticBody3D"]
 transform = Transform3D(1.0000002, -3.958121e-09, -1.1641532e-10, 1.5206751e-07, 1, 2.7939677e-09, 9.704381e-07, 0, 1.0000005, -0.0070947306, -0.0015966818, 1.1175871e-08)

@@ -89,7 +89,7 @@ func _physics_process(delta):
 			StopInspection()
 
 func check_interaction():
-	if interact_ray.is_colliding():
+	if interact_ray.is_colliding() && interact_ray.get_collider() is ObjetoInteragivel:
 		var obj := AtualizaObjetoAtual()
 
 		if !obj:

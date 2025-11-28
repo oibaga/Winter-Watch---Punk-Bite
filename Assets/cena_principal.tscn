@@ -40,18 +40,18 @@
 [ext_resource type="PackedScene" uid="uid://cw1bdifyfq853" path="res://Levels/cena_gameplay.tscn" id="30_aou57"]
 [ext_resource type="Texture2D" uid="uid://bx42ibkjpxxo8" path="res://Assets/Props/Quarto/cama_0.png" id="31_gqe28"]
 [ext_resource type="Shader" uid="uid://dyrtm4iudr8kp" path="res://Shaders/CRT_Shader.gdshader" id="31_llt8y"]
-[ext_resource type="Texture2D" uid="uid://b11h55wury3b1" path="res://Assets/Anomalias/Nova pasta/154-1546926_dried-blood-stain-png-blood-effect-png.png" id="32_hn735"]
+[ext_resource type="Texture2D" uid="uid://b11h55wury3b1" path="res://Assets/Anomalias/154-1546926_dried-blood-stain-png-blood-effect-png.png" id="32_hn735"]
 [ext_resource type="Texture2D" uid="uid://biw47ryj80mmk" path="res://Assets/Props/Quarto/cama_1.png" id="32_ut1um"]
-[ext_resource type="Texture2D" uid="uid://cs1y1ulkfogpd" path="res://Assets/Anomalias/Nova pasta/5-53426_blood-clipart-free-high-resolution-blood-splatter-blood.png" id="33_83cgf"]
+[ext_resource type="Texture2D" uid="uid://cs1y1ulkfogpd" path="res://Assets/Anomalias/5-53426_blood-clipart-free-high-resolution-blood-splatter-blood.png" id="33_83cgf"]
 [ext_resource type="Texture2D" uid="uid://cnhw5r6kkuxnw" path="res://Assets/Props/Quarto/cama_2.png" id="33_cetui"]
 [ext_resource type="Texture2D" uid="uid://bd4vwng2kf8ux" path="res://Assets/Props/Quarto/Calendario_0.png" id="34_54twq"]
-[ext_resource type="Texture2D" uid="uid://ph252nfascao" path="res://Assets/Anomalias/Nova pasta/pngtree-red-blood-splatter-overlay-design-png-image_14184985.png" id="34_hrgwj"]
+[ext_resource type="Texture2D" uid="uid://ph252nfascao" path="res://Assets/Anomalias/pngtree-red-blood-splatter-overlay-design-png-image_14184985.png" id="34_hrgwj"]
 [ext_resource type="Texture2D" uid="uid://d4h5jdhp7w46o" path="res://Assets/Props/Quarto/Armario_0.png" id="34_pehf8"]
 [ext_resource type="Texture2D" uid="uid://wltkvj7d52qw" path="res://Assets/Props/Quarto/Armario2_0.png" id="35_la10h"]
 [ext_resource type="Texture2D" uid="uid://dulnlcwr6cro5" path="res://Assets/Props/Quarto/BandeiraBrasil_0.png" id="36_gqe28"]
 [ext_resource type="Texture2D" uid="uid://bs1weuwblyg4r" path="res://Assets/Props/Quarto/Cadeira_0.png" id="37_j5jcd"]
 [ext_resource type="Texture2D" uid="uid://cl3twfgjjgpim" path="res://Assets/Props/Quarto/Canos_0.png" id="38_ue21m"]
-[ext_resource type="PackedScene" path="res://Assets/Props/Garrafao.tscn" id="39_3n56m"]
+[ext_resource type="PackedScene" uid="uid://b2a5brorknbv1" path="res://Assets/Props/Garrafao.tscn" id="39_3n56m"]
 [ext_resource type="PackedScene" uid="uid://bavjks2fmwm24" path="res://Assets/Props/Tubulacao3.fbx" id="45_pehf8"]
 [ext_resource type="PackedScene" uid="uid://dkhq2egtqthug" path="res://Assets/Props/Tubulacao2.fbx" id="46_la10h"]
 [ext_resource type="PackedScene" uid="uid://bolg82vaqxngu" path="res://Assets/Props/CaixaEletrico.fbx" id="48_3n56m"]
@@ -61,7 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://ic0x41j47qvq" path="res://Assets/Materiais/Texturas/LatadeTinhaEnferrujada_0.png" id="54_fhf7i"]
 [ext_resource type="Texture2D" uid="uid://cyfas3086rvlw" path="res://Assets/Materiais/Texturas/T_tabuas.png" id="55_kpogh"]
 [ext_resource type="Texture2D" uid="uid://bsu5dbls46r6i" path="res://Assets/Props/Tubulacao3_0.png" id="56_43i74"]
-[ext_resource type="PackedScene" uid="uid://y8pgn6hj6ncg" path="res://Assets/Props/LixeiraBanheiro.fbx" id="62_74x1x"]
+[ext_resource type="PackedScene" uid="uid://cl3cb4s7o8njs" path="res://Assets/Props/caminhao.tscn" id="63_jmnpk"]
 [ext_resource type="Texture2D" uid="uid://ce3iqxwutg20l" path="res://Assets/Materiais/Texturas/GeigerSupport.png" id="72_dytdp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7bfk"]
@@ -279,7 +279,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_x02et")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pb66w"]
-size = Vector3(0.045, 0.06, 0.11)
+size = Vector3(0.045, 0.06, 0.1339795)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_la10h"]
 
@@ -699,8 +699,8 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6im2f")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7kmp2"]
-points = PackedVector3Array(0.0001991801, 0.07253744, 0.15411744, -0.008460499, 0.07253744, 0.14912762, 0.0001991801, -0.07325096, 0.15411744, 0.008868266, 0.07253744, 0.14912762, 0.008868266, 0.087950245, 0.14599988, 0.0001991801, 0.09106788, 0.14989863, -0.008460499, 0.087950245, 0.14599988, -0.049641024, 0.10014799, 0.10167336, -0.008460499, -0.07325096, 0.14912762, 0.008868266, -0.07325096, 0.14912762, -0.008460499, -0.08841045, 0.1458544, 0.0001991801, -0.09162551, 0.14968042, 0.008868266, -0.08841045, 0.1458544, 0.046519037, 0.10014799, 0.10167336, 0.0001991801, 0.09769285, 0.1365294, -0.049641024, 0.10014799, 0.0055137826, -0.049641024, -0.098912984, 0.10167336, 0.046519037, -0.098912984, 0.10167336, 0.0001991801, -0.09778284, 0.13615116, 0.046519037, 0.10014799, 0.0055137826, -0.049641024, -0.098912984, 0.0055137826, 0.046519037, -0.098912984, 0.0055137826)
+[sub_resource type="BoxShape3D" id="BoxShape3D_kpogh"]
+size = Vector3(0.109375, 0.18527222, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gatxy"]
 resource_name = "M_Gavetas"
@@ -1008,8 +1008,8 @@ shadow_mesh = SubResource("ArrayMesh_74x1x")
 cull_mode = 2
 albedo_texture = ExtResource("3_fl2xh")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pehf8"]
-points = PackedVector3Array(0.010236694, 0.009939326, 0.11714305, 0.010236694, -0.010060674, 0.11714305, 0.010236694, 0.009939326, 0.10847053, -0.009763306, 0.009939326, 0.11714305, -0.009763306, -0.010060674, 0.11714305, 0.010236694, -0.010060674, 0.10847053, 0.009430114, 0.009659372, -0.0032353115, -0.009763306, 0.009939326, 0.10847053, -0.009763306, -0.010060674, 0.10847053, 0.009430114, -0.009629977, -0.0032353115, -0.009549915, 0.009659372, -0.0032353115, -0.009549915, -0.009629977, -0.0032353115)
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhf7i"]
+size = Vector3(0.028640747, 0.025024414, 0.758667)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rvn4v"]
 
@@ -1540,7 +1540,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_67ub5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tqoqb"]
-size = Vector3(0.05142578, 0.030078124, 0.035786133)
+size = Vector3(0.05142578, 0.030078124, 0.08869385)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30ryq"]
 resource_name = "armario 2"
@@ -1894,8 +1894,8 @@ albedo_texture = ExtResource("55_kpogh")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c53y4"]
 albedo_texture = ExtResource("55_kpogh")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w4jf1"]
-points = PackedVector3Array(-0.06961347, -0.009797476, -0.05961509, -0.030486975, -0.0100444695, 0.0031435043, -0.06845909, -0.009977288, 0.0031435043, -0.06961347, -0.009797476, 0.007014945, -0.06961347, 0.00992645, -0.05961509, 0.06779781, -0.009797476, -0.05961509, -0.030486975, -0.0100444695, 0.023147516, 0.022505596, -0.009977288, 0.0031435043, -0.06845909, -0.009977288, 0.023147516, -0.06961347, 0.00992645, 0.007014945, -0.06845909, 0.010023273, 0.0031435043, -0.01150091, 0.010139854, 0.016745105, 0.06779781, 0.00992645, -0.05961509, 0.06911516, -0.0066715237, 0.0031435043, 0.06779781, -0.009797476, 0.007014945, -0.030324005, 0.009302051, 0.03613981, 0.022505596, -0.009977288, 0.023147516, -0.06845909, 0.010023273, 0.023147516, -0.011147808, 0.00998968, 0.03613981, 0.06911516, 0.010023273, 0.023147516, 0.06911516, 0.010023273, 0.0031435043, 0.06191729, -0.005774443, 0.023147516)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jmnpk"]
+size = Vector3(0.2081604, 0.02355957, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_puuvr"]
 resource_name = "Material.008"
@@ -2684,7 +2684,6 @@ skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Corredor/Comoda/Pneu"]
 collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corredor/Comoda/Pneu/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_hn735")
@@ -2735,9 +2734,9 @@ skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Corredor/Tubulação/Cylinder"]
 collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corredor/Tubulação/Cylinder/StaticBody3D"]
+transform = Transform3D(1.0000002, 0, 6.961552e-21, -2.4868996e-14, 1.0000002, 0, 1.8119368e-23, 0, 1.0000002, 0, 0, 0.011989759)
 shape = SubResource("BoxShape3D_pb66w")
 
 [node name="CaixaDeFerramentas" type="Node3D" parent="Corredor"]
@@ -2753,7 +2752,8 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Corredor/CaixaDeFerramentas/Cylinder_001/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_7kmp2")
+transform = Transform3D(1.0000007, 0, 8.189005e-13, 0, 1.0000007, 7.1054274e-15, 8.757439e-13, 0, 1.0000588, -0.00040072203, -0.0032445788, -7.4505806e-08)
+shape = SubResource("BoxShape3D_kpogh")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Corredor"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.48291302, 4.628831, -4.926523)
@@ -2806,6 +2806,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Almoxarifado/PrateleiraGrande2/StaticBody3D"]
+transform = Transform3D(1.0000014, -5.0803806e-12, 2.2737368e-13, 5.0803806e-12, 1, 0, 1.3322676e-15, 0, 0.99999976, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_54twq")
 
 [node name="PrateleiraGrande3" type="MeshInstance3D" parent="Almoxarifado"]
@@ -3019,7 +3020,8 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Almoxarifado/Mesa/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_pehf8")
+transform = Transform3D(1, 0, 8.6715e-20, 0, 0.9999999, -1.4317436e-12, 0, 4.5474735e-13, 1, 0.0023574494, 0.0017699637, -0.12066652)
+shape = SubResource("BoxShape3D_fhf7i")
 
 [node name="Node3D" parent="Almoxarifado/Mesa" instance=ExtResource("54_13g5i")]
 transform = Transform3D(0.01048886, -4.8934146e-25, 0.0061284597, 0.0021544597, -7.07943e-10, -0.003687358, 3.7333225e-09, 0.086324684, -6.389583e-09, 0.17114796, -0.03845816, 0.031101689)
@@ -3069,6 +3071,18 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Banheiro/Lixeira/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ojveu")
+
+[node name="Lixeira" type="MeshInstance3D" parent="Banheiro/Lixeira"]
+transform = Transform3D(0.7071069, 0.707107, -7.9929265e-08, -0.707107, 0.70710695, 4.5452296e-08, 8.865816e-08, 2.4378906e-08, 1.0000004, 0.06964901, -0.17010158, 2.0489097e-08)
+mesh = SubResource("ArrayMesh_xor0i")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Banheiro/Lixeira/Lixeira"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Banheiro/Lixeira/Lixeira/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ojveu")
 
 [node name="Privada" type="MeshInstance3D" parent="Banheiro"]
@@ -3165,7 +3179,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Quarto/Cama/StaticBody3D"]
-transform = Transform3D(1, 7.1054274e-15, 4.2351647e-22, 7.1054274e-15, 0.9999999, 0, 6.7762636e-21, 1.1368684e-13, 0.99999994, 0, -3.7252903e-09, 0.026377793)
+transform = Transform3D(1, 5.684342e-13, 3.7692966e-20, 5.684342e-14, 0.99998915, -8.526513e-14, 5.421011e-20, 1.9326762e-12, 0.99999374, 0, -1.4901161e-08, 0.05283166)
 shape = SubResource("BoxShape3D_tqoqb")
 
 [node name="Armario1" type="MeshInstance3D" parent="Quarto"]
@@ -3259,7 +3273,6 @@ skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Garagem/GeradorEletrico/Cube"]
 collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Garagem/GeradorEletrico/Cube/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_3n56m")
@@ -3330,7 +3343,6 @@ skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Garagem/Cube_005"]
 collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Garagem/Cube_005/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_8n117")
@@ -3344,10 +3356,10 @@ surface_material_override/1 = SubResource("StandardMaterial3D_c53y4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Garagem/PaleteQuebrada"]
 collision_layer = 4
-collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Garagem/PaleteQuebrada/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_w4jf1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0041656643, 0.0007934496, 0)
+shape = SubResource("BoxShape3D_jmnpk")
 
 [node name="PaleteQuebrada2" type="MeshInstance3D" parent="Garagem"]
 transform = Transform3D(7.170713, 80.87264, 3.0966905e-07, 0, -1.1930885e-05, 3.2147603, 9.835666, -58.960373, -2.257649e-07, -2.9100773, 1.0241609, 6.051918)
@@ -3374,6 +3386,7 @@ transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -5.356432, 0.4240687, 5
 
 [node name="Cube_002" type="MeshInstance3D" parent="Garagem/Tubulacao4"]
 transform = Transform3D(9.7298645e-05, 1.9399554e-06, 44.380993, 9.665752e-13, 44.380997, -1.9399554e-06, -544.1334, 3.9418244e-13, 7.935941e-06, 0, 0, 0)
+layers = 4
 mesh = SubResource("ArrayMesh_rp8vp")
 skeleton = NodePath("")
 
@@ -3538,6 +3551,9 @@ transform = Transform3D(0.9142096, 0.020205885, 0.40473777, -0.21210635, 0.87488
 [node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Almoxarifado/CAMERA/Control" index="0"]
 material = SubResource("ShaderMaterial_gqe28")
 
+[node name="Sprite3D2" parent="CenaGameplay/CameraRooms/Almoxarifado/CreaturePresset" index="0"]
+transform = Transform3D(-0.52486545, 0, -0.28025213, 0, 0.595, 0, 0.28025213, 0, -0.52486545, -12.657703, 1.9540001, -1.4493506)
+
 [node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Almoxarifado" index="4"]
 transform = Transform3D(-0.125, -1.0927847e-08, 0, -4.7767137e-16, 5.4639235e-09, -0.125, 1.0927847e-08, -0.125, -5.4639235e-09, -7.086, 2.1999998, 4.2345915)
 
@@ -3549,8 +3565,8 @@ material_override = SubResource("StandardMaterial3D_8gkh4")
 material_overlay = SubResource("ShaderMaterial_cetui")
 mesh = SubResource("ArrayMesh_4mkkd")
 
-[node name="LixeiraBanheiro" parent="." instance=ExtResource("62_74x1x")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8.274263, 0.49419785, -11.605783)
+[node name="Caminhao" parent="." instance=ExtResource("63_jmnpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1071643, 0.5, -3.9906645)
 
 [editable path="CenaGameplay"]
 [editable path="CenaGameplay/HUD"]

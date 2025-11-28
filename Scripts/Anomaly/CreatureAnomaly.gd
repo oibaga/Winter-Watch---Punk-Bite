@@ -11,10 +11,15 @@ func SpawnAnomaly():
 	super.SpawnAnomaly()
 
 	currentAnomaly = anomalies.pick_random()
-	currentAnomaly.visible = true
 
 func ResolveAnomaly():
 	super.ResolveAnomaly()
 
 	currentAnomaly.visible = false
 	currentAnomaly = null
+
+func ShowAnomaly():
+	if (currentAnomaly): currentAnomaly.visible = true
+
+func HideAnomaly():
+	if (currentAnomaly): currentAnomaly.visible = false
