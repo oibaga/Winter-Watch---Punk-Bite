@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=4 uid="uid://cjef8ch8a7b6"]
+
+[ext_resource type="Texture2D" uid="uid://olhu1q0wqq64" path="res://Assets/Props/Caixa8_0.png" id="1_d6ibj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vvivq"]
+resource_name = "Material"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_d6ibj")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8056f"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAQAAAAQABAAAAAMABQACAAEAAwACAAUABAAGAAEAAQAGAAUAAwAHAAQABgAEAAcABQAHAAMABwAFAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXIzwK1yM8CtcjPArXI7wK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yO8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3h4ch"]
+resource_name = "Cube"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.01, -0.01, 0.02, 0.02, 0.02),
+"attribute_data": PackedByteArray("w7cqP0r2qT7o8n8/TPapPujyfz9KNio/wrcqP0o2Kj88yqo+WoYqP0SgKj9ahio/Q6AqP4DBfz88yqo+gMF/P3mQqj6TnSo/AHBROZKdKj8AgFE52sSqPnuQqj7axKo+j50qP6Zrqj7WxKo+pGuqPtjEqj4AgKq4k50qPwCAqrhs+38/FOAqP2v7fz+dDYA/RcAqP5wNgD9GwCo/FOAqP9vEqj5it6o+k50qP2K3qj6TnSo/1pYqP9rEqj7Wlio/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_vvivq"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("CtcjvArXIzwK1yM8CtcjvArXI7wK1yM8CtcjvArXI7wK1yO8CtcjvArXIzwK1yO8CtcjPArXIzwK1yM8CtcjvArXIzwK1yM8CtcjvArXIzwK1yO8CtcjPArXIzwK1yO8CtcjPArXI7wK1yM8CtcjPArXIzwK1yM8CtcjPArXIzwK1yO8CtcjPArXI7wK1yO8CtcjvArXI7wK1yM8CtcjPArXI7wK1yM8CtcjPArXI7wK1yO8CtcjvArXI7wK1yO8CtcjPArXI7wK1yO8CtcjPArXIzwK1yO8CtcjvArXIzwK1yO8CtcjvArXI7wK1yO8CtcjvArXI7wK1yM8CtcjvArXIzwK1yM8CtcjPArXIzwK1yM8CtcjPArXI7wK1yM8AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v////3//fwCA////f/9/AID///9//38AgP///3//fwCA/38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7///////v//v//////+//+///////7//7//////////v/9//3//f////3//f/9/////f/9//3////9//3//f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8056f")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Caixa5" type="MeshInstance3D" parent="."]
+transform = Transform3D(16.455091, 0, 0, 0, -1.9615998e-06, 16.45509, 0, -16.45509, -1.9615998e-06, 0.05042839, 0.19900683, -0.035319805)
+mesh = SubResource("ArrayMesh_3h4ch")
+skeleton = NodePath("")
