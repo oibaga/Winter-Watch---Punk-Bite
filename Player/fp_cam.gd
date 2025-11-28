@@ -23,7 +23,7 @@ func _process(delta):
 	var bob_amount_pos : float   # amplitude do movimento da posição
 	var bob_amount_rot : float   # amplitude da rotação X
 
-	if player.is_running:
+	if player.is_running && horizontal_speed > 0.1:
 		# Forte (correndo)
 		bob_speed = 13.0
 		bob_amount_pos = 0.07

@@ -31,9 +31,13 @@ func _ready():
 	gm = get_tree().get_first_node_in_group("game_manager")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inspection_color_rect.visible = false
+	
+	VisibleRightArm(false, true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	HandleAnimations()
+
+var BACKWARD_MULTIPLIER := 0.5 
 
 func _physics_process(delta):
 	if !objeto_inspecionado:
@@ -48,26 +52,32 @@ func _physics_process(delta):
 			var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 			var current_speed = SPEED
-			if Input.is_action_pressed("shift") and input_dir.y < 0 and input_dir.x == 0:
-				if not sitting_on_node:
-					is_running = true
-					current_speed *= RUN_MULTIPLIER
-			else: is_running = false
 
+			# --- Running ---
+			if Input.is_action_pressed("shift") and input_dir.y < 0 and input_dir.x == 0:
+				is_running = true
+				current_speed *= RUN_MULTIPLIER
+			else:
+				is_running = false
+
+			# --- Backward speed reduction ---
+			if input_dir.y > 0:   # andando para trás
+				current_speed *= BACKWARD_MULTIPLIER
+
+			# --- Apply movement ---
 			if direction:
 				velocity.x = direction.x * current_speed
 				velocity.z = direction.z * current_speed
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 				velocity.z = move_toward(velocity.z, 0, SPEED)
+
 		else:
 			velocity = Vector3.ZERO
 			if sitting_on_node: 
 				global_position = sitting_on_node.SitPoint.global_position
 				return
-
 		move_and_slide()
-		
 	else:
 		limpar_hints()
 		
@@ -116,7 +126,7 @@ func sit_down(chair_node : Cadeira):
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-	if itemInHand: itemInHand.visible = false
+	VisibleRightArm(true, false)
 
 	if gm: gm.start_session()
 
@@ -135,7 +145,7 @@ func AtualizaObjetoAtual() -> ObjetoInteragivel:
 func InspecionarObjeto(obj : ObjetoInspecionavel):
 	obj.global_transform = inspection_marker.global_transform
 
-	itemInHand.visible = false
+	VisibleRightArm(false)
 
 	inspection_color_rect.visible = true
 
@@ -148,15 +158,16 @@ func StopInspection():
 
 	inspection_color_rect.visible = false
 
-	itemInHand.visible = true
+	VisibleRightArm(true)
 
 func check_distance():
-	if itemInHand is Geiger:
-		itemInHand.proximity = global_position.distance_to(geigerTarget.global_position)
+	if itemInHand:
+		if itemInHand is Geiger:
+			itemInHand.proximity = global_position.distance_to(geigerTarget.global_position)
 
-func ChangeAnimation(animation : StringName):
+func ChangeAnimation(animation : StringName, speed : float = 1.0):
 	if animation_player.current_animation != animation:
-		animation_player.play( animation )
+		animation_player.play( animation, -1, speed)
 
 func HandleAnimations():
 	if objeto_inspecionado:
@@ -180,7 +191,11 @@ func HandleAnimations():
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 
 	if input_dir.y > 0.1:
-		ChangeAnimation("WalkBackward")
+		ChangeAnimation("WalkingBackward", 2)
 		return
 
-	ChangeAnimation("Walking")
+	ChangeAnimation("Walking", 1.5)
+
+func VisibleRightArm(armVisible : bool, itemVisible : bool = armVisible):
+	if(itemInHand): itemInHand.visible = itemVisible
+	$Character/Armature_001/Skeleton3D/Casual_Body_001.visible = armVisible

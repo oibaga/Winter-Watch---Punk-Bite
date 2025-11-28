@@ -828,10 +828,9 @@ transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040
 [node name="ShaderColorRect" parent="CameraRooms/Lado de Fora/CAMERA/Control" index="0"]
 material = SubResource("ShaderMaterial_ckpl6")
 
-[node name="VisualPresset" type="Node3D" parent="CameraRooms/Lado de Fora" node_paths=PackedStringArray("anomalies", "world_environment", "room")]
+[node name="VisualPresset" type="Node3D" parent="CameraRooms/Lado de Fora" node_paths=PackedStringArray("anomalies", "room")]
 script = ExtResource("18_cbgs1")
 anomalies = [NodePath("SunChanger")]
-world_environment = NodePath("")
 type = 2
 room = NodePath("..")
 
