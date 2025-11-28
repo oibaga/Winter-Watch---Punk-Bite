@@ -2597,6 +2597,8 @@ light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 spot_angle = 73.42936
 
 [node name="Garrafao" parent="SalaSegura" instance=ExtResource("39_3n56m")]
@@ -2761,6 +2763,8 @@ light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 spot_angle = 25.141424
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Corredor"]
@@ -2769,6 +2773,8 @@ light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 spot_angle = 25.141424
 
 [node name="Almoxarifado" type="Node" parent="."]
@@ -2779,6 +2785,8 @@ light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 spot_angle = 80.76401
 
 [node name="Almoxarifado" type="MeshInstance3D" parent="Almoxarifado"]
@@ -3117,6 +3125,8 @@ light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 spot_angle = 53.563793
 
 [node name="Quarto" type="Node" parent="."]
@@ -3239,7 +3249,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004603207, 0.03839185, 0)
 shape = SubResource("BoxShape3D_43i74")
 
 [node name="Garrafao" parent="Quarto" instance=ExtResource("39_3n56m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.044623, 2.7047334, -7.032428)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.044623, 2.6534665, -7.032428)
 
 [node name="Garrafao2" parent="Quarto" instance=ExtResource("39_3n56m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.218624, 0.50000006, -7.239459)
@@ -3253,6 +3263,8 @@ light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 spot_angle = 72.579796
 
 [node name="Garagem" type="Node" parent="."]
@@ -3305,6 +3317,8 @@ light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
 light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+shadow_caster_mask = 4294967293
 spot_range = 9.572451
 spot_angle = 80.76401
 
