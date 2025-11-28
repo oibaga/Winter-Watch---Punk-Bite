@@ -27,7 +27,7 @@ func start_session():
 	ui_label.visible = true
 	sessionTimer.start()
 	geigerAnomaly.start()
-	
+
 	for i in range( anomaliesSlots.size() ):
 		SpawnAnomaly(i)
 
@@ -42,29 +42,13 @@ func _process(_delta):
 		if t <= 0:
 			end_session()
 
-	# Após o fade, permite clicar para continuar
-	if session_finished and can_continue:
-		if Input.is_action_just_pressed("mouse_esq") or Input.is_action_just_pressed("ui_accept"):
-			load_next_level()
-
 func end_session():
-	session_finished = true
 	ui_label.visible = false
 
-	# Toca o fade
-	if hud_anim:
-		hud_anim.play("fade_out")
-		await hud_anim.animation_finished
-
-	can_continue = true
+	load_next_level()
 
 func load_next_level():
-	print("Carregando próxima fase...")
-
-	get_tree().call_deferred("quit")
-	# Trocar a cena aqui
-	# Exemplo:
-	# get_tree().change_scene_to_file("res://levels/fase02.tscn")
+	LevelManager.LoadNextLevel( LevelManager.currentLevel + 1 )
 
 func SetRoomGeigerTarget():
 	geigerRoom = cameraRooms.get_children().pick_random() as Room
@@ -82,3 +66,6 @@ func ResolvedAnomaly(resolved : Anomaly):
 func SpawnAnomaly(arrayPos : int):
 	anomaliesSlots[arrayPos] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
 	print("Slot ", arrayPos, ": ", Anomaly.AnomalyTypes.find_key( anomaliesSlots[arrayPos].type ), " em ", anomaliesSlots[arrayPos].room.name)
+
+func LoseGame():
+	LevelManager.LoadNextLevel(0)

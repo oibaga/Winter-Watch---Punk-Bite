@@ -51,6 +51,7 @@ transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040
 [node name="OmniLight3D" type="OmniLight3D" parent="Camera3D"]
 light_energy = 0.0
 light_specular = 1.5
+shadow_enabled = true
 omni_range = 8.5
 
 [node name="Control" type="Control" parent="."]

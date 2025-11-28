@@ -46,4 +46,4 @@ func AnomalyResolved():
 	anomalyReference = null
 
 func _on_anomaly_timer_timeout() -> void:
-	get_tree().call_deferred("reload_current_scene")
+	gameManager.LoseGame()
