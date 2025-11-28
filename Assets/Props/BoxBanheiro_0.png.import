@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://d0kn62ydymrtn"
+path.s3tc="res://.godot/imported/BoxBanheiro_0.png-0adc1b99356cb210f5cebeb396f98e5c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "d1d215c1ddeb8ae31b6fb6b1c1aab750"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/BoxBanheiro_0.png"
+dest_files=["res://.godot/imported/BoxBanheiro_0.png-0adc1b99356cb210f5cebeb396f98e5c.s3tc.ctex"]
 
 [params]
 
