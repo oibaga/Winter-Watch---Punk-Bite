@@ -39,9 +39,11 @@ func SpawnRandomAnomaly() -> Anomaly:
 	return anomalyReference
 
 func AnomalyResolved():
-	await get_tree().create_timer(anomalySpawnCooldown).timeout
+	await get_tree().create_timer( anomalySpawnCooldown ).timeout
 	
 	gameManager.ResolvedAnomaly( anomalyReference )
+	
+	anomalyReference = null
 
 func _on_anomaly_timer_timeout() -> void:
 	get_tree().call_deferred("reload_current_scene")
