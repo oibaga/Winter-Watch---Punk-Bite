@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://uegy7utox41n"]
 
-[sub_resource type="Shader" id="Shader_oitn8"]
+[sub_resource type="Shader" id="Shader_w1jhm"]
 code = "shader_type spatial;
 render_mode cull_front, unshaded;
 
@@ -39,7 +39,7 @@ void fragment() {
 [resource]
 resource_local_to_scene = true
 render_priority = 0
-shader = SubResource("Shader_oitn8")
+shader = SubResource("Shader_w1jhm")
 shader_parameter/active = true
 shader_parameter/outline_color = Color(1, 1, 1, 1)
-shader_parameter/outline_width = 119.67
+shader_parameter/outline_width = 4.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3744hlicrup2"]
+[gd_scene load_steps=23 format=4 uid="uid://3744hlicrup2"]
 
 [ext_resource type="Script" uid="uid://ck56ynbkphkr7" path="res://Scripts/Objetos/manual_fechado.gd" id="1_yv6o3"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_l2shx"]
@@ -28,25 +28,66 @@ size = Vector3(1.5477295, 1, 1.2858887)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmvs1"]
 render_priority = 1
+shading_mode = 0
 albedo_texture = ExtResource("7_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2nn1"]
+shading_mode = 0
 albedo_texture = ExtResource("7_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wraw3"]
+shading_mode = 0
 albedo_texture = ExtResource("7_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn2w5"]
+shading_mode = 0
 albedo_texture = ExtResource("7_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwf0r"]
+shading_mode = 0
 albedo_texture = ExtResource("7_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6jsi"]
+shading_mode = 0
 albedo_texture = ExtResource("7_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmfqk"]
+shading_mode = 0
 albedo_texture = ExtResource("7_yot6n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yot6n"]
+shading_mode = 0
+stencil_flags = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_mysf1"]
+_surfaces = [{
+"aabb": AABB(-0.0025498825, -0.0036577515, -0.010652768, 0.005099765, 0.007903735, 1e-05),
+"format": 34359742465,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAwAFAAQABAAFAAYABgAHAAQA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("7hsnO02WDTnziC687xsnO+O2b7vziC687Rsnu+G2b7vziC687hsnu2GWDTnziC687hsnO94zmjnziC687hsnu94zmjnziC687Rsnu+QhizvziC687xsnO+QhizvziC68")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qmvs1"]
+resource_name = "Cubo_019"
+_surfaces = [{
+"aabb": AABB(-0.0025498825, -0.0036577515, -0.010652768, 0.005099765, 0.007903735, 1e-05),
+"attribute_data": PackedByteArray("6N49PKB5sT7I3j08AAW5O6w65z4ABbk7rDrnPqB5sT643j086IC4Pqw65z7ogLg+rTrnPjqLMz/o3j08OoszPw=="),
+"format": 34359742487,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAAAAMAAwAFAAQABAAFAAYABgAHAAQA"),
+"material": SubResource("StandardMaterial3D_yot6n"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("7hsnO02WDTnziC687xsnO+O2b7vziC687Rsnu+G2b7vziC687hsnu2GWDTnziC687hsnO94zmjnziC687hsnu94zmjnziC687Rsnu+QhizvziC687xsnO+QhizvziC68/3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/7//f/9/AAD/vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_mysf1")
 
 [node name="MenuFechado" type="Area3D" node_paths=PackedStringArray("manualAberto", "mesh_with_outline", "hint_label")]
 collision_layer = 2
@@ -103,6 +144,7 @@ material_override = SubResource("StandardMaterial3D_t6jsi")
 
 [node name="Pasta" parent="TutorialAberto" index="6"]
 material_override = SubResource("StandardMaterial3D_xmfqk")
+mesh = SubResource("ArrayMesh_qmvs1")
 
 [editable path="Tutorial"]
 [editable path="TutorialAberto"]

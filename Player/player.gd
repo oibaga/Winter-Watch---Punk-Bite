@@ -11,6 +11,7 @@ class_name Player
 @export var SPEED = 3.0
 @export var RUN_MULTIPLIER = 1.75
 @export var itemInHand : Node3D
+@onready var interaction_canvas_layer: CanvasLayer = $InteractionCanvasLayer
 
 @export var geigerTarget : Marker3D
 
@@ -85,7 +86,7 @@ func _physics_process(delta):
 			objeto_inspecionado.LeftPressed()
 		elif Input.is_action_just_pressed("right"):
 			objeto_inspecionado.RightPressed()
-		elif Input.is_action_just_pressed("exit"):
+		elif Input.is_action_just_pressed("mouse_esq"):
 			StopInspection()
 
 func check_interaction():

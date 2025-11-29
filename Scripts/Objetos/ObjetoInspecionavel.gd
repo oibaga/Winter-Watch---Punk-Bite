@@ -14,8 +14,12 @@ func StartInspection(_player : Player):
 	player = _player
 	
 	self.visible = true
+	
+	player.interaction_canvas_layer.visible = true
 
 func StopInspection():
+	player.interaction_canvas_layer.visible = false
+	
 	player = null
 	
 	self.visible = false
