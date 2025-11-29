@@ -17,12 +17,12 @@ func SpawnAnomaly():
 
 func ResolveAnomaly():
 	super.ResolveAnomaly()
-	
+
 	audioPlayer.stop()
 	audioPlayer.stream = null
 
 func ShowAnomaly():
 	audioPlayer.volume_db = defaultVolume
-	
+
 func HideAnomaly():
 	audioPlayer.volume_db = -80

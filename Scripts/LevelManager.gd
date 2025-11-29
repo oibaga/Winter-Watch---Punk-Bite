@@ -21,11 +21,12 @@ func ChangeLevel():
 		UpdateLevelLabel( currentLevel )
 
 func LoadNextLevel(nextLevel : int):
-	var oldLevel : int = currentLevel
+	if nextLevel != currentLevel:
+		var oldLevel : int = currentLevel
 
-	UpdateLevelLabel(oldLevel)
+		UpdateLevelLabel(oldLevel)
 
-	currentLevel = nextLevel
+		currentLevel = nextLevel
 	
 	animation_player.play("Transition")
 

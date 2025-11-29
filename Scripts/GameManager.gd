@@ -68,4 +68,7 @@ func SpawnAnomaly(arrayPos : int):
 	print("Slot ", arrayPos, ": ", Anomaly.AnomalyTypes.find_key( anomaliesSlots[arrayPos].type ), " em ", anomaliesSlots[arrayPos].room.name)
 
 func LoseGame():
-	LevelManager.LoadNextLevel(0)
+	sessionTimer.stop()
+	ui_label.visible = false
+	
+	LevelManager.LoadNextLevel( LevelManager.currentLevel )

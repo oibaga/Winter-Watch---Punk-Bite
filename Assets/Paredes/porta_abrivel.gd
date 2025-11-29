@@ -1,4 +1,4 @@
-extends ObjetoInteragivel
+class_name PortaAbrivel extends ObjetoInteragivel
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
@@ -8,11 +8,22 @@ func pode_interagir(_player : Player) -> bool:
 	return !animation_player.is_playing()
 
 func interagir(_player : Player):
+	TrocarEstado()
+
+func TrocarEstado():
+	if animation_player.is_playing(): return
+	
 	aberta = not aberta
 
 	if (aberta):
-		hint_label.text = "Close"
-		animation_player.play("Open")
+		Abrir()
 	else:
-		hint_label.text = "Open"
-		animation_player.play("Close")
+		Fechar()
+
+func Abrir():
+	hint_label.text = "Close"
+	animation_player.play("Open")
+	
+func Fechar():
+	hint_label.text = "Open"
+	animation_player.play("Close")

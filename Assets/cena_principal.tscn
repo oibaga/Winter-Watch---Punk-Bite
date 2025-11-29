@@ -1,4 +1,4 @@
-[gd_scene load_steps=284 format=4 uid="uid://dlhl7wsa7514t"]
+[gd_scene load_steps=286 format=4 uid="uid://dlhl7wsa7514t"]
 
 [ext_resource type="PackedScene" uid="uid://btin1ybc741g8" path="res://Levels/BlocagemMapa.tscn" id="1_41wr0"]
 [ext_resource type="Texture2D" uid="uid://bxhj4boaw1nsm" path="res://Assets/Materiais/Texturas/Tubulação_0.png" id="2_2mpd0"]
@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cjef8ch8a7b6" path="res://Assets/Props/Caixa5.tscn" id="28_3n56m"]
 [ext_resource type="Texture2D" uid="uid://c8u7nirw0vbn2" path="res://Assets/Props/Quarto/PlanejamentoSemanal_0.png" id="28_rvn4v"]
 [ext_resource type="PackedScene" uid="uid://cryqydnboin76" path="res://Assets/Props/Quarto/Tapete.fbx" id="29_fb3fe"]
-[ext_resource type="PackedScene" uid="uid://cp00goe1dmfkp" path="res://Assets/Props/lata_oleo.tscn" id="30_54twq"]
+[ext_resource type="PackedScene" path="res://Assets/Props/lata_oleo.tscn" id="30_54twq"]
 [ext_resource type="PackedScene" uid="uid://cw1bdifyfq853" path="res://Levels/cena_gameplay.tscn" id="30_aou57"]
 [ext_resource type="Texture2D" uid="uid://bx42ibkjpxxo8" path="res://Assets/Props/Quarto/cama_0.png" id="31_gqe28"]
 [ext_resource type="Texture2D" uid="uid://bdckyr4ln4h0b" path="res://Assets/Materiais/Texturas/T_PortaDeFerro.png" id="31_kpogh"]
@@ -1856,6 +1856,50 @@ albedo_texture = ExtResource("38_ue21m")
 [sub_resource type="BoxShape3D" id="BoxShape3D_43i74"]
 size = Vector3(0.065, 0.06, 0.035)
 
+[sub_resource type="Shader" id="Shader_w1jhm"]
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color = vec4(1,1,1,1);
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ukhf8"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_w1jhm")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7hu7"]
 resource_name = "Material.013"
 transparency = 4
@@ -3520,8 +3564,11 @@ shadow_enabled = true
 shadow_caster_mask = 4294967293
 spot_angle = 72.579796
 
-[node name="PortaAbrivel" parent="Quarto" instance=ExtResource("15_fhf7i")]
+[node name="PortaAbrivelQuarto" parent="Quarto" instance=ExtResource("15_fhf7i")]
 transform = Transform3D(-1.0000001, 0, 8.742278e-08, 0, 1, 0, 8.7422784e-08, 0, 1, 2.3833065, 0.4838819, -5.717731)
+
+[node name="Maçaneta" parent="Quarto/PortaAbrivelQuarto/Area3D/Porta2" index="0"]
+material_overlay = SubResource("ShaderMaterial_ukhf8")
 
 [node name="Garagem" type="Node" parent="."]
 
@@ -3685,6 +3732,9 @@ cull_mask = 1048559
 
 [node name="ShaderColorRect" parent="CenaGameplay/CameraRooms/Quarto/CAMERA/Control" index="0"]
 material = SubResource("ShaderMaterial_qap4b")
+
+[node name="CreaturePresset" parent="CenaGameplay/CameraRooms/Quarto" index="2" node_paths=PackedStringArray("doorToOpen")]
+doorToOpen = NodePath("../../../../Quarto/PortaAbrivelQuarto/Area3D")
 
 [node name="GeigerSupport" parent="CenaGameplay/CameraRooms/Quarto" index="4"]
 transform = Transform3D(-0.125, -1.0927847e-08, 0, -4.7767137e-16, 5.4639235e-09, -0.125, 1.0927847e-08, -0.125, -5.4639235e-09, 7.0238543, 2.1999998, -2.0033262)
@@ -3989,6 +4039,7 @@ layers = 16
 mesh = SubResource("ArrayMesh_6iglu")
 skeleton = NodePath("")
 
+[editable path="Quarto/PortaAbrivelQuarto"]
 [editable path="CenaGameplay"]
 [editable path="CenaGameplay/HUD"]
 [editable path="CenaGameplay/CameraRooms/Quarto/CAMERA"]

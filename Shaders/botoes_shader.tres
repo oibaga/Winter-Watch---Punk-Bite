@@ -40,6 +40,6 @@ void fragment() {
 resource_local_to_scene = true
 render_priority = 0
 shader = SubResource("Shader_w1jhm")
-shader_parameter/active = true
+shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0

@@ -23,7 +23,7 @@ func _ready() -> void:
 func UpdateDistanceValues():
 	if !wave_shader: return
 	
-	audio.pitch_scale = remap(clampf(proximity, 0, 100), 0, 100, 0, 4)
+	audio.pitch_scale = remap(proximity, 0, 100, 0.1, 4)
 	audio.volume_db = default_volume if audio.pitch_scale >= 0.5 else -80
 	
 	var t = proximity / 100.0  # 0.0 → 1.0

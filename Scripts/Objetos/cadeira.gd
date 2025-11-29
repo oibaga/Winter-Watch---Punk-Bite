@@ -8,3 +8,6 @@ func disable_collision():
 	
 	for collision in collisions:
 		collision.set_deferred("disabled", true)
+
+func pode_interagir(_player : Player) -> bool:
+	return _player.itemInHand == null

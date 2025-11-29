@@ -2,6 +2,7 @@ extends Anomaly
 
 @export var anomalies : Array[Node3D]
 var currentAnomaly : Node3D
+@export var doorToOpen : PortaAbrivel
 
 func _ready() -> void:
 	for anomaly in anomalies:
@@ -11,6 +12,9 @@ func SpawnAnomaly():
 	super.SpawnAnomaly()
 
 	currentAnomaly = anomalies.pick_random()
+	
+	if room.name == "Quarto":
+		pass
 
 func ResolveAnomaly():
 	super.ResolveAnomaly()
@@ -19,7 +23,17 @@ func ResolveAnomaly():
 	currentAnomaly = null
 
 func ShowAnomaly():
-	if (currentAnomaly): currentAnomaly.visible = true
+	if (currentAnomaly): 
+		currentAnomaly.visible = true
+
+		if doorToOpen:
+			if not doorToOpen.aberta:
+				doorToOpen.TrocarEstado()
 
 func HideAnomaly():
-	if (currentAnomaly): currentAnomaly.visible = false
+	if (currentAnomaly): 
+		currentAnomaly.visible = false
+		
+		if doorToOpen:
+			if doorToOpen.aberta:
+				doorToOpen.TrocarEstado()
