@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cljq7je7qgki7"
-path.s3tc="res://.godot/imported/portaogaragem.png-1bb24578b062642263b00e8f9d2ad343.s3tc.ctex"
+uid="uid://by8viob47sxbw"
+path.s3tc="res://.godot/imported/gelo_0.png-3394083ec02c95aa4bacf49bf574cca8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "b8041667d2c4e151614ea26e69c1a6d2"
+}
 
 [deps]
 
-source_file="res://Assets/Props/portaogaragem.png"
-dest_files=["res://.godot/imported/portaogaragem.png-1bb24578b062642263b00e8f9d2ad343.s3tc.ctex"]
+source_file="res://Assets/Props/gelo_0.png"
+dest_files=["res://.godot/imported/gelo_0.png-3394083ec02c95aa4bacf49bf574cca8.s3tc.ctex"]
 
 [params]
 

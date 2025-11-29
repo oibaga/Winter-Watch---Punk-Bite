@@ -1,4 +1,4 @@
-[gd_scene load_steps=298 format=4 uid="uid://dlhl7wsa7514t"]
+[gd_scene load_steps=305 format=4 uid="uid://dlhl7wsa7514t"]
 
 [ext_resource type="PackedScene" uid="uid://btin1ybc741g8" path="res://Levels/BlocagemMapa.tscn" id="1_41wr0"]
 [ext_resource type="Texture2D" uid="uid://bxhj4boaw1nsm" path="res://Assets/Materiais/Texturas/Tubulação_0.png" id="2_2mpd0"]
@@ -58,7 +58,10 @@
 [ext_resource type="PackedScene" uid="uid://dkhq2egtqthug" path="res://Assets/Props/Tubulacao2.fbx" id="46_la10h"]
 [ext_resource type="PackedScene" uid="uid://bolg82vaqxngu" path="res://Assets/Props/CaixaEletrico.fbx" id="48_3n56m"]
 [ext_resource type="Texture2D" uid="uid://mcer1hh85yhd" path="res://Assets/Props/GeradorEletrico_0.png" id="50_j5jcd"]
+[ext_resource type="PackedScene" uid="uid://cykdlny0yrado" path="res://Assets/Props/grade.fbx" id="51_71ptk"]
+[ext_resource type="PackedScene" uid="uid://bhg82dysgjt6l" path="res://Assets/Props/gelo.fbx" id="52_6gior"]
 [ext_resource type="PackedScene" uid="uid://de8k4i4sf40qs" path="res://Assets/Props/Tubulação3Snow.fbx" id="52_8n117"]
+[ext_resource type="PackedScene" uid="uid://bdcjmifvipfwr" path="res://Assets/Props/tubulaçaogaragem.fbx" id="53_ein6f"]
 [ext_resource type="PackedScene" uid="uid://dtj8tlfviaspc" path="res://Assets/Props/Pneu.tscn" id="53_jmnpk"]
 [ext_resource type="PackedScene" uid="uid://crjb15c8w0iub" path="res://Assets/Props/PaleteComEntulhos.tscn" id="54_13g5i"]
 [ext_resource type="Texture2D" uid="uid://ic0x41j47qvq" path="res://Assets/Materiais/Texturas/LatadeTinhaEnferrujada_0.png" id="54_fhf7i"]
@@ -68,9 +71,13 @@
 [ext_resource type="AudioStream" uid="uid://b4bf7872xq4sw" path="res://Assets/Sounds/PosicionandoGeiger.wav" id="62_43i74"]
 [ext_resource type="AudioStream" uid="uid://dge8iyu6wq2j7" path="res://Assets/Anomalias/Anomalia Chorando.wav" id="63_74x1x"]
 [ext_resource type="PackedScene" uid="uid://cl3cb4s7o8njs" path="res://Assets/Props/caminhao.tscn" id="63_jmnpk"]
+[ext_resource type="Texture2D" uid="uid://64ucfy5pt5xd" path="res://Assets/Props/atençaoentradadecaminhao_0.png" id="64_lrbmm"]
+[ext_resource type="PackedScene" uid="uid://bkj6xs54iex8f" path="res://Assets/Props/faixadeatençaogaragem.fbx" id="65_uh5f6"]
+[ext_resource type="Texture2D" uid="uid://cljq7je7qgki7" path="res://Assets/Props/portaogaragem.png" id="66_khrrp"]
 [ext_resource type="Texture2D" uid="uid://dffup7cgm8km6" path="res://Assets/Props/Camera_0.png" id="68_ukhf8"]
 [ext_resource type="PackedScene" uid="uid://s3p2rntgwc86" path="res://Assets/Props/SnowBeirada.fbx" id="71_3yogs"]
 [ext_resource type="Texture2D" uid="uid://ce3iqxwutg20l" path="res://Assets/Materiais/Texturas/GeigerSupport.png" id="72_dytdp"]
+[ext_resource type="PackedScene" uid="uid://caxg4brqtvssa" path="res://Assets/Props/LatadeSardinha.fbx" id="78_7bvkl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7bfk"]
 albedo_texture = ExtResource("2_clupq")
@@ -2774,7 +2781,7 @@ size = Vector2(0.3, 0.3)
 [node name="CenaPrincipal" type="Node3D"]
 
 [node name="MapaPrincipal" parent="." instance=ExtResource("1_41wr0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26030862, 18.931522, 32.839664)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26446044, 18.920809, 32.83865)
 
 [node name="SalaSegura" type="Node" parent="."]
 
@@ -2891,7 +2898,7 @@ collision_mask = 4
 shape = SubResource("ConvexPolygonShape3D_llt8y")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SalaSegura"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -8.70521, 4.628831, -9.258568)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -4.187785, 4.628831, -9.258568)
 light_color = Color(0.80427337, 0.7990457, 0.046652615, 1)
 light_energy = 8.811
 light_indirect_energy = 6.443
@@ -3626,6 +3633,15 @@ material_overlay = SubResource("ShaderMaterial_ukhf8")
 
 [node name="Garagem" type="Node" parent="."]
 
+[node name="grade" parent="Garagem" instance=ExtResource("51_71ptk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.677374, 0.7563975, 6.263873)
+
+[node name="gelo" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7415411, 5.7383423, 12.35745)
+
+[node name="tubulaçaogaragem" parent="Garagem" instance=ExtResource("53_ein6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7985535, 0.5, 8.945609)
+
 [node name="Tubulacao3" parent="Garagem" instance=ExtResource("45_pehf8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.264219, 0.032511473, 5.2504396)
 
@@ -3774,6 +3790,59 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Garagem/Tubulacao4/Cube_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_3yogs")
+
+[node name="atenção" type="Sprite3D" parent="Garagem"]
+transform = Transform3D(6.853632e-09, -2.740872e-08, 0.25838017, -0.1567928, -1.370436e-08, 1.1294156e-08, 6.853631e-09, -0.3135192, -2.2588312e-08, 2.6622107, 6.620787, 9.077985)
+texture = ExtResource("64_lrbmm")
+
+[node name="faixadeatençaogaragem" parent="Garagem" instance=ExtResource("65_uh5f6")]
+transform = Transform3D(1, 0, 0, 0, 0.9993622, 0, 0, 0, 1, 2.6473598, 0.49733436, 8.995024)
+
+[node name="gelo2" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(0.6095033, 0, 0, 0, 0.6095033, 0, 0, 0, 0.6095033, 2.7415411, 5.7383423, 11.625811)
+
+[node name="gelo3" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7415411, 5.7383423, 10.236966)
+
+[node name="gelo4" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(0.6095033, 0, 0, 0, 0.6095033, 0, 0, 0, 0.6095033, 2.7415411, 5.7383423, 9.916261)
+
+[node name="gelo5" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7415411, 5.7383423, 6.853903)
+
+[node name="gelo6" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(0.6095033, 0, 0, 0, 0.6095033, 0, 0, 0, 0.6095033, 2.7415411, 5.7383423, 7.8454666)
+
+[node name="gelo7" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7415411, 5.7383423, 5.5924387)
+
+[node name="gelo8" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(0.77350557, 0, 0, 0, 0.77350557, 0, 0, 0, 0.77350557, 2.7415411, 5.7383423, 6.101305)
+
+[node name="gelo9" parent="Garagem" instance=ExtResource("52_6gior")]
+transform = Transform3D(0.3598907, 0, 0, 0, 0.3598907, 0, 0, 0, 0.3598907, 9.345829, 2.6240563, 6.994099)
+
+[node name="portão garagem" type="Sprite3D" parent="Garagem"]
+transform = Transform3D(-4.619767e-08, 0, -1, 0, 1.062603, 0, 1.0568795, 0, -4.371139e-08, 2.1446218, 2.9093301, 9.011013)
+texture = ExtResource("66_khrrp")
+
+[node name="grade2" parent="Garagem" instance=ExtResource("51_71ptk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.677374, 0.7563975, 9.141595)
+
+[node name="grade3" parent="Garagem" instance=ExtResource("51_71ptk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.677374, 0.7563975, 12.021138)
+
+[node name="grade4" parent="Garagem" instance=ExtResource("51_71ptk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.218947, 0.7563975, 13.442539)
+
+[node name="grade5" parent="Garagem" instance=ExtResource("51_71ptk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.342309, 0.7563975, 13.442539)
+
+[node name="grade6" parent="Garagem" instance=ExtResource("51_71ptk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.4709234, 0.7563975, 13.442539)
+
+[node name="grade7" parent="Garagem" instance=ExtResource("51_71ptk")]
+transform = Transform3D(-4.371139e-08, 0, -0.520809, 0, 1, 0, 1, 0, -2.2765285e-08, 3.2692413, 0.7563975, 13.442539)
 
 [node name="CenaGameplay" parent="." instance=ExtResource("30_aou57")]
 
@@ -4008,7 +4077,7 @@ pitch_scale = 1.8
 max_distance = 6.0
 
 [node name="Caminhao" parent="." instance=ExtResource("63_jmnpk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1071643, 0.5, -3.9906645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1036214, 0.5375854, -3.834774)
 
 [node name="CAM_Almoxarifado" type="Node3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2721367, 3.1246462, 4.2660346)
@@ -4161,6 +4230,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.698165, 0.5855943, 5.431597
 
 [node name="SnowBeirada3" parent="Neve" instance=ExtResource("71_3yogs")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 7.9501133, 0.5855943, 5.288869)
+
+[node name="SnowBeirada18" parent="Neve" instance=ExtResource("71_3yogs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.665692, 0.5855943, 10.189341)
+
+[node name="SnowBeirada19" parent="Neve" instance=ExtResource("71_3yogs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.789021, 0.5855943, 10.189341)
+
+[node name="SnowBeirada20" parent="Neve" instance=ExtResource("71_3yogs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.031012, 0.07720387, 11.178728)
+
+[node name="SnowBeirada21" parent="Neve" instance=ExtResource("71_3yogs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.551662, 0.48147798, 11.7603245)
+
+[node name="SnowBeirada22" parent="Neve" instance=ExtResource("71_3yogs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.548087, 0.48147798, 11.7603245)
+
+[node name="SnowBeirada23" parent="Neve" instance=ExtResource("71_3yogs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.4933257, 0.48147798, 11.7603245)
+
+[node name="SnowBeirada24" parent="Neve" instance=ExtResource("71_3yogs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.585772, 0.48147798, 11.965797)
+
+[node name="LatadeSardinha" parent="." instance=ExtResource("78_7bvkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9969243, 1.2239995, -10.474884)
 
 [editable path="Quarto/PortaAbrivelQuarto"]
 [editable path="CenaGameplay"]
