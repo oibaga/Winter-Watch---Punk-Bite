@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"
+uid="uid://dffup7cgm8km6"
+path.s3tc="res://.godot/imported/Camera_0.png-3b56f87a5b4d4b672607adbf23495f3b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "67cb68bdee77fcf9442130db7aa2d861"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_Chao.png"
-dest_files=["res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"]
+source_file="res://Assets/Props/Camera_0.png"
+dest_files=["res://.godot/imported/Camera_0.png-3b56f87a5b4d4b672607adbf23495f3b.s3tc.ctex"]
 
 [params]
 
