@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://btin1ybc741g8"]
+[gd_scene load_steps=26 format=4 uid="uid://btin1ybc741g8"]
 
 [ext_resource type="Material" uid="uid://d4kduq14l2p4a" path="res://Shaders/SkyShaders/Sun.tres" id="1_q733y"]
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="2_k0lj6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://5bnfbo5gv6gr" path="res://Assets/Paredes/parede_porta_grande.tscn" id="5_bul5m"]
 [ext_resource type="PackedScene" uid="uid://do4ctw55h8bl6" path="res://Assets/Paredes/parede_garagem.tscn" id="6_yl0yl"]
 [ext_resource type="PackedScene" uid="uid://bly8tn02uxqeu" path="res://Assets/Paredes/parede_2x_25_grande.tscn" id="7_psb8s"]
+[ext_resource type="PackedScene" uid="uid://btmg6ui2ioc4x" path="res://Assets/Props/CaixaEletricoSnow.fbx" id="7_s1lh4"]
 [ext_resource type="PackedScene" uid="uid://ejvc2nofe6mi" path="res://Assets/Paredes/parede_2x_25.tscn" id="8_svust"]
 [ext_resource type="PackedScene" uid="uid://bx4a6y52tocty" path="res://Assets/Paredes/parede_1x_25_grande.tscn" id="9_0qhty"]
 [ext_resource type="PackedScene" uid="uid://b2na80ug0fifs" path="res://Assets/Paredes/parede_1x_25.tscn" id="10_ngafe"]
@@ -132,6 +133,27 @@ transform = Transform3D(1, 0, 0, 0, 1.0242809, 0, 0, 0, 1, 0.62442255, 0.5239171
 
 [node name="ParedeGaragem" parent="Mapa/Paredes/Portas" instance=ExtResource("6_yl0yl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3922448, 0.5026405, 8.988044)
+
+[node name="CaixaEletricoSnow" parent="Mapa/Paredes/Portas/ParedeGaragem" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.17737722, 4.5617523, 4.0772343)
+
+[node name="CaixaEletricoSnow2" parent="Mapa/Paredes/Portas/ParedeGaragem" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.17737722, 4.5617523, 2.6485634)
+
+[node name="CaixaEletricoSnow3" parent="Mapa/Paredes/Portas/ParedeGaragem" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.17737722, 4.5617523, 1.2218704)
+
+[node name="CaixaEletricoSnow4" parent="Mapa/Paredes/Portas/ParedeGaragem" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.17737722, 4.5617523, -0.20680046)
+
+[node name="CaixaEletricoSnow5" parent="Mapa/Paredes/Portas/ParedeGaragem" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.17737722, 4.5617523, -1.6245537)
+
+[node name="CaixaEletricoSnow6" parent="Mapa/Paredes/Portas/ParedeGaragem" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.17737722, 4.5617523, -3.0532246)
+
+[node name="CaixaEletricoSnow7" parent="Mapa/Paredes/Portas/ParedeGaragem" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4507661, 4.5617523, -4.267944)
 
 [node name="Parede Porta2" parent="Mapa/Paredes/Portas" instance=ExtResource("4_7wmcm")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.1720816, 0.52388895, -5.7315154)
@@ -344,6 +366,27 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.8
 
 [node name="Parede 2x74" parent="Mapa/Paredes/Paredes" instance=ExtResource("8_svust")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6395073, 0.537, 4.527786)
+
+[node name="CaixaEletricoSnow" parent="Mapa/Paredes/Paredes/Parede 2x74" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.857523, 2.1245594, -0.15363216)
+
+[node name="CaixaEletricoSnow7" parent="Mapa/Paredes/Paredes/Parede 2x74" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.304099, 2.1245594, -0.15363216)
+
+[node name="CaixaEletricoSnow2" parent="Mapa/Paredes/Paredes/Parede 2x74" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.428852, 2.1245594, -0.15363216)
+
+[node name="CaixaEletricoSnow3" parent="Mapa/Paredes/Paredes/Parede 2x74" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.002159, 2.1245594, -0.15363216)
+
+[node name="CaixaEletricoSnow4" parent="Mapa/Paredes/Paredes/Parede 2x74" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57348824, 2.1245594, -0.15363216)
+
+[node name="CaixaEletricoSnow5" parent="Mapa/Paredes/Paredes/Parede 2x74" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.844265, 2.1245594, -0.15363216)
+
+[node name="CaixaEletricoSnow6" parent="Mapa/Paredes/Paredes/Parede 2x74" instance=ExtResource("7_s1lh4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2729359, 2.1245594, -0.15363216)
 
 [node name="Parede 2x75" parent="Mapa/Paredes/Paredes" instance=ExtResource("8_svust")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6395073, 0.537, 4.527786)

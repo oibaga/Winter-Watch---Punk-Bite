@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cl3cb4s7o8njs"]
+[gd_scene load_steps=19 format=3 uid="uid://cl3cb4s7o8njs"]
 
 [ext_resource type="PackedScene" uid="uid://bmwjvvour8nis" path="res://Assets/Props/Caminhao.fbx" id="1_nati0"]
 [ext_resource type="Texture2D" uid="uid://ctwyxpn2ofa4k" path="res://Assets/Materiais/Texturas/Caminhao_DefaultMaterial_BaseColor.png" id="2_0lh0j"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1vwbnut4af" path="res://Assets/Props/CAIXA 1.fbx" id="4_x06hw"]
 [ext_resource type="PackedScene" uid="uid://b35y86rjfvik1" path="res://Assets/Props/Caixa_3.fbx" id="5_dv1d2"]
 [ext_resource type="PackedScene" uid="uid://cr8lsux2o0ymu" path="res://Assets/Props/Quarto/Garrafao.fbx" id="6_v2u1p"]
+[ext_resource type="PackedScene" uid="uid://ntihq2i6bqwg" path="res://Levels/caminhãoSnow.fbx" id="7_x06hw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hib1x"]
 albedo_texture = ExtResource("2_0lh0j")
@@ -130,3 +131,5 @@ transform = Transform3D(-0.10483226, 0, 0.72748554, 0, 0.735, 0, -0.72748554, 0,
 
 [node name="Garrafao" parent="." index="12" instance=ExtResource("6_v2u1p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6224337, 2.385513, 13.512276)
+
+[node name="caminhãoSnow" parent="." index="13" instance=ExtResource("7_x06hw")]
