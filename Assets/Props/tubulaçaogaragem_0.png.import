@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"
+uid="uid://5hchoiy5eylu"
+path.s3tc="res://.godot/imported/tubulaçaogaragem_0.png-4fd083c33be06e633f8728ab1a73157e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "740e6b1859a4ce7b623c57978f89d449"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_Chao.png"
-dest_files=["res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"]
+source_file="res://Assets/Props/tubulaçaogaragem_0.png"
+dest_files=["res://.godot/imported/tubulaçaogaragem_0.png-4fd083c33be06e633f8728ab1a73157e.s3tc.ctex"]
 
 [params]
 
