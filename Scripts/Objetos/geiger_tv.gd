@@ -1,7 +1,8 @@
 class_name GeigerTV extends Sprite3D
 
 var geigerMaxTimer : float = 10
-
+@onready var audio: AudioStreamPlayer3D = $"../Caixa/AudioStreamPlayer3D"
+var default_volume : float = 0
 var wave_shader : ShaderMaterial = null
 
 var proximity : float = 100:
@@ -11,6 +12,9 @@ var proximity : float = 100:
 		UpdateDistanceValues()
 
 func _ready() -> void:
+	default_volume = audio.volume_db
+	audio.volume_db = -80
+	
 	var shaderMaterial = self.material_override
 	if shaderMaterial:
 		if shaderMaterial is ShaderMaterial:
@@ -18,7 +22,10 @@ func _ready() -> void:
 
 func UpdateDistanceValues():
 	if !wave_shader: return
-
+	
+	audio.pitch_scale = remap(clampf(proximity, 0, 100), 0, 100, 0, 4)
+	audio.volume_db = default_volume if audio.pitch_scale >= 0.5 else -80
+	
 	var t = proximity / 100.0  # 0.0 → 1.0
 
 	wave_shader.set_shader_parameter("wave_amplitude", lerp(0.0, 0.355, t ))

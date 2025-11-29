@@ -62,6 +62,8 @@ func atualizar_tela():
 		tela.texture = currentCamera.get_texture()
 
 		geiger_proximity_sprite_3d.visible = currentCamera.room.isGeigerRoom
+		geiger_proximity_sprite_3d.audio.playing = currentCamera.room.isGeigerRoom
+
 
 func ChoseAnomalyType(type : Anomaly.AnomalyTypes):
 	canChose = false

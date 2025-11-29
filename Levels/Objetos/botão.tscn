@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://e8sq3k507ms4"]
+[gd_scene load_steps=12 format=4 uid="uid://e8sq3k507ms4"]
 
 [ext_resource type="Texture2D" uid="uid://dj5o2lbpvewb1" path="res://Assets/Materiais/Texturas/BotãoCriatura.png" id="1_4pffu"]
 [ext_resource type="Script" uid="uid://djpqwaawbecew" path="res://Scripts/Objetos/botãoDoMenu.gd" id="1_s6hfm"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="3_4gdrv"]
+[ext_resource type="AudioStream" uid="uid://bfkyq28tqltvu" path="res://Assets/Sounds/ClickMouse.wav" id="4_ldf0o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vodwg"]
 albedo_texture = ExtResource("1_4pffu")
@@ -116,3 +117,9 @@ text = "Pressione botão esquerdo"
 font = ExtResource("3_4gdrv")
 font_size = 12
 outline_size = 8
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_ldf0o")
+unit_size = 20.0
+max_distance = 6.0
+emission_angle_enabled = true

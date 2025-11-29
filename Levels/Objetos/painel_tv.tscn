@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://pjwqtnt478rv"]
+[gd_scene load_steps=60 format=4 uid="uid://pjwqtnt478rv"]
 
 [ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://Scripts/Objetos/painel_tv.gd" id="1_ilmlx"]
 [ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Scripts/Objetos/Button.gd" id="2_1c306"]
@@ -19,6 +19,7 @@
 [ext_resource type="Shader" uid="uid://ugcus84t4uch" path="res://Shaders/OutlineMouse.gdshader" id="10_iw1ap"]
 [ext_resource type="Texture2D" uid="uid://b8q1ihtpooyjo" path="res://Assets/Materiais/Texturas/UIBACKGROUNDWHITE.png" id="12_f4ati"]
 [ext_resource type="PackedScene" uid="uid://bsnvg2neurtdb" path="res://Levels/Objetos/cadeira.tscn" id="14_enynw"]
+[ext_resource type="AudioStream" uid="uid://bfkyq28tqltvu" path="res://Assets/Sounds/ClickMouse.wav" id="20_3iams"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esbl2"]
 resource_name = "M_PostIt"
@@ -816,6 +817,12 @@ billboard = 1
 no_depth_test = true
 text = "Pressione botão esquerdo"
 font = ExtResource("9_1a4mr")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Mouse"]
+stream = ExtResource("20_3iams")
+unit_size = 20.0
+max_distance = 6.0
+emission_angle_enabled = true
 
 [connection signal="timeout" from="menuBotoes/CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 
