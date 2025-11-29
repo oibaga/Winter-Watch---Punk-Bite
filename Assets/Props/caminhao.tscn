@@ -93,6 +93,10 @@ collision_layer = 4
 transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, -2.842171e-14, 0, 2.842171e-14, 1.0000007, 0.07001118, -0.12771618, 0.021454036)
 shape = SubResource("BoxShape3D_nati0")
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Cube_003/StaticBody3D" index="1"]
+transform = Transform3D(1.0000005, 0, 0, 0, 1.0000007, -2.842171e-14, 0, 2.842171e-14, 1.0000007, 0.0709763, -0.12773144, 0.026428254)
+size = Vector3(0.106399536, 0.033416748, 0.032836914)
+
 [node name="Cube_004" parent="." index="2"]
 material_override = SubResource("StandardMaterial3D_oitn8")
 

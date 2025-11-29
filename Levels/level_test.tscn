@@ -33,14 +33,14 @@ shader_parameter/dither_size = 1
 offsets = PackedFloat32Array(0, 0.4528302, 1)
 colors = PackedColorArray(0.7641296, 0.7909432, 0.82733786, 1, 0.47007626, 0.4700758, 0.47007525, 1, 0.2627451, 0.2627451, 0.2627451, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_nxutr"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3o0bi"]
 gradient = SubResource("Gradient_6ieip")
 
 [sub_resource type="Curve" id="Curve_p5spi"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4166667, 0.77528095), 0.0, 0.0, 0, 0, Vector2(0.98484856, 0.29213488), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_465so"]
+[sub_resource type="CurveTexture" id="CurveTexture_oenlu"]
 curve = SubResource("Curve_p5spi")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nxutr"]
@@ -54,20 +54,20 @@ tangential_accel_min = -8.000002
 tangential_accel_max = 7.9999976
 damping_max = 4.0
 scale_min = 0.5
-scale_curve = SubResource("CurveTexture_465so")
-color_ramp = SubResource("GradientTexture1D_nxutr")
+scale_curve = SubResource("CurveTexture_oenlu")
+color_ramp = SubResource("GradientTexture1D_3o0bi")
 
-[sub_resource type="Gradient" id="Gradient_tchvq"]
+[sub_resource type="Gradient" id="Gradient_q8e8m"]
 offsets = PackedFloat32Array(0.3090909, 0.6363636)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tchvq"]
-gradient = SubResource("Gradient_tchvq")
+gradient = SubResource("Gradient_q8e8m")
 width = 65
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdrm6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku5x2"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
@@ -75,7 +75,7 @@ albedo_texture = SubResource("GradientTexture2D_tchvq")
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_ru4ou"]
-material = SubResource("StandardMaterial3D_sdrm6")
+material = SubResource("StandardMaterial3D_ku5x2")
 size = Vector2(0.3, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25mqr"]

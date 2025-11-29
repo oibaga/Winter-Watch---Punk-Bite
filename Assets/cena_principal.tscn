@@ -1,4 +1,4 @@
-[gd_scene load_steps=286 format=4 uid="uid://dlhl7wsa7514t"]
+[gd_scene load_steps=295 format=4 uid="uid://dlhl7wsa7514t"]
 
 [ext_resource type="PackedScene" uid="uid://btin1ybc741g8" path="res://Levels/BlocagemMapa.tscn" id="1_41wr0"]
 [ext_resource type="Texture2D" uid="uid://bxhj4boaw1nsm" path="res://Assets/Materiais/Texturas/Tubulação_0.png" id="2_2mpd0"]
@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cjef8ch8a7b6" path="res://Assets/Props/Caixa5.tscn" id="28_3n56m"]
 [ext_resource type="Texture2D" uid="uid://c8u7nirw0vbn2" path="res://Assets/Props/Quarto/PlanejamentoSemanal_0.png" id="28_rvn4v"]
 [ext_resource type="PackedScene" uid="uid://cryqydnboin76" path="res://Assets/Props/Quarto/Tapete.fbx" id="29_fb3fe"]
-[ext_resource type="PackedScene" path="res://Assets/Props/lata_oleo.tscn" id="30_54twq"]
+[ext_resource type="PackedScene" uid="uid://cp00goe1dmfkp" path="res://Assets/Props/lata_oleo.tscn" id="30_54twq"]
 [ext_resource type="PackedScene" uid="uid://cw1bdifyfq853" path="res://Levels/cena_gameplay.tscn" id="30_aou57"]
 [ext_resource type="Texture2D" uid="uid://bx42ibkjpxxo8" path="res://Assets/Props/Quarto/cama_0.png" id="31_gqe28"]
 [ext_resource type="Texture2D" uid="uid://bdckyr4ln4h0b" path="res://Assets/Materiais/Texturas/T_PortaDeFerro.png" id="31_kpogh"]
@@ -2717,6 +2717,57 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b5e81")
 
+[sub_resource type="Gradient" id="Gradient_ukhf8"]
+offsets = PackedFloat32Array(0, 0.4528302, 1)
+colors = PackedColorArray(0.7641296, 0.7909432, 0.82733786, 1, 0.47007626, 0.4700758, 0.47007525, 1, 0.2627451, 0.2627451, 0.2627451, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nxutr"]
+gradient = SubResource("Gradient_ukhf8")
+
+[sub_resource type="Curve" id="Curve_1x46j"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4166667, 0.77528095), 0.0, 0.0, 0, 0, Vector2(0.98484856, 0.29213488), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_465so"]
+curve = SubResource("Curve_1x46j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8n117"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 1, 16)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -5, 0)
+tangential_accel_min = -8.000002
+tangential_accel_max = 7.9999976
+damping_max = 4.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_465so")
+color_ramp = SubResource("GradientTexture1D_nxutr")
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="Gradient" id="Gradient_tchvq"]
+offsets = PackedFloat32Array(0.3090909, 0.6363636)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3yogs"]
+gradient = SubResource("Gradient_tchvq")
+width = 65
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdrm6"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_3yogs")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_el0tl"]
+material = SubResource("StandardMaterial3D_sdrm6")
+size = Vector2(0.3, 0.3)
+
 [node name="CenaPrincipal" type="Node3D"]
 
 [node name="MapaPrincipal" parent="." instance=ExtResource("1_41wr0")]
@@ -4038,6 +4089,15 @@ transform = Transform3D(96.59258, -25.881899, 2.3841862e-05, -2.302947e-05, 6.17
 layers = 16
 mesh = SubResource("ArrayMesh_6iglu")
 skeleton = NodePath("")
+
+[node name="Snow" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.230676, 19.062958, 15.828951)
+amount = 512
+lifetime = 3.5
+fixed_fps = 10
+visibility_aabb = AABB(-43.81296, -47.722363, -39.012207, 89.61482, 49.680996, 73.465546)
+process_material = SubResource("ParticleProcessMaterial_8n117")
+draw_pass_1 = SubResource("QuadMesh_el0tl")
 
 [editable path="Quarto/PortaAbrivelQuarto"]
 [editable path="CenaGameplay"]

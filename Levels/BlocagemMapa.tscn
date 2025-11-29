@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ejvc2nofe6mi" path="res://Assets/Paredes/parede_2x_25.tscn" id="8_svust"]
 [ext_resource type="PackedScene" uid="uid://bx4a6y52tocty" path="res://Assets/Paredes/parede_1x_25_grande.tscn" id="9_0qhty"]
 [ext_resource type="PackedScene" uid="uid://b2na80ug0fifs" path="res://Assets/Paredes/parede_1x_25.tscn" id="10_ngafe"]
-[ext_resource type="Texture2D" uid="uid://bw8wlha1tvk6w" path="res://Assets/Materiais/Texturas/T_Chao.png" id="11_c0tcm"]
+[ext_resource type="Texture2D" uid="uid://bw8wlha1tvk6w" path="res://Assets/Materiais/Texturas/T_chao.png" id="11_c0tcm"]
 [ext_resource type="Texture2D" uid="uid://berocpxcv18x1" path="res://Assets/Materiais/Texturas/T_Teto.png" id="12_54ckt"]
 [ext_resource type="PackedScene" uid="uid://bw3ljwfcfprpl" path="res://Assets/WinterWatcherMap.fbx" id="12_xdhsw"]
 
@@ -456,6 +456,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_35imv")
 transform = Transform3D(-1.152511e-07, 8.742279e-08, 1.4425813, 0, -1.0000001, 1.2611446e-07, 2.6366377, 3.8213714e-15, 6.305723e-08, -5.8962545, 7.2099566, 8.987955)
 mesh = SubResource("PlaneMesh_s1lh4")
 surface_material_override/0 = SubResource("StandardMaterial3D_35imv")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="Mapa/Teto/Almoxarifado4"]
+transform = Transform3D(1, 2.646978e-21, -4.2632564e-14, 0, 1, -4.5332627e-12, 0, 1.1579087e-22, 0.9998334, -1.1198883, 2.123726, -0.3750744)
+size = Vector3(6.681244, 9.691757, 14.223766)
 
 [node name="Almoxarifado5" type="MeshInstance3D" parent="Mapa/Teto"]
 transform = Transform3D(-7.1505035e-08, 8.7422784e-08, 0.33583018, 0, -1, 2.9359203e-08, 1.6358446, 3.821371e-15, 1.46796015e-08, 0.48190355, 8.6682415, -9.734491)
