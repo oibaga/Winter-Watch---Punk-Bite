@@ -82,6 +82,6 @@ texture = ExtResource("3_2h1bf")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamMP3_u02ys")
-volume_db = -30.0
+volume_db = -40.0
 pitch_scale = 0.5
 autoplay = true
