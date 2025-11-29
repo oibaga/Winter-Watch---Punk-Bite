@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"
+uid="uid://c2lydrapch8m3"
+path.s3tc="res://.godot/imported/faixadeatençaogaragem_0.png-4c8ec3d24be11bef06956c01f28b69e8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "16babf021f015d9b7af75b6c8bc5bcf9"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_Chao.png"
-dest_files=["res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"]
+source_file="res://Assets/Props/faixadeatençaogaragem_0.png"
+dest_files=["res://.godot/imported/faixadeatençaogaragem_0.png-4c8ec3d24be11bef06956c01f28b69e8.s3tc.ctex"]
 
 [params]
 

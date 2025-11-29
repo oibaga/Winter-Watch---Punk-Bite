@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjgrp6nyrv4oq"
-path="res://.godot/imported/CameradeSeguranca.fbx-9a311093d03767732ccdc25cd94d61b4.scn"
+uid="uid://bkj6xs54iex8f"
+path="res://.godot/imported/faixadeatençaogaragem.fbx-d869bd50570e24a85a7ed7f6bfad0b0a.scn"
 
 [deps]
 
-source_file="res://Assets/Props/CameradeSeguranca.fbx"
-dest_files=["res://.godot/imported/CameradeSeguranca.fbx-9a311093d03767732ccdc25cd94d61b4.scn"]
+source_file="res://Assets/Props/faixadeatençaogaragem.fbx"
+dest_files=["res://.godot/imported/faixadeatençaogaragem.fbx-d869bd50570e24a85a7ed7f6bfad0b0a.scn"]
 
 [params]
 

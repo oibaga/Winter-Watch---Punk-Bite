@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"
+uid="uid://64ucfy5pt5xd"
+path.s3tc="res://.godot/imported/atençaoentradadecaminhao_0.png-a61062d677ebdeee9afdd89b1a629176.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "17b725605cfccba77d132b7ebaf2d434"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_Chao.png"
-dest_files=["res://.godot/imported/T_Chao.png-cd5351231874d520f5ed29e5d11abdca.s3tc.ctex"]
+source_file="res://Assets/Props/atençaoentradadecaminhao_0.png"
+dest_files=["res://.godot/imported/atençaoentradadecaminhao_0.png-a61062d677ebdeee9afdd89b1a629176.s3tc.ctex"]
 
 [params]
 
