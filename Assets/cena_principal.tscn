@@ -1,4 +1,4 @@
-[gd_scene load_steps=305 format=4 uid="uid://dlhl7wsa7514t"]
+[gd_scene load_steps=328 format=4 uid="uid://dlhl7wsa7514t"]
 
 [ext_resource type="PackedScene" uid="uid://btin1ybc741g8" path="res://Levels/BlocagemMapa.tscn" id="1_41wr0"]
 [ext_resource type="Texture2D" uid="uid://bxhj4boaw1nsm" path="res://Assets/Materiais/Texturas/Tubulação_0.png" id="2_2mpd0"]
@@ -78,6 +78,25 @@
 [ext_resource type="PackedScene" uid="uid://s3p2rntgwc86" path="res://Assets/Props/SnowBeirada.fbx" id="71_3yogs"]
 [ext_resource type="Texture2D" uid="uid://ce3iqxwutg20l" path="res://Assets/Materiais/Texturas/GeigerSupport.png" id="72_dytdp"]
 [ext_resource type="PackedScene" uid="uid://caxg4brqtvssa" path="res://Assets/Props/LatadeSardinha.fbx" id="78_7bvkl"]
+[ext_resource type="PackedScene" uid="uid://d1fipjd55kor3" path="res://Assets/Props/COMIDAS/caixa de  maisena.fbx" id="79_7fkby"]
+[ext_resource type="PackedScene" uid="uid://dfpo78kkc4r3k" path="res://Assets/Props/COMIDAS/caixa de cafe.fbx" id="80_dytdp"]
+[ext_resource type="PackedScene" uid="uid://crgsk4u4tvbn" path="res://Assets/Props/COMIDAS/latadeazeitona.fbx" id="81_mol02"]
+[ext_resource type="PackedScene" uid="uid://dd8mtwgo37n7x" path="res://Assets/Props/COMIDAS/latadeervilha.fbx" id="82_sokau"]
+[ext_resource type="PackedScene" uid="uid://uhndlf4on8pg" path="res://Assets/Props/COMIDAS/latademanga.fbx" id="83_511yi"]
+[ext_resource type="PackedScene" uid="uid://bk81jo4a1hvdc" path="res://Assets/Props/COMIDAS/latademilho.fbx" id="84_qwake"]
+[ext_resource type="PackedScene" uid="uid://cw2731eggckub" path="res://Assets/Props/COMIDAS/latademolhodetomate.fbx" id="85_jhdls"]
+[ext_resource type="PackedScene" uid="uid://cauybikow7nq2" path="res://Assets/Props/COMIDAS/latadepimentao.fbx" id="86_tum2b"]
+[ext_resource type="PackedScene" uid="uid://cwy25yvdtgh0" path="res://Assets/Props/COMIDAS/latadesalmão.fbx" id="87_bxt3x"]
+[ext_resource type="Texture2D" uid="uid://dnapmp2ib2708" path="res://Assets/Props/COMIDAS/maquina de vendas_0.png" id="88_xhkxj"]
+[ext_resource type="Texture2D" uid="uid://c77g76ukjk7ra" path="res://Assets/Props/COMIDAS/maquina de vendas_1.png" id="89_b0ffn"]
+[ext_resource type="PackedScene" uid="uid://jcvusy67hp18" path="res://Assets/Props/COMIDAS/pct miojo azul.fbx" id="90_fkqb4"]
+[ext_resource type="PackedScene" uid="uid://e462ufu52o8j" path="res://Assets/Props/COMIDAS/pct miojo verde.fbx" id="91_pr1dm"]
+[ext_resource type="PackedScene" uid="uid://drd10rai4bapj" path="res://Assets/Props/COMIDAS/pct miojo vermelho.fbx" id="92_7hahx"]
+[ext_resource type="PackedScene" uid="uid://cqm0be0mnv4tm" path="res://Assets/Props/COMIDAS/saco de açucar.fbx" id="93_ufxcv"]
+[ext_resource type="PackedScene" uid="uid://cc8tuttqmojll" path="res://Assets/Props/COMIDAS/Saco de cafe.fbx" id="94_wvlio"]
+[ext_resource type="PackedScene" uid="uid://d1p8bi15cpfiq" path="res://Assets/Props/COMIDAS/waflle treloso.fbx" id="95_tdehr"]
+[ext_resource type="PackedScene" uid="uid://htvbo86fp20r" path="res://Assets/Props/CaixaEncomendaP.fbx" id="96_h57xh"]
+[ext_resource type="PackedScene" uid="uid://mb23bulfmwan" path="res://Assets/Props/Caixa7.fbx" id="97_7lh0i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7bfk"]
 albedo_texture = ExtResource("2_clupq")
@@ -2778,12 +2797,65 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_sdrm6")
 size = Vector2(0.3, 0.3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78o66"]
+resource_name = "Material.025"
+transparency = 4
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("88_xhkxj")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+normal_enabled = true
+normal_scale = 0.0
+normal_texture = ExtResource("89_b0ffn")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_86fje"]
+_surfaces = [{
+"aabb": AABB(-0.025280839, -0.03589435, -0.008913574, 0.050561663, 0.0717887, 0.017827205),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAQAAAAMAAgAEAAAAAwAAAAQAAgABAAUAAwAFAAEABQAGAAIABAACAAYABQADAAcABAAHAAMABwAGAAUABgAHAAQA"),
+"name": "Material.025",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("wxnPvPMFEz17ChI8wxnPvPQFE717ChI8wxnPvPQFE709ChK8uxnPPPMFEz1mChI8wxnPvPMFEz09ChK8uxnPPPQFE71mChI8uxnPPPQFE709ChK8uxnPPPMFEz09ChK8")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7vmpd"]
+resource_name = "Cube_023"
+_surfaces = [{
+"aabb": AABB(-0.025280839, -0.03589435, -0.008913574, 0.050561663, 0.0717887, 0.017827205),
+"attribute_data": PackedByteArray("RsCCPlr21z7+5P4+WvbXPv7k/j7RBBQ/RcCCPtAEFD+AcVM8WvbXPkbAgj5a9tc+RcCCPtAEFD9AcVM80QQUP9yEPT9a9tc+OJd7P1r21z44l3s/0QQUP9yEPT/RBBQ//uT+PtEEFD/+5P4+WvbXPtyEPT9a9tc+3IQ9P9EEFD/95P4+dQ48P0TAgj51Djw/RcCCPtAEFD/+5P4+0QQUP/7k/j5a9tc+RsCCPlr21z5GwII+EOOHPv7k/j4S44c+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_78o66"),
+"name": "Material.025",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("wxnPvPMFEz17ChI8wxnPvPQFE717ChI8wxnPvPQFE709ChK8wxnPvPMFEz09ChK8uxnPPPMFEz1mChI8wxnPvPMFEz17ChI8wxnPvPMFEz09ChK8uxnPPPMFEz09ChK8uxnPPPQFE71mChI8uxnPPPMFEz1mChI8uxnPPPMFEz09ChK8uxnPPPQFE709ChK8wxnPvPQFE709ChK8wxnPvPQFE717ChI8uxnPPPQFE71mChI8uxnPPPQFE709ChK8uxnPPPQFE709ChK8uxnPPPMFEz09ChK8wxnPvPMFEz09ChK8wxnPvPQFE709ChK8wxnPvPQFE717ChI8wxnPvPMFEz17ChI8uxnPPPMFEz1mChI8uxnPPPQFE71mChI8AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AID/f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v////3//f///////f/9///////9//3///////3//f////38AAP///7//fwAA////v/9/AAD///+//38AAP///78AAP///38AgAAA////fwCAAAD///9/AIAAAP///38AgP9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_86fje")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v3jco"]
+points = PackedVector3Array(-0.025280839, -0.03589435, -0.008913574, -0.025280839, -0.03589435, 0.008913632, -0.025280839, 0.03589435, -0.008913574, 0.025280824, -0.03589435, -0.008913574, 0.025280824, -0.03589435, 0.008911886, -0.025280839, 0.03589435, 0.008913632, 0.025280824, 0.03589435, -0.008913574, 0.025280824, 0.03589435, 0.008911886)
+
 [node name="CenaPrincipal" type="Node3D"]
 
 [node name="MapaPrincipal" parent="." instance=ExtResource("1_41wr0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26446044, 18.920809, 32.83865)
 
 [node name="SalaSegura" type="Node" parent="."]
+
+[node name="LatadeSardinha" parent="SalaSegura" instance=ExtResource("78_7bvkl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9969243, 1.2239995, -10.474884)
+
+[node name="LatadeSardinha2" parent="SalaSegura" instance=ExtResource("78_7bvkl")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -1.9911766, 2.690176, -7.3804755)
 
 [node name="Dispensa2" type="MeshInstance3D" parent="SalaSegura"]
 transform = Transform3D(-4.117195e-06, 48.642788, 1.7782922e-05, 0, -5.7986717e-06, 149.17397, 94.190445, 2.1262435e-06, -3.4624627e-12, -1.9365754, 2.0047302, -7.9097195)
@@ -4252,8 +4324,144 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.49
 [node name="SnowBeirada24" parent="Neve" instance=ExtResource("71_3yogs")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.585772, 0.48147798, 11.965797)
 
-[node name="LatadeSardinha" parent="." instance=ExtResource("78_7bvkl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9969243, 1.2239995, -10.474884)
+[node name="caixa de  maisena" parent="." instance=ExtResource("79_7fkby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8924706, 1.2388804, -9.970013)
+
+[node name="caixa de cafe" parent="." instance=ExtResource("80_dytdp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9543852, 1.2428936, -9.670784)
+
+[node name="latadeazeitona" parent="." instance=ExtResource("81_mol02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.019947, 1.3074802, -10.242175)
+
+[node name="latadeervilha" parent="." instance=ExtResource("82_sokau")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2235284, 1.3073865, -9.379721)
+
+[node name="latademanga" parent="." instance=ExtResource("83_511yi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2956743, 1.306981, -9.929673)
+
+[node name="caixa de  maisena2" parent="." instance=ExtResource("79_7fkby")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -2.2227416, 2.705057, -7.84111)
+
+[node name="caixa de cafe2" parent="." instance=ExtResource("80_dytdp")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -2.240383, 2.70907, -8.146168)
+
+[node name="latadeazeitona2" parent="." instance=ExtResource("81_mol02")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -2.0291681, 2.7736566, -7.6112146)
+
+[node name="latadeervilha2" parent="." instance=ExtResource("82_sokau")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -2.0557432, 2.7735631, -8.496972)
+
+[node name="latademanga2" parent="." instance=ExtResource("83_511yi")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -1.8437175, 2.7731574, -7.984432)
+
+[node name="latademilho" parent="." instance=ExtResource("84_qwake")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9471059, 2.0336761, -10.452172)
+
+[node name="latademolhodetomate" parent="." instance=ExtResource("85_jhdls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1248884, 2.0261788, -9.687623)
+
+[node name="latadepimentao" parent="." instance=ExtResource("86_tum2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8957093, 2.7612503, -10.125495)
+
+[node name="latadesalmão" parent="." instance=ExtResource("87_bxt3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6438296, 2.7578857, -9.560861)
+
+[node name="maquina de vendas" type="Node3D" parent="."]
+transform = Transform3D(-5.4099615e-08, 0, 1.2376549, 0, 1.2376549, 0, -1.2376549, 0, -5.4099615e-08, -3.9743314, 0.54953814, -11.864577)
+
+[node name="Cube_019" type="MeshInstance3D" parent="maquina de vendas"]
+transform = Transform3D(2.6531166e-06, 5.9329027e-06, -38.531677, -44.51191, 0, -3.4450004e-06, 0, 18.097744, 1.1483335e-05, 0, 1.0723137, -1.1920929e-07)
+mesh = SubResource("ArrayMesh_7vmpd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="maquina de vendas/Cube_019"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="maquina de vendas/Cube_019/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_v3jco")
+
+[node name="pct miojo azul" parent="." instance=ExtResource("90_fkqb4")]
+transform = Transform3D(0.6399982, 0, -1.3967181, 0, 1.5363655, 0, 1.3967181, 0, 0.6399982, -2.1456647, 1.9609733, -10.010264)
+
+[node name="pct miojo verde" parent="." instance=ExtResource("91_pr1dm")]
+transform = Transform3D(-0.17248963, 0, -1.4285136, 0, 1.4388897, 0, 1.4285136, 0, -0.17248963, -2.2012362, 1.9582179, -9.306441)
+
+[node name="latademolhodetomate2" parent="." instance=ExtResource("85_jhdls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7141457, 2.0261788, -10.291748)
+
+[node name="pct miojo verde2" parent="." instance=ExtResource("91_pr1dm")]
+transform = Transform3D(-0.17248963, 0, -1.4285136, 0, 1.4388897, 0, 1.4285136, 0, -0.17248963, -1.7407553, 1.9582179, -10.509564)
+
+[node name="latademilho2" parent="." instance=ExtResource("84_qwake")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -1.903831, 0.7222916, -7.429403)
+
+[node name="latademolhodetomate3" parent="." instance=ExtResource("85_jhdls")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -1.9299862, 0.7147943, -8.213915)
+
+[node name="pct miojo azul2" parent="." instance=ExtResource("90_fkqb4")]
+transform = Transform3D(-0.9796881, 0, 1.1834823, 0, 1.5363657, 0, -1.1834823, 0, -0.9796881, -1.8264122, 0.6495887, -7.907644)
+
+[node name="pct miojo verde3" parent="." instance=ExtResource("91_pr1dm")]
+transform = Transform3D(-0.20311446, 0, 1.4244816, 0, 1.4388897, 0, -1.4244816, 0, -0.20311446, -1.954897, 0.6468333, -8.601868)
+
+[node name="latademolhodetomate4" parent="." instance=ExtResource("85_jhdls")]
+transform = Transform3D(-0.9659258, 0, -0.25881913, 0, 1, 0, 0.25881913, 0, -0.9659258, -2.1703742, 0.7147943, -7.524066)
+
+[node name="pct miojo verde4" parent="." instance=ExtResource("91_pr1dm")]
+transform = Transform3D(-0.20311446, 0, 1.4244816, 0, 1.4388897, 0, -1.4244816, 0, -0.20311446, -2.0882962, 0.6468333, -7.320559)
+
+[node name="pct miojo vermelho" parent="." instance=ExtResource("92_7hahx")]
+transform = Transform3D(-0.51576996, 0, -1.4573786, 0, 1.5459529, 0, 1.4573786, 0, -0.51576996, -2.1502175, 2.7087486, -10.448825)
+
+[node name="saco de açucar" parent="." instance=ExtResource("93_ufxcv")]
+transform = Transform3D(1.2197155, 0, -0.51209503, 0, 1.3228557, 0, 0.51209503, 0, 1.2197155, -2.053123, 2.71061, -9.318254)
+
+[node name="Saco de cafe" parent="." instance=ExtResource("94_wvlio")]
+transform = Transform3D(0.5711864, 0, 0.8208204, 0, 1, 0, -0.8208204, 0, 0.5711864, -2.0665107, 2.7377205, -10.349944)
+
+[node name="waflle treloso" parent="." instance=ExtResource("95_tdehr")]
+transform = Transform3D(0.42089337, 0, -0.9071101, 0, 1, 0, 0.9071101, 0, 0.42089337, -2.2756975, 2.698573, -9.75547)
+
+[node name="latadepimentao" parent="waflle treloso" instance=ExtResource("86_tum2b")]
+transform = Transform3D(-0.50000006, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.50000006, 2.0099382, -1.4079357, 0.63669264)
+
+[node name="latadesalmão" parent="waflle treloso" instance=ExtResource("87_bxt3x")]
+transform = Transform3D(-0.50000006, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.50000006, 1.3950129, -1.4113003, 0.5725119)
+
+[node name="pct miojo vermelho" parent="waflle treloso" instance=ExtResource("92_7hahx")]
+transform = Transform3D(-1.0042417, 0, 1.1753588, 0, 1.5459529, 0, -1.1753588, 0, -1.0042417, 2.4172106, -1.4604374, 0.57794416)
+
+[node name="saco de açucar" parent="waflle treloso" instance=ExtResource("93_ufxcv")]
+transform = Transform3D(-1.0533452, 0, -0.8002571, 0, 1.3228557, 0, 0.8002571, 0, -1.0533452, 1.3895617, -1.4585768, 0.09674525)
+
+[node name="Saco de cafe" parent="waflle treloso" instance=ExtResource("94_wvlio")]
+transform = Transform3D(0.425258, 0, -0.9050723, 0, 1, 0, 0.9050723, 0, 0.425258, 2.2897243, -1.4314657, 0.6009995)
+
+[node name="waflle treloso" parent="waflle treloso" instance=ExtResource("95_tdehr")]
+transform = Transform3D(-0.9960266, 0, 0.08905059, 0, 1, 0, -0.08905059, 0, -0.9960266, 1.879489, -1.4706131, 0.12259674)
+
+[node name="CaixaEncomendaP" parent="." instance=ExtResource("96_h57xh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0307193, 0.6348066, -10.234455)
+
+[node name="Caixa7" parent="CaixaEncomendaP" instance=ExtResource("97_7lh0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5191078, 1.2904913, 5.2965207)
+
+[node name="Caixa7" parent="CaixaEncomendaP/Caixa7" instance=ExtResource("97_7lh0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5191078, 1.2904913, 5.2965207)
+
+[node name="Caixa7" parent="CaixaEncomendaP/Caixa7/Caixa7" instance=ExtResource("97_7lh0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5191078, 1.2904913, 5.2965207)
+
+[node name="Caixa8" parent="CaixaEncomendaP/Caixa7" instance=ExtResource("97_7lh0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5191078, 1.2904913, 5.2965207)
+
+[node name="Caixa7" parent="CaixaEncomendaP/Caixa7/Caixa8" instance=ExtResource("97_7lh0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5191078, 1.2904913, 5.2965207)
+
+[node name="Caixa7" parent="CaixaEncomendaP/Caixa7/Caixa8/Caixa7" instance=ExtResource("97_7lh0i")]
+transform = Transform3D(-2.9802322e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -2.9802322e-08, 13.057198, -2.5793583, -10.380794)
+
+[node name="Caixa7" parent="." instance=ExtResource("97_7lh0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.615006, 0.5812359, -6.8748674)
 
 [editable path="Quarto/PortaAbrivelQuarto"]
 [editable path="CenaGameplay"]
