@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://n8hialsb1oca"
+path.s3tc="res://.godot/imported/Mesa_2_0.png-6e879873f7b1638320e5da63d268e204.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "1f2b5373dc4a5fd017387e08797ce0f2"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/Mesa_2_0.png"
+dest_files=["res://.godot/imported/Mesa_2_0.png-6e879873f7b1638320e5da63d268e204.s3tc.ctex"]
 
 [params]
 

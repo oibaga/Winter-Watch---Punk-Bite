@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://qusbrwo1kfjx"
+path.s3tc="res://.godot/imported/Almoxarifado_0.png-a54271c24720076d80f0b41174aad926.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "6ecbf8a553de87c7b5bcb3680d9b6907"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/Almoxarifado_0.png"
+dest_files=["res://.godot/imported/Almoxarifado_0.png-a54271c24720076d80f0b41174aad926.s3tc.ctex"]
 
 [params]
 

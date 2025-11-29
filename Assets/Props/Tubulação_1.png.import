@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://elk1a5hyfcfv"
+path.s3tc="res://.godot/imported/Tubulação_1.png-cd4d9e555dce065c462c6bcf0577bf93.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "e82cca13373c9a7a4ecffe9e5e0ce269"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/Tubulação_1.png"
+dest_files=["res://.godot/imported/Tubulação_1.png-cd4d9e555dce065c462c6bcf0577bf93.s3tc.ctex"]
 
 [params]
 

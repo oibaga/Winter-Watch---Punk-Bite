@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw8wlha1tvk6w"
-path.s3tc="res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"
+uid="uid://ci0m547gkl5lb"
+path.s3tc="res://.godot/imported/Poster1_0.png-ad954d865318f0ff44365f5ed2e12b58.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "d74a95ca598d434fb40b712bb68d9dab"
+}
 
 [deps]
 
-source_file="res://Assets/Materiais/Texturas/T_chao.png"
-dest_files=["res://.godot/imported/T_chao.png-1b601f49e7187b9ec36e074d0e5884a5.s3tc.ctex"]
+source_file="res://Assets/Props/Poster1_0.png"
+dest_files=["res://.godot/imported/Poster1_0.png-ad954d865318f0ff44365f5ed2e12b58.s3tc.ctex"]
 
 [params]
 
