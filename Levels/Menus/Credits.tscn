@@ -201,7 +201,7 @@ theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
 theme_override_font_sizes/font_size = 52
-text = "Ronney"
+text = "Rooney"
 
 [node name="Design 3D7" type="Label" parent="ColorRect/Ronney"]
 layout_mode = 0
@@ -247,7 +247,7 @@ theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
 theme_override_font_sizes/font_size = 52
-text = "Maria"
+text = "Leonie"
 
 [node name="Design 3D9" type="Label" parent="ColorRect/Maria"]
 layout_mode = 0
