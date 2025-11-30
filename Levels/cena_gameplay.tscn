@@ -662,7 +662,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("17_umu8c")
 
 [node name="AnomalyTimer" type="Timer" parent="CameraRooms/Quarto"]
@@ -733,7 +733,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("17_umu8c")
 
 [node name="AnomalyTimer" type="Timer" parent="CameraRooms/Sala de Entrega"]
@@ -805,7 +805,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("17_umu8c")
 
 [node name="AnomalyTimer" type="Timer" parent="CameraRooms/Banheiro"]
@@ -876,7 +876,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("17_umu8c")
 
 [node name="AnomalyTimer" type="Timer" parent="CameraRooms/Lado de Fora"]
@@ -943,7 +943,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("17_umu8c")
 
 [node name="AnomalyTimer" type="Timer" parent="CameraRooms/Corredor"]
@@ -1009,7 +1009,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("17_umu8c")
 
 [node name="AnomalyTimer" type="Timer" parent="CameraRooms/Escada"]
@@ -1080,7 +1080,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("17_umu8c")
 
 [node name="AnomalyTimer" type="Timer" parent="CameraRooms/Almoxarifado"]

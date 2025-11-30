@@ -752,7 +752,7 @@ material_override = SubResource("StandardMaterial3D_r7njw")
 material_overlay = SubResource("ShaderMaterial_4f83d")
 
 [node name="HintLabel" parent="BotãoSonoro" index="2"]
-text = "Sonoro"
+text = "Sound"
 
 [node name="BotãoGeiger" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.113983005, 1.1568708, -0.015039708)
@@ -773,7 +773,7 @@ material_override = SubResource("StandardMaterial3D_eb855")
 material_overlay = SubResource("ShaderMaterial_8sx7j")
 
 [node name="HintLabel" parent="BotãoCriatura" index="2"]
-text = "Criatura"
+text = "Creature"
 
 [node name="BotãoGlitch" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.09574912, 1.0646797, 0.08517625)
@@ -788,6 +788,9 @@ text = "Glitch"
 
 [node name="BotãoCopia" parent="." instance=ExtResource("2_b6ipx")]
 transform = Transform3D(3.3405323, 0, 0, 0, -1.4601926e-07, 3.3405316, 0, -3.3405313, -1.4601927e-07, -0.09574912, 1.0646797, -0.015039723)
+visible = false
+monitoring = false
+monitorable = false
 anomalyTargetType = 5
 
 [node name="Botão" parent="BotãoCopia" index="0"]
@@ -795,7 +798,7 @@ material_override = SubResource("StandardMaterial3D_j1v0r")
 material_overlay = SubResource("ShaderMaterial_0awi8")
 
 [node name="HintLabel" parent="BotãoCopia" index="2"]
-text = "Copia"
+text = "Copy"
 
 [node name="Caixa" type="MeshInstance3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.1481203, 1.0844011, -0.03811081)

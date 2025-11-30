@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b58xk6bikrnml" path="res://Assets/Itens/Tutorial.fbx" id="5_dfu12"]
 [ext_resource type="PackedScene" uid="uid://dmeng7yuqs8o1" path="res://Assets/Itens/TutorialAberto.fbx" id="6_ve6kl"]
 [ext_resource type="Script" uid="uid://b0aaif6qe84q8" path="res://Scripts/Objetos/manual_aberto.gd" id="7_mysf1"]
-[ext_resource type="Texture2D" uid="uid://cgla8x4d1kvlt" path="res://Assets/Materiais/Texturas/TutorialAberto_DefaultMaterial_BaseColor.png" id="7_yot6n"]
+[ext_resource type="Texture2D" uid="uid://1oge1fmfotk8" path="res://Assets/Itens/TutorialAberto_DefaultMaterial_BaseColor.png" id="8_yot6n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve6kl"]
 albedo_texture = ExtResource("2_od7rr")
@@ -29,31 +29,31 @@ size = Vector3(1.5477295, 1, 1.2858887)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmvs1"]
 render_priority = 1
 shading_mode = 0
-albedo_texture = ExtResource("7_yot6n")
+albedo_texture = ExtResource("8_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2nn1"]
 shading_mode = 0
-albedo_texture = ExtResource("7_yot6n")
+albedo_texture = ExtResource("8_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wraw3"]
 shading_mode = 0
-albedo_texture = ExtResource("7_yot6n")
+albedo_texture = ExtResource("8_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yn2w5"]
 shading_mode = 0
-albedo_texture = ExtResource("7_yot6n")
+albedo_texture = ExtResource("8_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwf0r"]
 shading_mode = 0
-albedo_texture = ExtResource("7_yot6n")
+albedo_texture = ExtResource("8_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t6jsi"]
 shading_mode = 0
-albedo_texture = ExtResource("7_yot6n")
+albedo_texture = ExtResource("8_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xmfqk"]
 shading_mode = 0
-albedo_texture = ExtResource("7_yot6n")
+albedo_texture = ExtResource("8_yot6n")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yot6n"]
 shading_mode = 0
@@ -115,7 +115,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("2_l2shx")
 
 [node name="TutorialAberto" parent="." node_paths=PackedStringArray("pagesArray") instance=ExtResource("6_ve6kl")]

@@ -31,7 +31,7 @@ func LoadNextLevel(nextLevel : int):
 	animation_player.play("Transition")
 
 func UpdateLevelLabel(level : int):
-	if (level > 0 && level < 5): label.text = str("Dia ", level)
+	if (level > 0 && level < 5): label.text = str("Day ", level)
 	else: label.text = ""
 
 func StartTransition():

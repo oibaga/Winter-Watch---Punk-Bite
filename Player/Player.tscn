@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://c8oxys0qhv8p2"]
+[gd_scene load_steps=28 format=4 uid="uid://c8oxys0qhv8p2"]
 
 [ext_resource type="Script" uid="uid://bmle7nu2tjgym" path="res://Player/player.gd" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://dgjufyi6nipn1" path="res://Player/fp_cam.gd" id="2_tok1r"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://co55744vsllu2" path="res://Assets/Sounds/Passo.wav" id="6_s1rgi"]
 [ext_resource type="Texture2D" uid="uid://fkv7qyx7v6sq" path="res://Assets/Materiais/Texturas/mouseLeftIcon.png" id="6_vlldt"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="7_s1rgi"]
+[ext_resource type="Texture2D" uid="uid://bv7bbsfgaj4w4" path="res://Assets/Materiais/Texturas/D Key.png" id="9_0j2ni"]
+[ext_resource type="Texture2D" uid="uid://baby332boo3pa" path="res://Assets/Materiais/Texturas/A Key.png" id="10_v0k0e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e2xq8"]
 
@@ -5085,7 +5087,7 @@ bones/60/rotation = Quaternion(0.3724243, -0.01249275, 0.09367222, 0.9232387)
 transform = Transform3D(0.9948897, -0.009466602, 0.100521594, 0.047905967, 0.92065036, -0.3874367, -0.08887756, 0.39027247, 0.91639924, 1.8117621, 214.11423, 21.55394)
 
 [node name="mixamorigHead" parent="Character/Armature_001/Skeleton3D/mixamorigNeck" index="0"]
-transform = Transform3D(0.9875934, 0.09081492, -0.12810834, -0.057728894, 0.96864957, 0.24163227, 0.14603578, -0.2312389, 0.96187466, -2.3841858e-07, 5.9405565, 4.814914)
+transform = Transform3D(0.98759335, 0.09081502, -0.12810844, -0.05772896, 0.96864957, 0.24163225, 0.14603591, -0.23123887, 0.96187466, -2.3841858e-07, 5.9405565, 4.814914)
 
 [node name="mixamorigLeftHandThumb3" parent="Character/Armature_001/Skeleton3D" index="1"]
 transform = Transform3D(0.43552414, -0.6380473, -0.6349914, -0.8423046, -0.0400078, -0.53751445, 0.317555, 0.7689567, -0.55485463, 31.571632, 162.77133, 30.324308)
@@ -5169,6 +5171,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 
 [node name="TextureRect" type="TextureRect" parent="InteractionCanvasLayer/MarginContainer/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("6_vlldt")
 
@@ -5176,6 +5179,40 @@ texture = ExtResource("6_vlldt")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_s1rgi")
 theme_override_font_sizes/font_size = 26
-text = "Fechar"
+text = "Close"
+
+[node name="NextContainer" type="VBoxContainer" parent="InteractionCanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="InteractionCanvasLayer/MarginContainer/NextContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_0j2ni")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="InteractionCanvasLayer/MarginContainer/NextContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_s1rgi")
+theme_override_font_sizes/font_size = 26
+text = "Next"
+
+[node name="PreviousContainer" type="VBoxContainer" parent="InteractionCanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="InteractionCanvasLayer/MarginContainer/PreviousContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("10_v0k0e")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="InteractionCanvasLayer/MarginContainer/PreviousContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_s1rgi")
+theme_override_font_sizes/font_size = 26
+text = "Back"
 
 [editable path="Character"]

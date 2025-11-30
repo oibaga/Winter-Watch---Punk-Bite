@@ -3865,6 +3865,7 @@ shape = SubResource("ConvexPolygonShape3D_3yogs")
 
 [node name="atenção" type="Sprite3D" parent="Garagem"]
 transform = Transform3D(6.853632e-09, -2.740872e-08, 0.25838017, -0.1567928, -1.370436e-08, 1.1294156e-08, 6.853631e-09, -0.3135192, -2.2588312e-08, 2.6622107, 6.620787, 9.077985)
+shaded = true
 texture = ExtResource("64_lrbmm")
 
 [node name="faixadeatençaogaragem" parent="Garagem" instance=ExtResource("65_uh5f6")]
@@ -3896,6 +3897,7 @@ transform = Transform3D(0.3598907, 0, 0, 0, 0.3598907, 0, 0, 0, 0.3598907, 9.345
 
 [node name="portão garagem" type="Sprite3D" parent="Garagem"]
 transform = Transform3D(-4.619767e-08, 0, -1, 0, 1.062603, 0, 1.0568795, 0, -4.371139e-08, 2.1446218, 2.9093301, 9.011013)
+shaded = true
 texture = ExtResource("66_khrrp")
 
 [node name="grade2" parent="Garagem" instance=ExtResource("51_71ptk")]

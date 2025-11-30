@@ -815,7 +815,7 @@ visible = false
 sorting_offset = 0.2
 billboard = 1
 no_depth_test = true
-text = "Pressione botão esquerdo"
+text = "Left Mouse Button"
 font = ExtResource("9_1a4mr")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Mouse"]
