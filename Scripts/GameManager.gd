@@ -8,11 +8,13 @@ class_name GameManager extends Node
 @export var hud_anim: AnimationPlayer
 @export var geigerMarker3D : Marker3D
 @export var geigerAnomaly : Timer
+@export var paineltv : PainelTV
 var geigerRoom : Room = null
 
+var can_end : bool = true
 var session_started: bool = false
 var session_finished: bool = false
-var can_continue: bool = false
+
 
 var anomaliesSlots : Array[Anomaly] = [null, null, null]
 
@@ -32,7 +34,7 @@ func start_session():
 		SpawnAnomaly(i)
 
 func _process(_delta):
-	if session_started and not session_finished:
+	if session_started and not session_finished and can_end:
 		var t := int(sessionTimer.time_left)
 
 		# Atualiza o texto
@@ -43,6 +45,8 @@ func _process(_delta):
 			end_session()
 
 func end_session():
+	can_end = false
+	
 	ui_label.visible = false
 
 	load_next_level()
@@ -66,6 +70,9 @@ func ResolvedAnomaly(resolved : Anomaly):
 func SpawnAnomaly(arrayPos : int):
 	anomaliesSlots[arrayPos] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
 	print("Slot ", arrayPos, ": ", Anomaly.AnomalyTypes.find_key( anomaliesSlots[arrayPos].type ), " em ", anomaliesSlots[arrayPos].room.name)
+	
+	if anomaliesSlots[arrayPos].room.camera == paineltv.currentCamera:
+		anomaliesSlots[arrayPos].ShowAnomaly()
 
 func LoseGame():
 	sessionTimer.stop()

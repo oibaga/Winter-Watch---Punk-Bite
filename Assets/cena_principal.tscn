@@ -3923,6 +3923,9 @@ transform = Transform3D(-4.371139e-08, 0, -0.520809, 0, 1, 0, 1, 0, -2.2765285e-
 [node name="PainelTV" parent="CenaGameplay" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.658445, 0.5306486, -9.396471)
 
+[node name="GameManager" parent="CenaGameplay" index="2" node_paths=PackedStringArray("paineltv")]
+paineltv = NodePath("../PainelTV")
+
 [node name="EndLabel" parent="CenaGameplay/HUD/UIRoot" index="2"]
 offset_top = -19.708334
 offset_bottom = 19.708334
