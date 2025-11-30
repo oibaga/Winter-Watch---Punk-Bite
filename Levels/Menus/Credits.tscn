@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhbtalu1gp3r1"]
+[gd_scene load_steps=11 format=3 uid="uid://dhbtalu1gp3r1"]
 
 [ext_resource type="Texture2D" uid="uid://bciqe5p55dniq" path="res://Levels/Menus/HUD images/BGDesfocadoWinterWatch.png" id="1_och0o"]
-[ext_resource type="Texture2D" uid="uid://ctcm3f7rujts5" path="res://Levels/Menus/HUD images/Credits Winter Watch.png" id="2_pd0td"]
+[ext_resource type="Texture2D" uid="uid://b62codvgxog40" path="res://Levels/Menus/HUD images/FotosCreditos.png" id="3_pd0td"]
+[ext_resource type="FontFile" uid="uid://cy0jwmxtvvyjd" path="res://Assets/Fonts/Witchwoode-Regular.ttf" id="4_jotll"]
+[ext_resource type="Texture2D" uid="uid://dphntsaht2pl" path="res://Levels/Menus/HUD images/itch-io.png" id="4_pu5tj"]
+[ext_resource type="Texture2D" uid="uid://ckmhba30flv86" path="res://Levels/Menus/HUD images/Novo Projeto (6).png" id="5_3tefq"]
+[ext_resource type="Texture2D" uid="uid://oj77x0xlkeeu" path="res://Levels/Menus/HUD images/Logo site.png" id="6_fw0o8"]
+[ext_resource type="Texture2D" uid="uid://bqjn57a8d434h" path="res://Levels/Menus/HUD images/Novo Projeto (4).png" id="7_20r4d"]
+[ext_resource type="Texture2D" uid="uid://bae2ruhwtgsbe" path="res://Levels/Menus/HUD images/Novo Projeto (2).png" id="8_73pio"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jotll"]
 _surfaces = [{
@@ -16,6 +22,9 @@ _surfaces = [{
 "vertex_count": 4,
 "vertex_data": PackedByteArray(0, 0, 112, 196, 0, 0, 7, 196, 0, 0, 112, 196, 0, 0, 7, 68, 0, 0, 112, 68, 0, 0, 7, 68, 0, 0, 112, 68, 0, 0, 7, 196)
 }]
+
+[sub_resource type="Theme" id="Theme_2dggu"]
+default_font = ExtResource("4_jotll")
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -32,14 +41,224 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ProvMainMenu" type="MeshInstance2D" parent="ColorRect"]
+[node name="BackGround" type="MeshInstance2D" parent="ColorRect"]
 position = Vector2(480.00003, 270)
 scale = Vector2(0.5, 0.5)
 mesh = SubResource("ArrayMesh_jotll")
 texture = ExtResource("1_och0o")
 
-[node name="ProvMainMenu2" type="MeshInstance2D" parent="ColorRect"]
-position = Vector2(129.99997, 92.00001)
-scale = Vector2(0.244, 0.079)
+[node name="Desenvolvedores" type="MeshInstance2D" parent="ColorRect"]
+position = Vector2(480, 164)
+scale = Vector2(0.5, 0.5)
 mesh = SubResource("ArrayMesh_jotll")
-texture = ExtResource("2_pd0td")
+texture = ExtResource("3_pd0td")
+
+[node name="Baga" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 256.0
+offset_right = 164.0
+offset_bottom = 319.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 52
+text = "BAGA"
+
+[node name="Design 3D" type="Label" parent="ColorRect/Baga"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 66.0
+offset_right = 145.0
+offset_bottom = 129.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Design 3d"
+
+[node name="Design 3D4" type="Label" parent="ColorRect/Baga"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 113.0
+offset_right = 145.0
+offset_bottom = 176.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Design 2d"
+
+[node name="ItchIo" type="Sprite2D" parent="ColorRect/Baga"]
+position = Vector2(18.000008, 218)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_pu5tj")
+
+[node name="NovoProjeto(6)" type="Sprite2D" parent="ColorRect/Baga"]
+position = Vector2(93.000015, 219)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_3tefq")
+
+[node name="Hiisa" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 259.0
+offset_right = 333.0
+offset_bottom = 322.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 52
+text = "Hiisa"
+
+[node name="Design 3D2" type="Label" parent="ColorRect/Hiisa"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 64.0
+offset_right = 121.0
+offset_bottom = 127.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Design 3d"
+
+[node name="Design 3D3" type="Label" parent="ColorRect/Hiisa"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = 109.0
+offset_right = 124.0
+offset_bottom = 172.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Design 2d"
+
+[node name="ItchIo" type="Sprite2D" parent="ColorRect/Hiisa"]
+position = Vector2(14, 215)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_pu5tj")
+
+[node name="LogoSite" type="Sprite2D" parent="ColorRect/Hiisa"]
+position = Vector2(83, 214)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_fw0o8")
+
+[node name="Kayo" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 262.0
+offset_right = 529.0
+offset_bottom = 325.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 52
+text = "Kay/o"
+
+[node name="Design 3D5" type="Label" parent="ColorRect/Kayo"]
+layout_mode = 0
+offset_left = -50.0
+offset_top = 62.0
+offset_right = 152.0
+offset_bottom = 125.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Programador"
+
+[node name="Design 3D6" type="Label" parent="ColorRect/Kayo"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 110.0
+offset_right = 130.0
+offset_bottom = 173.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Design 3d"
+
+[node name="ItchIo3" type="Sprite2D" parent="ColorRect/Kayo"]
+position = Vector2(18.00003, 212)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_pu5tj")
+
+[node name="NovoProjeto(4)" type="Sprite2D" parent="ColorRect/Kayo"]
+position = Vector2(85, 211)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_20r4d")
+
+[node name="Ronney" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 265.0
+offset_right = 762.0
+offset_bottom = 328.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 52
+text = "Ronney"
+
+[node name="Design 3D7" type="Label" parent="ColorRect/Ronney"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 108.0
+offset_right = 173.0
+offset_bottom = 171.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Sound design"
+
+[node name="Design 3D8" type="Label" parent="ColorRect/Ronney"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 63.0
+offset_right = 168.0
+offset_bottom = 126.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Game design"
+
+[node name="ItchIo2" type="Sprite2D" parent="ColorRect/Ronney"]
+position = Vector2(40, 210)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_pu5tj")
+
+[node name="NovoProjeto(2)" type="Sprite2D" parent="ColorRect/Ronney"]
+position = Vector2(110, 211)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_73pio")
+
+[node name="Maria" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 264.0
+offset_right = 928.0
+offset_bottom = 327.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 52
+text = "Maria"
+
+[node name="Design 3D9" type="Label" parent="ColorRect/Maria"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = 63.0
+offset_right = 132.0
+offset_bottom = 156.0
+theme = SubResource("Theme_2dggu")
+theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
+theme_override_font_sizes/font_size = 37
+text = "Concept
+Artist"
+horizontal_alignment = 1
