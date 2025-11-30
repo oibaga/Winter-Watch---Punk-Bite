@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjgrp6nyrv4oq"
-path="res://.godot/imported/CameradeSeguranca.fbx-9a311093d03767732ccdc25cd94d61b4.scn"
+uid="uid://w51qhkq0mdiy"
+path="res://.godot/imported/Lampada.fbx-1b314dc240c40474f80f49292b4aa4b8.scn"
 
 [deps]
 
-source_file="res://Assets/Props/CameradeSeguranca.fbx"
-dest_files=["res://.godot/imported/CameradeSeguranca.fbx-9a311093d03767732ccdc25cd94d61b4.scn"]
+source_file="res://Assets/Props/Lampada.fbx"
+dest_files=["res://.godot/imported/Lampada.fbx-1b314dc240c40474f80f49292b4aa4b8.scn"]
 
 [params]
 

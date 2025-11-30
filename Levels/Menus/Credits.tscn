@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhbtalu1gp3r1"]
+[gd_scene load_steps=13 format=3 uid="uid://dhbtalu1gp3r1"]
 
+[ext_resource type="Script" uid="uid://c58nbf65qedev" path="res://Levels/Menus/credits.gd" id="1_fw0o8"]
 [ext_resource type="Texture2D" uid="uid://bciqe5p55dniq" path="res://Levels/Menus/HUD images/BGDesfocadoWinterWatch.png" id="1_och0o"]
 [ext_resource type="Texture2D" uid="uid://b62codvgxog40" path="res://Levels/Menus/HUD images/FotosCreditos.png" id="3_pd0td"]
 [ext_resource type="FontFile" uid="uid://cy0jwmxtvvyjd" path="res://Assets/Fonts/Witchwoode-Regular.ttf" id="4_jotll"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://oj77x0xlkeeu" path="res://Levels/Menus/HUD images/Logo site.png" id="6_fw0o8"]
 [ext_resource type="Texture2D" uid="uid://bqjn57a8d434h" path="res://Levels/Menus/HUD images/Novo Projeto (4).png" id="7_20r4d"]
 [ext_resource type="Texture2D" uid="uid://bae2ruhwtgsbe" path="res://Levels/Menus/HUD images/Novo Projeto (2).png" id="8_73pio"]
+[ext_resource type="Theme" uid="uid://dlxdxmx1y412h" path="res://Levels/Menus/HUD images/MainMenu.tres" id="10_20r4d"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jotll"]
 _surfaces = [{
@@ -31,6 +33,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_fw0o8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -48,7 +51,7 @@ mesh = SubResource("ArrayMesh_jotll")
 texture = ExtResource("1_och0o")
 
 [node name="Desenvolvedores" type="MeshInstance2D" parent="ColorRect"]
-position = Vector2(480, 164)
+position = Vector2(480, 127)
 scale = Vector2(0.5, 0.5)
 mesh = SubResource("ArrayMesh_jotll")
 texture = ExtResource("3_pd0td")
@@ -56,9 +59,9 @@ texture = ExtResource("3_pd0td")
 [node name="Baga" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 47.0
-offset_top = 256.0
+offset_top = 219.0
 offset_right = 164.0
-offset_bottom = 319.0
+offset_bottom = 282.0
 theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
@@ -102,9 +105,9 @@ texture = ExtResource("5_3tefq")
 [node name="Hiisa" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 239.0
-offset_top = 259.0
+offset_top = 222.0
 offset_right = 333.0
-offset_bottom = 322.0
+offset_bottom = 285.0
 theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
@@ -148,9 +151,9 @@ texture = ExtResource("6_fw0o8")
 [node name="Kayo" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 423.0
-offset_top = 262.0
+offset_top = 225.0
 offset_right = 529.0
-offset_bottom = 325.0
+offset_bottom = 288.0
 theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
@@ -194,9 +197,9 @@ texture = ExtResource("7_20r4d")
 [node name="Ronney" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 612.0
-offset_top = 265.0
-offset_right = 762.0
-offset_bottom = 328.0
+offset_top = 228.0
+offset_right = 763.0
+offset_bottom = 291.0
 theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
@@ -240,9 +243,9 @@ texture = ExtResource("8_73pio")
 [node name="Maria" type="Label" parent="ColorRect"]
 layout_mode = 0
 offset_left = 807.0
-offset_top = 264.0
-offset_right = 928.0
-offset_bottom = 327.0
+offset_top = 227.0
+offset_right = 940.0
+offset_bottom = 290.0
 theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
@@ -262,3 +265,144 @@ theme_override_font_sizes/font_size = 37
 text = "Concept
 Artist"
 horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 12.999999
+offset_top = 471.19995
+offset_right = 91.030304
+offset_bottom = 503.19995
+scale = Vector2(1.3199999, 1.4000013)
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+text = "Back"
+flat = true
+alignment = 0
+
+[node name="Links" type="Node2D" parent="."]
+
+[node name="baga" type="Node" parent="Links"]
+
+[node name="ItchIo baga" type="Button" parent="Links/baga"]
+offset_left = 42.0
+offset_top = 413.00003
+offset_right = 111.0
+offset_bottom = 445.00003
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[node name="CaraApp" type="Button" parent="Links/baga"]
+offset_left = 117.0
+offset_top = 413.0
+offset_right = 186.0
+offset_bottom = 445.0
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[node name="Hiisa" type="Node" parent="Links"]
+
+[node name="ItchIo hiisa" type="Button" parent="Links/Hiisa"]
+offset_left = 229.99998
+offset_top = 413.0
+offset_right = 299.0
+offset_bottom = 445.0
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[node name="Portifolio Hiisa" type="Button" parent="Links/Hiisa"]
+offset_left = 298.0
+offset_top = 413.0
+offset_right = 367.0
+offset_bottom = 445.0
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[node name="Kayo" type="Node" parent="Links"]
+
+[node name="ItchIo Kayo" type="Button" parent="Links/Kayo"]
+offset_left = 418.0
+offset_top = 413.0
+offset_right = 487.0
+offset_bottom = 445.0
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[node name="Email Kayo" type="Button" parent="Links/Kayo"]
+offset_left = 485.0
+offset_top = 413.0
+offset_right = 554.0
+offset_bottom = 445.0
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[node name="Rooney" type="Node" parent="Links"]
+
+[node name="ItchIo Rooney" type="Button" parent="Links/Rooney"]
+offset_left = 629.0
+offset_top = 413.0
+offset_right = 698.0
+offset_bottom = 445.0
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[node name="X Ronney" type="Button" parent="Links/Rooney"]
+offset_left = 698.0
+offset_top = 413.0
+offset_right = 767.0
+offset_bottom = 445.0
+scale = Vector2(0.67999935, 1.48)
+focus_mode = 0
+theme = ExtResource("10_20r4d")
+theme_type_variation = &"FlatButton"
+theme_override_constants/outline_size = 4
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Links/baga/ItchIo baga" to="." method="_on_itch_io_baga_pressed"]
+[connection signal="pressed" from="Links/baga/CaraApp" to="." method="_on_cara_app_pressed"]
+[connection signal="pressed" from="Links/Hiisa/ItchIo hiisa" to="." method="_on_itch_io_hiisa_pressed"]
+[connection signal="pressed" from="Links/Hiisa/Portifolio Hiisa" to="." method="_on_portifolio_hiisa_pressed"]
+[connection signal="pressed" from="Links/Kayo/ItchIo Kayo" to="." method="_on_itch_io_kayo_pressed"]
+[connection signal="pressed" from="Links/Rooney/ItchIo Rooney" to="." method="_on_itch_io_rooney_pressed"]
+[connection signal="pressed" from="Links/Rooney/X Ronney" to="." method="_on_x_ronney_pressed"]

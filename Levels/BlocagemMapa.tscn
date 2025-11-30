@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=4 uid="uid://btin1ybc741g8"]
+[gd_scene load_steps=27 format=4 uid="uid://btin1ybc741g8"]
 
+[ext_resource type="Texture2D" uid="uid://cc25trokrykt0" path="res://Player/crosshair001.png" id="1_35imv"]
 [ext_resource type="Material" uid="uid://d4kduq14l2p4a" path="res://Shaders/SkyShaders/Sun.tres" id="1_q733y"]
 [ext_resource type="Shader" uid="uid://emm2gmau0t55" path="res://Shaders/postProcessing.gdshader" id="2_k0lj6"]
 [ext_resource type="Material" uid="uid://c5onvl33uien7" path="res://Assets/Materiais/M_floor.tres" id="3_38wdp"]
@@ -11,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ejvc2nofe6mi" path="res://Assets/Paredes/parede_2x_25.tscn" id="8_svust"]
 [ext_resource type="PackedScene" uid="uid://bx4a6y52tocty" path="res://Assets/Paredes/parede_1x_25_grande.tscn" id="9_0qhty"]
 [ext_resource type="PackedScene" uid="uid://b2na80ug0fifs" path="res://Assets/Paredes/parede_1x_25.tscn" id="10_ngafe"]
-[ext_resource type="Texture2D" uid="uid://bw8wlha1tvk6w" path="res://Assets/Materiais/Texturas/T_chao.png" id="11_c0tcm"]
+[ext_resource type="Texture2D" uid="uid://bw8wlha1tvk6w" path="res://Assets/Materiais/Texturas/T_Chao.png" id="11_c0tcm"]
 [ext_resource type="Texture2D" uid="uid://berocpxcv18x1" path="res://Assets/Materiais/Texturas/T_Teto.png" id="12_54ckt"]
 [ext_resource type="PackedScene" uid="uid://bw3ljwfcfprpl" path="res://Assets/WinterWatcherMap.fbx" id="12_xdhsw"]
 
@@ -512,3 +513,21 @@ surface_material_override/0 = SubResource("StandardMaterial3D_35imv")
 [node name="WinterWatcherMap" parent="." instance=ExtResource("12_xdhsw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26871395, -2.3124838, -3.9939728)
 visible = false
+
+[node name="CrossHair" type="CanvasLayer" parent="."]
+
+[node name="CrossHair" type="Node3D" parent="CrossHair"]
+
+[node name="Cross" type="TextureRect" parent="CrossHair/CrossHair"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_35imv")
