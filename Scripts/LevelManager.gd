@@ -2,20 +2,32 @@ extends Node
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: Label = $Label
+var isToGameOver : bool = false
 
 var currentLevel : int = 0
 
 func ChangeLevel():
+	if isToGameOver:
+		#get_tree().change_scene_to_file(CENA DE GAME OVER )
+		return
+
 	if currentLevel > 0 && currentLevel < 5: 
 		get_tree().change_scene_to_file("res://Assets/cena_principal.tscn")
 	else: 
-		get_tree().change_scene_to_file("res://Levels/Menus/MainMenu.tscn")
-
 		currentLevel = 0
+
+		get_tree().change_scene_to_file("res://Levels/Menus/MainMenu.tscn")
 
 	UpdateLevelLabel( currentLevel )
 
-func LoadNextLevel(nextLevel : int):
+func LoadNextLevel(nextLevel : int, isGameOver : bool = false):
+	isToGameOver = isGameOver
+
+	if isToGameOver:
+		label.text = "You Lose..."
+		#animation_player.play("FadeIn")
+		return
+
 	if nextLevel != currentLevel:
 		var oldLevel : int = currentLevel
 
@@ -24,7 +36,6 @@ func LoadNextLevel(nextLevel : int):
 	animation_player.play("Transition")
 
 func UpdateLevelLabel(level : int):
-	print("UpdateLevelLabel() chamado para Level ", level)
 	if (level > 0 && level < 5): 
 		label.text = str("Day ", level)
 	else: 

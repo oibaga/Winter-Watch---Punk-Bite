@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://pjwqtnt478rv"]
+[gd_scene load_steps=61 format=4 uid="uid://pjwqtnt478rv"]
 
 [ext_resource type="Script" uid="uid://cw015fkip4b08" path="res://Scripts/Objetos/painel_tv.gd" id="1_ilmlx"]
 [ext_resource type="Script" uid="uid://c60y8xhpkamse" path="res://Scripts/Objetos/Button.gd" id="2_1c306"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b8q1ihtpooyjo" path="res://Assets/Materiais/Texturas/UIBACKGROUNDWHITE.png" id="12_f4ati"]
 [ext_resource type="PackedScene" uid="uid://bsnvg2neurtdb" path="res://Levels/Objetos/cadeira.tscn" id="14_enynw"]
 [ext_resource type="AudioStream" uid="uid://bfkyq28tqltvu" path="res://Assets/Sounds/ClickMouse.wav" id="20_3iams"]
+[ext_resource type="AudioStream" uid="uid://dr1su5mxlqnf0" path="res://Assets/Anomalias/AnomaliaCriatura.wav" id="21_6md3h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esbl2"]
 resource_name = "M_PostIt"
@@ -696,11 +697,12 @@ shadow_mesh = SubResource("ArrayMesh_33r0i")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1c306"]
 
-[node name="PainelTV" type="Node3D" node_paths=PackedStringArray("tela", "cooldownTimer", "lightsAnimationPlayer", "geiger_proximity_sprite_3d")]
+[node name="PainelTV" type="Node3D" node_paths=PackedStringArray("tela", "cooldownTimer", "lightsAnimationPlayer", "anomalyDefaultSound", "geiger_proximity_sprite_3d")]
 script = ExtResource("1_ilmlx")
 tela = NodePath("mesaWinterWhatch2/Monitor")
 cooldownTimer = NodePath("menuBotoes/CooldownTimer")
 lightsAnimationPlayer = NodePath("menuBotoes/LightsAnimationPlayer")
+anomalyDefaultSound = NodePath("AnomalyDefaultSound")
 geiger_proximity_sprite_3d = NodePath("menuBotoes/GeigerProximitySprite3D")
 
 [node name="mesaWinterWhatch2" parent="." instance=ExtResource("2_43w5f")]
@@ -823,6 +825,11 @@ stream = ExtResource("20_3iams")
 unit_size = 20.0
 max_distance = 6.0
 emission_angle_enabled = true
+
+[node name="AnomalyDefaultSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_6md3h")
+volume_db = 5.0
+pitch_scale = 2.0
 
 [connection signal="timeout" from="menuBotoes/CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 

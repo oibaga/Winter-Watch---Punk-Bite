@@ -12,6 +12,7 @@ class_name Player
 @export var RUN_MULTIPLIER = 1.75
 @export var itemInHand : Node3D
 @onready var interaction_canvas_layer: CanvasLayer = $InteractionCanvasLayer
+@export var rightArm : MeshInstance3D
 
 @export var geigerTarget : Marker3D
 
@@ -119,6 +120,8 @@ func sit_down(chair_node : Cadeira):
 
 	sitting_on_node = chair_node
 
+	sitting_on_node.Sound()
+
 	global_position = chair_node.SitPoint.global_position
 	rotation = chair_node.SitPoint.rotation
 
@@ -199,4 +202,4 @@ func HandleAnimations():
 
 func VisibleRightArm(armVisible : bool, itemVisible : bool = armVisible):
 	if(itemInHand): itemInHand.visible = itemVisible
-	$Character/Armature_001/Skeleton3D/Casual_Body_001.visible = armVisible
+	rightArm.visible = armVisible

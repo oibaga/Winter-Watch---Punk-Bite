@@ -46,7 +46,7 @@ func _process(_delta):
 
 func end_session():
 	can_end = false
-	
+
 	ui_label.visible = false
 
 	load_next_level()
@@ -70,12 +70,16 @@ func ResolvedAnomaly(resolved : Anomaly):
 func SpawnAnomaly(arrayPos : int):
 	anomaliesSlots[arrayPos] = cameraRooms.get_children().filter(func(a): return a.anomalyReference == null).pick_random().SpawnRandomAnomaly()
 	print("Slot ", arrayPos, ": ", Anomaly.AnomalyTypes.find_key( anomaliesSlots[arrayPos].type ), " em ", anomaliesSlots[arrayPos].room.name)
-	
+
 	if anomaliesSlots[arrayPos].room.camera == paineltv.currentCamera:
-		anomaliesSlots[arrayPos].ShowAnomaly()
+		anomaliesSlots[arrayPos].ShowAnomaly(paineltv)
 
 func LoseGame():
-	sessionTimer.stop()
-	ui_label.visible = false
+	if !can_end: return
 	
+	can_end = false
+
+	sessionTimer.paused = true
+	ui_label.visible = false
+
 	LevelManager.LoadNextLevel( LevelManager.currentLevel )

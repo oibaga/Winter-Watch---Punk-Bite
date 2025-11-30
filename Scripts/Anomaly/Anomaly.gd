@@ -9,7 +9,7 @@ enum AnomalyTypes {CreatureType, SoundType, VisualType, GlitchType, GeigerType, 
 
 func SpawnAnomaly():
 	if room.anomalyReference != self: return
-	
+
 	lifeTimer.start( duration )
 
 func ResolveAnomaly():
@@ -19,7 +19,7 @@ func ResolveAnomaly():
 	
 	lifeTimer.stop()
 
-func ShowAnomaly():
+func ShowAnomaly(_painelTV : PainelTV):
 	pass
 
 func HideAnomaly():

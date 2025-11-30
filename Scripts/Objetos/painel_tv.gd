@@ -5,6 +5,7 @@ class_name PainelTV extends Node3D
 @export var cooldownTimer : Timer
 @export var lightsAnimationPlayer : AnimationPlayer
 @export var gameManager : GameManager
+@export var anomalyDefaultSound : AudioStreamPlayer2D
 
 var canChose : bool = true
 @export var geiger_proximity_sprite_3d: GeigerTV
@@ -53,7 +54,7 @@ func trocar_camera():
 	currentCamera = viewports[indice_camera]
 
 	if currentCamera.room.anomalyReference:
-		currentCamera.room.anomalyReference.ShowAnomaly()
+		currentCamera.room.anomalyReference.ShowAnomaly(self)
 
 	atualizar_tela()
 

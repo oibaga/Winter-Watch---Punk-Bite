@@ -21,7 +21,7 @@ func ResolveAnomaly():
 	audioPlayer.stop()
 	audioPlayer.stream = null
 
-func ShowAnomaly():
+func ShowAnomaly(_painelTV : PainelTV):
 	audioPlayer.volume_db = defaultVolume
 
 func HideAnomaly():

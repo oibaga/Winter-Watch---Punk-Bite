@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://3744hlicrup2"]
+[gd_scene load_steps=24 format=4 uid="uid://3744hlicrup2"]
 
 [ext_resource type="Script" uid="uid://ck56ynbkphkr7" path="res://Scripts/Objetos/manual_fechado.gd" id="1_yv6o3"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="2_l2shx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmeng7yuqs8o1" path="res://Assets/Itens/TutorialAberto.fbx" id="6_ve6kl"]
 [ext_resource type="Script" uid="uid://b0aaif6qe84q8" path="res://Scripts/Objetos/manual_aberto.gd" id="7_mysf1"]
 [ext_resource type="Texture2D" uid="uid://1oge1fmfotk8" path="res://Assets/Itens/TutorialAberto_DefaultMaterial_BaseColor.png" id="8_yot6n"]
+[ext_resource type="AudioStream" uid="uid://cybbdihhoe877" path="res://Assets/Sounds/PegandoManual.wav" id="9_mysf1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve6kl"]
 albedo_texture = ExtResource("2_od7rr")
@@ -118,11 +119,12 @@ no_depth_test = true
 text = "Left Mouse Button"
 font = ExtResource("2_l2shx")
 
-[node name="TutorialAberto" parent="." node_paths=PackedStringArray("pagesArray") instance=ExtResource("6_ve6kl")]
+[node name="TutorialAberto" parent="." node_paths=PackedStringArray("pagesArray", "audio") instance=ExtResource("6_ve6kl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013613999, 0, -0.14571276)
 visible = false
 script = ExtResource("7_mysf1")
 pagesArray = [NodePath("FolhaVisual"), NodePath("FolhaSonora"), NodePath("FolhaGeiger"), NodePath("FolhaCriatura"), NodePath("FolhaGlitch"), NodePath("FolhaCópia")]
+audio = NodePath("../AudioStreamPlayer2D")
 
 [node name="FolhaCriatura" parent="TutorialAberto" index="0"]
 material_override = SubResource("StandardMaterial3D_qmvs1")
@@ -145,6 +147,12 @@ material_override = SubResource("StandardMaterial3D_t6jsi")
 [node name="Pasta" parent="TutorialAberto" index="6"]
 material_override = SubResource("StandardMaterial3D_xmfqk")
 mesh = SubResource("ArrayMesh_qmvs1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_mysf1")
+pitch_scale = 2.0
+max_distance = 4.0
+emission_angle_enabled = true
 
 [editable path="Tutorial"]
 [editable path="TutorialAberto"]

@@ -4930,7 +4930,7 @@ _data = {
 &"WalkingBackward": SubResource("Animation_5wa8t")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("inspection_marker", "inspection_color_rect", "interact_ray", "animation_player", "itemInHand") groups=["interativo"]]
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("inspection_marker", "inspection_color_rect", "interact_ray", "animation_player", "itemInHand", "rightArm") groups=["interativo"]]
 collision_mask = 4
 script = ExtResource("1_q3lat")
 inspection_marker = NodePath("head/Camera3D/InspectionMarker3D")
@@ -4938,6 +4938,7 @@ inspection_color_rect = NodePath("head/Camera3D/InspectionSprite3D")
 interact_ray = NodePath("head/Camera3D/interact_ray")
 animation_player = NodePath("Character/AnimationPlayer")
 itemInHand = NodePath("head/Camera3D/Geiger3d")
+rightArm = NodePath("Character/Armature_001/Skeleton3D/Casual_Body_001")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_e2xq8")
@@ -5087,7 +5088,7 @@ bones/60/rotation = Quaternion(0.3724243, -0.01249275, 0.09367222, 0.9232387)
 transform = Transform3D(0.9948897, -0.009466602, 0.100521594, 0.047905967, 0.92065036, -0.3874367, -0.08887756, 0.39027247, 0.91639924, 1.8117621, 214.11423, 21.55394)
 
 [node name="mixamorigHead" parent="Character/Armature_001/Skeleton3D/mixamorigNeck" index="0"]
-transform = Transform3D(0.98759335, 0.09081502, -0.12810844, -0.05772896, 0.96864957, 0.24163225, 0.14603591, -0.23123887, 0.96187466, -2.3841858e-07, 5.9405565, 4.814914)
+transform = Transform3D(0.98759323, 0.09081516, -0.12810864, -0.057729054, 0.96864957, 0.24163224, 0.1460361, -0.23123881, 0.9618746, -2.3841858e-07, 5.9405565, 4.814914)
 
 [node name="mixamorigLeftHandThumb3" parent="Character/Armature_001/Skeleton3D" index="1"]
 transform = Transform3D(0.43552414, -0.6380473, -0.6349914, -0.8423046, -0.0400078, -0.53751445, 0.317555, 0.7689567, -0.55485463, 31.571632, 162.77133, 30.324308)

@@ -22,9 +22,11 @@ func ResolveAnomaly():
 	currentAnomaly.visible = false
 	currentAnomaly = null
 
-func ShowAnomaly():
+func ShowAnomaly(_painelTV : PainelTV):
 	if (currentAnomaly): 
 		currentAnomaly.visible = true
+
+		_painelTV.anomalyDefaultSound.play()
 
 		if doorToOpen:
 			if not doorToOpen.aberta:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://bsnvg2neurtdb"]
+[gd_scene load_steps=11 format=4 uid="uid://bsnvg2neurtdb"]
 
 [ext_resource type="Script" uid="uid://cbaxyvdqprk7l" path="res://Scripts/Objetos/cadeira.gd" id="1_7bfvo"]
 [ext_resource type="Shader" uid="uid://ugcus84t4uch" path="res://Shaders/OutlineMouse.gdshader" id="2_fgonv"]
 [ext_resource type="Texture2D" uid="uid://bcnxhg281g2gb" path="res://Assets/Props/Cadeira_0.png" id="3_ny6qv"]
+[ext_resource type="AudioStream" uid="uid://sa7fye3ed6nm" path="res://Assets/Sounds/SentaCadeira.wav" id="4_ny6qv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ax7vr"]
 size = Vector3(0.99609375, 1, 0.88964844)
@@ -60,11 +61,12 @@ shadow_mesh = SubResource("ArrayMesh_s38br")
 [sub_resource type="BoxShape3D" id="BoxShape3D_7bfvo"]
 size = Vector3(0.90841675, 1.1182861, 0.9493561)
 
-[node name="Cadeira" type="Area3D" node_paths=PackedStringArray("SitPoint", "collisions", "mesh_with_outline") groups=["interativo"]]
+[node name="Cadeira" type="Area3D" node_paths=PackedStringArray("SitPoint", "collisions", "sitSound", "mesh_with_outline") groups=["interativo"]]
 collision_layer = 2
 script = ExtResource("1_7bfvo")
 SitPoint = NodePath("SitPoint")
 collisions = [NodePath("CollisionShape3D2"), NodePath("OfficeChair_Mesh/StaticBody3D/CollisionShape3D2")]
+sitSound = NodePath("SitSound")
 mesh_with_outline = NodePath("OfficeChair_Mesh")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
@@ -88,8 +90,6 @@ collision_layer = 4
 transform = Transform3D(1, 2.842171e-14, -1.7763568e-14, -2.842171e-14, 1, -1.4425282e-22, 1.7763568e-14, -1.3866053e-21, 1, 0.016835794, 0.5320782, 0.09424466)
 shape = SubResource("BoxShape3D_7bfvo")
 
-[node name="Label3D" type="Label3D" parent="OfficeChair_Mesh"]
-transform = Transform3D(-0.9991324, -7.0632864e-23, -0.04164907, -3.144416e-09, 1, 7.543237e-08, 0.04164907, 7.549787e-08, -0.9991324, 0, 2.0788789, 1.7881393e-07)
-visible = false
-billboard = 1
-text = "Aperte o botão direito"
+[node name="SitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ny6qv")
+pitch_scale = 4.0
