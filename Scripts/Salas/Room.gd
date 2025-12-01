@@ -42,6 +42,9 @@ func SpawnRandomAnomaly() -> Anomaly:
 	anomalyReference = possible.pick_random()
 	anomalyReference.SpawnAnomaly()
 
+	if gameManager.paineltv.currentCamera != camera:
+		anomalyReference.HideAnomaly()
+
 	return anomalyReference
 
 func AnomalyResolved():
