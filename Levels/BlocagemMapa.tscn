@@ -25,7 +25,7 @@ background_energy_multiplier = 1.32
 sky = SubResource("Sky_6ieip")
 ambient_light_source = 2
 ambient_light_color = Color(0.3321949, 0.3607229, 0.33738258, 1)
-ambient_light_energy = 0.3
+ambient_light_energy = 0.1
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
@@ -96,7 +96,7 @@ uv1_scale = Vector3(3.775, 3.775, 3.775)
 environment = SubResource("Environment_imo2u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.23842089, -0.20695738, 0.94885445, 0.56704366, 0.7635249, 0.30901706, -0.7884272, 0.61171776, -0.064686395, 0, 0, 0)
+transform = Transform3D(-0.23842087, -0.20695736, 0.94885445, 0.56704366, 0.7635249, 0.30901703, -0.7884272, 0.61171776, -0.064686395, 0, 0, 0)
 visible = false
 shadow_enabled = true
 
