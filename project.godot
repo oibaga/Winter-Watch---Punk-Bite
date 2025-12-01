@@ -13,10 +13,11 @@ config_version=5
 config/name="Winter Watch"
 run/main_scene="uid://dgsrp0htliotf"
 config/features=PackedStringArray("4.5", "Forward Plus")
-boot_splash/show_image=false
-boot_splash/fullsize=false
-boot_splash/use_filter=false
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.32156864, 0.3529412, 0.7490196, 1)
+boot_splash/image="uid://dftxspbj84duo"
+config/icon="uid://cp4c42rn2y7we"
+config/windows_native_icon="res://Icon.ico"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 

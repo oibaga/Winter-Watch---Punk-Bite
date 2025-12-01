@@ -1,4 +1,4 @@
-[gd_scene load_steps=354 format=4 uid="uid://dlhl7wsa7514t"]
+[gd_scene load_steps=356 format=4 uid="uid://dlhl7wsa7514t"]
 
 [ext_resource type="PackedScene" uid="uid://btin1ybc741g8" path="res://Levels/BlocagemMapa.tscn" id="1_41wr0"]
 [ext_resource type="Texture2D" uid="uid://bxhj4boaw1nsm" path="res://Assets/Materiais/Texturas/Tubulação_0.png" id="2_2mpd0"]
@@ -452,6 +452,50 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ua5nn")
+
+[sub_resource type="Shader" id="Shader_w1jhm"]
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color = vec4(1,1,1,1);
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_511yi"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_w1jhm")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78o66"]
 resource_name = "Material.025"
@@ -2081,7 +2125,7 @@ albedo_texture = ExtResource("38_ue21m")
 [sub_resource type="BoxShape3D" id="BoxShape3D_43i74"]
 size = Vector3(0.065, 0.06, 0.035)
 
-[sub_resource type="Shader" id="Shader_w1jhm"]
+[sub_resource type="Shader" id="Shader_qwake"]
 code = "shader_type spatial;
 render_mode cull_front, unshaded;
 
@@ -2120,7 +2164,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ukhf8"]
 resource_local_to_scene = true
 render_priority = 0
-shader = SubResource("Shader_w1jhm")
+shader = SubResource("Shader_qwake")
 shader_parameter/active = false
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 4.0
@@ -3446,8 +3490,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.696748, 0.5000002, -5.5989
 [node name="Node3D" parent="SalaSegura" instance=ExtResource("14_tqoqb")]
 transform = Transform3D(1.1999999, 0, 3.5527137e-15, 0, 1.1999999, 0, -3.5527137e-15, 0, 1.1999999, -11.669264, 1.4873638, -11.882879)
 
-[node name="PortaAbrivel" parent="SalaSegura" instance=ExtResource("15_fhf7i")]
+[node name="PortaSalaDeSegurança" parent="SalaSegura" instance=ExtResource("15_fhf7i")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.2165096, 0.4838819, -5.717731)
+
+[node name="Maçaneta" parent="SalaSegura/PortaSalaDeSegurança/Area3D/Porta2" index="0"]
+material_overlay = SubResource("ShaderMaterial_511yi")
 
 [node name="Mantimentos" type="Node" parent="SalaSegura"]
 
@@ -4367,6 +4414,12 @@ transform = Transform3D(-1.0000001, 0, 8.742278e-08, 0, 1, 0, 8.7422784e-08, 0, 
 [node name="Maçaneta" parent="Quarto/PortaAbrivelQuarto/Area3D/Porta2" index="0"]
 material_overlay = SubResource("ShaderMaterial_ukhf8")
 
+[node name="PortaAbrivelQuarto2" parent="Quarto" instance=ExtResource("15_fhf7i")]
+transform = Transform3D(-4.3711392e-08, 0, -1, 0, 1, 0, -1.0000001, 0, 4.371139e-08, 5.6293406, 0.4838819, -7.9569116)
+
+[node name="Maçaneta" parent="Quarto/PortaAbrivelQuarto2/Area3D/Porta2" index="0"]
+material_overlay = SubResource("ShaderMaterial_ukhf8")
+
 [node name="Lampada" type="MeshInstance3D" parent="Quarto"]
 transform = Transform3D(-7.021009e-08, -25.198132, -1.351282e-06, -1.6062196, 1.1014453e-06, 1.6889403e-13, 0, 2.2028905e-06, -15.456864, 6.7291965, 4.6094313, -4.9517007)
 layers = 4
@@ -4753,8 +4806,9 @@ material_overlay = SubResource("ShaderMaterial_7hahx")
 [node name="GeigerProximitySprite3D" parent="CenaGameplay/PainelTV/menuBotoes" index="10"]
 material_override = SubResource("ShaderMaterial_ufxcv")
 
-[node name="GameManager" parent="CenaGameplay" index="2" node_paths=PackedStringArray("paineltv")]
+[node name="GameManager" parent="CenaGameplay" index="2" node_paths=PackedStringArray("paineltv", "securityRoomDoor")]
 paineltv = NodePath("../PainelTV")
+securityRoomDoor = NodePath("../../SalaSegura/PortaSalaDeSegurança/Area3D")
 
 [node name="EndLabel" parent="CenaGameplay/HUD/UIRoot" index="2"]
 offset_top = -19.708334
@@ -5033,7 +5087,9 @@ player = NodePath("../CenaGameplay/Player")
 cadeira = NodePath("../CenaGameplay/PainelTV/CadeiraCollision")
 manual = NodePath("../CenaGameplay/Tutorial")
 
+[editable path="SalaSegura/PortaSalaDeSegurança"]
 [editable path="Quarto/PortaAbrivelQuarto"]
+[editable path="Quarto/PortaAbrivelQuarto2"]
 [editable path="CenaGameplay"]
 [editable path="CenaGameplay/Player"]
 [editable path="CenaGameplay/Player/Character"]

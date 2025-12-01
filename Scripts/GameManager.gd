@@ -9,6 +9,7 @@ class_name GameManager extends Node
 @export var geigerMarker3D : Marker3D
 @export var geigerAnomaly : Timer
 @export var paineltv : PainelTV
+@export var securityRoomDoor : PortaAbrivel
 
 var geigerRoom : Room = null
 
@@ -26,9 +27,17 @@ func start_session():
 	if session_started:
 		return
 
+	if securityRoomDoor:
+		if securityRoomDoor.aberta:
+			securityRoomDoor.TrocarEstado()
+
 	session_started = true
 	ui_label.visible = true
-	sessionTimer.start()
+
+	var nd = LevelManager.DAY_DATA[LevelManager.currentLevel - 1]
+
+	sessionTimer.start( nd["duration"] )
+
 	geigerAnomaly.start()
 
 	for i in range( anomaliesSlots.size() ):

@@ -1,10 +1,10 @@
 extends Node
 
-const DAY_DATA = [
-	{ "slots": 1, "cooldown": 20.0 },  # 1ª noite
-	{ "slots": 2, "cooldown": 15.0 },  # 2ª noite
-	{ "slots": 3, "cooldown": 15.0 },  # 3ª noite
-	{ "slots": 3, "cooldown": 10.0 },  # 4ª noite
+@export var DAY_DATA = [
+	{ "slots": 1, "cooldown": 20.0, "duration" : 180 },  # 1ª noite
+	{ "slots": 2, "cooldown": 15.0, "duration" : 240 },  # 2ª noite
+	{ "slots": 3, "cooldown": 15.0, "duration" : 300 },  # 3ª noite
+	{ "slots": 3, "cooldown": 10.0, "duration" : 300 },  # 4ª noite
 ]
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer

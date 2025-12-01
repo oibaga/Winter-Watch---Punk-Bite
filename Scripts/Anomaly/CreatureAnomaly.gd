@@ -12,9 +12,6 @@ func SpawnAnomaly():
 	super.SpawnAnomaly()
 
 	currentAnomaly = anomalies.pick_random()
-	
-	if room.name == "Quarto":
-		pass
 
 func ResolveAnomaly():
 	super.ResolveAnomaly()
