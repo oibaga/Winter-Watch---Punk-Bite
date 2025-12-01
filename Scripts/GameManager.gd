@@ -19,6 +19,7 @@ var session_finished: bool = false
 var anomaliesSlots : Array[Anomaly] = [null, null, null]
 
 func _ready() -> void:
+	load_night_settings()
 	SetRoomGeigerTarget()
 
 func start_session():
@@ -84,6 +85,16 @@ func SpawnAnomaly(arrayPos : int):
 
 	if anomaliesSlots[arrayPos].room.camera == paineltv.currentCamera:
 		anomaliesSlots[arrayPos].ShowAnomaly(paineltv)
+
+func load_night_settings():
+	var nd = LevelManager.DAY_DATA[LevelManager.currentLevel - 1]
+
+	var max_slots = nd["slots"]
+
+	anomaliesSlots.clear()
+	# Limpa slots acima do permitido
+	for i in range(max_slots):
+		anomaliesSlots.append(null)
 
 func LoseGame():
 	if !can_end: return

@@ -14,9 +14,9 @@ func SpawnAnomaly():
 
 func ResolveAnomaly():
 	if room.anomalyReference != self: return
-	
+
 	room.AnomalyResolved()
-	
+
 	lifeTimer.stop()
 
 func ShowAnomaly(_painelTV : PainelTV):

@@ -1,5 +1,12 @@
 extends Node
 
+const DAY_DATA = [
+	{ "slots": 1, "cooldown": 20.0 },  # 1ª noite
+	{ "slots": 2, "cooldown": 15.0 },  # 2ª noite
+	{ "slots": 3, "cooldown": 15.0 },  # 3ª noite
+	{ "slots": 3, "cooldown": 10.0 },  # 4ª noite
+]
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: Label = $Label
 var isToGameOver : bool = false

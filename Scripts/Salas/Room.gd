@@ -20,9 +20,13 @@ var gameManager : GameManager
 
 func _ready() -> void:
 	gameManager = get_tree().get_first_node_in_group("game_manager")
-	
+
 	anomalyTimer.connect("timeout", _on_anomaly_timer_timeout)
 
+	var nd = LevelManager.DAY_DATA[LevelManager.currentLevel - 1]
+
+	anomalySpawnCooldown = nd["cooldown"]
+	
 func SpawnRandomAnomaly() -> Anomaly:
 	var possible = [
 		visual_anomaly,
@@ -42,9 +46,9 @@ func SpawnRandomAnomaly() -> Anomaly:
 
 func AnomalyResolved():
 	await get_tree().create_timer( anomalySpawnCooldown ).timeout
-	
+
 	gameManager.ResolvedAnomaly( anomalyReference )
-	
+
 	anomalyReference = null
 
 func _on_anomaly_timer_timeout() -> void:
