@@ -6,10 +6,10 @@ var player : Player = null
 # DEVEM SER SOBRESCRITAS NAS FILHAS
 func LeftPressed():
 	pass
-	
+
 func RightPressed():
 	pass
-	
+
 	# DEVEM SER CHAMADAS POR PLAYER
 func StartInspection(_player : Player):
 	player = _player

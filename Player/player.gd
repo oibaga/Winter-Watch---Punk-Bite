@@ -162,7 +162,7 @@ func StopInspection():
 
 	inspection_color_rect.visible = false
 
-	VisibleRightArm(true)
+	VisibleRightArm( itemInHand == null, itemInHand != null )
 
 func check_distance():
 	if itemInHand:
