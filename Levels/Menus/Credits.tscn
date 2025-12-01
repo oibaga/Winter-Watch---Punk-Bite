@@ -162,22 +162,25 @@ text = "Kay/o"
 
 [node name="Design 3D5" type="Label" parent="ColorRect/Kayo"]
 layout_mode = 0
-offset_left = -50.0
-offset_top = 62.0
-offset_right = 152.0
-offset_bottom = 125.0
+offset_left = -8.0
+offset_top = 52.0
+offset_right = 112.0
+offset_bottom = 115.0
 theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
 theme_override_font_sizes/font_size = 37
-text = "Programador"
+text = "CODING"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Design 3D6" type="Label" parent="ColorRect/Kayo"]
 layout_mode = 0
-offset_left = -22.0
-offset_top = 110.0
-offset_right = 130.0
-offset_bottom = 173.0
+offset_left = -16.0
+offset_top = 108.0
+offset_right = 123.0
+offset_bottom = 171.0
 theme = SubResource("Theme_2dggu")
 theme_override_colors/font_color = Color(0.5372549, 0.69803923, 0.09019608, 0.7058824)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.5882353)
