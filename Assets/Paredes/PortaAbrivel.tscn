@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=4 uid="uid://diknrqjlb0yt4"]
+[gd_scene load_steps=24 format=4 uid="uid://diknrqjlb0yt4"]
 
 [ext_resource type="Script" uid="uid://b5nf4lt41vlmj" path="res://Assets/Paredes/porta_abrivel.gd" id="1_c0mls"]
 [ext_resource type="Texture2D" uid="uid://d0ie4ibbjqqbu" path="res://Assets/Paredes/Porta_0.png" id="1_vd2es"]
-[ext_resource type="Material" uid="uid://uegy7utox41n" path="res://Shaders/botoes_shader.tres" id="3_3vlub"]
 [ext_resource type="FontFile" uid="uid://bcwrtlc6k62ir" path="res://Assets/Fonts/VCR_OSD_MONO_1.001.ttf" id="4_ucg14"]
 [ext_resource type="AudioStream" uid="uid://ca6yn1r6ae2j4" path="res://Assets/Sounds/PortaAbre.wav" id="5_30r3n"]
 [ext_resource type="AudioStream" uid="uid://de062v33bfya0" path="res://Assets/Sounds/PortaFecha.wav" id="6_64y5n"]
@@ -144,6 +143,51 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nmtgk")
 
+[sub_resource type="Shader" id="Shader_4hb06"]
+resource_local_to_scene = true
+code = "shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform bool active = true;
+
+uniform vec4 outline_color : source_color = vec4(1,1,1,1);
+uniform float outline_width = 1.0;
+
+void vertex() {
+	// Se não estiver ativo, não altera o vertex → sem outline
+	if (!active)
+	{
+		POSITION = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+	}
+	else
+	{
+		vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
+		vec3 clip_normal = mat3(PROJECTION_MATRIX) * (mat3(MODELVIEW_MATRIX) * NORMAL);
+
+		vec2 offset = normalize(clip_normal.xy) / VIEWPORT_SIZE * clip_position.w * outline_width * 2.0;
+
+		clip_position.xy += offset;
+
+		POSITION = clip_position;
+	}
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	if (outline_color.a < 1.0) {
+		ALPHA = outline_color.a;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_30r3n"]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_4hb06")
+shader_parameter/active = false
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 4.0
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0mls"]
 resource_name = "M_Porta"
 vertex_color_use_as_albedo = true
@@ -223,7 +267,7 @@ skeleton = NodePath("")
 
 [node name="Maçaneta" type="MeshInstance3D" parent="Area3D/Porta2"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.9074843e-16, 0, 0, 1, 0, 0, 0)
-material_overlay = ExtResource("3_3vlub")
+material_overlay = SubResource("ShaderMaterial_30r3n")
 mesh = SubResource("ArrayMesh_ucg14")
 skeleton = NodePath("")
 

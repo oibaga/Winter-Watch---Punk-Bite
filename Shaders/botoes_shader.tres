@@ -1,6 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://uegy7utox41n"]
 
 [sub_resource type="Shader" id="Shader_w1jhm"]
+resource_local_to_scene = true
 code = "shader_type spatial;
 render_mode cull_front, unshaded;
 

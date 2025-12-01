@@ -12,6 +12,7 @@ extends Node
 var isToGameOver : bool = false
 @onready var color_rect: ColorRect = $ColorRect
 @export var music : AudioStreamPlayer2D
+@export var buttonSFX : AudioStreamPlayer2D
 
 signal isGeigerPlaced
 signal isManualRead

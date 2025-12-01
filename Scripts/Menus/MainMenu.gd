@@ -18,12 +18,16 @@ func _ready() -> void:
 func _on_play_pressed() -> void:
 	var tween : Tween = get_tree().create_tween()
 	tween.tween_property(music, "volume_linear", 0, 1)
+	
+	LevelManager.buttonSFX.play()
 
 	LevelManager.LoadNextLevel(1)
 	
 	music.stop()
 
 func _on_options_pressed() -> void:
+	LevelManager.buttonSFX.play()
+	
 	get_tree().change_scene_to_file("res://Levels/Menus/Credits.tscn")
 
 func _on_quit_pressed() -> void:
