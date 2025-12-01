@@ -125,7 +125,7 @@ font = ExtResource("2_l2shx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013613999, 0, -0.14571276)
 visible = false
 script = ExtResource("7_mysf1")
-pagesArray = [NodePath("FolhaVisual"), NodePath("FolhaSonora"), NodePath("FolhaGeiger"), NodePath("FolhaCriatura"), NodePath("FolhaGlitch"), NodePath("FolhaCópia")]
+pagesArray = [NodePath("FolhaCriatura"), NodePath("FolhaVisual"), NodePath("FolhaSonora"), NodePath("FolhaGeiger"), NodePath("FolhaGlitch"), NodePath("FolhaCópia")]
 audio = NodePath("../AudioStreamPlayer2D")
 
 [node name="FolhaCriatura" parent="TutorialAberto" index="0"]
