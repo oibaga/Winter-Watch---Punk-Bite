@@ -14,7 +14,7 @@ func interagir(_player : Player):
 		return
 
 	var geiger = _player.itemInHand
-	
+
 	geiger.position = Vector3.ZERO
 	geiger.rotation = Vector3.ZERO
 	geiger.scale = Vector3.ONE
@@ -22,6 +22,8 @@ func interagir(_player : Player):
 
 	add_child( geiger.duplicate() )
 	audio.play()
-	
+
 	_player.itemInHand.call_deferred("queue_free")
 	_player.VisibleRightArm(true)
+	
+	LevelManager.GeigerPlaced()

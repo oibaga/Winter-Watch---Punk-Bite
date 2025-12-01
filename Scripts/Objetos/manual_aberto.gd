@@ -21,3 +21,7 @@ func RightPressed():
 func AtualizaPaginaAtual():
 	for i in pagesArray.size():
 		pagesArray[i].visible = i >= pageIndex
+
+func StopInspection():
+	LevelManager.ManualRead()
+	super.StopInspection()

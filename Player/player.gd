@@ -13,6 +13,7 @@ class_name Player
 @export var itemInHand : Node3D
 @onready var interaction_canvas_layer: CanvasLayer = $InteractionCanvasLayer
 @export var rightArm : MeshInstance3D
+@export var objective_manager: ObjectiveManager
 
 @export var geigerTarget : Marker3D
 

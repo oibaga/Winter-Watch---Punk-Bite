@@ -4,7 +4,20 @@ extends Node
 @onready var label: Label = $Label
 var isToGameOver : bool = false
 
+signal isGeigerPlaced
+signal isManualRead
+signal isSessionStarted
+
 var currentLevel : int = 0
+
+func SessionStarted():
+	emit_signal("isSessionStarted")
+
+func ManualRead():
+	emit_signal("isManualRead")
+
+func GeigerPlaced():
+	emit_signal("isGeigerPlaced")
 
 func ChangeLevel():
 	if isToGameOver:

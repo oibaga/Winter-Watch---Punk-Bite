@@ -33,6 +33,8 @@ func start_session():
 	for i in range( anomaliesSlots.size() ):
 		SpawnAnomaly(i)
 
+	LevelManager.SessionStarted()
+
 func _process(_delta):
 	if session_started and not session_finished and can_end:
 		var t := int(sessionTimer.time_left)

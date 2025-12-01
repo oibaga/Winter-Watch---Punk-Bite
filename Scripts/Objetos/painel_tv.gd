@@ -62,9 +62,8 @@ func atualizar_tela():
 	if indice_camera >= 0 and indice_camera < viewports.size():
 		tela.texture = currentCamera.get_texture()
 
-		geiger_proximity_sprite_3d.visible = currentCamera.room.isGeigerRoom
-		geiger_proximity_sprite_3d.audio.playing = currentCamera.room.isGeigerRoom
-
+		geiger_proximity_sprite_3d.visible = currentCamera.room.isGeigerRoom && ligado
+		geiger_proximity_sprite_3d.audio.playing = currentCamera.room.isGeigerRoom && ligado
 
 func ChoseAnomalyType(type : Anomaly.AnomalyTypes):
 	canChose = false
