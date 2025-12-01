@@ -4729,6 +4729,9 @@ skeleton = NodePath("")
 [node name="PainelTV" parent="CenaGameplay" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.658445, 0.5306486, -9.396471)
 
+[node name="Plane_004" parent="CenaGameplay/PainelTV/mesaWinterWhatch2" index="0"]
+transform = Transform3D(9.915302e-07, -1.2394128e-06, 8.317558, -8.317558, 0, 4.957651e-07, 2.4788255e-07, -8.317557, -9.915302e-07, -0.012349129, 0.02063346, 0.0025634766)
+
 [node name="Botão" parent="CenaGameplay/PainelTV/menuBotoes/BotãoVisual" index="0"]
 material_overlay = SubResource("ShaderMaterial_sokau")
 

@@ -13,6 +13,7 @@ func _ready() -> void:
 	LevelManager.isGeigerPlaced.connect( OnGeigerPlaced )
 	LevelManager.isManualRead.connect( OnManualRead )
 	LevelManager.isSessionStarted.connect( OnSessionStarted )
+	LevelManager.isInspectionStarted.connect( OnInspectionStarted )
 
 @export var min_scale: float = 0.1            # escala mínima permitida
 @export var max_scale: float = 1            # escala máxima permitida
@@ -43,7 +44,6 @@ func update_fixed_size():
 
 	scale = Vector3.ONE * target_scale
 
-
 func OnManualRead():
 	if manualRead: return
 	manualRead = true
@@ -51,8 +51,13 @@ func OnManualRead():
 	if !geigerPlaced:
 		SetNewObjective( null )
 
+	modulate.a = 1
+
 func OnGeigerPlaced():
 	SetNewObjective( cadeira )
 
 func OnSessionStarted():
 	SetNewObjective( null )
+
+func OnInspectionStarted():
+	modulate.a = 0

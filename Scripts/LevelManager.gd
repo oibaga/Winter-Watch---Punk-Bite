@@ -7,6 +7,7 @@ var isToGameOver : bool = false
 signal isGeigerPlaced
 signal isManualRead
 signal isSessionStarted
+signal isInspectionStarted
 
 var currentLevel : int = 0
 
@@ -18,6 +19,9 @@ func ManualRead():
 
 func GeigerPlaced():
 	emit_signal("isGeigerPlaced")
+
+func InspectionStarted():
+	emit_signal("isInspectionStarted")
 
 func ChangeLevel():
 	if isToGameOver:

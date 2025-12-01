@@ -9,7 +9,7 @@ var pageIndex : int = 0:
 
 func StartInspection(_player : Player):
 	pageIndex = 0
-	
+	LevelManager.InspectionStarted()
 	super.StartInspection(_player)
 
 func LeftPressed():

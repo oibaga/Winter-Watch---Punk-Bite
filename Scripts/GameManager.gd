@@ -9,12 +9,12 @@ class_name GameManager extends Node
 @export var geigerMarker3D : Marker3D
 @export var geigerAnomaly : Timer
 @export var paineltv : PainelTV
+
 var geigerRoom : Room = null
 
 var can_end : bool = true
 var session_started: bool = false
 var session_finished: bool = false
-
 
 var anomaliesSlots : Array[Anomaly] = [null, null, null]
 

@@ -28,8 +28,6 @@ albedo_texture = ExtResource("2_od7rr")
 size = Vector3(1.5477295, 1, 1.2858887)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qmvs1"]
-render_priority = 1
-no_depth_test = true
 shading_mode = 0
 albedo_texture = ExtResource("8_yot6n")
 z_clip_scale = 0.01
@@ -125,7 +123,7 @@ font = ExtResource("2_l2shx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013613999, 0, -0.14571276)
 visible = false
 script = ExtResource("7_mysf1")
-pagesArray = [NodePath("FolhaCriatura"), NodePath("FolhaVisual"), NodePath("FolhaSonora"), NodePath("FolhaGeiger"), NodePath("FolhaGlitch"), NodePath("FolhaCópia")]
+pagesArray = [NodePath("FolhaVisual"), NodePath("FolhaSonora"), NodePath("FolhaGeiger"), NodePath("FolhaCriatura"), NodePath("FolhaGlitch"), NodePath("FolhaCópia")]
 audio = NodePath("../AudioStreamPlayer2D")
 
 [node name="FolhaCriatura" parent="TutorialAberto" index="0"]
