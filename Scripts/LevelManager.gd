@@ -3,6 +3,7 @@ extends Node
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var label: Label = $Label
 var isToGameOver : bool = false
+@onready var color_rect: ColorRect = $ColorRect
 
 signal isGeigerPlaced
 signal isManualRead
@@ -10,6 +11,8 @@ signal isSessionStarted
 signal isInspectionStarted
 
 var currentLevel : int = 0
+var lastGeigerRoomID : int = -1
+var repeat : bool = false
 
 func SessionStarted():
 	emit_signal("isSessionStarted")
@@ -25,7 +28,7 @@ func InspectionStarted():
 
 func ChangeLevel():
 	if isToGameOver:
-		#get_tree().change_scene_to_file(CENA DE GAME OVER )
+		get_tree().change_scene_to_file("res://Levels/GameOverScreen.tscn")
 		return
 
 	if currentLevel > 0 && currentLevel < 5: 
@@ -41,14 +44,10 @@ func LoadNextLevel(nextLevel : int, isGameOver : bool = false):
 	isToGameOver = isGameOver
 
 	if isToGameOver:
-		label.text = "You Lose..."
-		#animation_player.play("FadeIn")
+		animation_player.play("FadeIn")
 		return
 
-	if nextLevel != currentLevel:
-		var oldLevel : int = currentLevel
-
-		currentLevel = nextLevel
+	currentLevel = nextLevel
 
 	animation_player.play("Transition")
 
@@ -63,3 +62,6 @@ func StartTransition():
 
 func EndTransition():
 	UpdateLevelLabel(0)
+
+	if isToGameOver:
+		color_rect.color.a = 0

@@ -1,5 +1,7 @@
 class_name Room extends Node
 
+@export var ID : int = 0
+@export_category("Referências")
 @export var camera: SecurityCamera
 @export var geiger_support: GeigerSupport
 @export var anomalyTimer : Timer

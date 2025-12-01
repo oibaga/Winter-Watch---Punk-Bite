@@ -54,10 +54,19 @@ func end_session():
 	load_next_level()
 
 func load_next_level():
+	LevelManager.lastGeigerRoomID = geigerRoom.ID
+
+	LevelManager.repeat = false
+
 	LevelManager.LoadNextLevel( LevelManager.currentLevel + 1 )
 
 func SetRoomGeigerTarget():
-	geigerRoom = cameraRooms.get_children().pick_random() as Room
+	if LevelManager.repeat:
+		geigerRoom = cameraRooms.get_children().filter(func(a): return a.ID == LevelManager.lastGeigerRoomID).pick_random() as Room
+	else:
+		geigerRoom = cameraRooms.get_children().filter(func(a): return a.ID != LevelManager.lastGeigerRoomID).pick_random() as Room
+
+	LevelManager.repeat = false
 
 	geigerRoom.isGeigerRoom = true
 
@@ -78,10 +87,12 @@ func SpawnAnomaly(arrayPos : int):
 
 func LoseGame():
 	if !can_end: return
-	
+
 	can_end = false
 
 	sessionTimer.paused = true
 	ui_label.visible = false
+	
+	LevelManager.lastGeigerRoomID = geigerRoom.ID
 
-	LevelManager.LoadNextLevel( LevelManager.currentLevel )
+	LevelManager.LoadNextLevel( LevelManager.currentLevel, true )

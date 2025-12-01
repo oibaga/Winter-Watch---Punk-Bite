@@ -4794,6 +4794,9 @@ unit_size = 20.0
 pitch_scale = 1.8
 max_distance = 6.0
 
+[node name="Sala de Entrega" parent="CenaGameplay/CameraRooms" index="1"]
+ID = 1
+
 [node name="Camera3D" parent="CenaGameplay/CameraRooms/Sala de Entrega/CAMERA" index="0"]
 transform = Transform3D(0.9622802, 0.06366655, -0.26450616, 0.05484717, 0.9068729, 0.4178195, 0.26647463, -0.4165668, 0.86917394, -8.346273, 3.6958919, 13.077945)
 cull_mask = 1048559
@@ -4818,6 +4821,9 @@ volume_db = -30.0
 unit_size = 20.0
 pitch_scale = 1.8
 max_distance = 6.0
+
+[node name="Banheiro" parent="CenaGameplay/CameraRooms" index="2"]
+ID = 2
 
 [node name="Camera3D" parent="CenaGameplay/CameraRooms/Banheiro/CAMERA" index="0"]
 transform = Transform3D(0.74180025, 0, -0.6706209, 0, 1, 0, 0.6706209, 0, 0.74180025, 2.8928683, 0.8056935, -8.278646)
@@ -4846,6 +4852,9 @@ volume_db = -30.0
 unit_size = 20.0
 pitch_scale = 1.8
 max_distance = 6.0
+
+[node name="Lado de Fora" parent="CenaGameplay/CameraRooms" index="3"]
+ID = 3
 
 [node name="Camera3D" parent="CenaGameplay/CameraRooms/Lado de Fora/CAMERA" index="0"]
 transform = Transform3D(0.040166676, 0, 0.9991931, 0, 1, 0, -0.9991931, 0, 0.040166676, 12.103053, 3.879189, 5.0329404)
@@ -4884,6 +4893,9 @@ autoplay = true
 max_distance = 15.0
 emission_angle_enabled = true
 
+[node name="Corredor" parent="CenaGameplay/CameraRooms" index="4"]
+ID = 4
+
 [node name="Camera3D" parent="CenaGameplay/CameraRooms/Corredor/CAMERA" index="0"]
 transform = Transform3D(0.89874053, -0.13946587, 0.41571003, 1.4901161e-08, 0.9480686, 0.31806597, -0.43848097, -0.28585875, 0.85206765, 1.7717333, 3.7254362, 3.9173121)
 cull_mask = 1048559
@@ -4908,6 +4920,9 @@ volume_db = -30.0
 unit_size = 20.0
 pitch_scale = 1.8
 max_distance = 6.0
+
+[node name="Escada" parent="CenaGameplay/CameraRooms" index="5"]
+ID = 5
 
 [node name="Camera3D" parent="CenaGameplay/CameraRooms/Escada/CAMERA" index="0"]
 transform = Transform3D(0.9332862, 0.25623125, -0.25163957, -1.4901161e-08, 0.70068514, 0.71347064, 0.3591336, -0.6658722, 0.65393984, 0.029445466, 5.788537, -7.7602415)
@@ -4966,6 +4981,9 @@ volume_db = -30.0
 unit_size = 20.0
 pitch_scale = 1.8
 max_distance = 6.0
+
+[node name="Almoxarifado" parent="CenaGameplay/CameraRooms" index="6"]
+ID = 6
 
 [node name="Camera3D" parent="CenaGameplay/CameraRooms/Almoxarifado/CAMERA" index="0"]
 transform = Transform3D(0.90385973, -0.19347404, 0.38158253, 0.00890925, 0.9002234, 0.43533733, -0.427736, -0.3900843, 0.81539947, -7.3074245, 3.1770926, 3.8519366)
